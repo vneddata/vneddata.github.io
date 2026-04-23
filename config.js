@@ -66,6 +66,15 @@ const VNEDCONFIG = {
     infra2026:   null,
   },
 
+  // ── APPS SCRIPT ──────────────────────────────────────────────────
+  // Dán URL sau khi deploy Apps Script
+  appsScript: {
+    ai2026:      "https://script.google.com/macros/s/AKfycbzmHJxc9S1RpdH2uU4uwPKXNNpa3tuTxGlUIw7m3k2pYUKYsOyQXoVglxzzrKTU3aF3/exec",   // ← ĐIỀN VÀO sau khi deploy Apps Script
+    teacher2026: null,
+    parent2026:  null,
+    infra2026:   null,
+  },
+
   // ── LOOKER STUDIO EMBED ───────────────────────────────────────
   // Sau khi tạo dashboard trên Looker Studio:
   // File → Embed report → Bật "Enable embedding" → Copy iframe src URL
