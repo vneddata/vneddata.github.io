@@ -49,7 +49,7 @@ const VNEDCONFIG = {
   // Điền link Google Form sau khi tạo xong
   // Hướng dẫn: forms.google.com → Tạo form → Gửi → Sao chép link
   googleForms: {
-    ai2026:      null,   // ← ĐIỀN VÀO: link khảo sát 2026-AI-V1
+    ai2026:      https://forms.gle/hPyn53bUALkYYbRAA,   // ← ĐIỀN VÀO: link khảo sát 2026-AI-V1
     teacher2026: null,   // ← ĐIỀN VÀO: link khảo sát 2026-TEACHER-V1
     parent2026:  null,   // ← ĐIỀN VÀO: link khảo sát 2026-PARENT-V1
     infra2026:   null,   // ← ĐIỀN VÀO: link khảo sát 2026-INFRA-V1
