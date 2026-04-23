@@ -60,7 +60,7 @@ const VNEDCONFIG = {
   // Hoặc: trong Form → Responses tab → tạo Spreadsheet
   // Link Sheet: mở Sheet → copy URL trên thanh địa chỉ
   googleSheets: {
-    ai2026:      null,   // ← ĐIỀN VÀO: link Google Sheet của 2026-AI-V1
+    ai2026:      https://docs.google.com/spreadsheets/d/1n0ZfCrS2dPlY8hoiFWndE9EthMiDeioJx52g7iTSwPs/edit?resourcekey=&gid=103376940#gid=103376940,   // ← ĐIỀN VÀO: link Google Sheet của 2026-AI-V1
     teacher2026: null,
     parent2026:  null,
     infra2026:   null,
