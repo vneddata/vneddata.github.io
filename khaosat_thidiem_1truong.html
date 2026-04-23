@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khảo Sát AI — Thí Điểm Trường</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #16213E;
+  --blue:   #0F3460;
+  --mid:    #1A5276;
+  --teal:   #148F77;
+  --amber:  #D4870A;
+  --red:    #C0392B;
+  --paper:  #F8F6F2;
+  --card:   #FFFFFF;
+  --muted:  #6B7280;
+  --line:   #E5E7EB;
+  --lblue:  #EBF5FB;
+  --lteal:  #D5F5E3;
+  --lamber: #FEF3CD;
+  --s1: 0 1px 4px rgba(22,33,62,.06);
+  --s2: 0 4px 20px rgba(22,33,62,.10);
+  --s3: 0 8px 40px rgba(22,33,62,.14);
+  --r: 14px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ── NAV ── */
+.nav {
+  background: var(--blue);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 0;
+  position: sticky; top: 0; z-index: 200;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 17px;
+  letter-spacing: .3px;
+  margin-right: auto;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-brand .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+.tab-btn {
+  height: 56px;
+  padding: 0 18px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,.55);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all .2s;
+}
+.tab-btn:hover { color: rgba(255,255,255,.85); }
+.tab-btn.on { color: #fff; border-bottom-color: var(--amber); }
+
+/* ── VIEWS ── */
+.view { display: none; }
+.view.on { display: block; }
+
+/* ══════════════════════════════
+   SURVEY
+══════════════════════════════ */
+.hero {
+  background: linear-gradient(135deg, var(--blue) 0%, #0a2744 55%, #0d3b5e 100%);
+  padding: 52px 24px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(212,135,10,.12) 0%, transparent 70%);
+  top: -200px; right: -200px;
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.75);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .8px; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 5vw, 40px);
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.hero h1 span { color: var(--amber); }
+.hero p { color: rgba(255,255,255,.65); font-size: 14px; max-width: 480px; margin: 0 auto 22px; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.pill {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.75);
+  font-size: 11.5px;
+  padding: 4px 13px; border-radius: 20px;
+}
+.pill.hi { background: rgba(212,135,10,.18); border-color: rgba(212,135,10,.4); color: #F5C26B; }
+
+/* progress */
+.prog-bar {
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 28px;
+  display: flex; align-items: center; gap: 16px;
+  position: sticky; top: 56px; z-index: 100;
+}
+.prog-track { flex: 1; height: 5px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.prog-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--teal)); border-radius: 99px; transition: width .5s cubic-bezier(.4,0,.2,1); width: 0%; }
+.prog-txt { font-size: 12px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+
+/* form */
+.form-wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 80px; }
+.s-card {
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 28px 32px;
+  margin-bottom: 22px;
+  box-shadow: var(--s2);
+  border: 1px solid rgba(22,33,62,.05);
+  animation: up .45s ease both;
+}
+.s-card:nth-child(1){ animation-delay:.04s }
+.s-card:nth-child(2){ animation-delay:.08s }
+.s-card:nth-child(3){ animation-delay:.12s }
+.s-card:nth-child(4){ animation-delay:.16s }
+.s-card:nth-child(5){ animation-delay:.20s }
+@keyframes up { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+.sec-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: .9px; text-transform: uppercase;
+  color: var(--mid); background: var(--lblue);
+  padding: 3px 10px; border-radius: 20px; margin-bottom: 12px;
+}
+.s-card h2 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--ink); }
+.s-card .hint { font-size: 12.5px; color: var(--muted); margin-bottom: 22px; }
+
+/* question */
+.q-block { margin-bottom: 24px; }
+.q-block:last-child { margin-bottom: 0; }
+.q-head {
+  font-size: 13.5px; font-weight: 600; color: var(--ink);
+  margin-bottom: 10px;
+  display: flex; gap: 9px; align-items: flex-start;
+}
+.q-n {
+  min-width: 22px; height: 22px;
+  background: var(--blue); color: #fff;
+  border-radius: 50%;
+  font-size: 10.5px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.req { color: var(--red); }
+
+/* options */
+.opts { display: flex; flex-direction: column; gap: 7px; }
+.opts.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.opt {
+  display: flex; align-items: center; gap: 11px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all .18s;
+  font-size: 13px;
+  user-select: none;
+}
+.opt:hover { border-color: var(--mid); background: var(--lblue); }
+.opt.sel { border-color: var(--blue); background: rgba(15,52,96,.06); }
+.opt.sel .knob { background: var(--blue); border-color: var(--blue); }
+.opt.sel .knob::after { opacity: 1; }
+.opt.sel .tick { background: var(--blue); border-color: var(--blue); color: #fff; }
+.knob {
+  width: 17px; height: 17px;
+  border: 2px solid #CBD5E1;
+  border-radius: 50%; flex-shrink: 0;
+  position: relative;
+  transition: all .18s;
+}
+.knob::after {
+  content: '';
+  width: 7px; height: 7px;
+  background: #fff; border-radius: 50%;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0; transition: opacity .15s;
+}
+.tick {
+  width: 17px; height: 17px;
+  border: 2px solid #CBD5E1;
+  border-radius: 4px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: transparent;
+  transition: all .18s;
+}
+
+/* likert */
+.likert { display: flex; gap: 6px; }
+.lk-item {
+  flex: 1; text-align: center;
+  padding: 9px 4px;
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all .18s;
+  font-size: 12px; color: var(--muted);
+}
+.lk-item:hover { border-color: var(--mid); background: var(--lblue); }
+.lk-item.sel { background: var(--blue); border-color: var(--blue); color: #fff; }
+.lk-item .num { font-size: 16px; font-weight: 700; display: block; margin-bottom: 2px; color: inherit; }
+.lk-ends { display: flex; justify-content: space-between; margin-top: 5px; font-size: 10.5px; color: var(--muted); }
+
+/* select + textarea */
+select, textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 13px; color: var(--ink);
+  background: var(--card); outline: none;
+  transition: border-color .18s;
+}
+select:focus, textarea:focus { border-color: var(--blue); }
+textarea { resize: vertical; min-height: 72px; }
+
+/* submit */
+.submit-zone { text-align: center; padding: 8px 0 40px; }
+.btn-go {
+  background: linear-gradient(135deg, var(--blue), var(--mid));
+  color: #fff; border: none;
+  padding: 14px 48px; border-radius: 11px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; letter-spacing: .3px;
+  box-shadow: 0 4px 18px rgba(15,52,96,.35);
+  transition: all .25s;
+}
+.btn-go:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(15,52,96,.4); }
+.priv { font-size: 11.5px; color: var(--muted); margin-top: 11px; }
+
+/* thank you */
+.ty { display: none; max-width: 460px; margin: 60px auto; text-align: center; padding: 0 20px; }
+.ty.on { display: block; }
+.ty-icon {
+  width: 72px; height: 72px;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  border-radius: 50%; margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+  animation: pop .4s cubic-bezier(.17,.89,.32,1.28);
+}
+@keyframes pop { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+.ty h2 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 8px; }
+.ty p { color: var(--muted); margin-bottom: 22px; font-size: 13px; }
+.btn-dash { background: var(--teal); color: #fff; border: none; padding: 12px 28px; border-radius: 9px; font-family: 'Be Vietnam Pro', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background .2s; }
+.btn-dash:hover { background: #117a65; }
+
+/* ══════════════════════════════
+   DASHBOARD
+══════════════════════════════ */
+.dash-top {
+  background: var(--blue);
+  padding: 36px 36px 32px;
+  color: #fff;
+}
+.dash-top h1 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 5px; }
+.dash-top h1 em { color: var(--amber); font-style: normal; }
+.dash-top p { color: rgba(255,255,255,.55); font-size: 13px; }
+.kpi-row { display: flex; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
+.kpi {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 12px 20px; min-width: 120px;
+}
+.kpi .v { font-size: 26px; font-weight: 800; color: var(--amber); }
+.kpi .l { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 2px; }
+
+.dash-body { max-width: 1060px; margin: 0 auto; padding: 32px 20px 80px; }
+.d-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+.d-grid.w1 { grid-template-columns: 1fr; }
+.d-grid.w3 { grid-template-columns: 1fr 1fr 1fr; }
+@media(max-width:720px){ .d-grid,.d-grid.w3 { grid-template-columns: 1fr; } }
+.dc {
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 24px 26px;
+  box-shadow: var(--s2);
+  border: 1px solid rgba(22,33,62,.05);
+}
+.dc-title {
+  font-size: 11px; font-weight: 700; letter-spacing: .6px;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 7px;
+}
+.dc-title .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+
+/* bar */
+.bar-list { display: flex; flex-direction: column; gap: 9px; }
+.b-row { display: grid; grid-template-columns: 140px 1fr 38px; align-items: center; gap: 10px; }
+.b-lbl { font-size: 12px; color: var(--ink); text-align: right; font-weight: 500; }
+.b-track { height: 24px; background: var(--line); border-radius: 6px; overflow: hidden; }
+.b-fill { height: 100%; border-radius: 6px; transition: width 1.1s cubic-bezier(.4,0,.2,1); width: 0; }
+.b-val { font-size: 12px; font-weight: 700; color: var(--ink); }
+
+/* donut */
+.donut-wrap { display: flex; align-items: center; gap: 24px; }
+.leg { display: flex; flex-direction: column; gap: 7px; flex: 1; }
+.leg-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.leg-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.leg-pct { margin-left: auto; font-weight: 700; font-size: 12px; }
+
+/* gauge */
+.gauge-list { display: flex; flex-direction: column; gap: 12px; }
+.g-row { display: flex; align-items: center; gap: 12px; }
+.g-lbl { font-size: 12.5px; width: 190px; flex-shrink: 0; color: var(--ink); }
+.g-track { flex: 1; height: 20px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.g-fill { height: 100%; border-radius: 99px; transition: width 1.3s cubic-bezier(.4,0,.2,1); width: 0;
+  display: flex; align-items: center; justify-content: flex-end; padding-right: 7px;
+  font-size: 10px; font-weight: 800; color: #fff; }
+.g-num { font-size: 12px; font-weight: 800; width: 34px; text-align: right; }
+
+/* scatter / bubble */
+.scatter { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; justify-content: center; padding: 6px 0; }
+.bub { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.bub-c { border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 10.5px; font-weight: 700; color: #fff; transition: transform .2s; cursor: default; }
+.bub-c:hover { transform: scale(1.1); }
+.bub-l { font-size: 10px; color: var(--muted); text-align: center; max-width: 72px; line-height: 1.3; }
+
+/* heatmap */
+.hm { overflow-x: auto; }
+.hm-table { border-collapse: collapse; width: 100%; }
+.hm-table th { font-size: 10.5px; font-weight: 600; color: var(--muted); padding: 6px 8px; text-align: center; }
+.hm-table td { padding: 4px; }
+.hm-cell {
+  min-width: 60px; height: 28px; border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: #fff;
+  transition: transform .15s;
+}
+.hm-cell:hover { transform: scale(1.05); }
+.hm-row-label { font-size: 11.5px; font-weight: 500; color: var(--ink); text-align: right; padding-right: 10px !important; white-space: nowrap; }
+
+/* insight */
+.insight {
+  background: var(--lblue);
+  border: 1px solid rgba(15,52,96,.12);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 18px;
+}
+.insight h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--blue); margin-bottom: 8px; }
+.i-list { display: flex; flex-direction: column; gap: 6px; }
+.i-row { font-size: 12.5px; color: var(--ink); display: flex; gap: 8px; }
+.i-row::before { content: '→'; color: var(--teal); font-weight: 800; flex-shrink: 0; }
+
+/* export bar */
+.export-bar {
+  background: var(--card);
+  border-radius: 11px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  box-shadow: var(--s1); border: 1px solid var(--line);
+}
+.export-bar label { font-size: 11.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+.e-sel {
+  padding: 7px 12px; border: 1.5px solid var(--line); border-radius: 8px;
+  font-family: 'Be Vietnam Pro', sans-serif; font-size: 12.5px; color: var(--ink);
+  background: var(--card); cursor: pointer; outline: none;
+  width: auto;
+}
+.e-sel:focus { border-color: var(--blue); }
+.btn-export {
+  margin-left: auto; background: var(--blue); color: #fff; border: none;
+  padding: 7px 18px; border-radius: 8px;
+  font-family: 'Be Vietnam Pro', sans-serif; font-size: 12.5px; font-weight: 600;
+  cursor: pointer; transition: background .2s;
+}
+.btn-export:hover { background: var(--mid); }
+.btn-refresh { background: var(--teal); color: #fff; border: none; padding: 7px 16px; border-radius: 8px; font-family: 'Be Vietnam Pro', sans-serif; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: background .2s; }
+.btn-refresh:hover { background: #117a65; }
+
+/* alert */
+.alert-empty {
+  background: var(--lamber);
+  border: 1.5px solid rgba(212,135,10,.3);
+  border-radius: 10px; padding: 20px 24px;
+  text-align: center; font-size: 13px; color: #7d5c0a;
+  margin: 20px 0;
+}
+
+/* ══════════════════════════════
+   ABOUT
+══════════════════════════════ */
+.about-body { max-width: 740px; margin: 0 auto; padding: 44px 20px 80px; }
+.about-body h2 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 12px; }
+.about-body p { color: #4A5568; margin-bottom: 16px; font-size: 13.5px; line-height: 1.75; }
+.a-card {
+  background: var(--card); border-radius: var(--r);
+  padding: 24px 28px; margin-bottom: 16px;
+  box-shadow: var(--s1); border-left: 4px solid var(--blue);
+}
+.a-card.teal { border-left-color: var(--teal); }
+.a-card.amber { border-left-color: var(--amber); }
+.a-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.a-card ul { padding-left: 16px; }
+.a-card li { font-size: 13px; color: #4A5568; margin-bottom: 6px; line-height: 1.6; }
+.badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+.b-item { background: var(--lblue); border-radius: 8px; padding: 12px 14px; font-size: 12.5px; }
+.b-item strong { display: block; color: var(--blue); font-size: 11px; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 3px; }
+@media(max-width:480px){ .badge-grid { grid-template-columns: 1fr; } }
+
+/* Live badge */
+.live-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(20,143,119,.15); color: var(--teal);
+  border: 1px solid rgba(20,143,119,.3);
+  font-size: 11px; font-weight: 700; padding: 3px 10px;
+  border-radius: 20px; margin-left: 12px;
+}
+.live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand"><div class="pip"></div>AI·Edu·Thí Điểm</div>
+  <button class="tab-btn on" onclick="go('survey')">📋 Khảo sát</button>
+  <button class="tab-btn" onclick="go('dash')">📊 Phân tích</button>
+  <button class="tab-btn" onclick="go('about')">ℹ️ Hướng dẫn</button>
+</nav>
+
+<!-- ══ SURVEY ══ -->
+<div id="v-survey" class="view on">
+  <div class="hero">
+    <div class="hero-eyebrow">🎓 Nghiên cứu · Ẩn danh</div>
+    <h1>Bạn và <span>AI</span> trong học tập</h1>
+    <p>Khảo sát nhanh 10 câu · Dưới 4 phút · Không thu thập thông tin cá nhân</p>
+    <div class="pill-row">
+      <span class="pill">🔒 Ẩn danh hoàn toàn</span>
+      <span class="pill hi">⚡ ~4 phút</span>
+      <span class="pill">📊 Chỉ dùng cho nghiên cứu</span>
+    </div>
+  </div>
+
+  <div class="prog-bar">
+    <div class="prog-track"><div class="prog-fill" id="pf"></div></div>
+    <div class="prog-txt" id="pt">0 / 10</div>
+  </div>
+
+  <div class="form-wrap" id="form">
+
+    <!-- A: Thông tin học tập -->
+    <div class="s-card">
+      <div class="sec-tag">Phần A</div>
+      <h2>Thông tin học tập</h2>
+      <p class="hint">Chỉ để phân nhóm thống kê — không xác định danh tính.</p>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">1</span>Bậc học hiện tại?<span class="req">*</span></div>
+        <div class="opts g2">
+          <label class="opt" onclick="radio(this,'q1','thpt')"><span class="knob"></span>THPT (lớp 10–12)</label>
+          <label class="opt" onclick="radio(this,'q1','cao_dang')"><span class="knob"></span>Cao đẳng</label>
+          <label class="opt" onclick="radio(this,'q1','dai_hoc')"><span class="knob"></span>Đại học</label>
+          <label class="opt" onclick="radio(this,'q1','sau_dh')"><span class="knob"></span>Sau đại học</label>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">2</span>Ngành / lĩnh vực học?<span class="req">*</span></div>
+        <div class="opts g2">
+          <label class="opt" onclick="radio(this,'q2','cntt')"><span class="knob"></span>CNTT / Kỹ thuật số</label>
+          <label class="opt" onclick="radio(this,'q2','kinh_te')"><span class="knob"></span>Kinh tế / Kinh doanh</label>
+          <label class="opt" onclick="radio(this,'q2','ky_thuat')"><span class="knob"></span>Kỹ thuật / Công nghệ</label>
+          <label class="opt" onclick="radio(this,'q2','su_pham')"><span class="knob"></span>Sư phạm / Giáo dục</label>
+          <label class="opt" onclick="radio(this,'q2','xa_hoi')"><span class="knob"></span>Xã hội / Nhân văn</label>
+          <label class="opt" onclick="radio(this,'q2','khac')"><span class="knob"></span>Ngành khác</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- B: Sử dụng AI -->
+    <div class="s-card">
+      <div class="sec-tag">Phần B</div>
+      <h2>Mức độ sử dụng AI</h2>
+      <p class="hint">Thực trạng thực tế — câu trả lời trung thực giúp nghiên cứu chính xác hơn.</p>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">3</span>Bạn dùng AI cho học tập bao thường xuyên?<span class="req">*</span></div>
+        <div class="opts">
+          <label class="opt" onclick="radio(this,'q3','chua')"><span class="knob"></span>Chưa bao giờ</label>
+          <label class="opt" onclick="radio(this,'q3','it')"><span class="knob"></span>Đôi khi (vài lần/tháng)</label>
+          <label class="opt" onclick="radio(this,'q3','thuong')"><span class="knob"></span>Thường xuyên (vài lần/tuần)</label>
+          <label class="opt" onclick="radio(this,'q3','hangngay')"><span class="knob"></span>Hàng ngày</label>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">4</span>Công cụ AI nào bạn dùng nhiều nhất? (chọn nhiều)</div>
+        <div class="opts g2">
+          <label class="opt" onclick="check(this,'q4','chatgpt')"><span class="tick">✓</span>ChatGPT</label>
+          <label class="opt" onclick="check(this,'q4','gemini')"><span class="tick">✓</span>Gemini</label>
+          <label class="opt" onclick="check(this,'q4','claude')"><span class="tick">✓</span>Claude</label>
+          <label class="opt" onclick="check(this,'q4','copilot')"><span class="tick">✓</span>Copilot</label>
+          <label class="opt" onclick="check(this,'q4','perplexity')"><span class="tick">✓</span>Perplexity</label>
+          <label class="opt" onclick="check(this,'q4','khac')"><span class="tick">✓</span>Công cụ khác</label>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">5</span>Dùng AI chủ yếu vào việc gì? (chọn nhiều)</div>
+        <div class="opts g2">
+          <label class="opt" onclick="check(this,'q5','viet_bai')"><span class="tick">✓</span>Viết bài / luận</label>
+          <label class="opt" onclick="check(this,'q5','giai_bt')"><span class="tick">✓</span>Giải bài tập</label>
+          <label class="opt" onclick="check(this,'q5','tom_tat')"><span class="tick">✓</span>Tóm tắt tài liệu</label>
+          <label class="opt" onclick="check(this,'q5','giai_thich')"><span class="tick">✓</span>Giải thích khái niệm</label>
+          <label class="opt" onclick="check(this,'q5','lap_trinh')"><span class="tick">✓</span>Viết code</label>
+          <label class="opt" onclick="check(this,'q5','dich')"><span class="tick">✓</span>Dịch thuật</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- C: Nhận thức -->
+    <div class="s-card">
+      <div class="sec-tag">Phần C</div>
+      <h2>Nhận thức về AI</h2>
+      <p class="hint">Đánh giá từ 1 (Không đồng ý) đến 5 (Hoàn toàn đồng ý).</p>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">6</span>"Tôi luôn kiểm chứng lại thông tin AI cung cấp trước khi dùng"</div>
+        <div class="likert" id="q6">
+          <div class="lk-item" onclick="likert('q6',1,this)"><span class="num">1</span></div>
+          <div class="lk-item" onclick="likert('q6',2,this)"><span class="num">2</span></div>
+          <div class="lk-item" onclick="likert('q6',3,this)"><span class="num">3</span></div>
+          <div class="lk-item" onclick="likert('q6',4,this)"><span class="num">4</span></div>
+          <div class="lk-item" onclick="likert('q6',5,this)"><span class="num">5</span></div>
+        </div>
+        <div class="lk-ends"><span>Không đồng ý</span><span>Hoàn toàn đồng ý</span></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">7</span>"Tôi dùng AI để hỗ trợ suy nghĩ của mình, không phải thay thế suy nghĩ"</div>
+        <div class="likert" id="q7">
+          <div class="lk-item" onclick="likert('q7',1,this)"><span class="num">1</span></div>
+          <div class="lk-item" onclick="likert('q7',2,this)"><span class="num">2</span></div>
+          <div class="lk-item" onclick="likert('q7',3,this)"><span class="num">3</span></div>
+          <div class="lk-item" onclick="likert('q7',4,this)"><span class="num">4</span></div>
+          <div class="lk-item" onclick="likert('q7',5,this)"><span class="num">5</span></div>
+        </div>
+        <div class="lk-ends"><span>Không đồng ý</span><span>Hoàn toàn đồng ý</span></div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">8</span>Trường bạn có hướng dẫn rõ ràng về cách dùng AI hợp lệ không?</div>
+        <div class="opts">
+          <label class="opt" onclick="radio(this,'q8','co_ro')"><span class="knob"></span>Có, rõ ràng và cụ thể</label>
+          <label class="opt" onclick="radio(this,'q8','co_it')"><span class="knob"></span>Có nhưng còn mơ hồ</label>
+          <label class="opt" onclick="radio(this,'q8','khong')"><span class="knob"></span>Không có hướng dẫn nào</label>
+          <label class="opt" onclick="radio(this,'q8','cam')"><span class="knob"></span>Cấm sử dụng AI</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- D: Tác động & Kỳ vọng -->
+    <div class="s-card">
+      <div class="sec-tag">Phần D</div>
+      <h2>Tác động & Kỳ vọng</h2>
+      <p class="hint">Đánh giá thực tế và điều bạn mong muốn nhất.</p>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">9</span>Kể từ khi dùng AI, kỹ năng nào của bạn bị ảnh hưởng tiêu cực nhất?</div>
+        <div class="opts g2">
+          <label class="opt" onclick="radio(this,'q9','viet')"><span class="knob"></span>Kỹ năng viết / diễn đạt</label>
+          <label class="opt" onclick="radio(this,'q9','tu_giai')"><span class="knob"></span>Tự giải quyết vấn đề</label>
+          <label class="opt" onclick="radio(this,'q9','ghi_nho')"><span class="knob"></span>Ghi nhớ kiến thức</label>
+          <label class="opt" onclick="radio(this,'q9','tap_trung')"><span class="knob"></span>Tập trung / đọc sâu</label>
+          <label class="opt" onclick="radio(this,'q9','khong_anh')"><span class="knob"></span>Không thấy ảnh hưởng xấu</label>
+          <label class="opt" onclick="radio(this,'q9','chua_dung')"><span class="knob"></span>Chưa dùng AI</label>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-head"><span class="q-n">10</span>Điều bạn muốn nhất từ nhà trường về AI là gì?</div>
+        <textarea id="q10" placeholder="Chia sẻ suy nghĩ của bạn — bất kỳ điều gì..." oninput="updProg()"></textarea>
+      </div>
+    </div>
+
+    <div class="submit-zone" id="sub-zone">
+      <button class="btn-go" onclick="submit()">Gửi phản hồi →</button>
+      <div class="priv">🔒 Ẩn danh · Không lưu IP · Chỉ dùng cho nghiên cứu học thuật</div>
+    </div>
+
+    <div class="ty" id="ty">
+      <div class="ty-icon">✓</div>
+      <h2>Cảm ơn bạn!</h2>
+      <p>Phản hồi của bạn đã được ghi nhận và sẽ góp phần xây dựng bức tranh thực trạng AI trong giáo dục.</p>
+      <button class="btn-dash" onclick="go('dash')">Xem phân tích ngay →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DASHBOARD ══ -->
+<div id="v-dash" class="view">
+  <div class="dash-top">
+    <h1>Phân tích <em>thí điểm</em> <span class="live-badge"><span class="live-dot"></span>Cập nhật thực</span></h1>
+    <p id="dash-sub">Dữ liệu từ phiên này · Tích lũy theo từng lần khảo sát được gửi</p>
+    <div class="kpi-row" id="kpi-row">
+      <div class="kpi"><div class="v" id="k-total">0</div><div class="l">Phản hồi nhận được</div></div>
+      <div class="kpi"><div class="v" id="k-daily">—</div><div class="l">% dùng AI hàng ngày</div></div>
+      <div class="kpi"><div class="v" id="k-aware">—</div><div class="l">Điểm kiểm chứng TB</div></div>
+      <div class="kpi"><div class="v" id="k-augment">—</div><div class="l">Điểm "khuếch đại" TB</div></div>
+    </div>
+  </div>
+
+  <div class="dash-body">
+    <div class="export-bar">
+      <label>Lọc:</label>
+      <select class="e-sel" id="f-bac"><option value="all">Tất cả bậc học</option><option value="thpt">THPT</option><option value="dai_hoc">Đại học</option><option value="cao_dang">Cao đẳng</option><option value="sau_dh">Sau đại học</option></select>
+      <select class="e-sel" id="f-nganh"><option value="all">Tất cả ngành</option><option value="cntt">CNTT</option><option value="kinh_te">Kinh tế</option><option value="ky_thuat">Kỹ thuật</option><option value="su_pham">Sư phạm</option><option value="xa_hoi">Xã hội</option></select>
+      <button class="btn-refresh" onclick="renderDash()">Làm mới</button>
+      <button class="btn-export" onclick="exportCSV()">⬇ Xuất CSV</button>
+    </div>
+    <div id="dash-empty" class="alert-empty" style="display:none">
+      📭 Chưa có dữ liệu. Hãy hoàn thành ít nhất 1 khảo sát để xem phân tích.
+    </div>
+    <div id="dash-charts">
+      <div class="d-grid">
+        <div class="dc"><div class="dc-title"><span class="dot"></span>Tần suất dùng AI</div><div class="bar-list" id="c-freq"></div></div>
+        <div class="dc"><div class="dc-title"><span class="dot" style="background:var(--teal)"></span>Công cụ AI phổ biến</div><div class="bar-list" id="c-tools"></div></div>
+      </div>
+      <div class="d-grid">
+        <div class="dc"><div class="dc-title"><span class="dot" style="background:var(--amber)"></span>Tác vụ dùng AI</div><div class="bar-list" id="c-tasks"></div></div>
+        <div class="dc">
+          <div class="dc-title"><span class="dot" style="background:var(--red)"></span>Kỹ năng bị ảnh hưởng tiêu cực</div>
+          <div id="c-impact"></div>
+          <div class="insight" id="insight-box" style="display:none">
+            <h4>🔍 Phát hiện từ dữ liệu</h4>
+            <div class="i-list" id="insight-list"></div>
+          </div>
+        </div>
+      </div>
+      <div class="d-grid">
+        <div class="dc">
+          <div class="dc-title"><span class="dot" style="background:var(--mid)"></span>Điểm nhận thức trung bình (thang 1–5)</div>
+          <div class="gauge-list" id="c-aware"></div>
+        </div>
+        <div class="dc">
+          <div class="dc-title"><span class="dot" style="background:var(--teal)"></span>Chính sách AI tại trường</div>
+          <div id="c-policy"></div>
+        </div>
+      </div>
+      <div class="d-grid w1">
+        <div class="dc">
+          <div class="dc-title"><span class="dot" style="background:var(--blue)"></span>Phân tích chéo: Tần suất dùng AI × Bậc học (% trong từng bậc)</div>
+          <div class="hm" id="c-heatmap"></div>
+        </div>
+      </div>
+      <div class="d-grid w1">
+        <div class="dc">
+          <div class="dc-title"><span class="dot" style="background:var(--red)"></span>Phản hồi mở — Điều học sinh muốn nhất từ nhà trường</div>
+          <div id="c-open" style="display:flex;flex-wrap:wrap;gap:8px;min-height:40px"></div>
+          <div style="font-size:11px;color:var(--muted);margin-top:12px">* Hiển thị tối đa 20 phản hồi gần nhất</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<div id="v-about" class="view">
+  <div class="about-body">
+    <h2>Hướng dẫn sử dụng hệ thống thí điểm</h2>
+    <p>Đây là phiên bản rút gọn (10 câu, ~4 phút) được thiết kế đặc biệt để thí điểm trong phạm vi <strong>1 trường</strong> trước khi mở rộng. Toàn bộ dữ liệu được lưu tạm trong phiên làm việc hiện tại của trình duyệt.</p>
+
+    <div class="a-card">
+      <h3>📋 Cấu trúc bộ câu hỏi (10 câu)</h3>
+      <ul>
+        <li><strong>Phần A (2 câu):</strong> Bậc học + Ngành — phân nhóm thống kê cơ bản</li>
+        <li><strong>Phần B (3 câu):</strong> Tần suất dùng · Công cụ sử dụng · Tác vụ dùng AI</li>
+        <li><strong>Phần C (3 câu):</strong> Kiểm chứng hallucination · Tư duy khuếch đại · Chính sách trường</li>
+        <li><strong>Phần D (2 câu):</strong> Kỹ năng bị ảnh hưởng · Câu mở "điều muốn nhất từ nhà trường"</li>
+      </ul>
+    </div>
+
+    <div class="a-card teal">
+      <h3>🔒 Bảo mật & Đạo đức nghiên cứu</h3>
+      <div class="badge-grid">
+        <div class="b-item"><strong>Ẩn danh tuyệt đối</strong>Không tên, không email, không số điện thoại, không IP.</div>
+        <div class="b-item"><strong>Lưu trữ cục bộ</strong>Dữ liệu chỉ lưu trong localStorage của trình duyệt — không gửi đến máy chủ bên ngoài.</div>
+        <div class="b-item"><strong>Quyền rút lui</strong>Có thể đóng trang bất kỳ lúc nào. Không bị ảnh hưởng gì.</div>
+        <div class="b-item"><strong>Xuất CSV</strong>Bạn kiểm soát hoàn toàn dữ liệu — xuất CSV để phân tích thêm trong Excel/SPSS.</div>
+      </div>
+    </div>
+
+    <div class="a-card amber">
+      <h3>📊 Hướng dẫn triển khai trong trường</h3>
+      <ul>
+        <li><strong>Bước 1:</strong> Lưu file HTML này và mở trên máy tính/máy chiếu trong lớp học</li>
+        <li><strong>Bước 2:</strong> Chia sẻ link (hoặc QR code) cho học sinh — họ làm trên điện thoại cá nhân</li>
+        <li><strong>Bước 3:</strong> Sau khi thu đủ phản hồi, vào Tab "Phân tích" để xem kết quả ngay lập tức</li>
+        <li><strong>Bước 4:</strong> Xuất CSV → mở trong Excel/Google Sheets để phân tích sâu hơn</li>
+        <li><strong>Lưu ý:</strong> Dữ liệu lưu trong localStorage — không xóa lịch sử trình duyệt để giữ dữ liệu qua các phiên</li>
+      </ul>
+    </div>
+
+    <div class="a-card">
+      <h3>🎯 Mục tiêu thí điểm 1 trường (3–6 tháng)</h3>
+      <ul>
+        <li>Thu thập 200–500 phản hồi đại diện nhiều lớp/khóa trong trường</li>
+        <li>Kiểm định bộ câu hỏi: xác định câu nào bị hiểu sai, cần chỉnh sửa</li>
+        <li>Tạo báo cáo baseline "bức tranh AI tại trường mình" — tài liệu thuyết phục mạnh nhất để mở rộng</li>
+        <li>Chia sẻ kết quả tại hội đồng sư phạm, đề xuất điều chỉnh phương pháp dạy</li>
+        <li>Xây dựng uy tín để tiếp cận trường khác hoặc tổ chức nghiên cứu lớn hơn</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════ STATE ══════════════
+const STORE_KEY = 'ai_edu_responses_v1';
+let responses = JSON.parse(localStorage.getItem(STORE_KEY) || '[]');
+const cur = {};
+const TOTAL = 10;
+const COLORS = ['#0F3460','#148F77','#D4870A','#8B3BAB','#C0392B','#2471A3','#1E8449','#B7950B'];
+
+// ══════════════ NAV ══════════════
+function go(v) {
+  document.querySelectorAll('.view').forEach(x => x.classList.remove('on'));
+  document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('on'));
+  document.getElementById('v-' + v).classList.add('on');
+  const idx = { survey: 0, dash: 1, about: 2 }[v];
+  document.querySelectorAll('.tab-btn')[idx].classList.add('on');
+  if (v === 'dash') renderDash();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ══════════════ SURVEY ══════════════
+function radio(el, qid, val) {
+  el.closest('.opts').querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  cur[qid] = val;
+  updProg();
+}
+function check(el, qid, val) {
+  el.classList.toggle('sel');
+  if (!cur[qid]) cur[qid] = [];
+  const i = cur[qid].indexOf(val);
+  if (i === -1) cur[qid].push(val); else cur[qid].splice(i, 1);
+  if (!cur[qid].length) delete cur[qid];
+  updProg();
+}
+function likert(qid, val, el) {
+  document.getElementById(qid).querySelectorAll('.lk-item').forEach(x => x.classList.remove('sel'));
+  el.classList.add('sel');
+  cur[qid] = val;
+  updProg();
+}
+function updProg() {
+  const n = Object.keys(cur).length;
+  const pct = Math.min(100, Math.round(n / TOTAL * 100));
+  document.getElementById('pf').style.width = pct + '%';
+  document.getElementById('pt').textContent = n + ' / ' + TOTAL;
+}
+function submit() {
+  const entry = { ...cur, q10_text: document.getElementById('q10').value.trim(), ts: Date.now() };
+  responses.push(entry);
+  localStorage.setItem(STORE_KEY, JSON.stringify(responses));
+  document.getElementById('sub-zone').style.display = 'none';
+  document.querySelectorAll('.s-card').forEach(c => c.style.opacity = '.35');
+  const ty = document.getElementById('ty');
+  ty.classList.add('on');
+  ty.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  document.getElementById('pf').style.width = '100%';
+  document.getElementById('pt').textContent = '✓ Hoàn thành';
+}
+
+// ══════════════ DASHBOARD ══════════════
+function getFiltered() {
+  const bac = document.getElementById('f-bac').value;
+  const nganh = document.getElementById('f-nganh').value;
+  return responses.filter(r => {
+    if (bac !== 'all' && r.q1 !== bac) return false;
+    if (nganh !== 'all' && r.q2 !== nganh) return false;
+    return true;
+  });
+}
+
+function count(data, field, val) {
+  if (Array.isArray(data[0]?.[field])) {
+    return data.filter(r => Array.isArray(r[field]) && r[field].includes(val)).length;
+  }
+  return data.filter(r => r[field] === val).length;
+}
+function pct(n, total) { return total === 0 ? 0 : Math.round(n / total * 100); }
+function avg(data, field) {
+  const vals = data.map(r => r[field]).filter(v => typeof v === 'number');
+  if (!vals.length) return null;
+  return (vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(1);
+}
+
+function barChart(id, items) {
+  const el = document.getElementById(id);
+  const max = Math.max(...items.map(x => x.v), 1);
+  el.innerHTML = items.map((it, i) => `
+    <div class="b-row">
+      <div class="b-lbl">${it.l}</div>
+      <div class="b-track"><div class="b-fill" style="background:${COLORS[i%COLORS.length]}" data-w="${it.v}%"></div></div>
+      <div class="b-val">${it.v}%</div>
+    </div>`).join('');
+  setTimeout(() => el.querySelectorAll('.b-fill').forEach(b => b.style.width = b.dataset.w), 80);
+}
+
+function donutChart(id, items) {
+  const el = document.getElementById(id);
+  const total = items.reduce((s, x) => s + x.v, 0) || 1;
+  const r = 46, cx = 54, cy = 54, circ = 2 * Math.PI * r;
+  let off = 0;
+  const slices = items.map((it, i) => {
+    const p = it.v / total;
+    const da = p * circ;
+    const s = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${COLORS[i%COLORS.length]}" stroke-width="16"
+      stroke-dasharray="${da} ${circ - da}" stroke-dashoffset="${-off * circ}" transform="rotate(-90 ${cx} ${cy})"/>`;
+    off += p;
+    return s;
+  }).join('');
+  const legend = items.map((it, i) => `
+    <div class="leg-row">
+      <div class="leg-dot" style="background:${COLORS[i%COLORS.length]}"></div>
+      <span>${it.l}</span>
+      <span class="leg-pct">${it.v}%</span>
+    </div>`).join('');
+  el.innerHTML = `<div class="donut-wrap">
+    <svg width="108" height="108" viewBox="0 0 108 108">
+      <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--line)" stroke-width="16"/>
+      ${slices}
+    </svg>
+    <div class="leg">${legend}</div>
+  </div>`;
+}
+
+function renderDash() {
+  const data = getFiltered();
+  const n = data.length;
+
+  // Empty state
+  document.getElementById('dash-empty').style.display = n === 0 ? 'block' : 'none';
+  document.getElementById('dash-charts').style.display = n === 0 ? 'none' : 'block';
+
+  // KPIs
+  document.getElementById('k-total').textContent = n;
+  const dailyN = count(data, 'q3', 'hangngay');
+  document.getElementById('k-daily').textContent = n ? pct(dailyN, n) + '%' : '—';
+  const a6 = avg(data, 'q6');
+  document.getElementById('k-aware').textContent = a6 ? a6 + '/5' : '—';
+  const a7 = avg(data, 'q7');
+  document.getElementById('k-augment').textContent = a7 ? a7 + '/5' : '—';
+
+  if (n === 0) return;
+
+  // Tần suất
+  barChart('c-freq', [
+    { l: 'Hàng ngày', v: pct(count(data,'q3','hangngay'), n) },
+    { l: 'Vài lần/tuần', v: pct(count(data,'q3','thuong'), n) },
+    { l: 'Vài lần/tháng', v: pct(count(data,'q3','it'), n) },
+    { l: 'Chưa dùng', v: pct(count(data,'q3','chua'), n) },
+  ]);
+
+  // Công cụ
+  const tools = [
+    { l: 'ChatGPT', k: 'chatgpt' }, { l: 'Gemini', k: 'gemini' },
+    { l: 'Claude', k: 'claude' }, { l: 'Copilot', k: 'copilot' },
+    { l: 'Perplexity', k: 'perplexity' }, { l: 'Khác', k: 'khac' },
+  ];
+  const toolData = tools.map(t => ({ l: t.l, v: pct(count(data,'q4',t.k), n) }))
+    .sort((a,b) => b.v - a.v);
+  barChart('c-tools', toolData);
+
+  // Tác vụ
+  const tasks = [
+    { l: 'Viết bài', k: 'viet_bai' }, { l: 'Giải bài tập', k: 'giai_bt' },
+    { l: 'Tóm tắt', k: 'tom_tat' }, { l: 'Giải thích KN', k: 'giai_thich' },
+    { l: 'Lập trình', k: 'lap_trinh' }, { l: 'Dịch thuật', k: 'dich' },
+  ];
+  barChart('c-tasks', tasks.map(t => ({ l: t.l, v: pct(count(data,'q5',t.k), n) })).sort((a,b)=>b.v-a.v));
+
+  // Impact
+  const impacts = [
+    { l: 'Tự giải vấn đề', k: 'tu_giai' }, { l: 'Kỹ năng viết', k: 'viet' },
+    { l: 'Ghi nhớ', k: 'ghi_nho' }, { l: 'Tập trung/đọc sâu', k: 'tap_trung' },
+    { l: 'Không ảnh hưởng', k: 'khong_anh' },
+  ];
+  donutChart('c-impact', impacts.map(t => ({ l: t.l, v: pct(count(data,'q9',t.k), n) })));
+
+  // Gauge nhận thức
+  const gaug = document.getElementById('c-aware');
+  const gItems = [
+    { l: 'Kiểm chứng thông tin AI (Q6)', v: avg(data,'q6'), max: 5 },
+    { l: 'Dùng AI khuếch đại, không thay thế (Q7)', v: avg(data,'q7'), max: 5 },
+  ];
+  gaug.innerHTML = gItems.map(it => {
+    if (!it.v) return `<div class="g-row"><div class="g-lbl">${it.l}</div><div class="g-track"><div class="g-fill" style="width:0%;background:#ccc"></div></div><div class="g-num">—</div></div>`;
+    const pctV = Math.round(it.v / it.max * 100);
+    const col = it.v >= 4 ? '#148F77' : it.v >= 3 ? '#D4870A' : '#C0392B';
+    return `<div class="g-row">
+      <div class="g-lbl">${it.l}</div>
+      <div class="g-track"><div class="g-fill" style="width:0%;background:${col}" data-w="${pctV}%">${pctV > 25 ? it.v+'/5' : ''}</div></div>
+      <div class="g-num" style="color:${col}">${it.v}</div>
+    </div>`;
+  }).join('');
+  setTimeout(() => gaug.querySelectorAll('.g-fill').forEach(g => g.style.width = g.dataset.w || '0%'), 80);
+
+  // Policy donut
+  const policies = [
+    { l: 'Có, rõ ràng', k: 'co_ro' }, { l: 'Có nhưng mơ hồ', k: 'co_it' },
+    { l: 'Không có', k: 'khong' }, { l: 'Bị cấm', k: 'cam' },
+  ];
+  donutChart('c-policy', policies.map(t => ({ l: t.l, v: pct(count(data,'q8',t.k), n) })));
+
+  // Heatmap: tần suất × bậc học
+  const bacs = [
+    { l: 'THPT', k: 'thpt' }, { l: 'Cao đẳng', k: 'cao_dang' },
+    { l: 'Đại học', k: 'dai_hoc' }, { l: 'Sau ĐH', k: 'sau_dh' },
+  ];
+  const freqs = [
+    { l: 'Hàng ngày', k: 'hangngay' },
+    { l: 'Vài lần/tuần', k: 'thuong' },
+    { l: 'Vài lần/tháng', k: 'it' },
+    { l: 'Chưa dùng', k: 'chua' },
+  ];
+  function hmColor(v) {
+    if (v >= 70) return '#0F3460';
+    if (v >= 50) return '#1A5276';
+    if (v >= 35) return '#2471A3';
+    if (v >= 20) return '#7FB3D3';
+    return '#D6EAF8';
+  }
+  const hmEl = document.getElementById('c-heatmap');
+  const header = `<tr><th style="text-align:right;padding-right:10px;font-size:11px;color:var(--muted)">Tần suất ↓ / Bậc →</th>${bacs.map(b=>`<th>${b.l}</th>`).join('')}</tr>`;
+  const rows = freqs.map(f => {
+    const cells = bacs.map(b => {
+      const sub = data.filter(r => r.q1 === b.k);
+      const v = sub.length ? pct(count(sub,'q3',f.k), sub.length) : 0;
+      return `<td><div class="hm-cell" style="background:${hmColor(v)}">${v}%</div></td>`;
+    }).join('');
+    return `<tr><td class="hm-row-label">${f.l}</td>${cells}</tr>`;
+  }).join('');
+  hmEl.innerHTML = `<table class="hm-table"><thead>${header}</thead><tbody>${rows}</tbody></table>`;
+
+  // Open text
+  const openEl = document.getElementById('c-open');
+  const texts = data.filter(r => r.q10_text).map(r => r.q10_text).slice(-20);
+  if (texts.length) {
+    openEl.innerHTML = texts.map(t => `<div style="background:var(--lblue);border:1px solid rgba(15,52,96,.1);border-radius:8px;padding:8px 12px;font-size:12.5px;color:var(--ink);max-width:300px">"${t.substring(0,120)}${t.length>120?'...':''}"</div>`).join('');
+  } else {
+    openEl.innerHTML = '<span style="font-size:12.5px;color:var(--muted)">Chưa có phản hồi mở nào.</span>';
+  }
+
+  // Insights tự động
+  const insightBox = document.getElementById('insight-box');
+  const insightList = document.getElementById('insight-list');
+  const insights = [];
+  if (n >= 5) {
+    const dailyPct = pct(count(data,'q3','hangngay'), n);
+    if (dailyPct > 50) insights.push(`${dailyPct}% học sinh dùng AI hàng ngày — mức độ phụ thuộc đáng chú ý`);
+    const tuGiaiPct = pct(count(data,'q9','tu_giai'), n);
+    if (tuGiaiPct > 30) insights.push(`${tuGiaiPct}% cho biết "tự giải quyết vấn đề" là kỹ năng bị ảnh hưởng xấu nhất`);
+    if (a6 && parseFloat(a6) < 3) insights.push(`Điểm kiểm chứng thông tin trung bình chỉ ${a6}/5 — lo ngại về hallucination chưa được nhận thức đầy đủ`);
+    if (a7 && parseFloat(a7) < 3) insights.push(`Điểm "khuếch đại thay vì thay thế" chỉ ${a7}/5 — học sinh đang dùng AI như công cụ thay thế tư duy`);
+    const noPolicyPct = pct(count(data,'q8','khong') + count(data,'q8','cam'), n);
+    if (noPolicyPct > 50) insights.push(`${noPolicyPct}% học sinh không có hướng dẫn rõ ràng hoặc bị cấm AI — khoảng trống chính sách rõ ràng`);
+  }
+  if (insights.length) {
+    insightList.innerHTML = insights.map(i => `<div class="i-row">${i}</div>`).join('');
+    insightBox.style.display = 'block';
+  } else {
+    insightBox.style.display = 'none';
+  }
+}
+
+// ══════════════ EXPORT CSV ══════════════
+function exportCSV() {
+  const data = getFiltered();
+  if (!data.length) { alert('Chưa có dữ liệu để xuất.'); return; }
+  const headers = ['bac_hoc','nganh','tan_suat_ai','cong_cu_ai','tac_vu_ai','kiem_chung_q6','khueich_dai_q7','chinh_sach_truong','ky_nang_anh_huong','y_kien_mo','timestamp'];
+  const rows = data.map(r => [
+    r.q1||'', r.q2||'',
+    r.q3||'',
+    Array.isArray(r.q4)?r.q4.join(';'):r.q4||'',
+    Array.isArray(r.q5)?r.q5.join(';'):r.q5||'',
+    r.q6||'', r.q7||'', r.q8||'', r.q9||'',
+    '"'+(r.q10_text||'').replace(/"/g,"''")+'"',
+    new Date(r.ts||Date.now()).toISOString()
+  ].join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob(['\uFEFF'+csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `khaosat_AI_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click(); URL.revokeObjectURL(url);
+}
+
+// init
+updProg();
+</script>
+</body>
+</html>

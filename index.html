@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VNEdData — Hệ thống dữ liệu giáo dục độc lập Việt Nam. Khảo sát, phân tích và báo cáo về thực trạng giáo dục dựa trên bằng chứng khoa học.">
+<title>VNEdData — Dữ liệu Giáo dục Việt Nam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────────────────────────── */
+:root {
+  --navy:    #0B1D3E;
+  --blue:    #0F3460;
+  --teal:    #148F77;
+  --gold:    #C8841A;
+  --gold-lt: #F5E6C8;
+  --paper:   #F8F5F0;
+  --cream:   #FEFCF9;
+  --ink:     #1A2332;
+  --muted:   #5A6475;
+  --rule:    #D8D2C8;
+  --light:   #EBF5FB;
+  --lteal:   #E8F5F2;
+  --r:       3px;
+  --max:     1200px;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --font-mono:  'DM Mono', monospace;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── UTILITY ─────────────────────────────────────────────────────────────── */
+.container { max-width:var(--max); margin:0 auto; padding:0 28px; }
+.section { padding:80px 0; }
+.section-sm { padding:48px 0; }
+.tag {
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--font-mono); font-size:11px; font-weight:500;
+  letter-spacing:.8px; text-transform:uppercase;
+  color:var(--blue); background:var(--light);
+  padding:4px 12px; border-radius:20px;
+}
+.tag.teal { color:var(--teal); background:var(--lteal); }
+.tag.gold { color:var(--gold); background:var(--gold-lt); }
+
+/* ── TOPBAR ─────────────────────────────────────────────────────────────── */
+.topbar {
+  background:var(--navy);
+  padding:8px 0;
+  font-size:12px;
+  color:rgba(255,255,255,.5);
+  text-align:center;
+  letter-spacing:.3px;
+  border-bottom:2px solid var(--gold);
+}
+.topbar strong { color:var(--gold-lt); }
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+.nav {
+  background:var(--cream);
+  border-bottom:1px solid var(--rule);
+  position:sticky; top:0; z-index:200;
+  box-shadow:0 1px 12px rgba(11,29,62,.06);
+}
+.nav-inner {
+  max-width:var(--max); margin:0 auto; padding:0 28px;
+  display:flex; align-items:center; height:68px; gap:0;
+}
+.nav-brand {
+  display:flex; align-items:center;
+  text-decoration:none;
+  margin-right:auto;
+  padding:2px 0;
+}
+.nav-brand .vn { color:var(--navy); }
+.nav-brand .ed { color:var(--navy); }
+.nav-brand .data { color:var(--teal); }
+.brand-mark {
+  width:32px; height:32px; border-radius:50%;
+  background:var(--navy);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.brand-mark svg { width:18px; height:18px; }
+.nav-links { display:flex; align-items:center; gap:2px; }
+.nav-link {
+  padding:8px 14px; border-radius:var(--r);
+  font-size:14px; font-weight:500;
+  color:var(--muted); text-decoration:none;
+  transition:all .18s; white-space:nowrap;
+}
+.nav-link:hover { color:var(--navy); background:rgba(11,29,62,.05); }
+.nav-link.active { color:var(--blue); }
+.nav-cta {
+  margin-left:16px;
+  background:var(--navy); color:white;
+  padding:9px 20px; border-radius:6px;
+  font-size:13.5px; font-weight:600;
+  text-decoration:none; letter-spacing:.1px;
+  transition:all .2s; white-space:nowrap;
+}
+.nav-cta:hover { background:var(--blue); }
+.nav-hamburger {
+  display:none; background:none; border:none;
+  cursor:pointer; padding:8px; color:var(--navy);
+}
+@media(max-width:768px){
+  .nav-links, .nav-cta { display:none; }
+  .nav-hamburger { display:flex; }
+}
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  background:var(--navy);
+  padding:100px 0 80px;
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(20,143,119,.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 80%, rgba(200,132,26,.10) 0%, transparent 50%);
+}
+/* Subtle grid lines */
+.hero::after {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-inner {
+  position:relative; z-index:1;
+  max-width:var(--max); margin:0 auto; padding:0 28px;
+  display:grid; grid-template-columns:1fr 420px; gap:64px; align-items:center;
+}
+@media(max-width:900px){ .hero-inner { grid-template-columns:1fr; } }
+.hero-left {}
+.hero-kicker {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.7);
+  font-family:var(--font-mono); font-size:11px;
+  padding:5px 14px; border-radius:20px;
+  margin-bottom:24px; letter-spacing:.6px;
+}
+.hero-kicker .pulse {
+  width:7px; height:7px; border-radius:50%;
+  background:var(--teal);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+.hero h1 {
+  font-family:var(--font-serif);
+  font-size:clamp(32px, 5vw, 52px);
+  font-weight:700; line-height:1.15;
+  color:white; margin-bottom:20px;
+  letter-spacing:-.5px;
+}
+.hero h1 em { color:var(--gold-lt); font-style:normal; }
+.hero-sub {
+  font-size:17px; line-height:1.7;
+  color:rgba(255,255,255,.65);
+  max-width:480px; margin-bottom:36px;
+}
+.hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 28px; border-radius:6px;
+  font-size:14.5px; font-weight:600;
+  text-decoration:none; transition:all .22s;
+  white-space:nowrap; cursor:pointer; border:none;
+  font-family:var(--font-sans);
+}
+.btn-primary {
+  background:var(--teal); color:white;
+  box-shadow:0 4px 16px rgba(20,143,119,.35);
+}
+.btn-primary:hover { background:#117a65; transform:translateY(-1px); }
+.btn-outline {
+  background:transparent; color:rgba(255,255,255,.8);
+  border:1.5px solid rgba(255,255,255,.25);
+}
+.btn-outline:hover { background:rgba(255,255,255,.1); color:white; }
+.hero-stats {
+  display:flex; gap:28px; margin-top:48px;
+  padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.h-stat .v {
+  font-family:var(--font-serif);
+  font-size:32px; font-weight:700;
+  color:var(--gold-lt); line-height:1;
+  display:block;
+}
+.h-stat .l { font-size:12px; color:rgba(255,255,255,.45); margin-top:4px; }
+
+/* Hero right — mission card */
+.hero-card {
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px; padding:32px;
+  backdrop-filter:blur(8px);
+}
+@media(max-width:900px){ .hero-card { display:none; } }
+.hero-card-title {
+  font-family:var(--font-mono); font-size:10px;
+  letter-spacing:.9px; text-transform:uppercase;
+  color:var(--gold-lt); margin-bottom:18px;
+  display:flex; align-items:center; gap:8px;
+}
+.hero-card-title::before {
+  content:''; display:block;
+  width:20px; height:2px; background:var(--gold);
+}
+.mission-item {
+  display:flex; gap:14px; margin-bottom:20px; align-items:flex-start;
+}
+.mission-item:last-child { margin-bottom:0; }
+.m-icon {
+  width:36px; height:36px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:17px; flex-shrink:0; margin-top:2px;
+}
+.m-icon.blue { background:rgba(15,52,96,.6); }
+.m-icon.teal { background:rgba(20,143,119,.3); }
+.m-icon.gold { background:rgba(200,132,26,.25); }
+.m-text strong { font-size:13.5px; color:rgba(255,255,255,.85); display:block; margin-bottom:3px; }
+.m-text span { font-size:12.5px; color:rgba(255,255,255,.45); line-height:1.5; }
+
+/* ── DIVIDER ─────────────────────────────────────────────────────────────── */
+.gold-rule { height:4px; background:linear-gradient(90deg, var(--gold), var(--teal), transparent); }
+
+/* ── SURVEY SECTION ──────────────────────────────────────────────────────── */
+.surveys-section { background:var(--paper); }
+.section-header { margin-bottom:48px; }
+.section-header h2 {
+  font-family:var(--font-serif);
+  font-size:clamp(26px,4vw,38px);
+  font-weight:700; color:var(--navy);
+  margin-top:10px; margin-bottom:10px;
+  letter-spacing:-.3px;
+}
+.section-header p { font-size:16px; color:var(--muted); max-width:540px; line-height:1.7; }
+
+.surveys-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+@media(max-width:900px){ .surveys-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:580px){ .surveys-grid { grid-template-columns:1fr; } }
+
+.survey-card {
+  background:var(--cream); border-radius:12px;
+  border:1px solid var(--rule);
+  overflow:hidden; transition:all .22s;
+  display:flex; flex-direction:column;
+  text-decoration:none; color:inherit;
+}
+.survey-card:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 36px rgba(11,29,62,.10);
+  border-color:rgba(11,29,62,.15);
+}
+.sc-header {
+  padding:24px 24px 0;
+  display:flex; align-items:flex-start; justify-content:space-between;
+}
+.sc-icon {
+  width:44px; height:44px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.sc-status {
+  font-family:var(--font-mono); font-size:10px;
+  font-weight:500; letter-spacing:.6px;
+  padding:3px 10px; border-radius:20px;
+}
+.sc-status.open { background:#D5F5E3; color:#117a65; }
+.sc-status.closed { background:#F2F3F4; color:var(--muted); }
+.sc-status.upcoming { background:var(--gold-lt); color:#8B5E0A; }
+.sc-body { padding:16px 24px 20px; flex:1; }
+.sc-body h3 {
+  font-family:var(--font-serif);
+  font-size:17px; font-weight:700;
+  color:var(--navy); margin-bottom:8px; line-height:1.3;
+}
+.sc-body p { font-size:13.5px; color:var(--muted); line-height:1.6; }
+.sc-meta {
+  padding:16px 24px;
+  border-top:1px solid var(--rule);
+  display:flex; gap:16px; align-items:center;
+}
+.sc-meta-item { font-size:12px; color:var(--muted); display:flex; align-items:center; gap:5px; }
+.sc-meta-item svg { opacity:.5; }
+.sc-link {
+  margin-left:auto;
+  font-size:12.5px; font-weight:600; color:var(--teal);
+  display:flex; align-items:center; gap:4px;
+  text-decoration:none;
+}
+.sc-link:hover { gap:7px; }
+
+/* ── RESEARCH PHILOSOPHY ─────────────────────────────────────────────────── */
+.philosophy-section { background:var(--cream); }
+.philosophy-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule); border-radius:12px; overflow:hidden; }
+@media(max-width:700px){ .philosophy-grid { grid-template-columns:1fr; } }
+.phi-block {
+  padding:36px;
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.phi-block:nth-child(even) { border-right:none; }
+.phi-block:nth-last-child(-n+2) { border-bottom:none; }
+@media(max-width:700px){
+  .phi-block { border-right:none; }
+  .phi-block:last-child { border-bottom:none; }
+}
+.phi-num {
+  font-family:var(--font-mono); font-size:11px;
+  color:var(--teal); margin-bottom:14px; letter-spacing:.5px;
+}
+.phi-block h3 {
+  font-family:var(--font-serif);
+  font-size:18px; font-weight:700;
+  color:var(--navy); margin-bottom:10px;
+}
+.phi-block p { font-size:14px; color:var(--muted); line-height:1.7; }
+
+/* ── REPORTS SECTION ─────────────────────────────────────────────────────── */
+.reports-section { background:var(--paper); }
+.reports-grid { display:grid; grid-template-columns:2fr 1fr; gap:28px; }
+@media(max-width:800px){ .reports-grid { grid-template-columns:1fr; } }
+.report-featured {
+  background:var(--cream);
+  border:1px solid var(--rule);
+  border-radius:12px; overflow:hidden;
+}
+.rf-top {
+  background:var(--navy);
+  padding:32px;
+  position:relative; overflow:hidden;
+}
+.rf-top::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 80% 50%, rgba(20,143,119,.2) 0%, transparent 60%);
+}
+.rf-top .tag { position:relative; z-index:1; }
+.rf-title {
+  font-family:var(--font-serif);
+  font-size:22px; font-weight:700;
+  color:white; margin-top:14px; margin-bottom:8px;
+  line-height:1.3; position:relative; z-index:1;
+}
+.rf-sub { font-size:13.5px; color:rgba(255,255,255,.55); position:relative; z-index:1; }
+.rf-body { padding:28px; }
+.rf-stat-row {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  margin-bottom:24px;
+}
+.rf-stat { text-align:center; }
+.rf-stat .v {
+  font-family:var(--font-serif);
+  font-size:28px; font-weight:700;
+  color:var(--navy); display:block;
+}
+.rf-stat .l { font-size:12px; color:var(--muted); margin-top:2px; }
+.rf-finding {
+  background:var(--paper);
+  border-left:3px solid var(--teal);
+  border-radius:0 6px 6px 0;
+  padding:14px 18px; margin-bottom:12px;
+}
+.rf-finding:last-child { margin-bottom:0; }
+.rf-finding p { font-size:13.5px; color:var(--ink); line-height:1.6; }
+.rf-finding .src { font-size:11px; color:var(--muted); margin-top:4px; font-family:var(--font-mono); }
+
+.reports-sidebar { display:flex; flex-direction:column; gap:16px; }
+.report-mini {
+  background:var(--cream);
+  border:1px solid var(--rule);
+  border-radius:10px; padding:20px;
+  transition:all .18s; text-decoration:none; color:inherit;
+  display:block;
+}
+.report-mini:hover { box-shadow:0 4px 16px rgba(11,29,62,.08); transform:translateX(3px); }
+.rm-tag { margin-bottom:10px; }
+.rm-title { font-family:var(--font-serif); font-size:15px; font-weight:700; color:var(--navy); margin-bottom:6px; line-height:1.3; }
+.rm-meta { font-size:12px; color:var(--muted); font-family:var(--font-mono); }
+
+/* ── DATA OPEN SECTION ───────────────────────────────────────────────────── */
+.opendata-section {
+  background:var(--navy);
+  padding:72px 0;
+  position:relative; overflow:hidden;
+}
+.opendata-section::before {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(20,143,119,.12) 0%, transparent 60%);
+}
+.od-inner {
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
+}
+@media(max-width:700px){ .od-inner { grid-template-columns:1fr; } }
+.od-left h2 {
+  font-family:var(--font-serif);
+  font-size:34px; font-weight:700;
+  color:white; margin-bottom:14px; line-height:1.2;
+}
+.od-left h2 em { color:var(--gold-lt); font-style:normal; }
+.od-left p { font-size:15px; color:rgba(255,255,255,.6); line-height:1.75; margin-bottom:28px; }
+.od-datasets { display:flex; flex-direction:column; gap:12px; }
+.od-item {
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:8px; padding:16px 20px;
+  display:flex; align-items:center; gap:14px;
+}
+.od-item-icon { font-size:20px; }
+.od-item-text strong { font-size:13.5px; color:rgba(255,255,255,.85); display:block; }
+.od-item-text span { font-size:12px; color:rgba(255,255,255,.4); font-family:var(--font-mono); }
+.od-item-dl {
+  margin-left:auto;
+  font-size:12px; font-weight:600;
+  color:var(--teal); text-decoration:none;
+  display:flex; align-items:center; gap:4px;
+  white-space:nowrap;
+}
+
+/* ── METHODOLOGY ─────────────────────────────────────────────────────────── */
+.method-section { background:var(--cream); }
+.method-steps {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:0; border:1px solid var(--rule); border-radius:12px; overflow:hidden;
+}
+@media(max-width:800px){ .method-steps { grid-template-columns:1fr 1fr; } }
+@media(max-width:500px){ .method-steps { grid-template-columns:1fr; } }
+.ms-item {
+  padding:28px 24px;
+  border-right:1px solid var(--rule);
+  position:relative;
+}
+.ms-item:last-child { border-right:none; }
+@media(max-width:800px){
+  .ms-item:nth-child(even) { border-right:none; }
+  .ms-item:nth-child(n+3) { border-top:1px solid var(--rule); }
+}
+.ms-num {
+  font-family:var(--font-mono); font-size:11px;
+  color:var(--teal); font-weight:500; margin-bottom:12px;
+}
+.ms-item h3 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+.ms-item p { font-size:13px; color:var(--muted); line-height:1.6; }
+.ms-item::after {
+  content:attr(data-arrow);
+  position:absolute; right:-12px; top:50%;
+  transform:translateY(-50%);
+  font-size:18px; color:var(--rule);
+  z-index:2;
+}
+@media(max-width:800px){ .ms-item::after { display:none; } }
+
+/* ── TEAM / ABOUT ─────────────────────────────────────────────────────────── */
+.about-section { background:var(--paper); }
+.about-grid { display:grid; grid-template-columns:3fr 2fr; gap:56px; align-items:start; }
+@media(max-width:700px){ .about-grid { grid-template-columns:1fr; } }
+.about-left h2 {
+  font-family:var(--font-serif); font-size:32px;
+  font-weight:700; color:var(--navy); margin-bottom:16px;
+  margin-top:10px; line-height:1.25;
+}
+.about-left p { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:16px; }
+.value-list { margin-top:24px; display:flex; flex-direction:column; gap:0; }
+.val-row {
+  display:flex; gap:14px; align-items:flex-start;
+  padding:16px 0;
+  border-bottom:1px solid var(--rule);
+}
+.val-row:last-child { border-bottom:none; }
+.val-icon {
+  width:36px; height:36px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; flex-shrink:0;
+  background:var(--light);
+}
+.val-text strong { font-size:14px; color:var(--navy); display:block; margin-bottom:2px; }
+.val-text span { font-size:13px; color:var(--muted); line-height:1.5; }
+.about-right {}
+.ethics-card {
+  background:var(--cream);
+  border:1px solid var(--rule);
+  border-radius:12px; padding:28px;
+  border-top:3px solid var(--teal);
+}
+.ethics-card h3 {
+  font-family:var(--font-serif); font-size:17px;
+  font-weight:700; color:var(--navy); margin-bottom:16px;
+}
+.ethics-item {
+  display:flex; gap:10px; align-items:flex-start;
+  padding:10px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:13px; color:var(--muted); line-height:1.5;
+}
+.ethics-item:last-child { border-bottom:none; }
+.ethics-item::before {
+  content:'✓'; color:var(--teal);
+  font-weight:700; flex-shrink:0; font-size:13px;
+  margin-top:2px;
+}
+.contact-block {
+  margin-top:20px; background:var(--navy);
+  border-radius:10px; padding:20px 22px;
+}
+.contact-block p { font-size:13px; color:rgba(255,255,255,.55); margin-bottom:10px; }
+.contact-block a {
+  color:var(--gold-lt); font-weight:600;
+  font-size:14px; text-decoration:none;
+  font-family:var(--font-mono);
+}
+
+/* ── NEWSLETTER / JOIN ───────────────────────────────────────────────────── */
+.join-section {
+  background:linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  padding:72px 0; text-align:center;
+  position:relative; overflow:hidden;
+}
+.join-section::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(200,132,26,.15) 0%, transparent 60%);
+}
+.join-inner { position:relative; z-index:1; max-width:560px; margin:0 auto; }
+.join-inner h2 {
+  font-family:var(--font-serif); font-size:32px;
+  font-weight:700; color:white; margin-bottom:12px;
+  margin-top:12px;
+}
+.join-inner p { font-size:15px; color:rgba(255,255,255,.6); margin-bottom:32px; line-height:1.7; }
+.join-form { display:flex; gap:10px; max-width:440px; margin:0 auto; }
+.join-input {
+  flex:1; padding:12px 18px;
+  border:1.5px solid rgba(255,255,255,.2);
+  border-radius:6px; background:rgba(255,255,255,.08);
+  color:white; font-family:var(--font-sans); font-size:14px;
+  outline:none; transition:border-color .18s;
+}
+.join-input::placeholder { color:rgba(255,255,255,.35); }
+.join-input:focus { border-color:var(--teal); }
+.join-btn {
+  background:var(--teal); color:white; border:none;
+  padding:12px 22px; border-radius:6px;
+  font-family:var(--font-sans); font-size:14px; font-weight:600;
+  cursor:pointer; transition:background .2s; white-space:nowrap;
+}
+.join-btn:hover { background:#117a65; }
+.join-note { font-size:11.5px; color:rgba(255,255,255,.3); margin-top:14px; font-family:var(--font-mono); }
+
+/* ── FOOTER ─────────────────────────────────────────────────────────────── */
+.footer {
+  background:var(--navy);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.footer-main {
+  padding:56px 0 40px;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;
+}
+@media(max-width:800px){ .footer-main { grid-template-columns:1fr 1fr; gap:32px; } }
+@media(max-width:480px){ .footer-main { grid-template-columns:1fr; } }
+.footer-brand .fb-name {
+  font-weight:700; font-size:20px; color:white;
+  letter-spacing:-.2px; margin-bottom:10px;
+}
+.footer-brand .fb-name span { color:var(--teal); }
+.footer-brand p { font-size:13px; color:rgba(255,255,255,.4); line-height:1.7; max-width:240px; }
+.footer-brand .fb-email {
+  display:inline-block; margin-top:14px;
+  font-family:var(--font-mono); font-size:12px;
+  color:var(--gold-lt); text-decoration:none;
+}
+.footer-col h4 {
+  font-size:11px; font-weight:600; letter-spacing:.8px;
+  text-transform:uppercase; color:rgba(255,255,255,.35);
+  font-family:var(--font-mono); margin-bottom:16px;
+}
+.footer-col a {
+  display:block; font-size:13.5px; color:rgba(255,255,255,.55);
+  text-decoration:none; margin-bottom:10px; transition:color .18s;
+}
+.footer-col a:hover { color:white; }
+.footer-bottom {
+  padding:20px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:12px; color:rgba(255,255,255,.25);
+  flex-wrap:wrap; gap:8px;
+}
+.footer-bottom a { color:rgba(255,255,255,.35); text-decoration:none; }
+.footer-bottom a:hover { color:rgba(255,255,255,.6); }
+.gold-bar { height:3px; background:linear-gradient(90deg, var(--gold), var(--teal)); }
+
+/* ── CHART EMBED PLACEHOLDER ────────────────────────────────────────────── */
+.chart-embed {
+  background:var(--paper);
+  border:2px dashed var(--rule);
+  border-radius:8px;
+  padding:32px; text-align:center;
+  margin-top:24px;
+}
+.chart-embed .ce-icon { font-size:32px; margin-bottom:10px; }
+.chart-embed p { font-size:13.5px; color:var(--muted); }
+.chart-embed code {
+  display:block; margin-top:8px; font-family:var(--font-mono);
+  font-size:11.5px; color:var(--teal); background:var(--light);
+  padding:6px 12px; border-radius:4px; width:fit-content; margin:8px auto 0;
+}
+
+/* ── DATA TICKER ─────────────────────────────────────────────────────────── */
+.ticker {
+  background:var(--gold);
+  padding:10px 0; overflow:hidden;
+}
+.ticker-inner {
+  display:flex; gap:48px;
+  animation:scroll 30s linear infinite;
+  width:max-content;
+}
+@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.tick-item { font-size:12px; font-weight:600; color:var(--navy); white-space:nowrap; font-family:var(--font-mono); }
+.tick-item span { opacity:.6; }
+
+/* ── ANIMATIONS ──────────────────────────────────────────────────────────── */
+.fade-up { opacity:0; transform:translateY(24px); transition:all .6s cubic-bezier(.4,0,.2,1); }
+.fade-up.visible { opacity:1; transform:none; }
+
+/* ── MODAL (survey detail) ────────────────────────────────────────────────── */
+.modal-overlay {
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(11,29,62,.65); backdrop-filter:blur(4px);
+  align-items:center; justify-content:center; padding:20px;
+}
+.modal-overlay.open { display:flex; }
+.modal {
+  background:var(--cream); border-radius:16px;
+  max-width:600px; width:100%; max-height:90vh;
+  overflow-y:auto; padding:40px;
+  box-shadow:0 24px 80px rgba(0,0,0,.3);
+  animation:modalIn .3s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes modalIn { from{transform:scale(.94);opacity:0} to{transform:scale(1);opacity:1} }
+.modal-close {
+  float:right; background:none; border:none; cursor:pointer;
+  font-size:22px; color:var(--muted); line-height:1; padding:0 0 8px 8px;
+}
+.modal h2 { font-family:var(--font-serif); font-size:22px; color:var(--navy); margin-bottom:12px; }
+.modal p { font-size:14.5px; color:var(--muted); line-height:1.75; margin-bottom:16px; }
+.modal .btn-primary { font-size:14px; padding:11px 24px; }
+
+/* ── PAGE SECTIONS NAV ───────────────────────────────────────────────────── */
+#page-home, #page-surveys, #page-reports, #page-data, #page-about {
+  display:none;
+}
+#page-home.active, #page-surveys.active, #page-reports.active,
+#page-data.active, #page-about.active { display:block; }
+</style>
+<script src="data.js"></script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  Dữ liệu giáo dục độc lập · <strong>Khoa học · Minh bạch · Bền vững</strong> · Khảo sát AI 2026 đang mở — <strong>Tham gia ngay</strong>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand" onclick="showPage('home')" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiB6b29tQW5kUGFuPSJtYWduaWZ5IiB2aWV3Qm94PSIwIDAgMzc1IDM3NC45OTk5OTEiIGhlaWdodD0iNTAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0IiB2ZXJzaW9uPSIxLjAiPjxkZWZzPjxjbGlwUGF0aCBpZD0iM2QwMzAzMWRlYiI+PHBhdGggZD0iTSAzMi43NjE3MTkgOTQgTCAzNDIuNTExNzE5IDk0IEwgMzQyLjUxMTcxOSAzNDIuNzQ2MDk0IEwgMzIuNzYxNzE5IDM0Mi43NDYwOTQgWiBNIDMyLjc2MTcxOSA5NCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIxNTNiNmU0Mzc2Ij48cGF0aCBkPSJNIDQyIDMyLjI0NjA5NCBMIDI5MSAzMi4yNDYwOTQgTCAyOTEgMjM3IEwgNDIgMjM3IFogTSA0MiAzMi4yNDYwOTQgIiBjbGlwLXJ1bGU9Im5vbnplcm8iLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjM2QwMzAzMWRlYikiPjxwYXRoIGZpbGw9IiMyMDlkNWMiIGQ9Ik0gMjY1LjQ2ODc1IDE3Ni41OTM3NSBDIDI2NS40Njg3NSAxNjMuNTcwMzEyIDI3OC4wNzgxMjUgMTUzLjAxMTcxOSAyOTMuNjQ0NTMxIDE1My4wMTE3MTkgQyAzMDkuMjAzMTI1IDE1My4wMTE3MTkgMzIxLjgxMjUgMTYzLjU3MDMxMiAzMjEuODEyNSAxNzYuNTkzNzUgQyAzMjEuODEyNSAxODkuNjEzMjgxIDMwOS4yMDMxMjUgMjAwLjE3MTg3NSAyOTMuNjQ0NTMxIDIwMC4xNzE4NzUgQyAyNzguMDc4MTI1IDIwMC4xNzE4NzUgMjY1LjQ2ODc1IDE4OS42MTMyODEgMjY1LjQ2ODc1IDE3Ni41OTM3NSBaIE0gMzA0Ljk3MjY1NiAyMDkuNzI2NTYyIEMgMjM4IDI3NC4wMzEyNSAyODAuMzc1IDIxMS44NTkzNzUgMjMwLjE4MzU5NCA5NC4zNTU0NjkgQyAyNjYuMzI4MTI1IDM3MS44MTI1IDE1LjQyNTc4MSAzNzIuNTc4MTI1IDQwLjk2MDkzOCAyMjAuNzAzMTI1IEMgLTE3LjU5Mzc1IDM5MS41NTQ2ODggMjU1LjMzOTg0NCAzOTAuOTcyNjU2IDM0Mi4xODc1IDE2OC4yOTY4NzUgQyAzMjUuNjQ0NTMxIDE4NC40ODA0NjkgMzE1LjM0NzY1NiAxOTkuNzYxNzE5IDMwNC45NzI2NTYgMjA5LjcyNjU2MiBaIE0gMzA0Ljk3MjY1NiAyMDkuNzI2NTYyICIgZmlsbC1vcGFjaXR5PSIxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L2c+PHBhdGggZmlsbD0iI2M4ODQxYSIgZD0iTSA4MS4yOTI5NjkgMjQ5Ljc0MjE4OCBMIDUyLjgxNjQwNiAyNDkuNzQyMTg4IEMgNTMuNzI2NTYyIDI2MC45NTMxMjUgNTYuNjcxODc1IDI3Mi4wMTk1MzEgNjIuNTgyMDMxIDI4MS45NDUzMTIgQyA2Ny4xNDA2MjUgMjg5LjYwOTM3NSA3My40MTAxNTYgMjk2LjM3NSA4MS4yOTI5NjkgMzAxLjQ0MTQwNiBMIDgxLjI5Mjk2OSAyNDkuNzM4MjgxIFogTSA4MS4yOTI5NjkgMjQ5Ljc0MjE4OCAiIGZpbGwtb3BhY2l0eT0iMSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PHBhdGggZmlsbD0iI2M4ODQxYSIgZD0iTSA4OS42NDA2MjUgMjA3LjIzNDM3NSBMIDg5LjY0MDYyNSAzMDUuODgyODEyIEMgOTIuMzIwMzEyIDMwNy4wMzkwNjIgOTUuMTQ0NTMxIDMwOC4wMjM0MzggOTguMTEzMjgxIDMwOC44MDQ2ODggQyAxMDcuNDcyNjU2IDMxMS4yODUxNTYgMTE3LjEzNjcxOSAzMTEuNTAzOTA2IDEyNi41MDc4MTIgMzA5Ljk0MTQwNiBMIDEyNi41MDc4MTIgMjA3LjIzMDQ2OSBMIDg5LjY0MDYyNSAyMDcuMjMwNDY5IFogTSA4OS42NDA2MjUgMjA3LjIzNDM3NSAiIGZpbGwtb3BhY2l0eT0iMSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PHBhdGggZmlsbD0iI2M4ODQxYSIgZD0iTSAxMzQuODU1NDY5IDE2OS45NzI2NTYgTCAxMzQuODU1NDY5IDMwOC4wNTg1OTQgQyAxMzYuNzMwNDY5IDMwNy41MjM0MzggMTM4LjU4OTg0NCAzMDYuOTI1NzgxIDE0MC40MjE4NzUgMzA2LjI2MTcxOSBDIDE1Mi40MjU3ODEgMzAxLjg5NDUzMSAxNjIuODg2NzE5IDI5NC45ODA0NjkgMTcxLjcyNjU2MiAyODYuODYzMjgxIEwgMTcxLjcyNjU2MiAxNjkuOTcyNjU2IFogTSAxMzQuODU1NDY5IDE2OS45NzI2NTYgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGZpbGw9IiNjODg0MWEiIGQ9Ik0gMTgwLjA3MDMxMiAxMTYuOTg0Mzc1IEwgMTgwLjA3MDMxMiAyNzguMzM1OTM4IEMgMTgxLjM3NSAyNzYuODU1NDY5IDE4Mi42MzI4MTIgMjc1LjM1OTM3NSAxODMuODQzNzUgMjczLjg0Mzc1IEMgMjAyLjI0NjA5NCAyNTAuODEyNSAyMTIuMjY1NjI1IDIyMi4xOTE0MDYgMjE2Ljk0MTQwNiAxOTIuNTAzOTA2IEwgMjE2Ljk0MTQwNiAxMTYuOTg0Mzc1IFogTSAxODAuMDcwMzEyIDExNi45ODQzNzUgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxnIGNsaXAtcGF0aD0idXJsKCMxNTNiNmU0Mzc2KSI+PHBhdGggZmlsbD0iIzU0NTQ1NCIgZD0iTSA0OS45NDE0MDYgMjM0LjU3MDMxMiBDIDQ4LjIxODc1IDIzNi40MTQwNjIgNDUuMzI0MjE5IDIzNi41MDc4MTIgNDMuNDgwNDY5IDIzNC43ODUxNTYgQyA0MS42MzI4MTIgMjMzLjA1ODU5NCA0MS41MzkwNjIgMjMwLjE2NDA2MiA0My4yNjE3MTkgMjI4LjMyMDMxMiBMIDc2LjU4NTkzOCAxOTIuNzAzMTI1IEMgNzcuNDg0Mzc1IDE5MS43MzgyODEgNzguNzAzMTI1IDE5MS4yNTM5MDYgNzkuOTIxODc1IDE5MS4yNTM5MDYgTCA3OS45MjE4NzUgMTkxLjIzMDQ2OSBMIDExMC45NDUzMTIgMTkxLjIzMDQ2OSBMIDExMC45NDUzMTIgMTU3LjkxMDE1NiBDIDExMC45NDUzMTIgMTU1LjM3MTA5NCAxMTMuMDAzOTA2IDE1My4zMTI1IDExNS41NDI5NjkgMTUzLjMxMjUgTCAxNTkuNzc3MzQ0IDE1My4zMTI1IEwgMTU5Ljc3NzM0NCAxMDQuNzY1NjI1IEMgMTU5Ljc3NzM0NCAxMDIuMjI2NTYyIDE2MS44MzU5MzggMTAwLjE2Nzk2OSAxNjQuMzc1IDEwMC4xNjc5NjkgTCAyMDYuMjg1MTU2IDEwMC4xNjc5NjkgTCAyNTguMzQ3NjU2IDUzLjMxMjUgTCAyNDguODMyMDMxIDQzLjQ2ODc1IEwgMjQ4LjgzNTkzOCA0My40Njg3NSBDIDI0OC4yNzczNDQgNDIuODkwNjI1IDI0Ny44OTQ1MzEgNDIuMTMyODEyIDI0Ny43ODEyNSA0MS4yNzczNDQgQyAyNDcuNTAzOTA2IDM5LjE0ODQzOCAyNDkuMDAzOTA2IDM3LjE5NTMxMiAyNTEuMTMyODEyIDM2LjkyMTg3NSBMIDI4NS40MDIzNDQgMzIuMzM1OTM4IEMgMjg1Ljg4NjcxOSAzMi4yMzA0NjkgMjg2LjQwMjM0NCAzMi4yMTQ4NDQgMjg2LjkyNTc4MSAzMi4zMDg1OTQgQyAyODkuMDQyOTY5IDMyLjY4MzU5NCAyOTAuNDU3MDMxIDM0LjcxMDkzOCAyOTAuMDc4MTI1IDM2LjgzMjAzMSBMIDI4My45ODQzNzUgNzAuOTQ5MjE5IEwgMjgzLjk3MjY1NiA3MC45NDUzMTIgQyAyODMuODM1OTM4IDcxLjcyNjU2MiAyODMuNDU3MDMxIDcyLjQ3MjY1NiAyODIuODQzNzUgNzMuMDY2NDA2IEMgMjgxLjI5Mjk2OSA3NC41NTQ2ODggMjc4LjgzMjAzMSA3NC41MDM5MDYgMjc3LjM0Mzc1IDcyLjk1NzAzMSBMIDI2NC43MzA0NjkgNTkuOTE0MDYyIEwgMjExLjI5Mjk2OSAxMDguMDA3ODEyIEMgMjEwLjQ2MDkzOCAxMDguODQzNzUgMjA5LjMwODU5NCAxMDkuMzYzMjgxIDIwOC4wMzUxNTYgMTA5LjM2MzI4MSBMIDE2OC45Njg3NSAxMDkuMzYzMjgxIEwgMTY4Ljk2ODc1IDE1Ny45MTAxNTYgQyAxNjguOTY4NzUgMTYwLjQ0NTMxMiAxNjYuOTEwMTU2IDE2Mi41MDM5MDYgMTY0LjM3NSAxNjIuNTAzOTA2IEwgMTIwLjEzNjcxOSAxNjIuNTAzOTA2IEwgMTIwLjEzNjcxOSAxOTUuODI0MjE5IEMgMTIwLjEzNjcxOSAxOTguMzYzMjgxIDExOC4wNzgxMjUgMjAwLjQyMTg3NSAxMTUuNTM5MDYyIDIwMC40MjE4NzUgTCA4MS44ODI4MTIgMjAwLjQyMTg3NSBMIDQ5LjkzNzUgMjM0LjU3MDMxMiBaIE0gNDkuOTQxNDA2IDIzNC41NzAzMTIgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvZz48L3N2Zz4=" alt="VNEdData" style="height:52px;width:52px;object-fit:contain;flex-shrink:0;">
+      <span style="font-family:'DM Sans',sans-serif;font-size:21px;font-weight:700;color:var(--navy);letter-spacing:-.3px;line-height:1"><span style="color:var(--navy)">VNEd</span><span style="color:var(--teal)">Data</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#" class="nav-link active" onclick="showPage('home')">Trang chủ</a>
+      <a href="#" class="nav-link" onclick="showPage('surveys')">Khảo sát</a>
+      <a href="#" class="nav-link" onclick="showPage('reports')">Báo cáo</a>
+      <a href="#" class="nav-link" onclick="showPage('data')">Dữ liệu mở</a>
+      <a href="#" class="nav-link" onclick="showPage('about')">Về chúng tôi</a>
+    </div>
+    <a href="#" class="nav-cta" onclick="showPage('surveys');return false;">Tham gia khảo sát</a>
+    <button class="nav-hamburger" onclick="toggleMenu()">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <rect y="4" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="10" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="16" width="22" height="2" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span class="tick-item">📊 Khảo sát AI 2026 <span>· đang mở ·</span></span>
+    <span class="tick-item">🎓 Giáo dục Việt Nam <span>·</span> Dữ liệu độc lập</span>
+    <span class="tick-item">📈 Dữ liệu mở <span>· miễn phí tải về ·</span></span>
+    <span class="tick-item">🔬 Phương pháp khoa học <span>· minh bạch ·</span></span>
+    <span class="tick-item">🌐 vneddata@gmail.com <span>·</span></span>
+    <span class="tick-item">📊 Khảo sát AI 2026 <span>· đang mở ·</span></span>
+    <span class="tick-item">🎓 Giáo dục Việt Nam <span>·</span> Dữ liệu độc lập</span>
+    <span class="tick-item">📈 Dữ liệu mở <span>· miễn phí tải về ·</span></span>
+    <span class="tick-item">🔬 Phương pháp khoa học <span>· minh bạch ·</span></span>
+    <span class="tick-item">🌐 vneddata@gmail.com <span>·</span></span>
+  </div>
+</div>
+
+<!-- ══════════════ PAGE: HOME ══════════════ -->
+<div id="page-home" class="active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+          <div style="width:36px;height:3px;background:var(--gold);border-radius:2px"></div>
+          <span style="font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.45)">VNEdData · Est. 2026</span>
+        </div>
+        <div class="hero-kicker">
+          <span class="pulse"></span>
+          Dữ liệu giáo dục độc lập · Việt Nam 2026
+        </div>
+        <h1>Hiểu giáo dục Việt Nam<br>bằng <em>dữ liệu thực</em></h1>
+        <p class="hero-sub">VNEdData thu thập, phân tích và công bố dữ liệu khoa học về thực trạng giáo dục Việt Nam — độc lập, minh bạch, và mở cho tất cả.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary" onclick="showPage('surveys');return false;">
+            📋 Tham gia khảo sát
+          </a>
+          <a href="#" class="btn btn-outline" onclick="showPage('reports');return false;">
+            Xem báo cáo →
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="h-stat"><span class="v" id="stat-resp">0</span><span class="l">Phản hồi thu thập</span></div>
+          <div class="h-stat"><span class="v">1</span><span class="l">Khảo sát đang mở</span></div>
+          <div class="h-stat"><span class="v">2026</span><span class="l">Năm thành lập</span></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-title">Sứ mệnh của VNEdData</div>
+          <div class="mission-item">
+            <div class="m-icon blue">🔬</div>
+            <div class="m-text">
+              <strong>Khoa học & Độc lập</strong>
+              <span>Mọi kết quả dựa trên phương pháp nghiên cứu chuẩn quốc tế, không chịu áp lực chính trị hay thương mại</span>
+            </div>
+          </div>
+          <div class="mission-item">
+            <div class="m-icon teal">📂</div>
+            <div class="m-text">
+              <strong>Dữ liệu mở cho tất cả</strong>
+              <span>Dataset ẩn danh được công bố miễn phí — nhà giáo dục, nhà nghiên cứu, nhà báo đều có thể dùng</span>
+            </div>
+          </div>
+          <div class="mission-item">
+            <div class="m-icon gold">🎯</div>
+            <div class="m-text">
+              <strong>Tác động chính sách thực</strong>
+              <span>Kết quả được chuyển hóa thành đề xuất cụ thể, gửi đến Bộ GD&ĐT và cộng đồng giáo dục</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- ACTIVE SURVEYS -->
+  <section class="section surveys-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">Đang thu thập dữ liệu</div>
+        <h2>Khảo sát đang mở</h2>
+        <p>Mỗi khảo sát đại diện cho một câu hỏi nghiên cứu quan trọng về giáo dục Việt Nam. Sự tham gia của bạn tạo nên dữ liệu.</p>
+      </div>
+      <div class="surveys-grid">
+
+        <a href="#" class="survey-card fade-up" onclick="openModal('survey-ai');return false;" style="animation-delay:.05s">
+          <div class="sc-header">
+            <div class="sc-icon" style="background:#E8F5F2">🤖</div>
+            <span class="sc-status open">● Đang mở</span>
+          </div>
+          <div class="sc-body">
+            <h3>AI trong Học tập — Thực trạng 2026</h3>
+            <p>Khảo sát toàn diện về mức độ sử dụng, nhận thức và tác động của AI đối với học sinh, sinh viên Việt Nam.</p>
+          </div>
+          <div class="sc-meta">
+            <span class="sc-meta-item">⏱ ~8 phút</span>
+            <span class="sc-meta-item">🔒 Ẩn danh</span>
+            <span class="sc-link">Tham gia →</span>
+          </div>
+        </a>
+
+        <a href="#" class="survey-card fade-up" onclick="openModal('survey-teacher');return false;" style="animation-delay:.1s">
+          <div class="sc-header">
+            <div class="sc-icon" style="background:#EBF5FB">👨‍🏫</div>
+            <span class="sc-status upcoming">◷ Sắp mở</span>
+          </div>
+          <div class="sc-body">
+            <h3>Giáo viên & Chuyển đổi số — 2026</h3>
+            <p>Năng lực số, thái độ với AI và nhu cầu hỗ trợ của đội ngũ giáo viên phổ thông và đại học Việt Nam.</p>
+          </div>
+          <div class="sc-meta">
+            <span class="sc-meta-item">⏱ ~10 phút</span>
+            <span class="sc-meta-item">🔒 Ẩn danh</span>
+            <span class="sc-link">Đăng ký nhận thông báo →</span>
+          </div>
+        </a>
+
+        <a href="#" class="survey-card fade-up" onclick="openModal('survey-parent');return false;" style="animation-delay:.15s">
+          <div class="sc-header">
+            <div class="sc-icon" style="background:#FEF3CD">👨‍👩‍👧</div>
+            <span class="sc-status upcoming">◷ Sắp mở</span>
+          </div>
+          <div class="sc-body">
+            <h3>Phụ huynh & Kỳ vọng Giáo dục</h3>
+            <p>Quan điểm, lo ngại và kỳ vọng của phụ huynh về chất lượng giáo dục và vai trò của công nghệ trong học tập.</p>
+          </div>
+          <div class="sc-meta">
+            <span class="sc-meta-item">⏱ ~6 phút</span>
+            <span class="sc-meta-item">🔒 Ẩn danh</span>
+            <span class="sc-link">Đăng ký nhận thông báo →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="section philosophy-section">
+    <div class="container">
+      <div class="section-header fade-up" style="margin-bottom:36px">
+        <div class="tag">Cách chúng tôi làm việc</div>
+        <h2>Nguyên tắc nghiên cứu</h2>
+      </div>
+      <div class="philosophy-grid fade-up">
+        <div class="phi-block">
+          <div class="phi-num">01 — KHOA HỌC</div>
+          <h3>Phương pháp trước kết quả</h3>
+          <p>Mọi phân tích được lên kế hoạch trước khi thu thập dữ liệu (pre-registration). Không điều chỉnh phương pháp để có kết quả mong muốn.</p>
+        </div>
+        <div class="phi-block">
+          <div class="phi-num">02 — MINH BẠCH</div>
+          <h3>Mở hoàn toàn</h3>
+          <p>Dataset ẩn danh được công bố mở. Phương pháp được ghi lại chi tiết. Changelog công khai mọi thay đổi. Bất kỳ ai cũng có thể kiểm chứng lại.</p>
+        </div>
+        <div class="phi-block">
+          <div class="phi-num">03 — ĐỘC LẬP</div>
+          <h3>Không có xung đột lợi ích</h3>
+          <p>VNEdData không nhận tài trợ có điều kiện. Không có lợi ích thương mại. Kết quả được báo cáo trung thực dù không thuận lợi cho bất kỳ bên nào.</p>
+        </div>
+        <div class="phi-block">
+          <div class="phi-num">04 — BẢO VỆ</div>
+          <h3>Người tham gia là ưu tiên số 1</h3>
+          <p>Ẩn danh tuyệt đối. Informed consent rõ ràng. Quyền rút lui không điều kiện. Không bao giờ thương mại hóa dữ liệu cá nhân.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST REPORT PREVIEW -->
+  <section class="section reports-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag teal">Phát hiện mới nhất</div>
+        <h2>Từ dữ liệu đến insight</h2>
+        <p>Kết quả tổng hợp từ các đợt khảo sát, được phân tích và trình bày cho nhà giáo dục, nhà nghiên cứu và nhà làm chính sách.</p>
+      </div>
+      <div class="reports-grid">
+        <div class="report-featured fade-up">
+          <div class="rf-top">
+            <span class="tag gold">Báo cáo sơ bộ · 2026-AI-V1</span>
+            <h3 class="rf-title">AI trong Giáo dục Việt Nam:<br>Bức tranh ban đầu</h3>
+            <p class="rf-sub">Dữ liệu thí điểm · Cập nhật liên tục khi có phản hồi mới</p>
+          </div>
+          <div class="rf-body">
+            <div class="rf-stat-row">
+              <div class="rf-stat"><span class="v" id="rep-resp">—</span><span class="l">Phản hồi</span></div>
+              <div class="rf-stat"><span class="v">6</span><span class="l">Tỉnh/thành</span></div>
+              <div class="rf-stat"><span class="v">4</span><span class="l">Bậc học</span></div>
+            </div>
+            <div class="rf-finding">
+              <p>Khảo sát đang trong giai đoạn thu thập dữ liệu. Kết quả sẽ được cập nhật tự động khi đạt đủ cỡ mẫu (n ≥ 50).</p>
+              <p class="src">Trạng thái: THU THẬP DỮ LIỆU · Bắt đầu: 04/2026</p>
+            </div>
+            <div class="rf-finding">
+              <p>Tham gia khảo sát để đóng góp vào bức tranh dữ liệu đầu tiên về AI trong học tập tại Việt Nam.</p>
+              <p class="src">Mục tiêu: 500 phản hồi · Hiện tại: đang thu thập</p>
+            </div>
+            <div style="margin-top:20px">
+              <a href="#" class="btn btn-primary" style="background:var(--blue);box-shadow:none;font-size:13.5px;padding:10px 22px" onclick="showPage('reports');return false;">
+                Xem trang báo cáo đầy đủ →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="reports-sidebar fade-up">
+          <div style="margin-bottom:6px"><span class="tag">Sắp công bố</span></div>
+          <a href="#" class="report-mini" onclick="showPage('reports');return false;">
+            <div class="rm-tag"><span class="tag teal" style="font-size:10px">Kế hoạch</span></div>
+            <div class="rm-title">Báo cáo Thường niên Giáo dục Việt Nam 2026</div>
+            <div class="rm-meta">Dự kiến: Tháng 12/2026</div>
+          </a>
+          <a href="#" class="report-mini" onclick="showPage('reports');return false;">
+            <div class="rm-tag"><span class="tag" style="font-size:10px">Kế hoạch</span></div>
+            <div class="rm-title">Năng lực số của Giáo viên Phổ thông 2026</div>
+            <div class="rm-meta">Dự kiến: Tháng 9/2026</div>
+          </a>
+          <a href="#" class="report-mini" onclick="showPage('reports');return false;">
+            <div class="rm-tag"><span class="tag gold" style="font-size:10px">Policy Brief</span></div>
+            <div class="rm-title">AI & Học thuật Toàn vẹn: Khuyến nghị cho Bộ GD&ĐT</div>
+            <div class="rm-meta">Dự kiến: Tháng 8/2026</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN DATA SECTION -->
+  <section class="opendata-section">
+    <div class="container">
+      <div class="od-inner">
+        <div class="od-left">
+          <span class="tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)">Dữ liệu mở</span>
+          <h2 style="margin-top:12px">Dữ liệu của VNEdData<br>là <em>của tất cả mọi người</em></h2>
+          <p>Chúng tôi tin rằng dữ liệu giáo dục thuộc về cộng đồng. Mọi dataset ẩn danh đều được công bố miễn phí — không điều kiện, không cần đăng ký.</p>
+          <a href="#" class="btn btn-primary" onclick="showPage('data');return false;">Truy cập kho dữ liệu mở →</a>
+        </div>
+        <div class="od-datasets">
+          <div class="od-item">
+            <span class="od-item-icon">📊</span>
+            <div class="od-item-text">
+              <strong>2026-AI-V1 Dataset (ẩn danh)</strong>
+              <span>CSV · Cập nhật liên tục · Sắp có</span>
+            </div>
+            <span class="od-item-dl">↓ CSV</span>
+          </div>
+          <div class="od-item">
+            <span class="od-item-icon">📋</span>
+            <div class="od-item-text">
+              <strong>Bộ câu hỏi chuẩn VNEdData</strong>
+              <span>PDF · Phiên bản 1.0</span>
+            </div>
+            <span class="od-item-dl">↓ PDF</span>
+          </div>
+          <div class="od-item">
+            <span class="od-item-icon">📖</span>
+            <div class="od-item-text">
+              <strong>Codebook & Data Dictionary</strong>
+              <span>XLSX · Giải thích biến số</span>
+            </div>
+            <span class="od-item-dl">↓ XLSX</span>
+          </div>
+          <div class="od-item">
+            <span class="od-item-icon">🔬</span>
+            <div class="od-item-text">
+              <strong>Methodology Report</strong>
+              <span>PDF · Phương pháp đầy đủ</span>
+            </div>
+            <span class="od-item-dl">↓ PDF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY STEPS -->
+  <section class="section method-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="tag">Quy trình</div>
+        <h2>Từ câu hỏi đến chính sách</h2>
+      </div>
+      <div class="method-steps fade-up">
+        <div class="ms-item" data-arrow="→">
+          <div class="ms-num">BƯỚC 01</div>
+          <h3>Đặt câu hỏi</h3>
+          <p>Xác định vấn đề giáo dục cần dữ liệu. Pre-register phương pháp trước khi thu thập.</p>
+        </div>
+        <div class="ms-item" data-arrow="→">
+          <div class="ms-num">BƯỚC 02</div>
+          <h3>Thu thập dữ liệu</h3>
+          <p>Khảo sát ẩn danh qua nhiều kênh. Kiểm soát chất lượng thời gian thực.</p>
+        </div>
+        <div class="ms-item" data-arrow="→">
+          <div class="ms-num">BƯỚC 03</div>
+          <h3>Phân tích độc lập</h3>
+          <p>Phân tích thống kê theo đúng kế hoạch đã đăng ký. Peer review nội bộ.</p>
+        </div>
+        <div class="ms-item">
+          <div class="ms-num">BƯỚC 04</div>
+          <h3>Công bố & Tác động</h3>
+          <p>Báo cáo mở + dataset mở + policy brief gửi nhà hoạch định chính sách.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN / NEWSLETTER -->
+  <section class="join-section">
+    <div class="join-inner">
+      <span class="tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.6)">Cộng đồng VNEdData</span>
+      <h2>Nhận cập nhật nghiên cứu</h2>
+      <p>Đăng ký để nhận thông báo khi có khảo sát mới, báo cáo mới và dataset được công bố.</p>
+      <div class="join-form">
+        <input type="email" class="join-input" placeholder="email@truong.edu.vn" id="email-input">
+        <button class="join-btn" onclick="handleJoin()">Đăng ký</button>
+      </div>
+      <p class="join-note">🔒 Không spam · Có thể hủy bất kỳ lúc nào · vneddata@gmail.com</p>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ══════════════ PAGE: SURVEYS ══════════════ -->
+<div id="page-surveys">
+  <section class="section" style="background:var(--paper);padding-top:60px">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Tất cả khảo sát</div>
+        <h2>Hệ thống khảo sát VNEdData</h2>
+        <p>Mỗi khảo sát tương ứng với một chủ đề nghiên cứu. Dữ liệu thu thập được xử lý theo chuẩn khoa học và công bố mở.</p>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--teal)">🟢 Đang mở</h3>
+        <div class="surveys-grid">
+          <a href="khaosat_thidiem_1truong.html" target="_blank" class="survey-card" style="border-top:3px solid var(--teal)">
+            <div class="sc-header">
+              <div class="sc-icon" style="background:#E8F5F2;font-size:22px">🤖</div>
+              <span class="sc-status open">● Đang mở</span>
+            </div>
+            <div class="sc-body">
+              <h3>AI trong Học tập 2026</h3>
+              <p>Khảo sát toàn diện về thực trạng học sinh, sinh viên Việt Nam sử dụng AI. Mã: 2026-AI-V1</p>
+            </div>
+            <div class="sc-meta">
+              <span class="sc-meta-item">⏱ ~8 phút</span>
+              <span class="sc-meta-item">🎓 Mọi bậc học</span>
+              <span class="sc-link" style="font-size:13px">Làm ngay →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--gold)">🟡 Sắp mở</h3>
+        <div class="surveys-grid">
+          <div class="survey-card" style="opacity:.65;cursor:default">
+            <div class="sc-header">
+              <div class="sc-icon" style="background:#EBF5FB;font-size:22px">👨‍🏫</div>
+              <span class="sc-status upcoming">◷ Sắp mở — T7/2026</span>
+            </div>
+            <div class="sc-body">
+              <h3>Giáo viên & Chuyển đổi số 2026</h3>
+              <p>Năng lực số và thái độ của đội ngũ giáo viên Việt Nam. Mã: 2026-TEACHER-V1</p>
+            </div>
+            <div class="sc-meta">
+              <span class="sc-meta-item">⏱ ~10 phút</span>
+              <span class="sc-meta-item">👩‍🏫 Giáo viên</span>
+            </div>
+          </div>
+          <div class="survey-card" style="opacity:.65;cursor:default">
+            <div class="sc-header">
+              <div class="sc-icon" style="background:#FEF3CD;font-size:22px">👨‍👩‍👧</div>
+              <span class="sc-status upcoming">◷ Sắp mở — T9/2026</span>
+            </div>
+            <div class="sc-body">
+              <h3>Phụ huynh & Kỳ vọng Giáo dục</h3>
+              <p>Quan điểm phụ huynh về chất lượng giáo dục và công nghệ học tập. Mã: 2026-PARENT-V1</p>
+            </div>
+            <div class="sc-meta">
+              <span class="sc-meta-item">⏱ ~6 phút</span>
+              <span class="sc-meta-item">👪 Phụ huynh</span>
+            </div>
+          </div>
+          <div class="survey-card" style="opacity:.65;cursor:default">
+            <div class="sc-header">
+              <div class="sc-icon" style="background:#F2EFFF;font-size:22px">🏫</div>
+              <span class="sc-status upcoming">◷ Sắp mở — T11/2026</span>
+            </div>
+            <div class="sc-body">
+              <h3>Hạ tầng số Trường học Việt Nam</h3>
+              <p>Thực trạng trang thiết bị số, kết nối internet và ứng dụng CNTT tại trường học. Mã: 2026-INFRA-V1</p>
+            </div>
+            <div class="sc-meta">
+              <span class="sc-meta-item">⏱ ~7 phút</span>
+              <span class="sc-meta-item">🏫 Cán bộ quản lý</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ PAGE: REPORTS ══════════════ -->
+<div id="page-reports">
+  <section class="section" style="background:var(--paper);padding-top:60px">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag teal">Báo cáo & Phân tích</div>
+        <h2>Kho báo cáo VNEdData</h2>
+        <p>Từ báo cáo sơ bộ đến báo cáo thường niên — tất cả đều miễn phí, có thể tải về và trích dẫn tự do.</p>
+      </div>
+
+      <div style="background:var(--cream);border:1px solid var(--rule);border-radius:12px;padding:36px;margin-bottom:28px;border-top:4px solid var(--teal)">
+        <div style="display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap">
+          <div style="flex:1;min-width:260px">
+            <span class="tag">Đang thu thập · 2026-AI-V1</span>
+            <h3 style="font-family:var(--font-serif);font-size:22px;color:var(--navy);margin:12px 0 8px;line-height:1.3">AI trong Học tập Việt Nam: Báo cáo Sơ bộ 2026</h3>
+            <p style="font-size:14px;color:var(--muted);line-height:1.7">Dashboard trực tiếp — kết quả cập nhật khi có phản hồi mới. Báo cáo đầy đủ sẽ được công bố khi đạt n ≥ 200.</p>
+          </div>
+          <div style="text-align:center;min-width:120px">
+            <div style="font-family:var(--font-serif);font-size:48px;font-weight:700;color:var(--navy)" id="live-n">0</div>
+            <div style="font-size:12px;color:var(--muted)">Phản hồi · Mục tiêu: 500</div>
+            <div style="background:var(--rule);border-radius:99px;height:5px;margin-top:8px;overflow:hidden">
+              <div style="background:var(--teal);height:100%;border-radius:99px;transition:width 1s" id="prog-bar" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-embed" style="margin-top:24px">
+          <div class="ce-icon">📊</div>
+          <p>Dashboard tự động từ Google Looker Studio</p>
+          <p style="margin-top:6px;font-size:13px;color:var(--muted)">Sau khi kết nối Google Sheets với Looker Studio, embed iframe tại đây</p>
+          <code>&lt;!-- Thay bằng iframe embed từ Looker Studio --&gt;</code>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        <div class="report-mini" style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:20px;opacity:.6">
+          <span class="tag" style="font-size:10px">Kế hoạch · T8/2026</span>
+          <div class="rm-title" style="margin-top:10px;font-family:var(--font-serif);font-size:15px;font-weight:700;color:var(--navy)">Policy Brief: AI & Học thuật Toàn vẹn</div>
+          <div class="rm-meta" style="font-size:12px;color:var(--muted);margin-top:6px;font-family:var(--font-mono)">Dành cho Bộ GD&ĐT</div>
+        </div>
+        <div class="report-mini" style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:20px;opacity:.6">
+          <span class="tag teal" style="font-size:10px">Kế hoạch · T12/2026</span>
+          <div class="rm-title" style="margin-top:10px;font-family:var(--font-serif);font-size:15px;font-weight:700;color:var(--navy)">Báo cáo Thường niên Giáo dục 2026</div>
+          <div class="rm-meta" style="font-size:12px;color:var(--muted);margin-top:6px;font-family:var(--font-mono)">Công bố mở · Toàn quốc</div>
+        </div>
+        <div class="report-mini" style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:20px;opacity:.6">
+          <span class="tag gold" style="font-size:10px">Kế hoạch · 2027</span>
+          <div class="rm-title" style="margin-top:10px;font-family:var(--font-serif);font-size:15px;font-weight:700;color:var(--navy)">Comparative Report: VN vs. ASEAN</div>
+          <div class="rm-meta" style="font-size:12px;color:var(--muted);margin-top:6px;font-family:var(--font-mono)">Nghiên cứu so sánh khu vực</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ PAGE: OPEN DATA ══════════════ -->
+<div id="page-data">
+  <section class="section" style="background:var(--paper);padding-top:60px">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Dữ liệu mở</div>
+        <h2>Kho dữ liệu mở VNEdData</h2>
+        <p>Tất cả dataset được công bố theo giấy phép Creative Commons CC BY 4.0 — tự do sử dụng, chia sẻ và chỉnh sửa với điều kiện ghi nguồn.</p>
+      </div>
+
+      <div style="background:var(--cream);border:1px solid var(--rule);border-radius:12px;padding:28px;margin-bottom:24px">
+        <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--navy);margin-bottom:6px">Cách trích dẫn</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:12px">Khi sử dụng dữ liệu VNEdData trong nghiên cứu, báo cáo hoặc tác phẩm của bạn, vui lòng trích dẫn theo định dạng sau:</p>
+        <div style="background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;font-family:var(--font-mono);font-size:13px;color:var(--ink)">
+          VNEdData. (2026). <em>[Tên khảo sát]</em> [Dataset]. VNEdData — Dữ liệu Giáo dục Việt Nam. vneddata@gmail.com
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <div style="font-size:28px">📊</div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-weight:600;color:var(--navy);font-size:15px">2026-AI-V1 · Dataset Ẩn danh</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:3px">Dữ liệu khảo sát AI trong Học tập · Cập nhật liên tục</div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span style="font-family:var(--font-mono);font-size:11px;background:var(--lteal);color:var(--teal);padding:3px 10px;border-radius:20px">CSV</span>
+            <span style="font-family:var(--font-mono);font-size:11px;background:var(--lteal);color:var(--teal);padding:3px 10px;border-radius:20px">CC BY 4.0</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted);font-style:italic">Sắp có sau khi thu thập đủ dữ liệu</div>
+        </div>
+
+        <div style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <div style="font-size:28px">📋</div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-weight:600;color:var(--navy);font-size:15px">Bộ câu hỏi Chuẩn VNEdData v1.0</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:3px">Template cho 6 chủ đề khảo sát giáo dục · Kèm Codebook</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <span style="font-family:var(--font-mono);font-size:11px;background:var(--gold-lt);color:#8B5E0A;padding:3px 10px;border-radius:20px">PDF</span>
+          </div>
+          <a href="mailto:vneddata@gmail.com" style="font-size:13px;color:var(--teal);font-weight:600;text-decoration:none">Liên hệ để nhận →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ PAGE: ABOUT ══════════════ -->
+<div id="page-about">
+  <section class="section about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <span class="tag">Về chúng tôi</span>
+          <h2>Tại sao VNEdData<br>được thành lập?</h2>
+          <p>Việt Nam đang trải qua cuộc chuyển đổi lịch sử trong giáo dục — nhưng hầu như không có dữ liệu độc lập để hiểu cuộc chuyển đổi đó đang thực sự diễn ra như thế nào.</p>
+          <p>VNEdData ra đời từ một niềm tin đơn giản: những quyết định tốt nhất về giáo dục là những quyết định dựa trên bằng chứng thực, không phải phỏng đoán. Và để có bằng chứng đó, cần có người thu thập nó một cách có hệ thống, khoa học và độc lập.</p>
+          <p>Chúng tôi không cạnh tranh với Bộ GD&ĐT hay các cơ quan nhà nước — chúng tôi bổ sung cho họ bằng dữ liệu độc lập có thể kiểm chứng.</p>
+
+          <div class="value-list">
+            <div class="val-row">
+              <div class="val-icon">🔬</div>
+              <div class="val-text">
+                <strong>Khoa học</strong>
+                <span>Phương pháp chuẩn quốc tế, pre-registration, peer review</span>
+              </div>
+            </div>
+            <div class="val-row">
+              <div class="val-icon">📂</div>
+              <div class="val-text">
+                <strong>Minh bạch</strong>
+                <span>Dữ liệu mở, phương pháp mở, changelog công khai</span>
+              </div>
+            </div>
+            <div class="val-row">
+              <div class="val-icon">🛡️</div>
+              <div class="val-text">
+                <strong>Độc lập</strong>
+                <span>Không nhận tài trợ có điều kiện, không có lợi ích thương mại</span>
+              </div>
+            </div>
+            <div class="val-row">
+              <div class="val-icon">🎯</div>
+              <div class="val-text">
+                <strong>Tác động thực</strong>
+                <span>Mọi nghiên cứu kết thúc bằng đề xuất hành động cụ thể</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-right">
+          <div class="ethics-card">
+            <h3>Cam kết bảo mật</h3>
+            <div class="ethics-item">Không thu thập tên, email, số điện thoại hay bất kỳ thông tin định danh nào</div>
+            <div class="ethics-item">Địa chỉ IP không được ghi nhận hay lưu trữ</div>
+            <div class="ethics-item">Dữ liệu chỉ được sử dụng cho mục đích nghiên cứu học thuật</div>
+            <div class="ethics-item">Không bán, không chia sẻ, không thương mại hóa dữ liệu</div>
+            <div class="ethics-item">Người tham gia có quyền rút lui bất kỳ lúc nào</div>
+            <div class="ethics-item">Tuân thủ Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân</div>
+          </div>
+          <div class="contact-block">
+            <p>Liên hệ hợp tác, đóng góp hoặc câu hỏi về phương pháp:</p>
+            <a href="mailto:vneddata@gmail.com">vneddata@gmail.com</a>
+          </div>
+          <div style="margin-top:16px;background:var(--lteal);border-radius:10px;padding:20px;border:1px solid rgba(20,143,119,.2)">
+            <div style="font-size:13px;font-weight:600;color:var(--teal);margin-bottom:8px">🤝 Tham gia cộng đồng nghiên cứu</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.6">Nếu bạn là nhà giáo dục, nhà nghiên cứu hoặc quản lý giáo dục muốn đóng góp vào việc thu thập dữ liệu tại trường mình, hãy liên hệ với chúng tôi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER (shown on all pages) -->
+<div class="gold-rule"></div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div style="margin-bottom:12px">
+          <span style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.2px;color:#fff">VNEd<span style="color:#5DC9B2">Data</span></span>
+        </div>
+        <p>Dữ liệu giáo dục độc lập Việt Nam. Khoa học · Minh bạch · Bền vững.</p>
+        <a href="mailto:vneddata@gmail.com" class="fb-email">vneddata@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Khảo sát</h4>
+        <a href="#" onclick="showPage('surveys');return false;">Đang mở</a>
+        <a href="#" onclick="showPage('surveys');return false;">Sắp mở</a>
+        <a href="#" onclick="showPage('surveys');return false;">Đã đóng</a>
+      </div>
+      <div class="footer-col">
+        <h4>Nghiên cứu</h4>
+        <a href="#" onclick="showPage('reports');return false;">Báo cáo</a>
+        <a href="#" onclick="showPage('data');return false;">Dữ liệu mở</a>
+        <a href="#" onclick="showPage('about');return false;">Phương pháp</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tổ chức</h4>
+        <a href="#" onclick="showPage('about');return false;">Về VNEdData</a>
+        <a href="#" onclick="showPage('about');return false;">Giá trị cốt lõi</a>
+        <a href="mailto:vneddata@gmail.com">Liên hệ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VNEdData · Dữ liệu Giáo dục Việt Nam</span>
+      <span>Dữ liệu CC BY 4.0 · <a href="#">Chính sách bảo mật</a> · <a href="#">Điều khoản sử dụng</a></span>
+    </div>
+  </div>
+</footer>
+<div class="gold-rule"></div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-survey-ai">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('survey-ai')">×</button>
+    <span class="tag teal" style="margin-bottom:14px">Đang mở · 2026-AI-V1</span>
+    <h2>AI trong Học tập — Thực trạng 2026</h2>
+    <p>Khảo sát toàn diện về mức độ sử dụng, nhận thức và tác động của AI đối với học sinh, sinh viên Việt Nam. 10 câu hỏi, khoảng 4–8 phút.</p>
+    <p style="font-size:13px;color:var(--muted)">🔒 Ẩn danh hoàn toàn · Không lưu IP · Chỉ dùng cho nghiên cứu học thuật</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+      <a href="khaosat_thidiem_1truong.html" target="_blank" class="btn btn-primary">Tham gia ngay →</a>
+      <button class="btn" style="background:var(--paper);color:var(--navy);border:1px solid var(--rule)" onclick="closeModal('survey-ai')">Đóng</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-survey-teacher">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('survey-teacher')">×</button>
+    <span class="tag" style="margin-bottom:14px">Sắp mở · 2026-TEACHER-V1</span>
+    <h2>Giáo viên & Chuyển đổi số 2026</h2>
+    <p>Khảo sát về năng lực số và thái độ với AI của đội ngũ giáo viên. Dự kiến mở vào tháng 7/2026.</p>
+    <p style="font-size:13px;color:var(--muted)">Để nhận thông báo khi khảo sát mở, gửi email đến vneddata@gmail.com</p>
+    <button class="btn btn-primary" onclick="closeModal('survey-teacher');showPage('about')">Liên hệ đăng ký →</button>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-survey-parent">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('survey-parent')">×</button>
+    <span class="tag" style="margin-bottom:14px">Sắp mở · 2026-PARENT-V1</span>
+    <h2>Phụ huynh & Kỳ vọng Giáo dục</h2>
+    <p>Khảo sát về quan điểm của phụ huynh với giáo dục và công nghệ. Dự kiến mở vào tháng 9/2026.</p>
+    <button class="btn btn-primary" onclick="closeModal('survey-parent');showPage('about')">Liên hệ đăng ký →</button>
+  </div>
+</div>
+
+<script>
+// ── PAGE ROUTING ─────────────────────────────────────────────────────────
+function showPage(name) {
+  ['home','surveys','reports','data','about'].forEach(p => {
+    document.getElementById('page-'+p).classList.remove('active');
+  });
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const map = { home:0, surveys:1, reports:2, data:3, about:4 };
+  if (map[name] !== undefined) document.querySelectorAll('.nav-link')[map[name]].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  return false;
+}
+
+// ── MODALS ────────────────────────────────────────────────────────────────
+function openModal(id) { document.getElementById('modal-'+id)?.classList.add('open'); return false; }
+function closeModal(id) { document.getElementById('modal-'+id)?.classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(el => {
+  el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
+});
+
+// ── LIVE STATS — reads from localStorage (survey responses) ───────────────
+function loadStats() {
+  const responses = JSON.parse(localStorage.getItem('ai_edu_responses_v1') || '[]');
+  const localN = responses.length;
+
+  // Merge: use VNEDDATA.surveys[0].currentN as floor, localN as addition
+  const D = (typeof VNEDDATA !== 'undefined') ? VNEDDATA : null;
+  const baseN = D ? (D.surveys.find(s=>s.id==='2026-AI-V1')?.currentN || 0) : 0;
+  const totalN = baseN + localN;
+  const targetN = D ? (D.surveys.find(s=>s.id==='2026-AI-V1')?.targetN || 500) : 500;
+
+  animateNumber('stat-resp', totalN);
+  animateNumber('live-n', totalN);
+  animateNumber('rep-resp', totalN);
+
+  const pct = Math.min(100, (totalN / targetN) * 100);
+  const pb = document.getElementById('prog-bar');
+  if (pb) setTimeout(() => pb.style.width = pct + '%', 300);
+}
+
+function animateNumber(id, target) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (target === 0) { el.textContent = '0'; return; }
+  let current = 0;
+  const step = Math.ceil(target / 40);
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = current.toLocaleString();
+    if (current >= target) clearInterval(timer);
+  }, 28);
+}
+
+// ── RENDER FROM data.js ───────────────────────────────────────────────────
+function renderFromData() {
+  if (typeof VNEDDATA === 'undefined') return;
+  const D = VNEDDATA;
+
+  // Update stat targets in hero
+  const statTarget = document.getElementById('stat-target');
+  if (statTarget) statTarget.textContent = D.stats.targetResponses.toLocaleString();
+
+  // Update active surveys count in nav/hero if needed
+  const openSurveys = D.getSurveysByStatus('open');
+  const elActiveSurveys = document.querySelectorAll('.active-survey-count');
+  elActiveSurveys.forEach(el => el.textContent = openSurveys.length);
+}
+
+// ── JOIN FORM ─────────────────────────────────────────────────────────────
+function handleJoin() {
+  const email = document.getElementById('email-input')?.value?.trim();
+  if (!email || !email.includes('@')) { alert('Vui lòng nhập email hợp lệ'); return; }
+  const D = (typeof VNEDDATA !== 'undefined') ? VNEDDATA : null;
+  const mailto = D ? `mailto:${D.config.email}?subject=Đăng ký nhận cập nhật VNEdData&body=Email đăng ký: ${email}` : '#';
+  window.location.href = mailto;
+  document.getElementById('email-input').value = '';
+}
+
+// ── MOBILE MENU ───────────────────────────────────────────────────────────
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (!links) return;
+  const vis = links.style.display === 'flex';
+  links.style.cssText = vis ? '' : 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--rule);padding:12px 28px;gap:4px;box-shadow:0 4px 20px rgba(11,29,62,.1);z-index:300';
+}
+
+// ── SCROLL ANIMATIONS ─────────────────────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.10 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderFromData();
+  loadStats();
+});
+setInterval(loadStats, 15000);
+</script>
+</body>
+</html>
