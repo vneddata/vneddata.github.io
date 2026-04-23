@@ -13,7 +13,7 @@
  *   git add config.js → git commit → git push
  *   Website tự cập nhật sau ~1 phút
  *
- * Cập nhật lần cuối: Tháng 4/2026
+ * Cập nhật lần cuối: Tháng 4/2026 — Đã kết nối Form + Sheet 2026-AI-V1
  * ══════════════════════════════════════════════════════════════
  */
 
@@ -49,7 +49,7 @@ const VNEDCONFIG = {
   // Điền link Google Form sau khi tạo xong
   // Hướng dẫn: forms.google.com → Tạo form → Gửi → Sao chép link
   googleForms: {
-    ai2026:      https://forms.gle/hPyn53bUALkYYbRAA,   // ← ĐIỀN VÀO: link khảo sát 2026-AI-V1
+    ai2026:      "https://forms.gle/ydu8zStC12enAb4Y9",  // ✅ 2026-AI-V1 — đã kết nối
     teacher2026: null,   // ← ĐIỀN VÀO: link khảo sát 2026-TEACHER-V1
     parent2026:  null,   // ← ĐIỀN VÀO: link khảo sát 2026-PARENT-V1
     infra2026:   null,   // ← ĐIỀN VÀO: link khảo sát 2026-INFRA-V1
@@ -60,7 +60,7 @@ const VNEDCONFIG = {
   // Hoặc: trong Form → Responses tab → tạo Spreadsheet
   // Link Sheet: mở Sheet → copy URL trên thanh địa chỉ
   googleSheets: {
-    ai2026:      https://docs.google.com/spreadsheets/d/1n0ZfCrS2dPlY8hoiFWndE9EthMiDeioJx52g7iTSwPs/edit?resourcekey=&gid=103376940#gid=103376940,   // ← ĐIỀN VÀO: link Google Sheet của 2026-AI-V1
+    ai2026:      "https://docs.google.com/spreadsheets/d/1n0ZfCrS2dPlY8hoiFWndE9EthMiDeioJx52g7iTSwPs/edit",  // ✅ 2026-AI-V1 — đã kết nối
     teacher2026: null,
     parent2026:  null,
     infra2026:   null,
@@ -80,8 +80,8 @@ const VNEDCONFIG = {
   // ── TRẠNG THÁI KẾT NỐI ────────────────────────────────────────
   // Hệ thống tự đọc và hiển thị trạng thái trên website
   connectionStatus: {
-    googleForms:   false,  // ← Đổi thành true khi đã tạo và điền link Forms
-    googleSheets:  false,  // ← Đổi thành true khi đã tạo Sheets và có dữ liệu
+    googleForms:   true,   // ✅ 2026-AI-V1 đã kết nối — T4/2026
+    googleSheets:  true,   // ✅ 2026-AI-V1 đã kết nối — T4/2026
     lookerStudio:  false,  // ← Đổi thành true khi đã embed dashboard
   },
 
