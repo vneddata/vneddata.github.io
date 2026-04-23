@@ -19,41 +19,11 @@ const VNEDDATA = {
   // ════════════════════════════════════════════════════════════
   // 1. CẤU HÌNH HỆ THỐNG — Thay đổi khi rebrand hoặc đổi tài khoản
   // ════════════════════════════════════════════════════════════
-  config: {
-    name:       "VNEdData",
-    nameHtml:   "<span class='vned'>VNEd</span><span class='data'>Data</span>",
-    tagline:    "Dữ liệu Giáo dục Việt Nam",
-    taglineFull:"Dữ liệu giáo dục độc lập · Khoa học · Minh bạch · Bền vững",
-    founded:    "2026",
-    email:      "vneddata@gmail.com",
-    github:     "https://github.com/vneddata/vneddata",
-    website:    "https://vneddata.github.io",
-    version:    "1.0",
-    lastUpdated:"2026-04",
-
-    // Màu sắc brand (dùng cho JS-rendered elements)
-    colors: {
-      navy:   "#0B1D3E",
-      blue:   "#0F3460",
-      teal:   "#148F77",
-      gold:   "#C8841A",
-      white:  "#FFFFFF",
-      cream:  "#FEFCF9",
-    },
-
-    // Google services — cập nhật khi có form/sheet/dashboard mới
-    googleForms: {
-      ai2026:     "https://forms.gle/PLACEHOLDER_AI_2026",     // ← Thay bằng link thật
-      teacher2026:"https://forms.gle/PLACEHOLDER_TEACHER_2026",
-      parent2026: "https://forms.gle/PLACEHOLDER_PARENT_2026",
-      infra2026:  "https://forms.gle/PLACEHOLDER_INFRA_2026",
-    },
-    googleSheets: {
-      ai2026:     "https://docs.google.com/spreadsheets/d/PLACEHOLDER", // ← Sheet lưu responses
-    },
-    lookerStudio: {
-      ai2026:     "",  // ← Dán embed URL Looker Studio vào đây khi có
-    },
+  // config đã chuyển sang config.js — dùng VNEDCONFIG thay thế
+  // Ví dụ: VNEDCONFIG.project.email, VNEDCONFIG.googleForms.ai2026
+  config: typeof VNEDCONFIG !== 'undefined' ? VNEDCONFIG.project : {
+    name: "VNEdData", email: "vneddata@gmail.com",
+    website: "https://vneddata.github.io",
   },
 
   // ════════════════════════════════════════════════════════════
@@ -100,8 +70,8 @@ const VNEDDATA = {
       targetN:     500,
       currentN:    0,              // ← Cập nhật hàng tuần
       file:        "khaosat_thidiem_1truong.html",
-      formUrl:     null,           // ← Điền Google Forms URL khi có
-      sheetsUrl:   null,
+      formUrl:     'https://forms.gle/ydu8zStC12enAb4Y9',  // ✅ đã kết nối T4/2026
+      sheetsUrl:   'https://docs.google.com/spreadsheets/d/1n0ZfCrS2dPlY8hoiFWndE9EthMiDeioJx52g7iTSwPs/edit',
       lookerUrl:   null,
       topics:      ["AI", "Học tập", "Nhận thức", "Đạo đức học thuật"],
       dataAvailable: false,        // true khi có CSV để download
@@ -392,6 +362,6 @@ VNEDDATA.updateResponses = function(surveyId, n) {
 
 // Đánh dấu đã load xong
 window.VNEDDATA_LOADED = true;
-console.log('[VNEdData] data.js loaded — version', VNEDDATA.config.version,
+console.log('[VNEdData] data.js loaded — version', (VNEDDATA.config||{}).version || '1.0',
   '|', VNEDDATA.surveys.length, 'surveys |',
   VNEDDATA.getSurveysByStatus('open').length, 'open');
