@@ -795,10 +795,26 @@ function updProg() {
   document.getElementById('pf').style.width = pct + '%';
   document.getElementById('pt').textContent = n + ' / ' + TOTAL;
 }
+// ── CẤU HÌNH APPS SCRIPT ──────────────────────────────────────────
+// Sau khi deploy Apps Script, dán URL vào đây:
+const APPS_SCRIPT_URL = window.VNEDCONFIG?.appsScript?.ai2026 || null;
+
 function submit() {
   const entry = { ...cur, q10_text: document.getElementById('q10').value.trim(), ts: Date.now() };
   responses.push(entry);
   localStorage.setItem(STORE_KEY, JSON.stringify(responses));
+
+  // ── GỬI LÊN GOOGLE SHEET qua Apps Script ──────────────────────
+  if (APPS_SCRIPT_URL) {
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(entry)
+    }).catch(err => console.warn('[VNEdData] Sheet sync error:', err));
+  }
+
+  // ── UI feedback (giữ nguyên) ───────────────────────────────────
   document.getElementById('sub-zone').style.display = 'none';
   document.querySelectorAll('.s-card').forEach(c => c.style.opacity = '.35');
   const ty = document.getElementById('ty');
