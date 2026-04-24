@@ -70,7 +70,7 @@ const VNEDDATA = {
       targetN:     500,
       currentN:    0,              // ← Cập nhật hàng tuần
       file:        "khaosat_thidiem_1truong.html",
-      formUrl:     'https://forms.gle/ydu8zStC12enAb4Y9',  // ✅ đã kết nối T4/2026
+      formUrl:     'https://tally.so/r/Y5oa0q',  // ✅ Tally form — đã kết nối T4/2026
       sheetsUrl:   'https://docs.google.com/spreadsheets/d/1n0ZfCrS2dPlY8hoiFWndE9EthMiDeioJx52g7iTSwPs/edit',
       lookerUrl:   null,
       topics:      ["AI", "Học tập", "Nhận thức", "Đạo đức học thuật"],
