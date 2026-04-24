@@ -49,7 +49,7 @@ const VNEDCONFIG = {
   // Điền link Google Form sau khi tạo xong
   // Hướng dẫn: forms.google.com → Tạo form → Gửi → Sao chép link
   googleForms: {
-    ai2026:      "https://forms.gle/ydu8zStC12enAb4Y9",  // ✅ 2026-AI-V1 — đã kết nối
+    ai2026:      "https://tally.so/r/Y5oa0q",  // ✅ 2026-AI-V1 — Tally form — đã kết nối T4/2026
     teacher2026: null,   // ← ĐIỀN VÀO: link khảo sát 2026-TEACHER-V1
     parent2026:  null,   // ← ĐIỀN VÀO: link khảo sát 2026-PARENT-V1
     infra2026:   null,   // ← ĐIỀN VÀO: link khảo sát 2026-INFRA-V1
@@ -66,10 +66,19 @@ const VNEDCONFIG = {
     infra2026:   null,
   },
 
+  // ── TALLY FORMS ──────────────────────────────────────────────────
+  // Tally.so — form đẹp, kết nối thẳng Google Sheets, không cần Apps Script
+  tallyForms: {
+    ai2026:      "https://tally.so/r/Y5oa0q",  // ✅ đã kết nối T4/2026
+    teacher2026: null,
+    parent2026:  null,
+    infra2026:   null,
+  },
+
   // ── APPS SCRIPT ──────────────────────────────────────────────────
   // Dán URL sau khi deploy Apps Script
   appsScript: {
-    ai2026:      "https://script.google.com/macros/s/AKfycbzmHJxc9S1RpdH2uU4uwPKXNNpa3tuTxGlUIw7m3k2pYUKYsOyQXoVglxzzrKTU3aF3/exec",   // ← ĐIỀN VÀO sau khi deploy Apps Script
+    ai2026:      null,   // ← ĐIỀN VÀO sau khi deploy Apps Script
     teacher2026: null,
     parent2026:  null,
     infra2026:   null,
