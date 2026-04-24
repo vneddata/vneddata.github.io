@@ -698,7 +698,7 @@ body {
       <a href="#" class="nav-link" onclick="showPage('surveys')">Khảo sát</a>
       <a href="#" class="nav-link" onclick="showPage('reports')">Báo cáo</a>
       <a href="#" class="nav-link" onclick="showPage('data')">Dữ liệu mở</a>
-      <a href="#" class="nav-link" onclick="showPage('about')">Về chúng tôi</a>
+      <a href="#" class="nav-link" onclick="window.location.href='about.html';return false;">Về chúng tôi</a>
     </div>
     <a href="#" class="nav-cta" onclick="showPage('surveys');return false;">Tham gia khảo sát</a>
     <button class="nav-hamburger" onclick="toggleMenu()">
@@ -753,7 +753,16 @@ body {
           </a>
         </div>
         <div class="hero-stats">
-          <div class="h-stat"><span class="v" id="stat-resp">0</span><span class="l">Phản hồi thu thập</span></div>
+          <div class="h-stat">
+            <span class="v">
+              <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,.5);font-family:var(--font-mono);">Đang thu thập</span>
+            </span>
+            <span class="l">Khảo sát 2026-AI-V1 · T4/2026</span>
+            <div style="margin-top:8px;background:rgba(255,255,255,.1);border-radius:99px;height:4px;width:120px;overflow:hidden;">
+              <div id="hero-prog" style="background:var(--teal);height:100%;border-radius:99px;width:1%;transition:width 1s;"></div>
+            </div>
+            <span style="font-size:11px;color:rgba(255,255,255,.3);margin-top:4px;display:block;font-family:var(--font-mono);" id="hero-prog-label">Mục tiêu: 500 responses</span>
+          </div>
           <div class="h-stat"><span class="v">1</span><span class="l">Khảo sát đang mở</span></div>
           <div class="h-stat"><span class="v">2026</span><span class="l">Năm thành lập</span></div>
         </div>
@@ -1193,31 +1202,74 @@ body {
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-          <div style="font-size:28px">📊</div>
-          <div style="flex:1;min-width:200px">
-            <div style="font-weight:600;color:var(--navy);font-size:15px">2026-AI-V1 · Dataset Ẩn danh</div>
-            <div style="font-size:13px;color:var(--muted);margin-top:3px">Dữ liệu khảo sát AI trong Học tập · Cập nhật liên tục</div>
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <span style="font-family:var(--font-mono);font-size:11px;background:var(--lteal);color:var(--teal);padding:3px 10px;border-radius:20px">CSV</span>
-            <span style="font-family:var(--font-mono);font-size:11px;background:var(--lteal);color:var(--teal);padding:3px 10px;border-radius:20px">CC BY 4.0</span>
-          </div>
-          <div style="font-size:13px;color:var(--muted);font-style:italic">Sắp có sau khi thu thập đủ dữ liệu</div>
-        </div>
+      <!-- METHODOLOGY SECTION — public now, data later -->
+      <div style="margin-bottom:32px">
+        <div style="font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:flex;align-items:center;gap:10px;">Phương pháp công khai <span style="flex:1;height:1px;background:var(--rule);"></span></div>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.7;">Trước khi có dataset, VNEdData công khai toàn bộ phương pháp nghiên cứu. Đây là cam kết minh bạch: bạn có thể kiểm chứng <em>cách</em> chúng tôi thu thập dữ liệu trước khi tin vào kết quả.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
 
-        <div style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-          <div style="font-size:28px">📋</div>
-          <div style="flex:1;min-width:200px">
-            <div style="font-weight:600;color:var(--navy);font-size:15px">Bộ câu hỏi Chuẩn VNEdData v1.0</div>
-            <div style="font-size:13px;color:var(--muted);margin-top:3px">Template cho 6 chủ đề khảo sát giáo dục · Kèm Codebook</div>
+          <div style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:18px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+            <div style="font-size:24px;">📋</div>
+            <div style="flex:1;min-width:200px;">
+              <div style="font-weight:600;color:var(--navy);font-size:14px;">Bộ câu hỏi 2026-AI-V1 · 10 câu</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:3px;">Phần A–D: Bậc học · Công cụ AI · Nhận thức · Kỳ vọng · Informed consent đầy đủ</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span style="font-family:var(--font-mono);font-size:11px;background:var(--lteal);color:var(--teal);padding:3px 10px;border-radius:20px;">CÔNG KHAI</span>
+              <a href="https://tally.so/r/Y5oa0q" target="_blank" style="font-size:12.5px;color:var(--teal);font-weight:600;text-decoration:none;">Xem form →</a>
+            </div>
           </div>
-          <div style="display:flex;gap:8px">
-            <span style="font-family:var(--font-mono);font-size:11px;background:var(--gold-lt);color:#8B5E0A;padding:3px 10px;border-radius:20px">PDF</span>
+
+          <div style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:18px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+            <div style="font-size:24px;">🔬</div>
+            <div style="flex:1;min-width:200px;">
+              <div style="font-weight:600;color:var(--navy);font-size:14px;">Research Protocol v1.0</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:3px;">Thiết kế nghiên cứu · Quy trình lấy mẫu · Kế hoạch phân tích pre-registered · Đạo đức nghiên cứu</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span style="font-family:var(--font-mono);font-size:11px;background:var(--gold-lt);color:#8B5E0A;padding:3px 10px;border-radius:20px;">PDF</span>
+              <a href="mailto:vneddata@gmail.com?subject=Research Protocol Request" style="font-size:12.5px;color:var(--teal);font-weight:600;text-decoration:none;">Nhận qua email →</a>
+            </div>
           </div>
-          <a href="mailto:vneddata@gmail.com" style="font-size:13px;color:var(--teal);font-weight:600;text-decoration:none">Liên hệ để nhận →</a>
+
+          <div style="background:var(--cream);border:1px solid var(--rule);border-radius:10px;padding:18px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+            <div style="font-size:24px;">📖</div>
+            <div style="flex:1;min-width:200px;">
+              <div style="font-weight:600;color:var(--navy);font-size:14px;">Codebook & Data Dictionary</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:3px;">Giải thích từng biến số, thang đo, mã hóa đáp án — dùng khi phân tích dataset sau khi công bố</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span style="font-family:var(--font-mono);font-size:11px;background:var(--gold-lt);color:#8B5E0A;padding:3px 10px;border-radius:20px;">PDF</span>
+              <a href="mailto:vneddata@gmail.com?subject=Codebook Request" style="font-size:12.5px;color:var(--teal);font-weight:600;text-decoration:none;">Nhận qua email →</a>
+            </div>
+          </div>
+
         </div>
+      </div>
+
+      <!-- DATASETS — coming soon, honest framing -->
+      <div>
+        <div style="font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:10px;">Dataset · Sắp công bố <span style="flex:1;height:1px;background:var(--rule);"></span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+
+          <div style="background:var(--lgray);border:1px dashed var(--border);border-radius:10px;padding:18px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;opacity:.8;">
+            <div style="font-size:24px;">📊</div>
+            <div style="flex:1;min-width:200px;">
+              <div style="font-weight:600;color:var(--navy);font-size:14px;">2026-AI-V1 · Dataset Ẩn danh</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:3px;">Dữ liệu khảo sát AI trong Học tập · Ẩn danh hóa theo k-anonymity k≥5</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+              <span style="font-family:var(--font-mono);font-size:11px;background:var(--lteal);color:var(--teal);padding:3px 10px;border-radius:20px;">CSV</span>
+              <span style="font-family:var(--font-mono);font-size:11px;background:var(--lteal);color:var(--teal);padding:3px 10px;border-radius:20px;">CC BY 4.0</span>
+              <span style="font-size:12px;color:var(--muted);font-style:italic;">Công bố khi n ≥ 200</span>
+            </div>
+          </div>
+
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:14px;line-height:1.7;">
+          Muốn được thông báo khi dataset công bố?
+          <a href="mailto:vneddata@gmail.com?subject=Notify me when dataset is available" style="color:var(--teal);font-weight:600;">Đăng ký nhận thông báo →</a>
+        </p>
       </div>
     </div>
   </section>
@@ -1405,6 +1457,11 @@ function loadStats() {
   const pct = Math.min(100, (totalN / targetN) * 100);
   const pb = document.getElementById('prog-bar');
   if (pb) setTimeout(() => pb.style.width = pct + '%', 300);
+  // Update hero progress bar
+  const hp = document.getElementById('hero-prog');
+  if (hp) setTimeout(() => hp.style.width = Math.max(1, pct) + '%', 400);
+  const hl = document.getElementById('hero-prog-label');
+  if (hl && totalN > 0) hl.textContent = totalN + ' responses · Mục tiêu: ' + targetN;
 }
 
 function animateNumber(id, target) {
