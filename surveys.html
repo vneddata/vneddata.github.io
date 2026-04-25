@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hệ thống khảo sát giáo dục VNEdData — Thu thập dữ liệu khoa học về thực trạng giáo dục Việt Nam.">
+<title>Khảo sát — VNEdData</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────────────────────────── */
+:root {
+  --navy:    #0B1D3E;
+  --blue:    #0F3460;
+  --teal:    #148F77;
+  --gold:    #C8841A;
+  --gold-lt: #F5E6C8;
+  --paper:   #F8F5F0;
+  --cream:   #FEFCF9;
+  --ink:     #1A2332;
+  --muted:   #5A6475;
+  --rule:    #D8D2C8;
+  --light:   #EBF5FB;
+  --lteal:   #E8F5F2;
+  --r:       3px;
+  --max:     1200px;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --font-mono:  'DM Mono', monospace;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── UTILITY ─────────────────────────────────────────────────────────────── */
+.container { max-width:var(--max); margin:0 auto; padding:0 28px; }
+.section { padding:80px 0; }
+.section-sm { padding:48px 0; }
+.tag {
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--font-mono); font-size:11px; font-weight:500;
+  letter-spacing:.8px; text-transform:uppercase;
+  color:var(--blue); background:var(--light);
+  padding:4px 12px; border-radius:20px;
+}
+.tag.teal { color:var(--teal); background:var(--lteal); }
+.tag.gold { color:var(--gold); background:var(--gold-lt); }
+
+/* ── TOPBAR ─────────────────────────────────────────────────────────────── */
+.topbar {
+  background:var(--navy);
+  padding:8px 0;
+  font-size:12px;
+  color:rgba(255,255,255,.5);
+  text-align:center;
+  letter-spacing:.3px;
+  border-bottom:2px solid var(--gold);
+}
+.topbar strong { color:var(--gold-lt); }
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+.nav {
+  background:var(--cream);
+  border-bottom:1px solid var(--rule);
+  position:sticky; top:0; z-index:200;
+  box-shadow:0 1px 12px rgba(11,29,62,.06);
+}
+.nav-inner {
+  max-width:var(--max); margin:0 auto; padding:0 28px;
+  display:flex; align-items:center; height:68px; gap:0;
+}
+.nav-brand {
+  display:flex; align-items:center;
+  text-decoration:none;
+  margin-right:auto;
+  padding:2px 0;
+}
+.nav-brand .vn { color:var(--navy); }
+.nav-brand .ed { color:var(--navy); }
+.nav-brand .data { color:var(--teal); }
+.brand-mark {
+  width:32px; height:32px; border-radius:50%;
+  background:var(--navy);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.brand-mark svg { width:18px; height:18px; }
+.nav-links { display:flex; align-items:center; gap:2px; }
+.nav-link {
+  padding:8px 14px; border-radius:var(--r);
+  font-size:14px; font-weight:500;
+  color:var(--muted); text-decoration:none;
+  transition:all .18s; white-space:nowrap;
+}
+.nav-link:hover { color:var(--navy); background:rgba(11,29,62,.05); }
+.nav-link.active { color:var(--blue); }
+.nav-cta {
+  margin-left:16px;
+  background:var(--navy); color:white;
+  padding:9px 20px; border-radius:6px;
+  font-size:13.5px; font-weight:600;
+  text-decoration:none; letter-spacing:.1px;
+  transition:all .2s; white-space:nowrap;
+}
+.nav-cta:hover { background:var(--blue); }
+.nav-hamburger {
+  display:none; background:none; border:none;
+  cursor:pointer; padding:8px; color:var(--navy);
+}
+@media(max-width:768px){
+  .nav-links, .nav-cta { display:none; }
+  .nav-hamburger { display:flex; }
+}
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  background:var(--navy);
+  padding:100px 0 80px;
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(20,143,119,.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 80%, rgba(200,132,26,.10) 0%, transparent 50%);
+}
+/* Subtle grid lines */
+.hero::after {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-inner {
+  position:relative; z-index:1;
+  max-width:var(--max); margin:0 auto; padding:0 28px;
+  display:grid; grid-template-columns:1fr 420px; gap:64px; align-items:center;
+}
+@media(max-width:900px){ .hero-inner { grid-template-columns:1fr; } }
+.hero-left {}
+.hero-kicker {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.7);
+  font-family:var(--font-mono); font-size:11px;
+  padding:5px 14px; border-radius:20px;
+  margin-bottom:24px; letter-spacing:.6px;
+}
+.hero-kicker .pulse {
+  width:7px; height:7px; border-radius:50%;
+  background:var(--teal);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+.hero h1 {
+  font-family:var(--font-serif);
+  font-size:clamp(32px, 5vw, 52px);
+  font-weight:700; line-height:1.15;
+  color:white; margin-bottom:20px;
+  letter-spacing:-.5px;
+}
+.hero h1 em { color:var(--gold-lt); font-style:normal; }
+.hero-sub {
+  font-size:17px; line-height:1.7;
+  color:rgba(255,255,255,.65);
+  max-width:480px; margin-bottom:36px;
+}
+.hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 28px; border-radius:6px;
+  font-size:14.5px; font-weight:600;
+  text-decoration:none; transition:all .22s;
+  white-space:nowrap; cursor:pointer; border:none;
+  font-family:var(--font-sans);
+}
+.btn-primary {
+  background:var(--teal); color:white;
+  box-shadow:0 4px 16px rgba(20,143,119,.35);
+}
+.btn-primary:hover { background:#117a65; transform:translateY(-1px); }
+.btn-outline {
+  background:transparent; color:rgba(255,255,255,.8);
+  border:1.5px solid rgba(255,255,255,.25);
+}
+.btn-outline:hover { background:rgba(255,255,255,.1); color:white; }
+.hero-stats {
+  display:flex; gap:28px; margin-top:48px;
+  padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.h-stat .v {
+  font-family:var(--font-serif);
+  font-size:32px; font-weight:700;
+  color:var(--gold-lt); line-height:1;
+  display:block;
+}
+.h-stat .l { font-size:12px; color:rgba(255,255,255,.45); margin-top:4px; }
+
+/* Hero right — mission card */
+.hero-card {
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px; padding:32px;
+  backdrop-filter:blur(8px);
+}
+@media(max-width:900px){ .hero-card { display:none; } }
+.hero-card-title {
+  font-family:var(--font-mono); font-size:10px;
+  letter-spacing:.9px; text-transform:uppercase;
+  color:var(--gold-lt); margin-bottom:18px;
+  display:flex; align-items:center; gap:8px;
+}
+.hero-card-title::before {
+  content:''; display:block;
+  width:20px; height:2px; background:var(--gold);
+}
+.mission-item {
+  display:flex; gap:14px; margin-bottom:20px; align-items:flex-start;
+}
+.mission-item:last-child { margin-bottom:0; }
+.m-icon {
+  width:36px; height:36px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:17px; flex-shrink:0; margin-top:2px;
+}
+.m-icon.blue { background:rgba(15,52,96,.6); }
+.m-icon.teal { background:rgba(20,143,119,.3); }
+.m-icon.gold { background:rgba(200,132,26,.25); }
+.m-text strong { font-size:13.5px; color:rgba(255,255,255,.85); display:block; margin-bottom:3px; }
+.m-text span { font-size:12.5px; color:rgba(255,255,255,.45); line-height:1.5; }
+
+/* ── DIVIDER ─────────────────────────────────────────────────────────────── */
+.gold-rule { height:4px; background:linear-gradient(90deg, var(--gold), var(--teal), transparent); }
+
+/* ── SURVEY SECTION ──────────────────────────────────────────────────────── */
+.surveys-section { background:var(--paper); }
+.section-header { margin-bottom:48px; }
+.section-header h2 {
+  font-family:var(--font-serif);
+  font-size:clamp(26px,4vw,38px);
+  font-weight:700; color:var(--navy);
+  margin-top:10px; margin-bottom:10px;
+  letter-spacing:-.3px;
+}
+.section-header p { font-size:16px; color:var(--muted); max-width:540px; line-height:1.7; }
+
+.surveys-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+@media(max-width:900px){ .surveys-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:580px){ .surveys-grid { grid-template-columns:1fr; } }
+
+.survey-card {
+  background:var(--cream); border-radius:12px;
+  border:1px solid var(--rule);
+  overflow:hidden; transition:all .22s;
+  display:flex; flex-direction:column;
+  text-decoration:none; color:inherit;
+}
+.survey-card:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 36px rgba(11,29,62,.10);
+  border-color:rgba(11,29,62,.15);
+}
+.sc-header {
+  padding:24px 24px 0;
+  display:flex; align-items:flex-start; justify-content:space-between;
+}
+.sc-icon {
+  width:44px; height:44px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; flex-shrink:0;
+}
+.sc-status {
+  font-family:var(--font-mono); font-size:10px;
+  font-weight:500; letter-spacing:.6px;
+  padding:3px 10px; border-radius:20px;
+}
+.sc-status.open { background:#D5F5E3; color:#117a65; }
+.sc-status.closed { background:#F2F3F4; color:var(--muted); }
+.sc-status.upcoming { background:var(--gold-lt); color:#8B5E0A; }
+.sc-body { padding:16px 24px 20px; flex:1; }
+.sc-body h3 {
+  font-family:var(--font-serif);
+  font-size:17px; font-weight:700;
+  color:var(--navy); margin-bottom:8px; line-height:1.3;
+}
+.sc-body p { font-size:13.5px; color:var(--muted); line-height:1.6; }
+.sc-meta {
+  padding:16px 24px;
+  border-top:1px solid var(--rule);
+  display:flex; gap:16px; align-items:center;
+}
+.sc-meta-item { font-size:12px; color:var(--muted); display:flex; align-items:center; gap:5px; }
+.sc-meta-item svg { opacity:.5; }
+.sc-link {
+  margin-left:auto;
+  font-size:12.5px; font-weight:600; color:var(--teal);
+  display:flex; align-items:center; gap:4px;
+  text-decoration:none;
+}
+.sc-link:hover { gap:7px; }
+
+/* ── RESEARCH PHILOSOPHY ─────────────────────────────────────────────────── */
+.philosophy-section { background:var(--cream); }
+.philosophy-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule); border-radius:12px; overflow:hidden; }
+@media(max-width:700px){ .philosophy-grid { grid-template-columns:1fr; } }
+.phi-block {
+  padding:36px;
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.phi-block:nth-child(even) { border-right:none; }
+.phi-block:nth-last-child(-n+2) { border-bottom:none; }
+@media(max-width:700px){
+  .phi-block { border-right:none; }
+  .phi-block:last-child { border-bottom:none; }
+}
+.phi-num {
+  font-family:var(--font-mono); font-size:11px;
+  color:var(--teal); margin-bottom:14px; letter-spacing:.5px;
+}
+.phi-block h3 {
+  font-family:var(--font-serif);
+  font-size:18px; font-weight:700;
+  color:var(--navy); margin-bottom:10px;
+}
+.phi-block p { font-size:14px; color:var(--muted); line-height:1.7; }
+
+/* ── REPORTS SECTION ─────────────────────────────────────────────────────── */
+.reports-section { background:var(--paper); }
+.reports-grid { display:grid; grid-template-columns:2fr 1fr; gap:28px; }
+@media(max-width:800px){ .reports-grid { grid-template-columns:1fr; } }
+.report-featured {
+  background:var(--cream);
+  border:1px solid var(--rule);
+  border-radius:12px; overflow:hidden;
+}
+.rf-top {
+  background:var(--navy);
+  padding:32px;
+  position:relative; overflow:hidden;
+}
+.rf-top::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 80% 50%, rgba(20,143,119,.2) 0%, transparent 60%);
+}
+.rf-top .tag { position:relative; z-index:1; }
+.rf-title {
+  font-family:var(--font-serif);
+  font-size:22px; font-weight:700;
+  color:white; margin-top:14px; margin-bottom:8px;
+  line-height:1.3; position:relative; z-index:1;
+}
+.rf-sub { font-size:13.5px; color:rgba(255,255,255,.55); position:relative; z-index:1; }
+.rf-body { padding:28px; }
+.rf-stat-row {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  margin-bottom:24px;
+}
+.rf-stat { text-align:center; }
+.rf-stat .v {
+  font-family:var(--font-serif);
+  font-size:28px; font-weight:700;
+  color:var(--navy); display:block;
+}
+.rf-stat .l { font-size:12px; color:var(--muted); margin-top:2px; }
+.rf-finding {
+  background:var(--paper);
+  border-left:3px solid var(--teal);
+  border-radius:0 6px 6px 0;
+  padding:14px 18px; margin-bottom:12px;
+}
+.rf-finding:last-child { margin-bottom:0; }
+.rf-finding p { font-size:13.5px; color:var(--ink); line-height:1.6; }
+.rf-finding .src { font-size:11px; color:var(--muted); margin-top:4px; font-family:var(--font-mono); }
+
+.reports-sidebar { display:flex; flex-direction:column; gap:16px; }
+.report-mini {
+  background:var(--cream);
+  border:1px solid var(--rule);
+  border-radius:10px; padding:20px;
+  transition:all .18s; text-decoration:none; color:inherit;
+  display:block;
+}
+.report-mini:hover { box-shadow:0 4px 16px rgba(11,29,62,.08); transform:translateX(3px); }
+.rm-tag { margin-bottom:10px; }
+.rm-title { font-family:var(--font-serif); font-size:15px; font-weight:700; color:var(--navy); margin-bottom:6px; line-height:1.3; }
+.rm-meta { font-size:12px; color:var(--muted); font-family:var(--font-mono); }
+
+/* ── DATA OPEN SECTION ───────────────────────────────────────────────────── */
+.opendata-section {
+  background:var(--navy);
+  padding:72px 0;
+  position:relative; overflow:hidden;
+}
+.opendata-section::before {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(20,143,119,.12) 0%, transparent 60%);
+}
+.od-inner {
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
+}
+@media(max-width:700px){ .od-inner { grid-template-columns:1fr; } }
+.od-left h2 {
+  font-family:var(--font-serif);
+  font-size:34px; font-weight:700;
+  color:white; margin-bottom:14px; line-height:1.2;
+}
+.od-left h2 em { color:var(--gold-lt); font-style:normal; }
+.od-left p { font-size:15px; color:rgba(255,255,255,.6); line-height:1.75; margin-bottom:28px; }
+.od-datasets { display:flex; flex-direction:column; gap:12px; }
+.od-item {
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:8px; padding:16px 20px;
+  display:flex; align-items:center; gap:14px;
+}
+.od-item-icon { font-size:20px; }
+.od-item-text strong { font-size:13.5px; color:rgba(255,255,255,.85); display:block; }
+.od-item-text span { font-size:12px; color:rgba(255,255,255,.4); font-family:var(--font-mono); }
+.od-item-dl {
+  margin-left:auto;
+  font-size:12px; font-weight:600;
+  color:var(--teal); text-decoration:none;
+  display:flex; align-items:center; gap:4px;
+  white-space:nowrap;
+}
+
+/* ── METHODOLOGY ─────────────────────────────────────────────────────────── */
+.method-section { background:var(--cream); }
+.method-steps {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:0; border:1px solid var(--rule); border-radius:12px; overflow:hidden;
+}
+@media(max-width:800px){ .method-steps { grid-template-columns:1fr 1fr; } }
+@media(max-width:500px){ .method-steps { grid-template-columns:1fr; } }
+.ms-item {
+  padding:28px 24px;
+  border-right:1px solid var(--rule);
+  position:relative;
+}
+.ms-item:last-child { border-right:none; }
+@media(max-width:800px){
+  .ms-item:nth-child(even) { border-right:none; }
+  .ms-item:nth-child(n+3) { border-top:1px solid var(--rule); }
+}
+.ms-num {
+  font-family:var(--font-mono); font-size:11px;
+  color:var(--teal); font-weight:500; margin-bottom:12px;
+}
+.ms-item h3 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+.ms-item p { font-size:13px; color:var(--muted); line-height:1.6; }
+.ms-item::after {
+  content:attr(data-arrow);
+  position:absolute; right:-12px; top:50%;
+  transform:translateY(-50%);
+  font-size:18px; color:var(--rule);
+  z-index:2;
+}
+@media(max-width:800px){ .ms-item::after { display:none; } }
+
+/* ── TEAM / ABOUT ─────────────────────────────────────────────────────────── */
+.about-section { background:var(--paper); }
+.about-grid { display:grid; grid-template-columns:3fr 2fr; gap:56px; align-items:start; }
+@media(max-width:700px){ .about-grid { grid-template-columns:1fr; } }
+.about-left h2 {
+  font-family:var(--font-serif); font-size:32px;
+  font-weight:700; color:var(--navy); margin-bottom:16px;
+  margin-top:10px; line-height:1.25;
+}
+.about-left p { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:16px; }
+.value-list { margin-top:24px; display:flex; flex-direction:column; gap:0; }
+.val-row {
+  display:flex; gap:14px; align-items:flex-start;
+  padding:16px 0;
+  border-bottom:1px solid var(--rule);
+}
+.val-row:last-child { border-bottom:none; }
+.val-icon {
+  width:36px; height:36px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; flex-shrink:0;
+  background:var(--light);
+}
+.val-text strong { font-size:14px; color:var(--navy); display:block; margin-bottom:2px; }
+.val-text span { font-size:13px; color:var(--muted); line-height:1.5; }
+.about-right {}
+.ethics-card {
+  background:var(--cream);
+  border:1px solid var(--rule);
+  border-radius:12px; padding:28px;
+  border-top:3px solid var(--teal);
+}
+.ethics-card h3 {
+  font-family:var(--font-serif); font-size:17px;
+  font-weight:700; color:var(--navy); margin-bottom:16px;
+}
+.ethics-item {
+  display:flex; gap:10px; align-items:flex-start;
+  padding:10px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:13px; color:var(--muted); line-height:1.5;
+}
+.ethics-item:last-child { border-bottom:none; }
+.ethics-item::before {
+  content:'✓'; color:var(--teal);
+  font-weight:700; flex-shrink:0; font-size:13px;
+  margin-top:2px;
+}
+.contact-block {
+  margin-top:20px; background:var(--navy);
+  border-radius:10px; padding:20px 22px;
+}
+.contact-block p { font-size:13px; color:rgba(255,255,255,.55); margin-bottom:10px; }
+.contact-block a {
+  color:var(--gold-lt); font-weight:600;
+  font-size:14px; text-decoration:none;
+  font-family:var(--font-mono);
+}
+
+/* ── NEWSLETTER / JOIN ───────────────────────────────────────────────────── */
+.join-section {
+  background:linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  padding:72px 0; text-align:center;
+  position:relative; overflow:hidden;
+}
+.join-section::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(200,132,26,.15) 0%, transparent 60%);
+}
+.join-inner { position:relative; z-index:1; max-width:560px; margin:0 auto; }
+.join-inner h2 {
+  font-family:var(--font-serif); font-size:32px;
+  font-weight:700; color:white; margin-bottom:12px;
+  margin-top:12px;
+}
+.join-inner p { font-size:15px; color:rgba(255,255,255,.6); margin-bottom:32px; line-height:1.7; }
+.join-form { display:flex; gap:10px; max-width:440px; margin:0 auto; }
+.join-input {
+  flex:1; padding:12px 18px;
+  border:1.5px solid rgba(255,255,255,.2);
+  border-radius:6px; background:rgba(255,255,255,.08);
+  color:white; font-family:var(--font-sans); font-size:14px;
+  outline:none; transition:border-color .18s;
+}
+.join-input::placeholder { color:rgba(255,255,255,.35); }
+.join-input:focus { border-color:var(--teal); }
+.join-btn {
+  background:var(--teal); color:white; border:none;
+  padding:12px 22px; border-radius:6px;
+  font-family:var(--font-sans); font-size:14px; font-weight:600;
+  cursor:pointer; transition:background .2s; white-space:nowrap;
+}
+.join-btn:hover { background:#117a65; }
+.join-note { font-size:11.5px; color:rgba(255,255,255,.3); margin-top:14px; font-family:var(--font-mono); }
+
+/* ── FOOTER ─────────────────────────────────────────────────────────────── */
+.footer {
+  background:var(--navy);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.footer-main {
+  padding:56px 0 40px;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;
+}
+@media(max-width:800px){ .footer-main { grid-template-columns:1fr 1fr; gap:32px; } }
+@media(max-width:480px){ .footer-main { grid-template-columns:1fr; } }
+.footer-brand .fb-name {
+  font-weight:700; font-size:20px; color:white;
+  letter-spacing:-.2px; margin-bottom:10px;
+}
+.footer-brand .fb-name span { color:var(--teal); }
+.footer-brand p { font-size:13px; color:rgba(255,255,255,.4); line-height:1.7; max-width:240px; }
+.footer-brand .fb-email {
+  display:inline-block; margin-top:14px;
+  font-family:var(--font-mono); font-size:12px;
+  color:var(--gold-lt); text-decoration:none;
+}
+.footer-col h4 {
+  font-size:11px; font-weight:600; letter-spacing:.8px;
+  text-transform:uppercase; color:rgba(255,255,255,.35);
+  font-family:var(--font-mono); margin-bottom:16px;
+}
+.footer-col a {
+  display:block; font-size:13.5px; color:rgba(255,255,255,.55);
+  text-decoration:none; margin-bottom:10px; transition:color .18s;
+}
+.footer-col a:hover { color:white; }
+.footer-bottom {
+  padding:20px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:12px; color:rgba(255,255,255,.25);
+  flex-wrap:wrap; gap:8px;
+}
+.footer-bottom a { color:rgba(255,255,255,.35); text-decoration:none; }
+.footer-bottom a:hover { color:rgba(255,255,255,.6); }
+.gold-bar { height:3px; background:linear-gradient(90deg, var(--gold), var(--teal)); }
+
+/* ── CHART EMBED PLACEHOLDER ────────────────────────────────────────────── */
+.chart-embed {
+  background:var(--paper);
+  border:2px dashed var(--rule);
+  border-radius:8px;
+  padding:32px; text-align:center;
+  margin-top:24px;
+}
+.chart-embed .ce-icon { font-size:32px; margin-bottom:10px; }
+.chart-embed p { font-size:13.5px; color:var(--muted); }
+.chart-embed code {
+  display:block; margin-top:8px; font-family:var(--font-mono);
+  font-size:11.5px; color:var(--teal); background:var(--light);
+  padding:6px 12px; border-radius:4px; width:fit-content; margin:8px auto 0;
+}
+
+/* ── DATA TICKER ─────────────────────────────────────────────────────────── */
+.ticker {
+  background:var(--gold);
+  padding:10px 0; overflow:hidden;
+}
+.ticker-inner {
+  display:flex; gap:48px;
+  animation:scroll 30s linear infinite;
+  width:max-content;
+}
+@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.tick-item { font-size:12px; font-weight:600; color:var(--navy); white-space:nowrap; font-family:var(--font-mono); }
+.tick-item span { opacity:.6; }
+
+/* ── ANIMATIONS ──────────────────────────────────────────────────────────── */
+.fade-up { opacity:0; transform:translateY(24px); transition:all .6s cubic-bezier(.4,0,.2,1); }
+.fade-up.visible { opacity:1; transform:none; }
+
+/* ── MODAL (survey detail) ────────────────────────────────────────────────── */
+.modal-overlay {
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(11,29,62,.65); backdrop-filter:blur(4px);
+  align-items:center; justify-content:center; padding:20px;
+}
+.modal-overlay.open { display:flex; }
+.modal {
+  background:var(--cream); border-radius:16px;
+  max-width:600px; width:100%; max-height:90vh;
+  overflow-y:auto; padding:40px;
+  box-shadow:0 24px 80px rgba(0,0,0,.3);
+  animation:modalIn .3s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes modalIn { from{transform:scale(.94);opacity:0} to{transform:scale(1);opacity:1} }
+.modal-close {
+  float:right; background:none; border:none; cursor:pointer;
+  font-size:22px; color:var(--muted); line-height:1; padding:0 0 8px 8px;
+}
+.modal h2 { font-family:var(--font-serif); font-size:22px; color:var(--navy); margin-bottom:12px; }
+.modal p { font-size:14.5px; color:var(--muted); line-height:1.75; margin-bottom:16px; }
+.modal .btn-primary { font-size:14px; padding:11px 24px; }
+
+/* ── PAGE SECTIONS NAV ───────────────────────────────────────────────────── */
+#page-home, #page-surveys, #page-reports, #page-data, #page-about {
+  display:none;
+}
+#page-home.active, #page-surveys.active, #page-reports.active,
+#page-data.active, #page-about.active { display:block; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  Dữ liệu giáo dục độc lập · <strong>Khoa học · Minh bạch · Bền vững</strong> · Khảo sát AI 2026 đang mở — <strong><a href="https://tally.so/r/Y5oa0q" target="_blank" style="color:var(--gold-lt)">Tham gia ngay</a></strong>
+</div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;">
+      <img src="" alt="VNEdData" style="height:38px;width:38px;object-fit:contain;border-radius:4px;flex-shrink:0;">
+      <span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:var(--navy);letter-spacing:-.3px;line-height:1"><span style="color:var(--navy)">VNEd</span><span style="color:var(--teal)">Data</span></span>
+    </a>
+    <div class="nav-links"><a href="#" class="nav-link" onclick="window.location.href='index.html';return false;">Trang chủ</a>
+<a href="#" class="nav-link active" onclick="window.location.href='surveys.html';return false;">Khảo sát</a>
+<a href="#" class="nav-link" onclick="window.location.href='reports.html';return false;">Báo cáo</a>
+<a href="#" class="nav-link" onclick="window.location.href='data.html';return false;">Dữ liệu mở</a>
+<a href="#" class="nav-link" onclick="window.location.href='about.html';return false;">Về chúng tôi</a>
+</div>
+    <a href="https://tally.so/r/Y5oa0q" target="_blank" class="nav-cta">Tham gia khảo sát</a>
+  </div>
+</nav>
+<section class="section" style="background:var(--paper);padding-top:60px">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Tất cả khảo sát</div>
+        <h2>Hệ thống khảo sát VNEdData</h2>
+        <p>Mỗi khảo sát tương ứng với một chủ đề nghiên cứu. Dữ liệu thu thập được xử lý theo chuẩn khoa học và công bố mở.</p>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--teal)">🟢 Đang mở</h3>
+        <div class="surveys-grid">
+          <a href="https://tally.so/r/Y5oa0q" target="_blank" class="survey-card" style="border-top:3px solid var(--teal)">
+            <div class="sc-header">
+              <div class="sc-icon" style="background:#E8F5F2;font-size:22px">🤖</div>
+              <span class="sc-status open">● Đang mở</span>
+            </div>
+            <div class="sc-body">
+              <h3>AI trong Học tập 2026</h3>
+              <p>Khảo sát toàn diện về thực trạng học sinh, sinh viên Việt Nam sử dụng AI. Mã: 2026-AI-V1</p>
+            </div>
+            <div class="sc-meta">
+              <span class="sc-meta-item">⏱ ~8 phút</span>
+              <span class="sc-meta-item">🎓 Mọi bậc học</span>
+              <span class="sc-link" style="font-size:13px">Làm ngay →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--gold)">🟡 Sắp mở</h3>
+        <div class="surveys-grid">
+          <div class="survey-card" style="opacity:.65;cursor:default">
+            <div class="sc-header">
+              <div class="sc-icon" style="background:#EBF5FB;font-size:22px">👨‍🏫</div>
+              <span class="sc-status upcoming">◷ Sắp mở — T7/2026</span>
+            </div>
+            <div class="sc-body">
+              <h3>Giáo viên & Chuyển đổi số 2026</h3>
+              <p>Năng lực số và thái độ của đội ngũ giáo viên Việt Nam. Mã: 2026-TEACHER-V1</p>
+            </div>
+            <div class="sc-meta">
+              <span class="sc-meta-item">⏱ ~10 phút</span>
+              <span class="sc-meta-item">👩‍🏫 Giáo viên</span>
+            </div>
+          </div>
+          <div class="survey-card" style="opacity:.65;cursor:default">
+            <div class="sc-header">
+              <div class="sc-icon" style="background:#FEF3CD;font-size:22px">👨‍👩‍👧</div>
+              <span class="sc-status upcoming">◷ Sắp mở — T9/2026</span>
+            </div>
+            <div class="sc-body">
+              <h3>Phụ huynh & Kỳ vọng Giáo dục</h3>
+              <p>Quan điểm phụ huynh về chất lượng giáo dục và công nghệ học tập. Mã: 2026-PARENT-V1</p>
+            </div>
+            <div class="sc-meta">
+              <span class="sc-meta-item">⏱ ~6 phút</span>
+              <span class="sc-meta-item">👪 Phụ huynh</span>
+            </div>
+          </div>
+          <div class="survey-card" style="opacity:.65;cursor:default">
+            <div class="sc-header">
+              <div class="sc-icon" style="background:#F2EFFF;font-size:22px">🏫</div>
+              <span class="sc-status upcoming">◷ Sắp mở — T11/2026</span>
+            </div>
+            <div class="sc-body">
+              <h3>Hạ tầng số Trường học Việt Nam</h3>
+              <p>Thực trạng trang thiết bị số, kết nối internet và ứng dụng CNTT tại trường học. Mã: 2026-INFRA-V1</p>
+            </div>
+            <div class="sc-meta">
+              <span class="sc-meta-item">⏱ ~7 phút</span>
+              <span class="sc-meta-item">🏫 Cán bộ quản lý</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ PAGE: REPORTS ══════════════ -->
+<div 
+<div class="gold-rule"></div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div style="margin-bottom:12px">
+          <span style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#fff">VNEd<span style="color:#5DC9B2">Data</span></span>
+        </div>
+        <p>Dữ liệu giáo dục độc lập Việt Nam.<br>Khoa học · Minh bạch · Bền vững.</p>
+        <a href="mailto:vneddata@gmail.com" class="fb-email">vneddata@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Nghiên cứu</h4>
+        <a href="surveys.html">Khảo sát</a>
+        <a href="reports.html">Báo cáo</a>
+        <a href="data.html">Dữ liệu mở</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tổ chức</h4>
+        <a href="about.html">Về chúng tôi</a>
+        <a href="faq.html">FAQ</a>
+        <a href="funding.html">Tài trợ & Tài chính</a>
+        <a href="privacy.html">Chính sách bảo mật</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tham gia</h4>
+        <a href="https://tally.so/r/Y5oa0q" target="_blank">Điền khảo sát AI 2026</a>
+        <a href="mailto:vneddata@gmail.com">Liên hệ hợp tác</a>
+        <a href="mailto:vneddata@gmail.com?subject=Notify me when dataset is available">Nhận thông báo dataset</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VNEdData · Dữ liệu Giáo dục Việt Nam</span>
+      <span>CC BY 4.0 · <a href="privacy.html">Chính sách bảo mật</a> · <a href="faq.html">FAQ</a></span>
+    </div>
+  </div>
+</footer>
+<div class="gold-rule"></div>
+<script>
+
+// ── PAGE ROUTING ─────────────────────────────────────────────────────────
+function showPage(name) {
+  ['home','surveys','reports','data','about'].forEach(p => {
+    document.getElementById('page-'+p).classList.remove('active');
+  });
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const map = { home:0, surveys:1, reports:2, data:3, about:4 };
+  if (map[name] !== undefined) document.querySelectorAll('.nav-link')[map[name]].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  return false;
+}
+
+// ── MODALS ────────────────────────────────────────────────────────────────
+function openModal(id) { document.getElementById('modal-'+id)?.classList.add('open'); return false; }
+function closeModal(id) { document.getElementById('modal-'+id)?.classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(el => {
+  el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
+});
+
+// ── LIVE STATS — reads from localStorage (survey responses) ───────────────
+function loadStats() {
+  const responses = JSON.parse(localStorage.getItem('ai_edu_responses_v1') || '[]');
+  const localN = responses.length;
+
+  // Merge: use VNEDDATA.surveys[0].currentN as floor, localN as addition
+  const D = (typeof VNEDDATA !== 'undefined') ? VNEDDATA : null;
+  const baseN = D ? (D.surveys.find(s=>s.id==='2026-AI-V1')?.currentN || 0) : 0;
+  const totalN = baseN + localN;
+  const targetN = D ? (D.surveys.find(s=>s.id==='2026-AI-V1')?.targetN || 500) : 500;
+
+  animateNumber('stat-resp', totalN);
+  animateNumber('live-n', totalN);
+  animateNumber('rep-resp', totalN);
+
+  const pct = Math.min(100, (totalN / targetN) * 100);
+  const pb = document.getElementById('prog-bar');
+  if (pb) setTimeout(() => pb.style.width = pct + '%', 300);
+  // Update hero progress bar
+  const hp = document.getElementById('hero-prog');
+  if (hp) setTimeout(() => hp.style.width = Math.max(1, pct) + '%', 400);
+  const hl = document.getElementById('hero-prog-label');
+  if (hl && totalN > 0) hl.textContent = totalN + ' responses · Mục tiêu: ' + targetN;
+}
+
+function animateNumber(id, target) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (target === 0) { el.textContent = '0'; return; }
+  let current = 0;
+  const step = Math.ceil(target / 40);
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = current.toLocaleString();
+    if (current >= target) clearInterval(timer);
+  }, 28);
+}
+
+// ── RENDER FROM data.js ───────────────────────────────────────────────────
+function renderFromData() {
+  if (typeof VNEDDATA === 'undefined') return;
+  const D = VNEDDATA;
+
+  // Update stat targets in hero
+  const statTarget = document.getElementById('stat-target');
+  if (statTarget) statTarget.textContent = D.stats.targetResponses.toLocaleString();
+
+  // Update active surveys count in nav/hero if needed
+  const openSurveys = D.getSurveysByStatus('open');
+  const elActiveSurveys = document.querySelectorAll('.active-survey-count');
+  elActiveSurveys.forEach(el => el.textContent = openSurveys.length);
+}
+
+// ── JOIN FORM ─────────────────────────────────────────────────────────────
+function handleJoin() {
+  const email = document.getElementById('email-input')?.value?.trim();
+  if (!email || !email.includes('@')) { alert('Vui lòng nhập email hợp lệ'); return; }
+  const D = (typeof VNEDDATA !== 'undefined') ? VNEDDATA : null;
+  const mailto = D ? `mailto:${D.config.email}?subject=Đăng ký nhận cập nhật VNEdData&body=Email đăng ký: ${email}` : '#';
+  window.location.href = mailto;
+  document.getElementById('email-input').value = '';
+}
+
+// ── MOBILE MENU ───────────────────────────────────────────────────────────
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (!links) return;
+  const vis = links.style.display === 'flex';
+  links.style.cssText = vis ? '' : 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--rule);padding:12px 28px;gap:4px;box-shadow:0 4px 20px rgba(11,29,62,.1);z-index:300';
+}
+
+// ── SCROLL ANIMATIONS ─────────────────────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.10 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderFromData();
+  loadStats();
+});
+setInterval(loadStats, 15000);
+
+
+// Remove page-based show/hide, everything is visible
+document.querySelectorAll('.survey-card').forEach(c => c.style.display = '');
+
+</script>
+</body>
+</html>
