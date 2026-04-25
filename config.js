@@ -64,6 +64,7 @@ const VNEDCONFIG = {
     teacher2026: null,
     parent2026:  null,
     infra2026:   null,
+    subscribers: "https://docs.google.com/spreadsheets/d/1X-4Wf82q9xstQn_9JtVo_p__RnbD09GX5FHLcWcGr-I/edit",  // ✅ VNEdData_Subscribers
   },
 
   // ── TALLY FORMS ──────────────────────────────────────────────────
@@ -73,6 +74,7 @@ const VNEDCONFIG = {
     teacher2026: null,
     parent2026:  null,
     infra2026:   null,
+    subscribers: 'https://tally.so/r/yP0DOW',  // ✅ Đăng ký nhận cập nhật
   },
 
   // ── APPS SCRIPT ──────────────────────────────────────────────────
