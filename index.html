@@ -695,12 +695,12 @@ body {
     </a>
     <div class="nav-links">
       <a href="#" class="nav-link active" onclick="showPage('home')">Trang chủ</a>
-      <a href="#" class="nav-link" onclick="showPage('surveys')">Khảo sát</a>
-      <a href="#" class="nav-link" onclick="showPage('reports')">Báo cáo</a>
-      <a href="#" class="nav-link" onclick="showPage('data')">Dữ liệu mở</a>
+      <a href="#" class="nav-link" onclick="window.location.href='surveys.html'">Khảo sát</a>
+      <a href="#" class="nav-link" onclick="window.location.href='reports.html'">Báo cáo</a>
+      <a href="#" class="nav-link" onclick="window.location.href='data.html'">Dữ liệu mở</a>
       <a href="#" class="nav-link" onclick="window.location.href='about.html';return false;">Về chúng tôi</a>
     </div>
-    <a href="#" class="nav-cta" onclick="showPage('surveys');return false;">Tham gia khảo sát</a>
+    <a href="#" class="nav-cta" onclick="window.location.href='surveys.html';return false;">Tham gia khảo sát</a>
     <button class="nav-hamburger" onclick="toggleMenu()">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <rect y="4" width="22" height="2" rx="1" fill="currentColor"/>
@@ -745,10 +745,10 @@ body {
         <h1>Hiểu giáo dục Việt Nam<br>bằng <em>dữ liệu thực</em></h1>
         <p class="hero-sub">VNEdData thu thập, phân tích và công bố dữ liệu khoa học về thực trạng giáo dục Việt Nam — độc lập, minh bạch, và mở cho tất cả.</p>
         <div class="hero-actions">
-          <a href="#" class="btn btn-primary" onclick="showPage('surveys');return false;">
+          <a href="#" class="btn btn-primary" onclick="window.location.href='surveys.html';return false;">
             📋 Tham gia khảo sát
           </a>
-          <a href="#" class="btn btn-outline" onclick="showPage('reports');return false;">
+          <a href="#" class="btn btn-outline" onclick="window.location.href='reports.html';return false;">
             Xem báo cáo →
           </a>
         </div>
@@ -922,7 +922,7 @@ body {
               <p class="src">Mục tiêu: 500 phản hồi · Hiện tại: đang thu thập</p>
             </div>
             <div style="margin-top:20px">
-              <a href="#" class="btn btn-primary" style="background:var(--blue);box-shadow:none;font-size:13.5px;padding:10px 22px" onclick="showPage('reports');return false;">
+              <a href="#" class="btn btn-primary" style="background:var(--blue);box-shadow:none;font-size:13.5px;padding:10px 22px" onclick="window.location.href='reports.html';return false;">
                 Xem trang báo cáo đầy đủ →
               </a>
             </div>
@@ -931,17 +931,17 @@ body {
 
         <div class="reports-sidebar fade-up">
           <div style="margin-bottom:6px"><span class="tag">Sắp công bố</span></div>
-          <a href="#" class="report-mini" onclick="showPage('reports');return false;">
+          <a href="#" class="report-mini" onclick="window.location.href='reports.html';return false;">
             <div class="rm-tag"><span class="tag teal" style="font-size:10px">Kế hoạch</span></div>
             <div class="rm-title">Báo cáo Thường niên Giáo dục Việt Nam 2026</div>
             <div class="rm-meta">Dự kiến: Tháng 12/2026</div>
           </a>
-          <a href="#" class="report-mini" onclick="showPage('reports');return false;">
+          <a href="#" class="report-mini" onclick="window.location.href='reports.html';return false;">
             <div class="rm-tag"><span class="tag" style="font-size:10px">Kế hoạch</span></div>
             <div class="rm-title">Năng lực số của Giáo viên Phổ thông 2026</div>
             <div class="rm-meta">Dự kiến: Tháng 9/2026</div>
           </a>
-          <a href="#" class="report-mini" onclick="showPage('reports');return false;">
+          <a href="#" class="report-mini" onclick="window.location.href='reports.html';return false;">
             <div class="rm-tag"><span class="tag gold" style="font-size:10px">Policy Brief</span></div>
             <div class="rm-title">AI & Học thuật Toàn vẹn: Khuyến nghị cho Bộ GD&ĐT</div>
             <div class="rm-meta">Dự kiến: Tháng 8/2026</div>
@@ -959,7 +959,7 @@ body {
           <span class="tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)">Dữ liệu mở</span>
           <h2 style="margin-top:12px">Dữ liệu của VNEdData<br>là <em>của tất cả mọi người</em></h2>
           <p>Chúng tôi tin rằng dữ liệu giáo dục thuộc về cộng đồng. Mọi dataset ẩn danh đều được công bố miễn phí — không điều kiện, không cần đăng ký.</p>
-          <a href="#" class="btn btn-primary" onclick="showPage('data');return false;">Truy cập kho dữ liệu mở →</a>
+          <a href="#" class="btn btn-primary" onclick="window.location.href='data.html';return false;">Truy cập kho dữ liệu mở →</a>
         </div>
         <div class="od-datasets">
           <div class="od-item">
@@ -1147,8 +1147,8 @@ body {
             <p style="font-size:14px;color:var(--muted);line-height:1.7">Dashboard trực tiếp — kết quả cập nhật khi có phản hồi mới. Báo cáo đầy đủ sẽ được công bố khi đạt n ≥ 200.</p>
           </div>
           <div style="text-align:center;min-width:120px">
-            <div style="font-family:var(--font-serif);font-size:48px;font-weight:700;color:var(--navy)" id="live-n">0</div>
-            <div style="font-size:12px;color:var(--muted)">Phản hồi · Mục tiêu: 500</div>
+            <div style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--teal);padding:8px 0;" id="live-n">Đang thu thập</div>
+            <div style="font-size:12px;color:var(--muted)">Công bố khi n ≥ 200</div>
             <div style="background:var(--rule);border-radius:99px;height:5px;margin-top:8px;overflow:hidden">
               <div style="background:var(--teal);height:100%;border-radius:99px;transition:width 1s" id="prog-bar" style="width:0%"></div>
             </div>
@@ -1357,15 +1357,15 @@ body {
       </div>
       <div class="footer-col">
         <h4>Khảo sát</h4>
-        <a href="#" onclick="showPage('surveys');return false;">Đang mở</a>
-        <a href="#" onclick="showPage('surveys');return false;">Sắp mở</a>
-        <a href="#" onclick="showPage('surveys');return false;">Đã đóng</a>
+        <a href="#" href="surveys.html">Khảo sát</a>
+        <a href="#" onclick="window.location.href='surveys.html';return false;">Sắp mở</a>
+        <a href="#" onclick="window.location.href='surveys.html';return false;">Đã đóng</a>
       </div>
       <div class="footer-col">
         <h4>Nghiên cứu</h4>
-        <a href="#" onclick="showPage('reports');return false;">Báo cáo</a>
-        <a href="#" onclick="showPage('data');return false;">Dữ liệu mở</a>
-        <a href="#" onclick="showPage('about');return false;">Phương pháp</a>
+        <a href="#" onclick="window.location.href='reports.html';return false;">Báo cáo</a>
+        <a href="#" onclick="window.location.href='data.html';return false;">Dữ liệu mở</a>
+        <a href="#" onclick="window.location.href='about.html';return false;">Phương pháp</a>
       </div>
       <div class="footer-col">
         <h4>Tổ chức</h4>
@@ -1405,7 +1405,7 @@ body {
     <h2>Giáo viên & Chuyển đổi số 2026</h2>
     <p>Khảo sát về năng lực số và thái độ với AI của đội ngũ giáo viên. Dự kiến mở vào tháng 7/2026.</p>
     <p style="font-size:13px;color:var(--muted)">Để nhận thông báo khi khảo sát mở, gửi email đến vneddata@gmail.com</p>
-    <button class="btn btn-primary" onclick="closeModal('survey-teacher');showPage('about')">Liên hệ đăng ký →</button>
+    <button class="btn btn-primary" onclick="closeModal('survey-teacher');window.location.href='about.html'">Liên hệ đăng ký →</button>
   </div>
 </div>
 <div class="modal-overlay" id="modal-survey-parent">
@@ -1414,7 +1414,7 @@ body {
     <span class="tag" style="margin-bottom:14px">Sắp mở · 2026-PARENT-V1</span>
     <h2>Phụ huynh & Kỳ vọng Giáo dục</h2>
     <p>Khảo sát về quan điểm của phụ huynh với giáo dục và công nghệ. Dự kiến mở vào tháng 9/2026.</p>
-    <button class="btn btn-primary" onclick="closeModal('survey-parent');showPage('about')">Liên hệ đăng ký →</button>
+    <button class="btn btn-primary" onclick="closeModal('survey-parent');window.location.href='about.html'">Liên hệ đăng ký →</button>
   </div>
 </div>
 
