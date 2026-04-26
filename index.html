@@ -742,7 +742,7 @@ body {
 <!-- NAVIGATION -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-brand" onclick="showPage('home')" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;">
+    <a href="survey-ai-2026.html" class="nav-brand" onclick="showPage('home')" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;">
       <img src="VNEdData_Logo_Canva.svg" alt="VNEdData" style="height:52px;width:52px;object-fit:contain;flex-shrink:0;">
       <span style="font-family:'DM Sans',sans-serif;font-size:21px;font-weight:700;color:var(--navy);letter-spacing:-.3px;line-height:1"><span style="color:var(--navy)">VNEd</span><span style="color:var(--teal)">Data</span></span>
     </a>
@@ -753,7 +753,7 @@ body {
       <a href="#" class="nav-link" onclick="window.location.href='data.html'">Dữ liệu mở</a>
       <a href="#" class="nav-link" onclick="window.location.href='about.html';return false;">Về chúng tôi</a>
     </div>
-    <a href="#" class="nav-cta" onclick="window.location.href='surveys.html';return false;">Tham gia khảo sát</a>
+    <a href="survey-ai-2026.html" class="nav-cta" onclick="window.location.href='surveys.html';return false;">Tham gia khảo sát</a>
     <button class="nav-hamburger" onclick="toggleMenu()">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <rect y="4" width="22" height="2" rx="1" fill="currentColor"/>
@@ -877,10 +877,10 @@ body {
           </div>
         </a>
 
-        <a href="#" class="survey-card fade-up" onclick="openModal('survey-teacher');return false;" style="animation-delay:.1s">
+        <a href="#" class="survey-card fade-up" onclick="window.location.href='survey-teacher-2026.html'" style="animation-delay:.1s;cursor:pointer">
           <div class="sc-header">
             <div class="sc-icon" style="background:#EBF5FB">👨‍🏫</div>
-            <span class="sc-status upcoming">◷ Sắp mở</span>
+            <span class="sc-status open">● Đang mở</span>
           </div>
           <div class="sc-body">
             <h3>Giáo viên & Chuyển đổi số — 2026</h3>
@@ -1090,11 +1090,43 @@ body {
       <span class="tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.6)">Cộng đồng VNEdData</span>
       <h2>Nhận cập nhật nghiên cứu</h2>
       <p>Đăng ký để nhận thông báo khi có khảo sát mới, báo cáo mới và dataset được công bố.</p>
-      <div class="join-form" style="justify-content:center;">
-        <a href="https://tally.so/r/yP0DOW" target="_blank" class="join-btn" style="text-decoration:none;padding:14px 32px;font-size:15px;">
-          Đăng ký ngay →
-        </a>
+      <div class="join-form" id="sub-form">
+        <input type="email" class="join-input" id="sub-email"
+          placeholder="email@truong.edu.vn"
+          onkeydown="if(event.key==='Enter')submitSub()">
+        <button class="join-btn" id="sub-btn" onclick="submitSub()">
+          <span id="sub-btn-text">Đăng ký →</span>
+        </button>
       </div>
+      <p id="sub-success" style="display:none;color:#5DC9B2;font-size:14px;font-weight:600;margin-top:12px;">
+        ✓ Đã đăng ký! Chúng tôi sẽ liên hệ khi có cập nhật mới.
+      </p>
+      <script>
+      async function submitSub() {
+        const email = document.getElementById('sub-email').value.trim();
+        if (!email || !email.includes('@')) {
+          document.getElementById('sub-email').style.borderColor = '#C0392B';
+          document.getElementById('sub-email').focus();
+          return;
+        }
+        const btn = document.getElementById('sub-btn');
+        btn.disabled = true;
+        document.getElementById('sub-btn-text').textContent = '...';
+        try {
+          await fetch('https://script.google.com/macros/s/AKfycbxP5DXhnhXRU8R0LMleiU-h84hXkvwDcI5LbRrNlv-jGNkR9OOSNod5RQ0r04HwLIZcPQ/exec', {
+            method: 'POST', mode: 'no-cors',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({form_id: 'SUBSCRIBERS', email: email, role: '', topics: []})
+          });
+          document.getElementById('sub-form').style.display = 'none';
+          document.getElementById('sub-success').style.display = 'block';
+        } catch(e) {
+          btn.disabled = false;
+          document.getElementById('sub-btn-text').textContent = 'Đăng ký →';
+          alert('Có lỗi. Vui lòng thử lại!');
+        }
+      }
+      </script>
       <p class="join-note">🔒 Không spam · Có thể hủy bất kỳ lúc nào · vneddata@gmail.com</p>
     </div>
   </section>
@@ -1114,7 +1146,7 @@ body {
       <div style="margin-bottom:32px">
         <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--teal)">🟢 Đang mở</h3>
         <div class="surveys-grid">
-          <a href="https://tally.so/r/Y5oa0q" target="_blank" class="survey-card" style="border-top:3px solid var(--teal)">
+          <a href="survey-ai-2026.html" target="_blank" class="survey-card" style="border-top:3px solid var(--teal)">
             <div class="sc-header">
               <div class="sc-icon" style="background:#E8F5F2;font-size:22px">🤖</div>
               <span class="sc-status open">● Đang mở</span>
@@ -1135,10 +1167,10 @@ body {
       <div style="margin-bottom:32px">
         <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--gold)">🟡 Sắp mở</h3>
         <div class="surveys-grid">
-          <div class="survey-card" style="opacity:.65;cursor:default">
+          <a href="survey-teacher-2026.html" class="survey-card">
             <div class="sc-header">
               <div class="sc-icon" style="background:#EBF5FB;font-size:22px">👨‍🏫</div>
-              <span class="sc-status upcoming">◷ Sắp mở — T7/2026</span>
+              <span class="sc-status open">● Đang mở</span>
             </div>
             <div class="sc-body">
               <h3>Giáo viên & Chuyển đổi số 2026</h3>
@@ -1148,7 +1180,7 @@ body {
               <span class="sc-meta-item">⏱ ~10 phút</span>
               <span class="sc-meta-item">👩‍🏫 Giáo viên</span>
             </div>
-          </div>
+          </a>
           <div class="survey-card" style="opacity:.65;cursor:default">
             <div class="sc-header">
               <div class="sc-icon" style="background:#FEF3CD;font-size:22px">👨‍👩‍👧</div>
@@ -1270,7 +1302,7 @@ body {
             </div>
             <div style="display:flex;gap:8px;align-items:center;">
               <span style="font-family:var(--font-mono);font-size:11px;background:var(--lteal);color:var(--teal);padding:3px 10px;border-radius:20px;">CÔNG KHAI</span>
-              <a href="https://tally.so/r/Y5oa0q" target="_blank" style="font-size:12.5px;color:var(--teal);font-weight:600;text-decoration:none;">Xem form →</a>
+              <a href="survey-ai-2026.html" target="_blank" style="font-size:12.5px;color:var(--teal);font-weight:600;text-decoration:none;">Xem form →</a>
             </div>
           </div>
 
@@ -1492,7 +1524,7 @@ body {
     <p>Khảo sát toàn diện về mức độ sử dụng, nhận thức và tác động của AI đối với học sinh, sinh viên Việt Nam. 10 câu hỏi, khoảng 4–8 phút.</p>
     <p style="font-size:13px;color:var(--muted)">🔒 Ẩn danh hoàn toàn · Không lưu IP · Chỉ dùng cho nghiên cứu học thuật</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-      <a href="https://tally.so/r/Y5oa0q" target="_blank" class="btn btn-primary">Tham gia ngay →</a>
+      <a href="survey-ai-2026.html" target="_blank" class="btn btn-primary">Tham gia ngay →</a>
       <button class="btn" style="background:var(--paper);color:var(--navy);border:1px solid var(--rule)" onclick="closeModal('survey-ai')">Đóng</button>
     </div>
   </div>
