@@ -100,17 +100,17 @@ function buildAIRow(d) {
 function buildTeacherRow(d) {
   return [
     new Date().toISOString(),
-    d.q1_bac_day      || '',        // Bậc dạy
-    d.q2_mon_day      || '',        // Môn dạy
-    d.q3_kinh_nghiem  || '',        // Số năm kinh nghiệm
-    d.q4_ai_biet      || '',        // Biết về AI
-    d.q5_ai_dung      || '',        // Đã dùng AI trong dạy học
-    (d.q6_cong_cu     || []).join('; '), // Công cụ đang dùng
-    d.q7_tu_tin       || '',        // Tự tin về năng lực số (1-5)
-    d.q8_dao_tao      || '',        // Đã được đào tạo AI chưa
-    d.q9_ap_luc       || '',        // Mức độ áp lực nghề (1-5)
-    d.q10_roi_nghe    || '',        // Có nghĩ đến bỏ nghề không
-    d.q11_ho_tro      || '',        // Cần hỗ trợ gì
+    d.q1_bac_day        || '',      // Bậc dạy
+    d.q2_kinh_nghiem    || '',      // Số năm kinh nghiệm
+    d.q3_ai_dung        || '',      // Đã dùng AI trong dạy học
+    (d.q4_cong_cu       || []).join('; '), // Công cụ đang dùng
+    d.q5_tu_tin         || '',      // Tự tin năng lực số (1-5)
+    d.q6_dao_tao        || '',      // Đã được đào tạo AI chưa
+    d.q7_ap_luc         || '',      // Áp lực nghề (1-5)
+    d.q8_roi_nghe       || '',      // Nghĩ đến bỏ nghề
+    d.q9_ly_do_ap_luc   || '',      // Lý do áp lực chính
+    d.q10_lo_ngai_ai    || '',      // Lo ngại về AI
+    d.q11_ho_tro        || '',      // Cần hỗ trợ gì
     d.q12_open        || '',        // Câu mở
     d.region          || '',
   ];
@@ -137,9 +137,9 @@ function ensureHeaders(sheet, formId) {
       'Hướng dẫn từ trường','Kỹ năng bị ảnh hưởng','Mong muốn từ nhà trường','Vùng miền'
     ],
     '2026-TEACHER-V1': [
-      'Timestamp','Bậc dạy','Môn dạy','Kinh nghiệm (năm)',
-      'Biết về AI','Đã dùng AI','Công cụ đang dùng','Tự tin năng lực số (1-5)',
-      'Đã được đào tạo AI','Áp lực nghề (1-5)','Nghĩ đến bỏ nghề','Cần hỗ trợ gì','Ý kiến mở','Vùng miền'
+      'Timestamp','Bậc dạy','Kinh nghiệm (năm)','Đã dùng AI',
+      'Công cụ đang dùng','Tự tin năng lực số (1-5)','Đã được đào tạo AI',
+      'Áp lực nghề (1-5)','Nghĩ đến bỏ nghề','Lý do áp lực','Lo ngại về AI','Cần hỗ trợ gì','Vùng miền'
     ],
     'SUBSCRIBERS': ['Timestamp','Email','Vai trò','Chủ đề quan tâm'],
   };
