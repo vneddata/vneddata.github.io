@@ -349,6 +349,23 @@ body {
 
   <div id="survey-form">
 
+    <!-- SCREENING QUESTION -->
+    <div class="q-block" id="screening-block" style="background:white;border:1.5px solid var(--teal);border-radius:10px;padding:20px 24px;margin-bottom:28px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);"></div>
+        <span style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--teal);letter-spacing:.5px;text-transform:uppercase;">Xác nhận đối tượng tham gia</span>
+      </div>
+      <label class="q-label">Bạn hiện đang là giáo viên hoặc giảng viên đang công tác tại một cơ sở giáo dục ở Việt Nam? <span class="req">*</span></label>
+      <div class="options" style="margin-top:12px;">
+        <label class="opt"><input type="radio" name="screening" value="yes" data-required="screening" onchange="handleScreening(this)"> Có, tôi đang là giáo viên / giảng viên tại Việt Nam</label>
+        <label class="opt"><input type="radio" name="screening" value="no" onchange="handleScreening(this)"> Không</label>
+      </div>
+      <div id="screening-reject" style="display:none;margin-top:16px;padding:14px 16px;background:#FEF3CD;border-radius:8px;font-size:14px;color:#856404;line-height:1.6;">
+        Cảm ơn bạn đã quan tâm. Khảo sát này dành riêng cho giáo viên và giảng viên đang công tác tại Việt Nam. Bạn có thể xem các nghiên cứu khác tại <a href="index.html" style="color:var(--teal)">vneddata.org</a>.
+      </div>
+      <div class="field-error">Vui lòng xác nhận đối tượng tham gia</div>
+    </div>
+
     <div class="section-label">A — Thông tin giảng dạy</div>
 
     <div class="q-block" data-field="q1_bac_day">
@@ -432,6 +449,28 @@ body {
         <label class="opt"><input type="radio" name="q6_dao_tao" value="Đang trong quá trình"> Đang trong quá trình được đào tạo</label>
       </div>
       <div class="field-error">Vui lòng chọn một đáp án</div>
+    </div>
+
+
+    <!-- ATTENTION CHECK -->
+    <div class="q-block" style="background:linear-gradient(135deg,#EBF5FB 0%,#E8F5F2 100%);border:2px solid var(--teal);border-radius:12px;padding:22px 24px;margin:32px 0;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.8px;text-transform:uppercase;">Attention Check</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px;">Chúng tôi cần đảm bảo bạn đang đọc kỹ từng câu hỏi để dữ liệu có chất lượng cao nhất.</div>
+        </div>
+      </div>
+      <label class="q-label">Để xác nhận bạn đang đọc kỹ, hãy chọn đáp án <strong style="color:var(--teal)">"6–10 năm"</strong> bên dưới. Đây là câu kiểm tra, không liên quan đến nội dung khảo sát. <span class="req">*</span></label>
+      <div class="options" style="margin-top:14px;">
+        <label class="opt"><input type="radio" name="attention_check" value="wrong1" data-required="attention_check"> Dưới 2 năm</label>
+        <label class="opt"><input type="radio" name="attention_check" value="wrong2"> 2–5 năm</label>
+        <label class="opt"><input type="radio" name="attention_check" value="correct"> 6–10 năm</label>
+        <label class="opt"><input type="radio" name="attention_check" value="wrong3"> Trên 20 năm</label>
+      </div>
+      <div class="field-error">Vui lòng hoàn thành Attention Check</div>
     </div>
 
     <div class="section-label">C — Áp lực & Động lực nghề</div>
@@ -611,12 +650,35 @@ function getTextarea(id) {
 
 
 async function submitTeacher() {
+  // Screening check
+  const screening = document.querySelector('input[name="screening"]:checked');
+  if (!screening || screening.value !== 'yes') {
+    alert('Vui lòng xác nhận bạn là giáo viên / giảng viên đang công tác tại Việt Nam.');
+    return;
+  }
+  // Attention check
+  const attn = document.querySelector('input[name="attention_check"]:checked');
+  if (!attn || attn.value !== 'correct') {
+    const block = document.querySelector('[name="attention_check"]').closest('.q-block');
+    block.classList.add('has-error');
+    block.scrollIntoView({behavior:'smooth', block:'center'});
+    alert('Vui lòng hoàn thành Attention Check đúng cách.');
+    return;
+  }
+  // Timer check (120 seconds minimum)
+  const elapsed = Math.round((Date.now() - _startTime) / 1000);
+  if (elapsed < 120) {
+    alert('Vui lòng đọc kỹ từng câu hỏi. Khảo sát cần ít nhất 2 phút để hoàn thành có chất lượng.');
+    return;
+  }
   if (!validateForm()) return;
   const btn = document.getElementById('btn-submit');
   btn.disabled = true; btn.classList.add('loading');
 
   const data = {
     form_id: '2026-TEACHER-V1',
+    attention_pass: true,
+    elapsed_seconds: Math.round((Date.now() - _startTime) / 1000),
     q1_bac_day:     getRadio('q1_bac_day'),
     q2_kinh_nghiem: getRadio('q2_kinh_nghiem'),
     q3_ai_dung:     getRadio('q3_ai_dung'),
@@ -647,6 +709,25 @@ async function submitTeacher() {
 }
 
 updateProgress();
+
+// ── SCREENING ─────────────────────────────────────────────────────────────
+function handleScreening(input) {
+  const reject = document.getElementById('screening-reject');
+  const btn = document.getElementById('btn-submit');
+  if (input.value === 'no') {
+    reject.style.display = 'block';
+    btn.disabled = true;
+    btn.style.opacity = '.4';
+  } else {
+    reject.style.display = 'none';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+  updateProgress();
+}
+
+// ── TIMER ─────────────────────────────────────────────────────────────────
+const _startTime = Date.now();
 </script>
 </body>
 </html>
