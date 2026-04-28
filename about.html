@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="VNEdData — Dự án nghiên cứu dữ liệu giáo dục độc lập Việt Nam. Doctoral Candidate in Education, Đại học Edgewood.">
-<title>Tổ chức & Nhân sự — VNEdData</title>
+<meta name="description" content="Về VNEdData — Sáng kiến nghiên cứu độc lập thu thập và công bố dữ liệu thực nghiệm về giáo dục Việt Nam. Nghiên cứu sinh Tiến sĩ Giáo dục, Đại học Edgewood, Hoa Kỳ.">
+<title>Về chúng tôi — VNEdData</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
 /* ── TOKENS ─────────────────────────────────────────────────────────────── */
 :root {
@@ -690,58 +691,264 @@ body {
 .social-link:hover { background:rgba(255,255,255,.12); color:white; }
 .social-link svg { width:16px; height:16px; fill:currentColor; display:block; }
 </style>
+
 <style>
-.content-page { padding:64px 0 80px;background:var(--paper); }
-.content-page .container { max-width:860px; }
-.section-prose { margin-bottom:48px; }
-.section-prose h2 { font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--navy);margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--teal);line-height:1.3; }
-.section-prose h3 { font-size:16px;font-weight:600;color:var(--blue);margin:28px 0 8px; }
-.section-prose p { font-size:15px;color:var(--gray);line-height:1.8;margin:0 0 14px; }
-.section-prose ul { padding-left:22px;margin:0 0 14px; }
-.section-prose li { font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:6px; }
-.info-box { border-radius:10px;padding:22px 24px;margin:20px 0; }
-.info-box.teal { background:var(--lteal);border-left:4px solid var(--teal); }
-.info-box.gold { background:var(--gold-lt);border-left:4px solid var(--gold); }
-.info-box.red { background:#FDEDEC;border-left:4px solid #C0392B; }
-.info-box.blue { background:var(--light);border-left:4px solid var(--blue); }
-.info-box .box-title { font-size:13px;font-weight:700;margin-bottom:10px;font-family:'DM Mono',monospace;letter-spacing:.5px; }
-.info-box.teal .box-title { color:var(--teal); }
-.info-box.gold .box-title { color:var(--gold); }
-.info-box.red .box-title { color:#C0392B; }
-.info-box.blue .box-title { color:var(--blue); }
-.info-box ul { padding-left:18px;margin:0; }
-.info-box li { font-size:13.5px;line-height:1.65;margin-bottom:5px;color:var(--gray); }
-.data-table { width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px; }
-.data-table th { background:var(--navy);color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:13px; }
-.data-table td { padding:10px 14px;border-bottom:1px solid var(--rule);color:var(--gray);vertical-align:top; }
-.data-table tr:nth-child(even) td { background:var(--lgray); }
-.data-table td:first-child { color:var(--blue);font-weight:600; }
-.cite-box { background:var(--lgray);border-radius:8px;padding:14px 18px;font-family:'DM Mono',monospace;font-size:13px;color:var(--navy);margin:12px 0;line-height:1.6; }
-.faq-item { border-bottom:1px solid var(--rule);padding:20px 0; }
-.faq-item:last-child { border-bottom:none; }
-.faq-q { font-size:15px;font-weight:600;color:var(--navy);margin:0 0 10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px; }
-.faq-q::after { content:'+';font-size:20px;color:var(--teal);flex-shrink:0;font-weight:300; }
-.faq-q.open::after { content:'−'; }
-.faq-a { font-size:14.5px;color:var(--gray);line-height:1.75;display:none; }
-.faq-a.open { display:block; }
-.faq-group { background:var(--cream);border:1px solid var(--rule);border-radius:12px;padding:24px 28px;margin-bottom:28px; }
-.faq-group-title { font-family:'DM Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--rule); }
-.person-card { background:var(--cream);border:1px solid var(--rule);border-radius:14px;overflow:hidden;margin:24px 0; }
-.person-card-top { background:var(--navy);padding:28px 32px;display:flex;align-items:center;gap:24px; }
-.person-avatar { width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue));display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:white;flex-shrink:0;font-family:'Lora',serif; }
-.person-card-body { padding:24px 32px; }
-.status-pill { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;font-family:'DM Mono',monospace; }
-.status-pill.live { background:#D5F5E3;color:#117a65; }
-.status-pill.pending { background:var(--gold-lt);color:#8B5E0A; }
-.status-pill.future { background:var(--lgray);color:var(--muted); }
-.contact-cta { background:var(--navy);border-radius:12px;padding:32px;text-align:center;margin-top:48px; }
+/* ── ABOUT PAGE SPECIFIC ─────────────────────────────────────────────────── */
+.about-hero {
+  background: var(--navy);
+  padding: 72px 0 60px;
+  position: relative; overflow: hidden;
+}
+.about-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 0%, rgba(20,143,119,.12) 0%, transparent 60%);
+}
+.about-hero .inner {
+  max-width: 860px; margin: 0 auto; padding: 0 24px;
+  position: relative; z-index: 1;
+}
+.about-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.65);
+  font-family: var(--font-mono); font-size: 11px;
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 20px; letter-spacing: .5px; text-transform: uppercase;
+}
+.about-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700; color: white;
+  margin-bottom: 16px; line-height: 1.2;
+}
+.about-hero .lead {
+  font-size: 16px; color: rgba(255,255,255,.65);
+  max-width: 680px; line-height: 1.8;
+}
+
+/* ── SECTION ─────────────────────────────────────────────────────────────── */
+.about-section {
+  padding: 64px 0;
+  max-width: 860px; margin: 0 auto; padding: 64px 24px;
+}
+.about-section + .about-section {
+  border-top: 1px solid var(--rule);
+}
+.section-eyebrow {
+  font-family: var(--font-mono); font-size: 10px;
+  font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--teal);
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 18px;
+}
+.section-eyebrow::after {
+  content: ''; flex: 1; height: 1px; background: var(--rule);
+}
+.about-section h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 700; color: var(--navy);
+  margin-bottom: 20px; line-height: 1.25;
+}
+.about-section p {
+  font-size: 15px; color: var(--gray);
+  line-height: 1.85; margin-bottom: 16px;
+}
+
+/* ── FOUNDER CARD ────────────────────────────────────────────────────────── */
+.founder-card {
+  background: var(--navy);
+  border-radius: 14px; overflow: hidden;
+  margin-bottom: 28px;
+}
+.founder-card-top {
+  display: flex; align-items: center; gap: 20px;
+  padding: 28px 28px 20px;
+}
+.founder-card-top img {
+  width: 80px; height: 80px;
+  border-radius: 50%; object-fit: cover;
+  object-position: center top;
+  border: 3px solid rgba(255,255,255,.2);
+  flex-shrink: 0;
+}
+.founder-name {
+  font-family: var(--font-serif);
+  font-size: 22px; font-weight: 700; color: white;
+  margin-bottom: 4px;
+}
+.founder-title {
+  font-size: 14px; color: rgba(255,255,255,.65);
+  margin-bottom: 10px; line-height: 1.5;
+}
+.founder-pill {
+  display: inline-block;
+  background: rgba(20,143,119,.25);
+  border: 1px solid rgba(20,143,119,.5);
+  color: #5DC9B2;
+  font-family: var(--font-mono); font-size: 11px;
+  font-weight: 600; letter-spacing: .4px;
+  padding: 4px 12px; border-radius: 20px;
+}
+.founder-card-body {
+  padding: 0 28px 28px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  margin-top: 4px;
+}
+.founder-quote {
+  font-size: 15px; color: rgba(255,255,255,.82) !important;
+  line-height: 1.85; font-style: italic;
+  margin: 20px 0 18px;
+  padding-left: 16px;
+  border-left: 3px solid var(--teal);
+}
+.founder-table {
+  width: 100%; border-collapse: collapse; margin-top: 16px;
+}
+.founder-table th {
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.5);
+  font-family: var(--font-mono); font-size: 11px;
+  font-weight: 600; letter-spacing: .5px;
+  text-transform: uppercase; text-align: left;
+  padding: 10px 14px;
+}
+.founder-table td {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-size: 14px; color: rgba(255,255,255,.7);
+  line-height: 1.6;
+}
+.founder-table td:first-child {
+  color: var(--teal); font-weight: 600;
+  white-space: nowrap; width: 220px;
+}
+.founder-email {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 18px;
+  color: rgba(255,255,255,.5);
+  font-family: var(--font-mono); font-size: 13px;
+  text-decoration: none;
+  transition: color .15s;
+}
+.founder-email:hover { color: var(--teal); }
+
+/* ── ORG TABLE ───────────────────────────────────────────────────────────── */
+.org-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.org-table th {
+  background: var(--navy); color: white;
+  font-size: 13px; font-weight: 600;
+  text-align: left; padding: 12px 16px;
+}
+.org-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px; color: var(--gray);
+  line-height: 1.6;
+}
+.org-table td:first-child {
+  color: var(--navy); font-weight: 600;
+  width: 240px; vertical-align: top;
+}
+.org-table tr:last-child td { border-bottom: none; }
+.org-table tr:nth-child(even) td { background: var(--lgray, #F5F3EF); }
+
+/* ── PRINCIPLES BOX ──────────────────────────────────────────────────────── */
+.principles-box {
+  background: var(--lteal);
+  border: 1px solid rgba(20,143,119,.2);
+  border-left: 4px solid var(--teal);
+  border-radius: 10px;
+  padding: 24px 26px;
+  margin: 20px 0;
+}
+.principles-box h3 {
+  font-family: var(--font-mono); font-size: 12px;
+  font-weight: 700; letter-spacing: .6px;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 14px;
+}
+.principles-box p {
+  font-size: 14.5px; color: var(--gray);
+  line-height: 1.75; margin-bottom: 10px;
+}
+.principles-list {
+  list-style: none; padding: 0; margin: 0;
+}
+.principles-list li {
+  font-size: 14.5px; color: var(--gray);
+  line-height: 1.75; padding: 8px 0;
+  border-bottom: 1px solid rgba(20,143,119,.12);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.principles-list li:last-child { border-bottom: none; }
+.principles-list li::before {
+  content: '→';
+  color: var(--teal); font-weight: 700;
+  flex-shrink: 0; margin-top: 1px;
+}
+
+/* ── PARTNER BOX ─────────────────────────────────────────────────────────── */
+.partner-list {
+  list-style: none; padding: 0; margin: 20px 0;
+}
+.partner-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+  display: block;
+  font-size: 14.5px; color: var(--gray); line-height: 1.75;
+}
+.partner-list li:last-child { border-bottom: none; }
+.partner-list li strong {
+  color: var(--navy); font-weight: 600;
+  display: block; margin-bottom: 4px;
+}
+.independence-note {
+  background: var(--cream, #FEFCF9);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-top: 24px;
+  font-size: 14px; color: var(--gray); line-height: 1.8;
+}
+.independence-note strong { color: var(--navy); }
+
+/* ── CONTACT CTA ─────────────────────────────────────────────────────────── */
+.contact-cta-section {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 40px;
+  text-align: center;
+  margin: 40px 0;
+}
+.contact-cta-section p {
+  font-size: 15px; color: rgba(255,255,255,.65);
+  margin-bottom: 16px; line-height: 1.75;
+}
+.contact-cta-section a.contact-email {
+  color: var(--gold-lt, #F5E6C8);
+  font-size: 19px; font-weight: 700;
+  font-family: var(--font-mono);
+  text-decoration: none; display: block;
+  margin-bottom: 12px;
+  transition: color .15s;
+}
+.contact-cta-section a.contact-email:hover { color: white; }
+.contact-cta-section .contact-note {
+  font-size: 13px; color: rgba(255,255,255,.35);
+  font-style: italic;
+}
 </style>
 </head>
 <body>
+
 <div class="topbar">
-  Dữ liệu giáo dục độc lập · <strong>Khoa học · Minh bạch · Bền vững</strong> · Khảo sát AI 2026 đang mở — <strong><a href="https://tally.so/r/Y5oa0q" target="_blank" style="color:var(--gold-lt)">Tham gia ngay</a></strong>
+  Dữ liệu giáo dục độc lập · <strong>Khoa học · Minh bạch · Bền vững</strong>
 </div>
-<!-- NAVIGATION -->
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;">
@@ -756,102 +963,154 @@ body {
 <a href="#" class="nav-link active" onclick="window.location.href='about.html';return false;">Về chúng tôi</a>
 
     </div>
-    <a href="https://tally.so/r/Y5oa0q" target="_blank" class="nav-cta">Tham gia khảo sát</a>
+    <a href="survey-ai-2026.html" class="nav-cta">Tham gia khảo sát</a>
   </div>
 </nav>
-<section style="background:var(--navy);padding:64px 0 52px;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(20,143,119,.12) 0%,transparent 55%);"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);font-family:'DM Mono',monospace;font-size:11px;padding:5px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:.6px;">Tổ chức & Nhân sự</div>
-    <h1 style="font-family:'Lora',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:white;margin:0 0 14px;line-height:1.2;">Về VNEdData</h1>
-    <p style="font-size:16px;color:rgba(255,255,255,.6);max-width:560px;line-height:1.7;margin:0;">Hệ thống nghiên cứu và dữ liệu giáo dục độc lập đầu tiên tại Việt Nam — do nhà giáo dục, vì cộng đồng giáo dục.</p>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+<section class="about-hero">
+  <div class="inner">
+    <div class="about-badge">Tổ chức &amp; Nhân sự</div>
+    <h1>Về VNEdData</h1>
+    <p class="lead">VNEdData là sáng kiến nghiên cứu độc lập chuyên thu thập và công bố dữ liệu thực nghiệm về giáo dục Việt Nam. Mọi nghiên cứu được thiết kế theo chuẩn mực học thuật quốc tế — với phương pháp minh bạch, dữ liệu mở theo CC BY 4.0, và kết quả được báo cáo trung thực bất kể chiều hướng của dữ liệu.</p>
   </div>
 </section>
 <div class="gold-rule"></div>
-<section class="content-page">
-  <div class="container">
 
-    <!-- Người sáng lập -->
-    <div class="section-prose">
-      <div><div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:10px;">Nhà sáng lập<span style="flex:1;height:1px;background:var(--rule);display:block;"></span></div></div>
-      <div class="person-card">
-        <div class="person-card-top">
-          <img src="Founder.png" alt="Phan Lê Ngọc Vy" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid rgba(255,255,255,.2);flex-shrink:0;">
-          <div>
-            <div style="font-size:22px;font-weight:700;color:white;font-family:'Lora',serif;margin-bottom:4px;">Phan Lê Ngọc Vy</div>
-            <div style="font-size:15px;color:rgba(255,255,255,.7);margin-bottom:8px;">Doctoral Candidate in Education · Đại học Edgewood, Wisconsin, Hoa Kỳ</div>
-            <span class="status-pill live">Nhà sáng lập &amp; Chủ nhiệm Dự án</span>
-          </div>
-        </div>
-        <div class="person-card-body">
-          <p style="font-size:15px;color:var(--gray);line-height:1.8;margin:0 0 16px;font-style:italic;">"Với tư cách là Doctoral Candidate trong lĩnh vực Giáo dục, tôi nhận thấy một khoảng trống nghiêm trọng: không có tổ chức độc lập nào thu thập và công bố dữ liệu giáo dục Việt Nam theo chuẩn khoa học mở. VNEdData ra đời để lấp đầy khoảng trống đó."</p>
-          <table class="data-table">
-            <tr><th>Lĩnh vực</th><th>Ứng dụng vào VNEdData</th></tr>
-            <tr><td>Nghiên cứu giáo dục</td><td>Thiết kế phương pháp khảo sát, phân tích dữ liệu, viết báo cáo học thuật</td></tr>
-            <tr><td>Đo lường & đánh giá</td><td>Xây dựng bộ câu hỏi chuẩn hóa, kiểm định công cụ đo lường</td></tr>
-            <tr><td>Công nghệ trong giáo dục</td><td>Nghiên cứu về AI và EdTech trong bối cảnh Việt Nam</td></tr>
-            <tr><td>Phương pháp định lượng</td><td>Thiết kế survey, phân tích thống kê, pre-registration</td></tr>
-          </table>
-          <p style="font-size:13px;color:var(--muted);font-family:'DM Mono',monospace;">vneddata@gmail.com</p>
+<!-- ── MAIN CONTENT ───────────────────────────────────────────────────────── -->
+<div style="background:var(--paper)">
+
+  <!-- NHÀ SÁNG LẬP -->
+  <div class="about-section">
+    <div class="section-eyebrow">Nhà sáng lập</div>
+
+    <div class="founder-card">
+      <div class="founder-card-top">
+        <img src="Founder.png" alt="Phan Lê Ngọc Vy">
+        <div>
+          <div class="founder-name">Phan Lê Ngọc Vy</div>
+          <span class="founder-pill" style="margin-bottom:10px;display:inline-block;">Nhà sáng lập &amp; Chủ nhiệm Dự án</span>
+          <div class="founder-title">Nghiên cứu sinh Tiến sĩ Giáo dục · Đại học Edgewood, Wisconsin, Hoa Kỳ</div>
+          <a href="mailto:vy.phan@vneddata.org" class="founder-email" style="display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.55);font-family:var(--font-mono);font-size:12px;text-decoration:none;margin-top:6px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            vy.phan@vneddata.org
+          </a>
         </div>
       </div>
-    </div>
-
-    <!-- Cơ cấu tổ chức -->
-    <div class="section-prose">
-      <div><div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:10px;">Cơ cấu tổ chức<span style="flex:1;height:1px;background:var(--rule);display:block;"></span></div></div>
-      <h2>Mô hình vận hành</h2>
-      <p>VNEdData vận hành theo mô hình tối giản, minh bạch — phù hợp với giai đoạn xây dựng nền móng. Không có cổ đông, không có mục tiêu lợi nhuận.</p>
-      <table class="data-table">
-        <tr><th>Vị trí</th><th>Mô tả & Trạng thái</th></tr>
-        <tr><td>Nhà sáng lập & Chủ nhiệm</td><td>Phan Lê Ngọc Vy — toàn quyền quyết định chiến lược và nghiên cứu</td></tr>
-        <tr><td>Hội đồng Tư vấn</td><td><span class="status-pill pending">Dự kiến T7/2026</span> — 3–5 chuyên gia giáo dục, thống kê, chính sách</td></tr>
-        <tr><td>Cộng tác viên Thực địa</td><td><span class="status-pill pending">Đang tuyển</span> — Giáo viên/giảng viên hỗ trợ thu thập dữ liệu tại trường</td></tr>
-        <tr><td>Cộng đồng Nghiên cứu</td><td>Mạng lưới mở — nhà nghiên cứu, sinh viên tiến sĩ có thể đóng góp theo năng lực</td></tr>
-      </table>
-    </div>
-
-    <!-- Nguyên tắc quản trị -->
-    <div class="section-prose">
-      <div><div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:10px;">Quản trị<span style="flex:1;height:1px;background:var(--rule);display:block;"></span></div></div>
-      <h2>Nguyên tắc ra quyết định</h2>
-      <div class="info-box blue">
-        <div class="box-title">Cam kết quản trị minh bạch</div>
-        <ul>
-          <li>Mọi quyết định quan trọng về phương pháp, công bố và hợp tác đều được ghi lại thành văn bản</li>
-          <li>Không có quyết định nào về dữ liệu được đưa ra dưới áp lực thời gian</li>
-          <li>Conflict of interest phải được khai báo rõ ràng trước khi tham gia dự án</li>
-          <li>Changelog công khai ghi lại mọi thay đổi quan trọng</li>
-          <li>Báo cáo quan trọng cần ít nhất 1 reviewer độc lập trước khi công bố</li>
-        </ul>
+      <div class="founder-card-body">
+        <p class="founder-quote">"Trong quá trình nghiên cứu về hệ thống giáo dục Việt Nam, tôi nhận ra một khoảng trống nghiêm trọng: không có tổ chức độc lập nào thu thập và công bố dữ liệu giáo dục theo chuẩn khoa học mở. VNEdData ra đời để lấp đầy khoảng trống đó — bằng dữ liệu thực nghiệm, phương pháp minh bạch và cam kết tiếp cận mở cho tất cả."</p>
+        <table class="founder-table">
+          <tr>
+            <th>Lĩnh vực</th>
+            <th>Ứng dụng vào VNEdData</th>
+          </tr>
+          <tr>
+            <td>Nghiên cứu giáo dục</td>
+            <td>Thiết kế phương pháp khảo sát, phân tích dữ liệu, viết báo cáo học thuật</td>
+          </tr>
+          <tr>
+            <td>Đo lường &amp; đánh giá</td>
+            <td>Xây dựng bộ câu hỏi chuẩn hóa, kiểm định công cụ đo lường</td>
+          </tr>
+          <tr>
+            <td>Công nghệ trong giáo dục</td>
+            <td>Nghiên cứu về AI và EdTech trong bối cảnh Việt Nam</td>
+          </tr>
+          <tr>
+            <td>Phương pháp định lượng</td>
+            <td>Thiết kế survey, phân tích thống kê, pre-registration</td>
+          </tr>
+        </table>
+        
       </div>
     </div>
-
-    <!-- Liên kết học thuật -->
-    <div class="section-prose">
-      <div><div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:10px;">Liên kết học thuật<span style="flex:1;height:1px;background:var(--rule);display:block;"></span></div></div>
-      <h2>Liên kết & Đối tác</h2>
-      <table class="data-table">
-        <tr><th>Tổ chức</th><th>Mối quan hệ</th></tr>
-        <tr><td>Đại học Edgewood, Wisconsin, USA</td><td>Trường đang theo học của Người sáng lập — Doctoral Program in Education</td></tr>
-        <tr><td>Cộng đồng học thuật Việt Nam</td><td>Tìm kiếm đối tác tại ĐHQG, ĐH Sư phạm, Viện KHGD Việt Nam</td></tr>
-        <tr><td>Tổ chức quốc tế</td><td><span class="status-pill future">Dự kiến</span> — UNESCO, World Bank Vietnam, SEAMEO</td></tr>
-      </table>
-      <div class="info-box teal" style="margin-top:12px;">
-        <div class="box-title">Lưu ý về tính độc lập</div>
-        <ul><li>VNEdData hoạt động hoàn toàn độc lập. Các quan điểm và kết quả nghiên cứu của VNEdData không đại diện cho bất kỳ tổ chức nào mà người sáng lập có liên kết.</li></ul>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="contact-cta">
-      <p style="font-size:15px;color:rgba(255,255,255,.75);margin:0 0 8px;line-height:1.7;">Để hợp tác nghiên cứu, tham gia cộng đồng hoặc tìm hiểu thêm về VNEdData,<br>vui lòng liên hệ qua email.</p>
-      <a href="mailto:vneddata@gmail.com" style="color:var(--gold-lt);font-size:18px;font-weight:700;font-family:'DM Mono',monospace;text-decoration:none;">vneddata@gmail.com</a>
-      <p style="font-size:13px;color:rgba(255,255,255,.4);margin:10px 0 0;">Phản hồi trong 5 ngày làm việc</p>
-    </div>
-
   </div>
-</section>
+
+  <!-- CƠ CẤU TỔ CHỨC -->
+  <div class="about-section">
+    <div class="section-eyebrow">Cơ cấu tổ chức</div>
+    <h2>Mô hình vận hành</h2>
+    <p>VNEdData vận hành theo mô hình nghiên cứu độc lập — tập trung vào chất lượng học thuật, minh bạch phương pháp và tính mở của dữ liệu. Cấu trúc tổ chức được thiết kế để đảm bảo không có xung đột lợi ích trong quá trình thu thập và công bố kết quả.</p>
+
+    <table class="org-table">
+      <tr>
+        <th>Vị trí</th>
+        <th>Mô tả</th>
+      </tr>
+      <tr>
+        <td>Nhà sáng lập &amp; Chủ nhiệm Dự án</td>
+        <td>Phan Lê Ngọc Vy — chịu trách nhiệm toàn bộ về thiết kế nghiên cứu, phân tích và công bố</td>
+      </tr>
+      <tr>
+        <td>Hội đồng Tư vấn Học thuật</td>
+        <td>Đang hình thành — chuyên gia về giáo dục, đo lường và chính sách giáo dục</td>
+      </tr>
+      <tr>
+        <td>Cộng tác viên Nghiên cứu</td>
+        <td>Mạng lưới mở — nhà nghiên cứu và giảng viên có thể đóng góp theo từng dự án</td>
+      </tr>
+      <tr>
+        <td>Cộng đồng Tham gia</td>
+        <td>Giáo viên, học sinh, phụ huynh tham gia khảo sát và phản hồi nghiên cứu</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- QUẢN TRỊ -->
+  <div class="about-section">
+    <div class="section-eyebrow">Quản trị</div>
+    <h2>Nguyên tắc ra quyết định</h2>
+
+    <div class="principles-box">
+      <h3>Cam kết quản trị minh bạch</h3>
+      <p>VNEdData áp dụng các nguyên tắc quản trị sau đây trong toàn bộ hoạt động nghiên cứu và công bố:</p>
+      <ul class="principles-list">
+        <li>Mọi quyết định quan trọng về phương pháp, công bố và hợp tác được ghi nhận thành văn bản và lưu trữ có hệ thống</li>
+        <li>Các quyết định liên quan đến dữ liệu không được đưa ra dưới áp lực thời gian hoặc kỳ vọng kết quả</li>
+        <li>Xung đột lợi ích (conflict of interest) phải được khai báo rõ ràng trước khi tham gia bất kỳ dự án nghiên cứu nào</li>
+        <li>Mọi thay đổi quan trọng đối với phương pháp hoặc bộ câu hỏi được ghi nhận trong changelog công khai</li>
+        <li>Báo cáo trước khi công bố được review bởi ít nhất một người có chuyên môn độc lập với quá trình thu thập dữ liệu</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LIÊN KẾT HỌC THUẬT -->
+  <div class="about-section">
+    <div class="section-eyebrow">Liên kết học thuật</div>
+    <h2>Định hướng hợp tác</h2>
+    <p>VNEdData hướng đến xây dựng quan hệ đối tác học thuật và tổ chức trên cơ sở chia sẻ mục tiêu nghiên cứu và cam kết chất lượng dữ liệu:</p>
+
+    <ul class="partner-list">
+      <li>
+        <strong>Cơ sở giáo dục đại học tại Việt Nam</strong>
+        Hợp tác nghiên cứu, chia sẻ dữ liệu và phát triển năng lực đo lường giáo dục
+      </li>
+      <li>
+        <strong>Tổ chức giáo dục quốc tế</strong>
+        Trao đổi phương pháp luận và kết nối với cộng đồng nghiên cứu khu vực
+      </li>
+      <li>
+        <strong>Cơ quan nghiên cứu và hoạch định chính sách giáo dục</strong>
+        Chuyển hóa kết quả nghiên cứu thành khuyến nghị có căn cứ thực nghiệm
+      </li>
+    </ul>
+
+    <div class="independence-note">
+      <strong>Tuyên bố độc lập:</strong> VNEdData hoạt động hoàn toàn độc lập. Các quan điểm, phương pháp và kết quả nghiên cứu của VNEdData không đại diện cho bất kỳ tổ chức nào mà người sáng lập có liên kết về học thuật, nghề nghiệp hoặc cá nhân.
+    </div>
+  </div>
+
+  <!-- CONTACT CTA -->
+  <div class="about-section" style="padding-bottom: 80px;">
+    <div class="contact-cta-section">
+      <p>Để trao đổi về hợp tác nghiên cứu, đóng góp học thuật hoặc tìm hiểu thêm về VNEdData, vui lòng liên hệ qua email.</p>
+      <a href="mailto:vy.phan@vneddata.org" class="contact-email">vy.phan@vneddata.org</a>
+      <div class="contact-note">Chúng tôi cố gắng phản hồi trong vòng 5 ngày làm việc.</div>
+    </div>
+  </div>
+
+</div>
+
 <div class="gold-rule"></div>
 <footer class="footer">
   <div class="container">
@@ -860,20 +1119,23 @@ body {
         <div style="margin-bottom:12px">
           <span style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.2px;color:#fff">VNEd<span style="color:#5DC9B2">Data</span></span>
         </div>
-        <p>Dữ liệu giáo dục độc lập Việt Nam. Khoa học · Minh bạch · Bền vững.</p>
-        <a href="mailto:vneddata@gmail.com" class="fb-email">vneddata@gmail.com</a>
+        <p>Dữ liệu giáo dục độc lập · Việt Nam</p>
+        <a href="mailto:vy.phan@vneddata.org" class="fb-email" style="display:flex;align-items:center;gap:6px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          vy.phan@vneddata.org
+        </a>
       </div>
       <div class="footer-col">
         <h4>Khảo sát</h4>
-        <a href="#" href="surveys.html">Khảo sát</a>
-        <a href="#" onclick="window.location.href='surveys.html';return false;">Sắp mở</a>
-        <a href="#" onclick="window.location.href='surveys.html';return false;">Đã đóng</a>
+        <a href="surveys.html">Đang mở</a>
+        <a href="surveys.html">Sắp mở</a>
+        <a href="surveys.html">Đã đóng</a>
       </div>
       <div class="footer-col">
         <h4>Nghiên cứu</h4>
-        <a href="#" onclick="window.location.href='reports.html';return false;">Báo cáo</a>
-        <a href="#" onclick="window.location.href='data.html';return false;">Dữ liệu mở</a>
-        <a href="#" onclick="window.location.href='about.html';return false;">Phương pháp</a>
+        <a href="reports.html">Báo cáo</a>
+        <a href="data.html">Dữ liệu mở</a>
+        <a href="data.html">Phương pháp</a>
       </div>
       <div class="footer-col">
         <h4>Tổ chức</h4>
@@ -881,53 +1143,43 @@ body {
         <a href="faq.html">FAQ</a>
         <a href="funding.html">Tài trợ &amp; Tài chính</a>
         <a href="privacy.html">Chính sách bảo mật</a>
-        <a href="mailto:vneddata@gmail.com">Liên hệ</a>
+        <a href="mailto:vy.phan@vneddata.org">Liên hệ</a>
       </div>
     </div>
-    <!-- Legal statement -->
     <div class="footer-legal">
       <p class="footer-legal-text">
         VNEdData là dự án nghiên cứu độc lập do <strong style="color:rgba(255,255,255,.55)">Phan Lê Ngọc Vy</strong>,
-        Doctoral Candidate in Education, Đại học Edgewood, Hoa Kỳ, sáng lập và điều hành.
+        Nghiên cứu sinh Tiến sĩ Giáo dục, Đại học Edgewood, Wisconsin, Hoa Kỳ, sáng lập và điều hành.
         Dữ liệu và báo cáo được công bố theo giấy phép
         <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
         — tự do sử dụng với điều kiện ghi nguồn.
         Mã nguồn website công khai trên
         <a href="https://github.com/vneddata/vneddata.github.io" target="_blank">GitHub</a>.
-        Xem <a href="privacy.html">Chính sách bảo mật</a> và <a href="faq.html">FAQ</a> để biết thêm.
+        Xem <a href="privacy.html">Chính sách bảo mật</a> và <a href="faq.html">FAQ</a> để biết thêm thông tin chi tiết.
       </p>
     </div>
-
-    <!-- Bottom bar: copyright + social -->
     <div class="footer-bottom-bar">
       <div class="footer-copy">
-        © 2026 VNEdData · Dữ liệu Giáo dục Việt Nam ·
+        © 2026 VNEdData · CC BY 4.0 ·
         <a href="privacy.html">Bảo mật</a> ·
-        <a href="faq.html">FAQ</a> ·
-        <a href="funding.html">Tài trợ</a>
+        <a href="faq.html">FAQ</a>
       </div>
       <div class="footer-social">
-        <!-- GitHub ✅ active -->
         <a href="https://github.com/vneddata/vneddata.github.io" target="_blank" class="social-link" title="GitHub">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <!-- Facebook — cập nhật link khi có tài khoản -->
         <a href="#" class="social-link" title="Facebook (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
           <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
-        <!-- LinkedIn — cập nhật link khi có tài khoản -->
         <a href="#" class="social-link" title="LinkedIn (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-        <!-- X/Twitter — cập nhật link khi có tài khoản -->
         <a href="#" class="social-link" title="X / Twitter (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
           <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
-        <!-- Instagram — cập nhật link khi có tài khoản -->
         <a href="#" class="social-link" title="Instagram (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         </a>
-        <!-- YouTube — cập nhật link khi có tài khoản -->
         <a href="#" class="social-link" title="YouTube (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
           <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
@@ -936,5 +1188,6 @@ body {
   </div>
 </footer>
 <div class="gold-rule"></div>
+
 </body>
 </html>
