@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Giải đáp câu hỏi về VNEdData — privacy, phương pháp, hợp tác, trích dẫn dữ liệu.">
+<meta name="description" content="Câu hỏi thường gặp về VNEdData — tham gia khảo sát, sử dụng dữ liệu, hợp tác nghiên cứu và trích dẫn học thuật.">
 <title>FAQ — Câu hỏi thường gặp — VNEdData</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
 /* ── TOKENS ─────────────────────────────────────────────────────────────── */
 :root {
@@ -691,57 +692,71 @@ body {
 .social-link svg { width:16px; height:16px; fill:currentColor; display:block; }
 </style>
 <style>
-.content-page { padding:64px 0 80px;background:var(--paper); }
-.content-page .container { max-width:860px; }
-.section-prose { margin-bottom:48px; }
-.section-prose h2 { font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--navy);margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--teal);line-height:1.3; }
-.section-prose h3 { font-size:16px;font-weight:600;color:var(--blue);margin:28px 0 8px; }
-.section-prose p { font-size:15px;color:var(--gray);line-height:1.8;margin:0 0 14px; }
-.section-prose ul { padding-left:22px;margin:0 0 14px; }
-.section-prose li { font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:6px; }
-.info-box { border-radius:10px;padding:22px 24px;margin:20px 0; }
-.info-box.teal { background:var(--lteal);border-left:4px solid var(--teal); }
-.info-box.gold { background:var(--gold-lt);border-left:4px solid var(--gold); }
-.info-box.red { background:#FDEDEC;border-left:4px solid #C0392B; }
-.info-box.blue { background:var(--light);border-left:4px solid var(--blue); }
-.info-box .box-title { font-size:13px;font-weight:700;margin-bottom:10px;font-family:'DM Mono',monospace;letter-spacing:.5px; }
-.info-box.teal .box-title { color:var(--teal); }
-.info-box.gold .box-title { color:var(--gold); }
-.info-box.red .box-title { color:#C0392B; }
-.info-box.blue .box-title { color:var(--blue); }
-.info-box ul { padding-left:18px;margin:0; }
-.info-box li { font-size:13.5px;line-height:1.65;margin-bottom:5px;color:var(--gray); }
-.data-table { width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px; }
-.data-table th { background:var(--navy);color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:13px; }
-.data-table td { padding:10px 14px;border-bottom:1px solid var(--rule);color:var(--gray);vertical-align:top; }
-.data-table tr:nth-child(even) td { background:var(--lgray); }
-.data-table td:first-child { color:var(--blue);font-weight:600; }
-.cite-box { background:var(--lgray);border-radius:8px;padding:14px 18px;font-family:'DM Mono',monospace;font-size:13px;color:var(--navy);margin:12px 0;line-height:1.6; }
-.faq-item { border-bottom:1px solid var(--rule);padding:20px 0; }
-.faq-item:last-child { border-bottom:none; }
-.faq-q { font-size:15px;font-weight:600;color:var(--navy);margin:0 0 10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px; }
-.faq-q::after { content:'+';font-size:20px;color:var(--teal);flex-shrink:0;font-weight:300; }
-.faq-q.open::after { content:'−'; }
-.faq-a { font-size:14.5px;color:var(--gray);line-height:1.75;display:none; }
-.faq-a.open { display:block; }
-.faq-group { background:var(--cream);border:1px solid var(--rule);border-radius:12px;padding:24px 28px;margin-bottom:28px; }
-.faq-group-title { font-family:'DM Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--rule); }
-.person-card { background:var(--cream);border:1px solid var(--rule);border-radius:14px;overflow:hidden;margin:24px 0; }
-.person-card-top { background:var(--navy);padding:28px 32px;display:flex;align-items:center;gap:24px; }
-.person-avatar { width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue));display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:white;flex-shrink:0;font-family:'Lora',serif; }
-.person-card-body { padding:24px 32px; }
-.status-pill { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;font-family:'DM Mono',monospace; }
-.status-pill.live { background:#D5F5E3;color:#117a65; }
-.status-pill.pending { background:var(--gold-lt);color:#8B5E0A; }
-.status-pill.future { background:var(--lgray);color:var(--muted); }
-.contact-cta { background:var(--navy);border-radius:12px;padding:32px;text-align:center;margin-top:48px; }
+/* ── FAQ PAGE SPECIFIC ───────────────────────────────────────────────────── */
+.faq-group { margin-bottom: 48px; }
+.faq-group-label {
+  font-family: var(--font-mono); font-size: 10px;
+  font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--teal); display: flex; align-items: center; gap: 14px;
+  margin-bottom: 20px;
+}
+.faq-group-label::after { content:''; flex:1; height:1px; background:var(--rule); }
+.faq-item {
+  border: 1px solid var(--rule); border-radius: 10px;
+  margin-bottom: 10px; overflow: hidden;
+  transition: box-shadow .18s;
+}
+.faq-item:hover { box-shadow: 0 2px 12px rgba(11,29,62,.06); }
+.faq-q {
+  padding: 18px 22px; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px; user-select: none;
+  font-weight: 600; font-size: 15px; color: var(--navy);
+  background: white;
+}
+.faq-q .faq-icon {
+  flex-shrink: 0; width: 20px; height: 20px;
+  border-radius: 50%; background: var(--lteal);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s, background .2s;
+  font-size: 13px; color: var(--teal);
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--teal); color: white; }
+.faq-a {
+  display: none; padding: 0 22px 20px;
+  font-size: 14.5px; color: var(--gray); line-height: 1.85;
+  border-top: 1px solid var(--rule); background: white;
+}
+.faq-item.open .faq-a { display: block; padding-top: 16px; }
+.faq-a a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+.faq-code {
+  font-family: var(--font-mono); font-size: 13px;
+  background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 12px 16px; margin: 10px 0;
+  line-height: 1.7; color: var(--navy);
+}
+.faq-note {
+  font-size: 12px; color: var(--muted); font-style: italic; margin-top: 4px;
+}
+.contact-cta {
+  background: var(--navy); border-radius: 12px;
+  padding: 32px; text-align: center; margin-top: 48px;
+}
+.contact-cta p {
+  font-size: 15px; color: rgba(255,255,255,.65);
+  line-height: 1.75; margin-bottom: 12px;
+}
+.contact-cta a {
+  color: var(--gold-lt); font-weight: 600; text-decoration: none;
+}
+.contact-cta a:hover { color: white; }
 </style>
 </head>
 <body>
+
 <div class="topbar">
-  Dữ liệu giáo dục độc lập · <strong>Khoa học · Minh bạch · Bền vững</strong> · Khảo sát AI 2026 đang mở — <strong><a href="https://tally.so/r/Y5oa0q" target="_blank" style="color:var(--gold-lt)">Tham gia ngay</a></strong>
+  Dữ liệu giáo dục độc lập · <strong>Khoa học · Minh bạch · Bền vững</strong>
 </div>
-<!-- NAVIGATION -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;">
@@ -756,129 +771,240 @@ body {
 <a href="#" class="nav-link active" onclick="window.location.href='about.html';return false;">Về chúng tôi</a>
 
     </div>
-    <a href="https://tally.so/r/Y5oa0q" target="_blank" class="nav-cta">Tham gia khảo sát</a>
+    <a href="survey-ai-2026.html" class="nav-cta">Tham gia khảo sát</a>
   </div>
 </nav>
+
+<!-- HERO -->
 <section style="background:var(--navy);padding:64px 0 52px;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(20,143,119,.12) 0%,transparent 55%);"></div>
   <div class="container" style="position:relative;z-index:1">
     <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);font-family:'DM Mono',monospace;font-size:11px;padding:5px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:.6px;">Câu hỏi thường gặp</div>
-    <h1 style="font-family:'Lora',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:white;margin:0 0 14px;line-height:1.2;">FAQ — Frequently Asked Questions</h1>
-    <p style="font-size:16px;color:rgba(255,255,255,.6);max-width:560px;line-height:1.7;margin:0;">Giải đáp những câu hỏi phổ biến nhất từ người tham gia khảo sát, nhà nghiên cứu, đối tác và truyền thông.</p>
+    <h1 style="font-family:'Lora',serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:white;margin-bottom:16px;line-height:1.2;">FAQ</h1>
+    <p style="font-size:16px;color:rgba(255,255,255,.65);max-width:620px;line-height:1.8;">Giải đáp câu hỏi về VNEdData — từ quy trình tham gia khảo sát đến sử dụng dữ liệu và hợp tác nghiên cứu.</p>
   </div>
 </section>
 <div class="gold-rule"></div>
-<section class="content-page">
-  <div class="container">
-    <p style="font-size:15px;color:var(--muted);margin:0 0 36px;line-height:1.7;">Nếu câu hỏi của bạn không có ở đây, liên hệ <a href="mailto:vneddata@gmail.com" style="color:var(--teal);">vneddata@gmail.com</a> — chúng tôi phản hồi trong 5 ngày làm việc.</p>
 
-    <!-- Nhóm A -->
-    <div class="faq-group">
-      <div class="faq-group-title">🎓 A — Dành cho người tham gia khảo sát</div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">A1. Tham gia khảo sát có mất phí không?</div>
-        <div class="faq-a">Hoàn toàn miễn phí. VNEdData là dự án phi lợi nhuận — chúng tôi không bao giờ thu phí người tham gia và không có bất kỳ ràng buộc tài chính nào.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">A2. Thông tin cá nhân của tôi có bị lộ không?</div>
-        <div class="faq-a">Không. VNEdData không thu thập tên, email, số điện thoại, địa chỉ IP hay bất kỳ thông tin nào có thể xác định danh tính bạn. Khảo sát chỉ hỏi về bậc học, ngành học và câu trả lời nội dung — không có thông tin định danh. Xem thêm: <a href="privacy.html" style="color:var(--teal);">Chính sách bảo mật</a>.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">A3. Tôi có thể dừng giữa chừng không?</div>
-        <div class="faq-a">Có, bất kỳ lúc nào. Tham gia hoàn toàn tự nguyện. Nếu bạn đã submit và muốn xóa dữ liệu, gửi email cho chúng tôi trong vòng 30 ngày.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">A4. Khảo sát mất bao lâu?</div>
-        <div class="faq-a">Khoảng 5–8 phút tùy tốc độ đọc. Khảo sát 2026-AI-V1 có 10 câu, được thiết kế để không quá 8 phút với người đọc bình thường.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">A5. Tôi sẽ nhận được gì sau khi tham gia?</div>
-        <div class="faq-a">Bạn đóng góp vào bức tranh dữ liệu giáo dục Việt Nam. Kết quả tổng hợp được công bố mở tại vneddata.github.io để tất cả mọi người, bao gồm bạn, có thể xem. Chúng tôi không tặng quà hay phần thưởng tài chính — điều này đảm bảo sự tự nguyện thực sự của người tham gia.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">A6. Dữ liệu của tôi được dùng vào việc gì cụ thể?</div>
-        <div class="faq-a">Dữ liệu được phân tích tổng hợp (không bao giờ theo từng cá nhân) để hiểu xu hướng sử dụng AI trong học tập tại Việt Nam. Kết quả có thể được gửi đến Bộ GD&ĐT để hỗ trợ cải thiện chính sách giáo dục. Dữ liệu ẩn danh cũng được công bố mở cho nhà nghiên cứu toàn cầu.</div>
-      </div>
-    </div>
+<!-- CONTENT -->
+<div style="background:var(--paper)">
+  <div class="container" style="max-width:800px;padding:56px 24px;">
 
-    <!-- Nhóm B -->
+    <p style="font-size:15px;color:var(--muted);margin:0 0 40px;line-height:1.75;">
+      Dưới đây là những câu hỏi thường gặp về VNEdData — từ quy trình tham gia khảo sát đến sử dụng dữ liệu và hợp tác nghiên cứu. Nếu bạn không tìm thấy câu trả lời phù hợp, vui lòng liên hệ trực tiếp qua <a href="mailto:vy.phan@vneddata.org" style="color:var(--teal);">vy.phan@vneddata.org</a> — chúng tôi cố gắng phản hồi trong vòng 5 ngày làm việc.
+    </p>
+
+    <!-- NHÓM A -->
     <div class="faq-group">
-      <div class="faq-group-title">🔬 B — Dành cho nhà nghiên cứu và giảng viên</div>
+      <div class="faq-group-label">A — Tham gia khảo sát</div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">B1. Tôi có thể dùng dữ liệu VNEdData cho nghiên cứu của mình không?</div>
-        <div class="faq-a">Có. Tất cả dataset ẩn danh được công bố theo giấy phép <strong>CC BY 4.0</strong> — tự do sử dụng, chia sẻ và chỉnh sửa với điều kiện ghi nguồn. Tải về miễn phí tại trang Dữ liệu mở.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">B2. Cách trích dẫn VNEdData trong bài báo học thuật?</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A1. Tham gia khảo sát có mất phí không?
+          <span class="faq-icon">+</span>
+        </div>
         <div class="faq-a">
-          Sử dụng định dạng APA 7th:
-          <div class="cite-box" style="margin-top:10px;">Phan, L. N. V. (2026). [Tên khảo sát] [Dataset]. VNEdData. https://vneddata.github.io</div>
+          Không. Tất cả khảo sát của VNEdData hoàn toàn miễn phí. VNEdData không thu bất kỳ khoản phí nào từ người tham gia và không có ràng buộc tài chính nào đối với người trả lời.
         </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">B3. Phương pháp nghiên cứu của VNEdData có được công bố không?</div>
-        <div class="faq-a">Có. Research Protocol đầy đủ — bao gồm thiết kế nghiên cứu, bộ câu hỏi, quy trình lấy mẫu và kế hoạch phân tích — được tóm tắt trong mỗi báo cáo. Liên hệ vneddata@gmail.com để nhận bản đầy đủ.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A2. Thông tin cá nhân của tôi có bị lộ không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          VNEdData không thu thập tên, địa chỉ email, số điện thoại, địa chỉ IP hay bất kỳ thông tin nào có thể xác định danh tính người tham gia. Khảo sát chỉ ghi nhận các đặc điểm nhân khẩu học tổng quát như bậc học và vùng miền — không đủ để truy nguyên cá nhân. Toàn bộ dữ liệu được ẩn danh hóa trước khi phân tích và công bố.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">B4. Tôi có thể hợp tác với VNEdData không?</div>
-        <div class="faq-a">Rất hoan nghênh. VNEdData đang tìm kiếm đối tác học thuật tại các trường đại học Việt Nam. Hình thức: cộng tác viên thực địa, expert reviewer, co-authorship trong báo cáo. Liên hệ vneddata@gmail.com với tiêu đề "Hợp tác nghiên cứu".</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A3. Tôi có thể dừng giữa chừng không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Có, bất kỳ lúc nào và không cần giải thích lý do. Tham gia khảo sát là hoàn toàn tự nguyện. Nếu bạn đã submit và muốn yêu cầu xóa dữ liệu, vui lòng liên hệ <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> trong vòng 30 ngày kể từ ngày tham gia.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">B5. Dataset có đủ lớn để phân tích thống kê có ý nghĩa không?</div>
-        <div class="faq-a">Khảo sát 2026-AI-V1 đang thu thập với mục tiêu 500 responses. Báo cáo sơ bộ khi n≥200, báo cáo đầy đủ khi n≥500. Chúng tôi luôn ghi rõ cỡ mẫu và giới hạn thống kê — không phóng đại ý nghĩa của dữ liệu.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A4. Khảo sát mất bao lâu?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Tùy theo từng khảo sát — thường từ 5 đến 10 phút. Khảo sát 2026-AI-V1 gồm 10 câu, dự kiến khoảng 5–8 phút. Khảo sát 2026-TEACHER-V1 gồm 11 câu, dự kiến khoảng 8–10 phút. Thời gian cụ thể được ghi rõ trên từng trang khảo sát.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A5. Tôi sẽ nhận được gì sau khi tham gia?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Mỗi phản hồi đóng góp trực tiếp vào bức tranh dữ liệu giáo dục Việt Nam — một nguồn dữ liệu độc lập hiện chưa tồn tại ở quy mô này. Kết quả tổng hợp được công bố mở tại <a href="https://vneddata.org" target="_blank">vneddata.org</a> để tất cả mọi người, bao gồm người tham gia, có thể tự do tham khảo và sử dụng.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A6. Dữ liệu của tôi được dùng vào việc gì cụ thể?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Dữ liệu được phân tích ở cấp độ tổng hợp — không bao giờ theo từng cá nhân — để làm rõ xu hướng và thực trạng giáo dục Việt Nam. Kết quả được công bố dưới dạng báo cáo học thuật mở và tóm tắt chính sách, hướng đến cộng đồng nghiên cứu, nhà giáo dục và các bên liên quan đến chính sách giáo dục.
+        </div>
       </div>
     </div>
 
-    <!-- Nhóm C -->
+    <!-- NHÓM B -->
     <div class="faq-group">
-      <div class="faq-group-title">🤝 C — Dành cho đối tác tiềm năng</div>
+      <div class="faq-group-label">B — Dữ liệu &amp; Nghiên cứu</div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">C1. VNEdData là tổ chức gì — nhà nước hay tư nhân?</div>
-        <div class="faq-a">VNEdData là dự án nghiên cứu độc lập — không thuộc nhà nước, không thuộc tư nhân, không có cổ đông. Được sáng lập bởi một cá nhân với mục tiêu phi lợi nhuận. Hiện chưa có pháp nhân chính thức — đang vận hành dưới tên cá nhân người sáng lập trong giai đoạn thí điểm.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          B1. Tôi có thể dùng dữ liệu VNEdData cho nghiên cứu của mình không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Có. Toàn bộ dataset sau khi ẩn danh hóa được công bố theo giấy phép <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> — tự do truy cập, sử dụng và tái phân phối với điều kiện ghi nguồn đầy đủ. Không yêu cầu đăng ký hay xin phép trước.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">C2. Làm thế nào để trở thành đối tác?</div>
-        <div class="faq-a">Gửi email vneddata@gmail.com. Hình thức đối tác: cộng tác viên thực địa (giáo viên/giảng viên), expert reviewer, đối tác tổ chức (ký MOU). Xem <a href="about.html" style="color:var(--teal);">trang Tổ chức</a> để biết thêm.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          B2. Cách trích dẫn VNEdData trong bài báo học thuật?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Sử dụng định dạng APA 7 như sau:
+          <div class="faq-code">Phan, L. N. V. (2026). [Tên khảo sát] [Dataset]. VNEdData. https://vneddata.org</div>
+          <p class="faq-note">Ví dụ cụ thể:</p>
+          <div class="faq-code">Phan, L. N. V. (2026). AI trong Học tập Việt Nam 2026 (2026-AI-V1) [Dataset]. VNEdData. https://vneddata.org/data.html</div>
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">C3. VNEdData có nhận tài trợ không?</div>
-        <div class="faq-a">Có, với điều kiện rõ ràng: tài trợ không được ảnh hưởng đến kết quả hoặc quyết định công bố nghiên cứu. Mọi nhà tài trợ được ghi nhận công khai. Xem <a href="funding.html" style="color:var(--teal);">trang Tài trợ & Tài chính</a>.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          B3. Phương pháp nghiên cứu của VNEdData có được công bố không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Có. Research Protocol đầy đủ — bao gồm câu hỏi nghiên cứu, thiết kế bộ câu hỏi, quy trình lấy mẫu, kế hoạch phân tích và changelog — được công khai song song với quá trình thu thập dữ liệu. Xem chi tiết tại trang <a href="data.html">Dữ liệu mở</a> hoặc liên hệ <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> để nhận tài liệu đầy đủ.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">C4. Kết quả nghiên cứu có thể dùng trong báo cáo nội bộ không?</div>
-        <div class="faq-a">Có, với điều kiện ghi nguồn đầy đủ (xem B2). Dữ liệu CC BY 4.0 cho phép sử dụng thương mại với điều kiện attribution. Nếu cần dữ liệu tùy chỉnh hoặc nghiên cứu riêng, liên hệ để thảo luận.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          B4. Tôi có thể hợp tác với VNEdData không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          VNEdData hoan nghênh các hình thức hợp tác học thuật trên cơ sở chia sẻ mục tiêu nghiên cứu và cam kết chất lượng dữ liệu. Các hình thức hợp tác hiện tại bao gồm: cộng tác viên nghiên cứu, expert reviewer và đối tác tổ chức. Vui lòng liên hệ <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> để trao đổi cụ thể.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          B5. Dataset có đủ lớn để phân tích thống kê có ý nghĩa không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Khảo sát 2026-AI-V1 và 2026-TEACHER-V1 đang trong giai đoạn thu thập, với mục tiêu 500 phản hồi mỗi khảo sát. Báo cáo sơ bộ được công bố khi n ≥ 50; báo cáo đầy đủ khi n ≥ 200. Cỡ mẫu, giới hạn thống kê và mức độ tin cậy luôn được ghi rõ trong từng báo cáo — phù hợp với chuẩn mực báo cáo học thuật.
+        </div>
       </div>
     </div>
 
-    <!-- Nhóm D -->
+    <!-- NHÓM C -->
     <div class="faq-group">
-      <div class="faq-group-title">📰 D — Dành cho nhà báo và truyền thông</div>
+      <div class="faq-group-label">C — Về VNEdData</div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">D1. Tôi có thể trích dẫn số liệu VNEdData trong bài báo không?</div>
-        <div class="faq-a">Có, với điều kiện: ghi rõ nguồn "Theo VNEdData (2026)", ghi rõ cỡ mẫu và thời điểm thu thập, không diễn giải vượt quá những gì dữ liệu cho phép. Khuyến khích liên hệ trước để có context đầy đủ.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          C1. VNEdData là tổ chức gì?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          VNEdData là sáng kiến nghiên cứu độc lập do Phan Lê Ngọc Vy, Nghiên cứu sinh Tiến sĩ Giáo dục tại Đại học Edgewood, Wisconsin, Hoa Kỳ, sáng lập và điều hành. VNEdData hoạt động độc lập — không thuộc cơ quan nhà nước và không có xung đột lợi ích với bất kỳ tổ chức thương mại nào. Mọi kết quả nghiên cứu được báo cáo trung thực bất kể chiều hướng của dữ liệu.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">D2. Ai là người phát ngôn chính thức?</div>
-        <div class="faq-a">Người phát ngôn duy nhất: Phan Lê Ngọc Vy, Doctoral Candidate in Education, Đại học Edgewood, Hoa Kỳ. Liên hệ phỏng vấn qua: vneddata@gmail.com.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          C2. Làm thế nào để trở thành đối tác?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Vui lòng liên hệ <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> để trao đổi về khả năng hợp tác. VNEdData đang tìm kiếm đối tác tại các cơ sở giáo dục đại học, tổ chức nghiên cứu và cơ quan hoạch định chính sách giáo dục tại Việt Nam. Xem thêm thông tin tại trang <a href="funding.html">Tài trợ &amp; Tài chính</a>.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">D3. Khi nào có báo cáo đầy đủ để đưa tin?</div>
-        <div class="faq-a">Báo cáo sơ bộ 2026-AI-V1 dự kiến tháng 7/2026 (khi n≥200). Báo cáo đầy đủ dự kiến tháng 9/2026. Đăng ký nhận thông báo qua vneddata@gmail.com.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">
+          C3. VNEdData có nhận tài trợ không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Có, với điều kiện minh bạch: tài trợ không được ảnh hưởng đến kết quả hoặc quyết định công bố nghiên cứu. Mọi nhà tài trợ và nguồn tài chính được ghi nhận công khai. Xem chi tiết tại trang <a href="funding.html">Tài trợ &amp; Tài chính</a>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          C4. Kết quả nghiên cứu có thể dùng trong báo cáo nội bộ không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Có, với điều kiện ghi nguồn đầy đủ theo giấy phép CC BY 4.0. Dữ liệu mở của VNEdData cho phép sử dụng cho mục đích nghiên cứu, giảng dạy và báo cáo — kể cả trong bối cảnh tổ chức — miễn là có ghi công rõ ràng. Nếu cần hỗ trợ thiết kế hoặc phân tích dữ liệu chuyên sâu, vui lòng liên hệ <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> để trao đổi về các hình thức hợp tác phù hợp.
+        </div>
       </div>
     </div>
 
+    <!-- NHÓM D -->
+    <div class="faq-group">
+      <div class="faq-group-label">D — Báo chí &amp; Truyền thông</div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          D1. Tôi có thể trích dẫn số liệu VNEdData trong bài báo không?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Có. Khi sử dụng số liệu từ VNEdData, vui lòng ghi rõ: nguồn dữ liệu "VNEdData (2026)", cỡ mẫu và thời điểm thu thập, và tránh diễn giải vượt quá những gì dữ liệu cho phép. Nếu cần xác nhận số liệu hoặc thông tin bổ sung, vui lòng liên hệ <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> trước khi xuất bản.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          D2. Ai là người phát ngôn chính thức?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Người phát ngôn chính thức của VNEdData là Phan Lê Ngọc Vy, Nghiên cứu sinh Tiến sĩ Giáo dục, Đại học Edgewood, Wisconsin, Hoa Kỳ. Để đặt lịch phỏng vấn hoặc trao đổi với báo chí, vui lòng liên hệ qua <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          D3. Khi nào có báo cáo đầy đủ để đưa tin?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          Báo cáo sơ bộ 2026-AI-V1 dự kiến công bố khi đạt n ≥ 200 phản hồi. Báo cáo đầy đủ dự kiến sau khi đạt n ≥ 500. Để nhận thông báo khi báo cáo được công bố, vui lòng đăng ký tại trang <a href="data.html">Dữ liệu mở</a> hoặc liên hệ <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a>.
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT CTA -->
     <div class="contact-cta">
-      <p style="font-size:14px;color:rgba(255,255,255,.6);margin:0 0 10px;">Còn câu hỏi khác?</p>
-      <a href="mailto:vneddata@gmail.com" style="color:var(--gold-lt);font-size:18px;font-weight:700;font-family:'DM Mono',monospace;text-decoration:none;">vneddata@gmail.com</a>
+      <p>Nếu bạn còn câu hỏi chưa được giải đáp ở trên, vui lòng liên hệ qua email <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> — chúng tôi sẵn lòng hỗ trợ và cố gắng phản hồi trong vòng 5 ngày làm việc.</p>
     </div>
+
   </div>
-</section>
-<script>
-function toggle(el) {
-  el.classList.toggle('open');
-  el.nextElementSibling.classList.toggle('open');
-}
-</script>
+</div>
+
 <div class="gold-rule"></div>
 <footer class="footer">
   <div class="container">
@@ -887,20 +1013,23 @@ function toggle(el) {
         <div style="margin-bottom:12px">
           <span style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.2px;color:#fff">VNEd<span style="color:#5DC9B2">Data</span></span>
         </div>
-        <p>Dữ liệu giáo dục độc lập Việt Nam. Khoa học · Minh bạch · Bền vững.</p>
-        <a href="mailto:vneddata@gmail.com" class="fb-email">vneddata@gmail.com</a>
+        <p>Dữ liệu giáo dục độc lập · Việt Nam</p>
+        <a href="mailto:vy.phan@vneddata.org" class="fb-email" style="display:flex;align-items:center;gap:6px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          vy.phan@vneddata.org
+        </a>
       </div>
       <div class="footer-col">
         <h4>Khảo sát</h4>
-        <a href="#" href="surveys.html">Khảo sát</a>
-        <a href="#" onclick="window.location.href='surveys.html';return false;">Sắp mở</a>
-        <a href="#" onclick="window.location.href='surveys.html';return false;">Đã đóng</a>
+        <a href="surveys.html">Đang mở</a>
+        <a href="surveys.html">Sắp mở</a>
+        <a href="surveys.html">Đã đóng</a>
       </div>
       <div class="footer-col">
         <h4>Nghiên cứu</h4>
-        <a href="#" onclick="window.location.href='reports.html';return false;">Báo cáo</a>
-        <a href="#" onclick="window.location.href='data.html';return false;">Dữ liệu mở</a>
-        <a href="#" onclick="window.location.href='about.html';return false;">Phương pháp</a>
+        <a href="reports.html">Báo cáo</a>
+        <a href="data.html">Dữ liệu mở</a>
+        <a href="data.html">Phương pháp</a>
       </div>
       <div class="footer-col">
         <h4>Tổ chức</h4>
@@ -908,60 +1037,49 @@ function toggle(el) {
         <a href="faq.html">FAQ</a>
         <a href="funding.html">Tài trợ &amp; Tài chính</a>
         <a href="privacy.html">Chính sách bảo mật</a>
-        <a href="mailto:vneddata@gmail.com">Liên hệ</a>
+        <a href="mailto:vy.phan@vneddata.org">Liên hệ</a>
       </div>
     </div>
-    <!-- Legal statement -->
     <div class="footer-legal">
       <p class="footer-legal-text">
         VNEdData là dự án nghiên cứu độc lập do <strong style="color:rgba(255,255,255,.55)">Phan Lê Ngọc Vy</strong>,
-        Doctoral Candidate in Education, Đại học Edgewood, Hoa Kỳ, sáng lập và điều hành.
+        Nghiên cứu sinh Tiến sĩ Giáo dục, Đại học Edgewood, Wisconsin, Hoa Kỳ, sáng lập và điều hành.
         Dữ liệu và báo cáo được công bố theo giấy phép
         <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
         — tự do sử dụng với điều kiện ghi nguồn.
         Mã nguồn website công khai trên
         <a href="https://github.com/vneddata/vneddata.github.io" target="_blank">GitHub</a>.
-        Xem <a href="privacy.html">Chính sách bảo mật</a> và <a href="faq.html">FAQ</a> để biết thêm.
+        Xem <a href="privacy.html">Chính sách bảo mật</a> và <a href="faq.html">FAQ</a> để biết thêm thông tin chi tiết.
       </p>
     </div>
-
-    <!-- Bottom bar: copyright + social -->
     <div class="footer-bottom-bar">
       <div class="footer-copy">
-        © 2026 VNEdData · Dữ liệu Giáo dục Việt Nam ·
+        © 2026 VNEdData · CC BY 4.0 ·
         <a href="privacy.html">Bảo mật</a> ·
-        <a href="faq.html">FAQ</a> ·
-        <a href="funding.html">Tài trợ</a>
+        <a href="faq.html">FAQ</a>
       </div>
       <div class="footer-social">
-        <!-- GitHub ✅ active -->
         <a href="https://github.com/vneddata/vneddata.github.io" target="_blank" class="social-link" title="GitHub">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <!-- Facebook — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="Facebook (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <!-- LinkedIn — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="LinkedIn (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <!-- X/Twitter — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="X / Twitter (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <!-- Instagram — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="Instagram (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-        </a>
-        <!-- YouTube — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="YouTube (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
       </div>
     </div>
   </div>
 </footer>
 <div class="gold-rule"></div>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
 </body>
 </html>
