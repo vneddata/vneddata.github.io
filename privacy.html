@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="VNEdData cam kết bảo vệ quyền riêng tư người tham gia khảo sát. Không thu thập thông tin định danh.">
+<meta name="description" content="Chính sách bảo mật VNEdData — cách thu thập, sử dụng và bảo vệ dữ liệu người tham gia khảo sát.">
 <title>Chính sách bảo mật — VNEdData</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
 /* ── TOKENS ─────────────────────────────────────────────────────────────── */
 :root {
@@ -691,57 +692,94 @@ body {
 .social-link svg { width:16px; height:16px; fill:currentColor; display:block; }
 </style>
 <style>
-.content-page { padding:64px 0 80px;background:var(--paper); }
-.content-page .container { max-width:860px; }
-.section-prose { margin-bottom:48px; }
-.section-prose h2 { font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--navy);margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--teal);line-height:1.3; }
-.section-prose h3 { font-size:16px;font-weight:600;color:var(--blue);margin:28px 0 8px; }
-.section-prose p { font-size:15px;color:var(--gray);line-height:1.8;margin:0 0 14px; }
-.section-prose ul { padding-left:22px;margin:0 0 14px; }
-.section-prose li { font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:6px; }
-.info-box { border-radius:10px;padding:22px 24px;margin:20px 0; }
-.info-box.teal { background:var(--lteal);border-left:4px solid var(--teal); }
-.info-box.gold { background:var(--gold-lt);border-left:4px solid var(--gold); }
-.info-box.red { background:#FDEDEC;border-left:4px solid #C0392B; }
-.info-box.blue { background:var(--light);border-left:4px solid var(--blue); }
-.info-box .box-title { font-size:13px;font-weight:700;margin-bottom:10px;font-family:'DM Mono',monospace;letter-spacing:.5px; }
-.info-box.teal .box-title { color:var(--teal); }
-.info-box.gold .box-title { color:var(--gold); }
-.info-box.red .box-title { color:#C0392B; }
-.info-box.blue .box-title { color:var(--blue); }
-.info-box ul { padding-left:18px;margin:0; }
-.info-box li { font-size:13.5px;line-height:1.65;margin-bottom:5px;color:var(--gray); }
-.data-table { width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px; }
-.data-table th { background:var(--navy);color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:13px; }
-.data-table td { padding:10px 14px;border-bottom:1px solid var(--rule);color:var(--gray);vertical-align:top; }
-.data-table tr:nth-child(even) td { background:var(--lgray); }
-.data-table td:first-child { color:var(--blue);font-weight:600; }
-.cite-box { background:var(--lgray);border-radius:8px;padding:14px 18px;font-family:'DM Mono',monospace;font-size:13px;color:var(--navy);margin:12px 0;line-height:1.6; }
-.faq-item { border-bottom:1px solid var(--rule);padding:20px 0; }
-.faq-item:last-child { border-bottom:none; }
-.faq-q { font-size:15px;font-weight:600;color:var(--navy);margin:0 0 10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px; }
-.faq-q::after { content:'+';font-size:20px;color:var(--teal);flex-shrink:0;font-weight:300; }
-.faq-q.open::after { content:'−'; }
-.faq-a { font-size:14.5px;color:var(--gray);line-height:1.75;display:none; }
-.faq-a.open { display:block; }
-.faq-group { background:var(--cream);border:1px solid var(--rule);border-radius:12px;padding:24px 28px;margin-bottom:28px; }
-.faq-group-title { font-family:'DM Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--rule); }
-.person-card { background:var(--cream);border:1px solid var(--rule);border-radius:14px;overflow:hidden;margin:24px 0; }
-.person-card-top { background:var(--navy);padding:28px 32px;display:flex;align-items:center;gap:24px; }
-.person-avatar { width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue));display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:white;flex-shrink:0;font-family:'Lora',serif; }
-.person-card-body { padding:24px 32px; }
-.status-pill { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;font-family:'DM Mono',monospace; }
-.status-pill.live { background:#D5F5E3;color:#117a65; }
-.status-pill.pending { background:var(--gold-lt);color:#8B5E0A; }
-.status-pill.future { background:var(--lgray);color:var(--muted); }
-.contact-cta { background:var(--navy);border-radius:12px;padding:32px;text-align:center;margin-top:48px; }
+/* ── PRIVACY PAGE SPECIFIC ───────────────────────────────────────────────── */
+.privacy-content {
+  max-width: 800px; margin: 0 auto; padding: 56px 24px 80px;
+}
+.privacy-content h2 {
+  font-family: var(--font-serif);
+  font-size: 20px; font-weight: 700; color: var(--navy);
+  margin: 40px 0 12px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--teal);
+}
+.privacy-content p {
+  font-size: 14.5px; color: var(--gray);
+  line-height: 1.85; margin-bottom: 12px;
+}
+.privacy-content ul {
+  padding-left: 0; margin: 12px 0; list-style: none;
+}
+.privacy-content ul li {
+  font-size: 14.5px; color: var(--gray); line-height: 1.8;
+  padding: 6px 0 6px 22px; position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+.privacy-content ul li:last-child { border-bottom: none; }
+.privacy-content ul li::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--teal); font-weight: 700;
+}
+.no-list li::before { content: '✕'; color: #C0392B; }
+.yes-list li::before { content: '✓'; color: var(--teal); }
+.privacy-table {
+  width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;
+}
+.privacy-table th {
+  background: var(--navy); color: white;
+  padding: 11px 14px; text-align: left;
+  font-size: 13px; font-weight: 600;
+}
+.privacy-table td {
+  padding: 12px 14px; border-bottom: 1px solid var(--rule);
+  color: var(--gray); line-height: 1.65; vertical-align: top;
+}
+.privacy-table td:first-child {
+  font-weight: 600; color: var(--navy);
+  font-family: var(--font-mono); font-size: 12px;
+  white-space: nowrap;
+}
+.privacy-table tr:last-child td { border-bottom: none; }
+.privacy-table tr:nth-child(even) td { background: var(--paper); }
+.info-box {
+  background: var(--lteal);
+  border: 1px solid rgba(20,143,119,.2);
+  border-left: 4px solid var(--teal);
+  border-radius: 8px; padding: 16px 20px;
+  font-size: 14px; color: var(--gray);
+  line-height: 1.75; margin: 16px 0;
+}
+.who-table {
+  width: 100%; border-collapse: collapse; margin: 16px 0;
+}
+.who-table td {
+  padding: 11px 14px; border-bottom: 1px solid var(--rule);
+  font-size: 14px; color: var(--gray); vertical-align: top;
+}
+.who-table td:first-child {
+  font-weight: 600; color: var(--navy); width: 200px;
+}
+.who-table tr:last-child td { border-bottom: none; }
+.contact-box {
+  background: var(--navy); border-radius: 12px;
+  padding: 28px 32px; margin-top: 40px;
+}
+.contact-box p {
+  font-size: 14.5px; color: rgba(255,255,255,.65);
+  line-height: 1.8; margin-bottom: 6px;
+}
+.contact-box strong { color: rgba(255,255,255,.85); }
+.contact-box a { color: var(--gold-lt); text-decoration: none; }
+.version-note {
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--muted); text-align: right; margin-top: 40px;
+}
 </style>
 </head>
 <body>
+
 <div class="topbar">
-  Dữ liệu giáo dục độc lập · <strong>Khoa học · Minh bạch · Bền vững</strong> · Khảo sát AI 2026 đang mở — <strong><a href="https://tally.so/r/Y5oa0q" target="_blank" style="color:var(--gold-lt)">Tham gia ngay</a></strong>
+  Dữ liệu giáo dục độc lập · <strong>Khoa học · Minh bạch · Bền vững</strong>
 </div>
-<!-- NAVIGATION -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;">
@@ -756,138 +794,156 @@ body {
 <a href="#" class="nav-link active" onclick="window.location.href='about.html';return false;">Về chúng tôi</a>
 
     </div>
-    <a href="https://tally.so/r/Y5oa0q" target="_blank" class="nav-cta">Tham gia khảo sát</a>
+    <a href="survey-ai-2026.html" class="nav-cta">Tham gia khảo sát</a>
   </div>
 </nav>
-<section style="background:var(--blue);padding:64px 0 52px;position:relative;overflow:hidden;">
+
+<!-- HERO -->
+<section style="background:var(--navy);padding:64px 0 52px;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(20,143,119,.12) 0%,transparent 55%);"></div>
-  <div class="container" style="position:relative;z-index:1">
+  <div class="container" style="position:relative;z-index:1;max-width:800px;">
     <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);font-family:'DM Mono',monospace;font-size:11px;padding:5px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:.6px;">Chính sách bảo mật</div>
-    <h1 style="font-family:'Lora',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:white;margin:0 0 14px;line-height:1.2;">Privacy Policy</h1>
-    <p style="font-size:16px;color:rgba(255,255,255,.6);max-width:560px;line-height:1.7;margin:0;">Cách VNEdData thu thập, sử dụng và bảo vệ thông tin. Có hiệu lực từ tháng 4/2026.</p>
+    <h1 style="font-family:'Lora',serif;font-size:clamp(26px,5vw,40px);font-weight:700;color:white;margin-bottom:16px;line-height:1.2;">Chính sách bảo mật</h1>
+    <p style="font-size:15px;color:rgba(255,255,255,.65);max-width:580px;line-height:1.8;margin-bottom:8px;">Cách VNEdData thu thập, sử dụng và bảo vệ thông tin. Có hiệu lực từ tháng 4/2026.</p>
+    <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.75;">VNEdData không thu thập bất kỳ thông tin nào có thể xác định danh tính người tham gia. Nguyên tắc này được áp dụng nhất quán trong toàn bộ quy trình thu thập, xử lý và công bố dữ liệu.</p>
   </div>
 </section>
 <div class="gold-rule"></div>
-<section class="content-page">
-  <div class="container">
 
-    <div class="info-box teal" style="margin-bottom:36px;">
-      <div class="box-title">🔒 Nguyên tắc cốt lõi</div>
-      <ul><li><strong>Chúng tôi không thu thập bất kỳ thông tin nào có thể xác định danh tính bạn. Không bao giờ. Không có ngoại lệ.</strong></li></ul>
-    </div>
+<div style="background:var(--paper)">
+<div class="privacy-content">
 
-    <div class="section-prose">
-      <h2>1. Chúng tôi là ai?</h2>
-      <p>VNEdData là dự án nghiên cứu giáo dục độc lập do <strong>Phan Lê Ngọc Vy</strong>, Doctoral Candidate in Education tại Đại học Edgewood, Hoa Kỳ, sáng lập và điều hành. VNEdData không phải là tổ chức thương mại và không có mục tiêu kiếm lợi nhuận từ dữ liệu người dùng.</p>
-      <table class="data-table">
-        <tr><td>Người chịu trách nhiệm</td><td>Phan Lê Ngọc Vy, Doctoral Candidate in Education</td></tr>
-        <tr><td>Email liên hệ</td><td>vneddata@gmail.com</td></tr>
-        <tr><td>Website</td><td>vneddata.github.io</td></tr>
-        <tr><td>Thành lập</td><td>Tháng 4/2026</td></tr>
-      </table>
-    </div>
+  <!-- 1. CHÚNG TÔI LÀ AI -->
+  <h2>1. Chúng tôi là ai?</h2>
+  <p>VNEdData là sáng kiến nghiên cứu độc lập chuyên thu thập và công bố dữ liệu thực nghiệm về giáo dục Việt Nam. Dự án được sáng lập và điều hành bởi Phan Lê Ngọc Vy, Nghiên cứu sinh Tiến sĩ Giáo dục tại Đại học Edgewood, Wisconsin, Hoa Kỳ.</p>
+  <table class="who-table">
+    <tr><td>Người chịu trách nhiệm</td><td>Phan Lê Ngọc Vy — Nghiên cứu sinh Tiến sĩ Giáo dục, Đại học Edgewood, Wisconsin, Hoa Kỳ</td></tr>
+    <tr><td>Email liên hệ</td><td><a href="mailto:vy.phan@vneddata.org" style="color:var(--teal);">vy.phan@vneddata.org</a></td></tr>
+    <tr><td>Website</td><td><a href="https://vneddata.org" style="color:var(--teal);">vneddata.org</a></td></tr>
+    <tr><td>Thành lập</td><td>Tháng 4/2026</td></tr>
+  </table>
 
-    <div class="section-prose">
-      <h2>2. Thông tin chúng tôi KHÔNG thu thập</h2>
-      <div class="info-box red">
-        <div class="box-title">❌ Tuyệt đối không thu thập</div>
-        <ul>
-          <li>Tên, họ, biệt danh hoặc bất kỳ tên định danh nào</li>
-          <li>Địa chỉ email, số điện thoại, địa chỉ nhà</li>
-          <li>Địa chỉ IP hoặc thông tin định vị thiết bị</li>
-          <li>Tài khoản mạng xã hội hoặc thông tin đăng nhập</li>
-          <li>Dữ liệu sinh trắc học (khuôn mặt, vân tay, giọng nói)</li>
-          <li>Thông tin tài chính, ngân hàng</li>
-          <li>Hồ sơ học tập cá nhân hoặc điểm số</li>
-        </ul>
-      </div>
-    </div>
+  <!-- 2. KHÔNG THU THẬP -->
+  <h2>2. Thông tin chúng tôi không thu thập</h2>
+  <p>VNEdData không thu thập và không lưu trữ bất kỳ thông tin nào trong danh sách sau:</p>
+  <ul class="no-list">
+    <li>Tên, họ, biệt danh hoặc bất kỳ tên định danh nào</li>
+    <li>Địa chỉ email, số điện thoại, địa chỉ nhà</li>
+    <li>Địa chỉ IP hoặc thông tin định vị thiết bị</li>
+    <li>Tài khoản mạng xã hội hoặc thông tin đăng nhập</li>
+    <li>Dữ liệu sinh trắc học (khuôn mặt, vân tay, giọng nói)</li>
+    <li>Thông tin tài chính hoặc ngân hàng</li>
+    <li>Hồ sơ học tập cá nhân hoặc điểm số</li>
+  </ul>
 
-    <div class="section-prose">
-      <h2>3. Thông tin chúng tôi thu thập</h2>
-      <p>Khi bạn tham gia khảo sát VNEdData:</p>
-      <table class="data-table">
-        <tr><th>Loại thông tin</th><th>Mục đích & Cách xử lý</th></tr>
-        <tr><td>Câu trả lời khảo sát</td><td>Phân tích tổng hợp thống kê. Không liên kết với cá nhân.</td></tr>
-        <tr><td>Bậc học & ngành học</td><td>Phân nhóm thống kê ẩn danh. Không đủ để xác định danh tính.</td></tr>
-        <tr><td>Timestamp (thời điểm submit)</td><td>Phân tích xu hướng theo thời gian. Bị xóa trước khi công bố dữ liệu.</td></tr>
-      </table>
-      <p style="font-size:13.5px;color:var(--muted);font-style:italic;">Tally.so (nền tảng khảo sát) không thu thập địa chỉ IP hay cookie tracking. Chúng tôi đã cấu hình form để tắt tất cả tính năng không cần thiết.</p>
-    </div>
+  <!-- 3. THU THẬP -->
+  <h2>3. Thông tin chúng tôi thu thập</h2>
+  <p>Khi bạn tham gia khảo sát VNEdData, chúng tôi chỉ ghi nhận:</p>
+  <table class="privacy-table">
+    <tr><th>Loại thông tin</th><th>Mục đích &amp; Cách xử lý</th></tr>
+    <tr>
+      <td>Câu trả lời khảo sát</td>
+      <td>Phân tích tổng hợp thống kê. Không liên kết với cá nhân.</td>
+    </tr>
+    <tr>
+      <td>Bậc học &amp; ngành học</td>
+      <td>Phân nhóm thống kê ẩn danh. Không đủ để xác định danh tính.</td>
+    </tr>
+    <tr>
+      <td>Timestamp (thời điểm submit)</td>
+      <td>Phân tích xu hướng theo thời gian. Bị xóa trước khi công bố dữ liệu.</td>
+    </tr>
+  </table>
 
-    <div class="section-prose">
-      <h2>4. Cách chúng tôi sử dụng dữ liệu</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <div class="info-box teal">
-          <div class="box-title">✅ CHỈ dùng cho</div>
-          <ul>
-            <li>Nghiên cứu học thuật giáo dục Việt Nam</li>
-            <li>Phân tích thống kê và báo cáo tổng hợp</li>
-            <li>Công bố kết quả nghiên cứu mở</li>
-            <li>Đề xuất chính sách giáo dục</li>
-          </ul>
-        </div>
-        <div class="info-box red">
-          <div class="box-title">❌ KHÔNG dùng để</div>
-          <ul>
-            <li>Quảng cáo hoặc marketing</li>
-            <li>Bán cho bên thứ ba</li>
-            <li>Xây dựng hồ sơ cá nhân</li>
-            <li>Theo dõi hành vi người dùng</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <!-- 4. SỬ DỤNG DỮ LIỆU -->
+  <h2>4. Cách chúng tôi sử dụng dữ liệu</h2>
+  <p>Dữ liệu thu thập được sử dụng cho:</p>
+  <ul class="yes-list">
+    <li>Nghiên cứu học thuật về thực trạng giáo dục Việt Nam</li>
+    <li>Phân tích thống kê và báo cáo tổng hợp</li>
+    <li>Công bố kết quả nghiên cứu mở theo CC BY 4.0</li>
+    <li>Xây dựng khuyến nghị chính sách giáo dục dựa trên bằng chứng</li>
+  </ul>
+  <p>Dữ liệu <strong>không được</strong> sử dụng cho:</p>
+  <ul class="no-list">
+    <li>Quảng cáo hoặc marketing dưới bất kỳ hình thức nào</li>
+    <li>Bán hoặc chia sẻ với bên thứ ba vì mục đích thương mại</li>
+    <li>Xây dựng hồ sơ cá nhân hoặc theo dõi hành vi người dùng</li>
+  </ul>
 
-    <div class="section-prose">
-      <h2>5. Lưu trữ và bảo mật</h2>
-      <table class="data-table">
-        <tr><th>Cấp độ</th><th>Mô tả</th><th>Ai được truy cập</th></tr>
-        <tr><td>RAW</td><td>Dữ liệu thô từ Tally. Không chỉnh sửa.</td><td>Chỉ người sáng lập</td></tr>
-        <tr><td>CLEAN</td><td>Đã làm sạch duplicate/invalid.</td><td>Team nội bộ</td></tr>
-        <tr><td>ANON</td><td>Ẩn danh hóa hoàn toàn, k-anonymity k≥5.</td><td>Đối tác có NDA</td></tr>
-        <tr><td>PUBLIC</td><td>Dữ liệu tổng hợp thuần túy. CC BY 4.0.</td><td>Công khai</td></tr>
-      </table>
-      <ul>
-        <li>Thời hạn lưu trữ: Dữ liệu RAW tối đa 5 năm, sau đó xóa an toàn</li>
-        <li>Lưu trên Google Drive vneddata@gmail.com với xác thực 2 bước (2FA)</li>
-      </ul>
-    </div>
+  <!-- 5. LƯU TRỮ -->
+  <h2>5. Lưu trữ và bảo mật</h2>
+  <p>Dữ liệu được lưu trữ trên Google Drive với xác thực hai bước (2FA) và chỉ người có thẩm quyền mới được truy cập theo từng cấp độ:</p>
+  <table class="privacy-table">
+    <tr><th>Cấp độ</th><th>Mô tả</th><th>Ai được truy cập</th></tr>
+    <tr>
+      <td>THÔ</td>
+      <td>Dữ liệu gốc từ form. Không chỉnh sửa.</td>
+      <td>Chỉ người sáng lập</td>
+    </tr>
+    <tr>
+      <td>CLEAN</td>
+      <td>Đã loại responses không hợp lệ.</td>
+      <td>Nhóm nghiên cứu nội bộ</td>
+    </tr>
+    <tr>
+      <td>ANON</td>
+      <td>Ẩn danh hóa hoàn toàn, k-anonymity k≥5.</td>
+      <td>Đối tác có NDA</td>
+    </tr>
+    <tr>
+      <td>PUBLIC</td>
+      <td>Dữ liệu tổng hợp thuần túy. CC BY 4.0.</td>
+      <td>Công khai</td>
+    </tr>
+  </table>
+  <div class="info-box">Thời hạn lưu trữ: Dữ liệu thô tối đa 5 năm, sau đó xóa an toàn theo quy trình có ghi chép.</div>
 
-    <div class="section-prose">
-      <h2>6. Quyền của bạn</h2>
-      <table class="data-table">
-        <tr><th>Quyền</th><th>Cách thực hiện</th></tr>
-        <tr><td>Quyền rút lui</td><td>Dừng khảo sát bất kỳ lúc nào, không cần giải thích</td></tr>
-        <tr><td>Quyền xóa dữ liệu</td><td>Email vneddata@gmail.com — xóa trong 30 ngày</td></tr>
-        <tr><td>Quyền biết dữ liệu được dùng như thế nào</td><td>Tài liệu này mô tả đầy đủ. Email nếu cần thêm.</td></tr>
-        <tr><td>Quyền truy cập kết quả</td><td>Tất cả báo cáo công bố mở tại vneddata.github.io</td></tr>
-      </table>
-    </div>
+  <!-- 6. QUYỀN CỦA BẠN -->
+  <h2>6. Quyền của bạn</h2>
+  <table class="privacy-table">
+    <tr><th>Quyền</th><th>Cách thực hiện</th></tr>
+    <tr>
+      <td>Quyền rút lui</td>
+      <td>Dừng khảo sát bất kỳ lúc nào, không cần giải thích lý do.</td>
+    </tr>
+    <tr>
+      <td>Quyền xóa dữ liệu</td>
+      <td>Liên hệ <a href="mailto:vy.phan@vneddata.org" style="color:var(--teal);">vy.phan@vneddata.org</a> — yêu cầu được xử lý trong vòng 30 ngày.</td>
+    </tr>
+    <tr>
+      <td>Quyền được thông tin</td>
+      <td>Chính sách này mô tả đầy đủ cách dữ liệu được sử dụng. Liên hệ nếu cần làm rõ thêm.</td>
+    </tr>
+    <tr>
+      <td>Quyền truy cập kết quả</td>
+      <td>Toàn bộ báo cáo được công bố mở tại <a href="https://vneddata.org" style="color:var(--teal);">vneddata.org</a>.</td>
+    </tr>
+  </table>
 
-    <div class="section-prose">
-      <h2>7. Cookies và tracking</h2>
-      <p>Website vneddata.github.io <strong>không sử dụng</strong> cookies tracking, Google Analytics, Facebook Pixel hay bất kỳ công cụ theo dõi hành vi người dùng nào. GitHub Pages có thể ghi nhận traffic cơ bản nhưng không chia sẻ dữ liệu này với VNEdData.</p>
-    </div>
+  <!-- 7. COOKIES -->
+  <h2>7. Cookies và tracking</h2>
+  <p>Website vneddata.org không sử dụng cookies tracking, Google Analytics, Facebook Pixel hay bất kỳ công cụ theo dõi hành vi người dùng nào.</p>
 
-    <div class="section-prose">
-      <h2>8. Thay đổi chính sách</h2>
-      <p>Mọi thay đổi quan trọng sẽ được thông báo trên website ít nhất 30 ngày trước khi có hiệu lực. Phiên bản hiện tại luôn được đăng tại trang này.</p>
-      <p style="font-size:13px;color:var(--muted);font-family:'DM Mono',monospace;">Phiên bản: 1.0 · Có hiệu lực từ tháng 4/2026</p>
-    </div>
+  <!-- 8. THAY ĐỔI -->
+  <h2>8. Thay đổi chính sách</h2>
+  <p>Mọi thay đổi quan trọng sẽ được thông báo trên website ít nhất 30 ngày trước khi có hiệu lực. Phiên bản hiện tại luôn được đăng tại trang này.</p>
 
-    <div class="section-prose">
-      <h2>9. Liên hệ</h2>
-      <table class="data-table">
-        <tr><td>Email</td><td>vneddata@gmail.com</td></tr>
-        <tr><td>Thời gian phản hồi</td><td>Trong vòng 5 ngày làm việc</td></tr>
-        <tr><td>Ngôn ngữ</td><td>Tiếng Việt hoặc tiếng Anh</td></tr>
-      </table>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;">Tham chiếu: Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân — Chính phủ Việt Nam · APA Ethics Code 2017 · UNESCO Guidelines for AI in Education 2023.</p>
-    </div>
-
+  <!-- 9. LIÊN HỆ -->
+  <h2>9. Liên hệ</h2>
+  <p>Mọi câu hỏi liên quan đến chính sách bảo mật và quyền của người tham gia, vui lòng liên hệ:</p>
+  <div class="contact-box">
+    <p><strong>Phan Lê Ngọc Vy</strong> — Người chịu trách nhiệm bảo mật dữ liệu</p>
+    <p><strong>Email:</strong> <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a></p>
+    <p><strong>Thời gian phản hồi:</strong> Trong vòng 5 ngày làm việc</p>
+    <p style="margin-bottom:0"><strong>Ngôn ngữ:</strong> Tiếng Việt hoặc tiếng Anh</p>
   </div>
-</section>
+
+  <p class="version-note">Phiên bản 1.0 · Có hiệu lực từ tháng 4/2026</p>
+
+</div>
+</div>
+
 <div class="gold-rule"></div>
 <footer class="footer">
   <div class="container">
@@ -896,20 +952,23 @@ body {
         <div style="margin-bottom:12px">
           <span style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.2px;color:#fff">VNEd<span style="color:#5DC9B2">Data</span></span>
         </div>
-        <p>Dữ liệu giáo dục độc lập Việt Nam. Khoa học · Minh bạch · Bền vững.</p>
-        <a href="mailto:vneddata@gmail.com" class="fb-email">vneddata@gmail.com</a>
+        <p>Dữ liệu giáo dục độc lập · Việt Nam</p>
+        <a href="mailto:vy.phan@vneddata.org" class="fb-email" style="display:flex;align-items:center;gap:6px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          vy.phan@vneddata.org
+        </a>
       </div>
       <div class="footer-col">
         <h4>Khảo sát</h4>
-        <a href="#" href="surveys.html">Khảo sát</a>
-        <a href="#" onclick="window.location.href='surveys.html';return false;">Sắp mở</a>
-        <a href="#" onclick="window.location.href='surveys.html';return false;">Đã đóng</a>
+        <a href="surveys.html">Đang mở</a>
+        <a href="surveys.html">Sắp mở</a>
+        <a href="surveys.html">Đã đóng</a>
       </div>
       <div class="footer-col">
         <h4>Nghiên cứu</h4>
-        <a href="#" onclick="window.location.href='reports.html';return false;">Báo cáo</a>
-        <a href="#" onclick="window.location.href='data.html';return false;">Dữ liệu mở</a>
-        <a href="#" onclick="window.location.href='about.html';return false;">Phương pháp</a>
+        <a href="reports.html">Báo cáo</a>
+        <a href="data.html">Dữ liệu mở</a>
+        <a href="data.html">Phương pháp</a>
       </div>
       <div class="footer-col">
         <h4>Tổ chức</h4>
@@ -917,60 +976,41 @@ body {
         <a href="faq.html">FAQ</a>
         <a href="funding.html">Tài trợ &amp; Tài chính</a>
         <a href="privacy.html">Chính sách bảo mật</a>
-        <a href="mailto:vneddata@gmail.com">Liên hệ</a>
+        <a href="mailto:vy.phan@vneddata.org">Liên hệ</a>
       </div>
     </div>
-    <!-- Legal statement -->
     <div class="footer-legal">
       <p class="footer-legal-text">
         VNEdData là dự án nghiên cứu độc lập do <strong style="color:rgba(255,255,255,.55)">Phan Lê Ngọc Vy</strong>,
-        Doctoral Candidate in Education, Đại học Edgewood, Hoa Kỳ, sáng lập và điều hành.
+        Nghiên cứu sinh Tiến sĩ Giáo dục, Đại học Edgewood, Wisconsin, Hoa Kỳ, sáng lập và điều hành.
         Dữ liệu và báo cáo được công bố theo giấy phép
         <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
         — tự do sử dụng với điều kiện ghi nguồn.
         Mã nguồn website công khai trên
         <a href="https://github.com/vneddata/vneddata.github.io" target="_blank">GitHub</a>.
-        Xem <a href="privacy.html">Chính sách bảo mật</a> và <a href="faq.html">FAQ</a> để biết thêm.
+        Xem <a href="privacy.html">Chính sách bảo mật</a> và <a href="faq.html">FAQ</a> để biết thêm thông tin chi tiết.
       </p>
     </div>
-
-    <!-- Bottom bar: copyright + social -->
     <div class="footer-bottom-bar">
       <div class="footer-copy">
-        © 2026 VNEdData · Dữ liệu Giáo dục Việt Nam ·
+        © 2026 VNEdData · CC BY 4.0 ·
         <a href="privacy.html">Bảo mật</a> ·
-        <a href="faq.html">FAQ</a> ·
-        <a href="funding.html">Tài trợ</a>
+        <a href="faq.html">FAQ</a>
       </div>
       <div class="footer-social">
-        <!-- GitHub ✅ active -->
         <a href="https://github.com/vneddata/vneddata.github.io" target="_blank" class="social-link" title="GitHub">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <!-- Facebook — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="Facebook (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <!-- LinkedIn — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="LinkedIn (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <!-- X/Twitter — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="X / Twitter (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <!-- Instagram — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="Instagram (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-        </a>
-        <!-- YouTube — cập nhật link khi có tài khoản -->
-        <a href="#" class="social-link" title="YouTube (sắp ra mắt)" style="opacity:.3;pointer-events:none;">
-          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="#" class="social-link" style="opacity:.3;pointer-events:none;"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
       </div>
     </div>
   </div>
 </footer>
 <div class="gold-rule"></div>
+
 </body>
 </html>
