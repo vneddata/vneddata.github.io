@@ -406,7 +406,7 @@ body {
 
     <!-- Q3 -->
     <div class="q-block" data-field="q3_tan_suat">
-      <label class="q-label">3. Bạn dùng AI cho học tập bao thường xuyên? <span class="req">*</span></label>
+      <label class="q-label">3. Trong 30 ngày qua, bạn sử dụng AI cho học tập bao lâu một lần? <span class="req">*</span></label>
       <div class="options">
         <label class="opt"><input type="radio" name="q3_tan_suat" value="Hàng ngày" data-required="q3_tan_suat"> Hàng ngày</label>
         <label class="opt"><input type="radio" name="q3_tan_suat" value="Vài lần/tuần"> Vài lần mỗi tuần</label>
@@ -476,11 +476,11 @@ body {
 
     <!-- Q6 -->
     <div class="q-block" data-field="q6_kiem_chung">
-      <label class="q-label">6. "Tôi luôn kiểm chứng lại thông tin do AI cung cấp" <span class="req">*</span></label>
+      <label class="q-label">6. Khi nhận kết quả từ AI, tôi thường kiểm tra lại thông tin từ các nguồn khác: <span class="req">*</span></label>
       <div class="scale-wrap">
         <div class="scale-labels">
-          <span>Hoàn toàn không đồng ý</span>
-          <span>Hoàn toàn đồng ý</span>
+          <span>Rất hiếm khi</span>
+          <span>Luôn luôn</span>
         </div>
         <div class="scale-opts">
           <label><input type="radio" name="q6_kiem_chung" value="1" data-required="q6_kiem_chung"><span class="scale-num">1</span></label>
@@ -495,19 +495,13 @@ body {
 
     <!-- Q7 -->
     <div class="q-block" data-field="q7_tu_duy">
-      <label class="q-label">7. "Tôi dùng AI để hỗ trợ tư duy, không phải thay thế tư duy của mình" <span class="req">*</span></label>
-      <div class="scale-wrap">
-        <div class="scale-labels">
-          <span>Hoàn toàn không đồng ý</span>
-          <span>Hoàn toàn đồng ý</span>
-        </div>
-        <div class="scale-opts">
-          <label><input type="radio" name="q7_tu_duy" value="1" data-required="q7_tu_duy"><span class="scale-num">1</span></label>
-          <label><input type="radio" name="q7_tu_duy" value="2"><span class="scale-num">2</span></label>
-          <label><input type="radio" name="q7_tu_duy" value="3"><span class="scale-num">3</span></label>
-          <label><input type="radio" name="q7_tu_duy" value="4"><span class="scale-num">4</span></label>
-          <label><input type="radio" name="q7_tu_duy" value="5"><span class="scale-num">5</span></label>
-        </div>
+      <label class="q-label">7. Khi dùng AI để làm bài, tôi chủ yếu sử dụng để: <span class="req">*</span></label>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q7_tu_duy" value="Gợi ý ý tưởng ban đầu" data-required="q7_tu_duy"> Gợi ý ý tưởng ban đầu</label>
+        <label class="opt"><input type="radio" name="q7_tu_duy" value="Soạn thảo cấu trúc bài"> Soạn thảo cấu trúc bài</label>
+        <label class="opt"><input type="radio" name="q7_tu_duy" value="Kiểm tra và chỉnh sửa bài của mình"> Kiểm tra và chỉnh sửa bài của mình</label>
+        <label class="opt"><input type="radio" name="q7_tu_duy" value="Viết hộ hoàn toàn"> Viết hộ hoàn toàn</label>
+        <label class="opt"><input type="radio" name="q7_tu_duy" value="Tra cứu thông tin nhanh"> Tra cứu thông tin nhanh</label>
       </div>
       <div class="field-error">Vui lòng chọn mức độ đồng ý</div>
     </div>
@@ -529,7 +523,7 @@ body {
 
     <!-- Q9 -->
     <div class="q-block" data-field="q9_ky_nang">
-      <label class="q-label">9. Kỹ năng nào của bạn bị ảnh hưởng tiêu cực nhất khi dùng AI? <span class="req">*</span></label>
+      <label class="q-label">9. Bạn tự nhận thấy kỹ năng nào sau đây có sự thay đổi rõ rệt nhất kể từ khi dùng AI? <span class="req">*</span></label>
       <div class="options">
         <label class="opt"><input type="radio" name="q9_ky_nang" value="Viết và diễn đạt" data-required="q9_ky_nang"> Viết và diễn đạt</label>
         <label class="opt"><input type="radio" name="q9_ky_nang" value="Tư duy phân tích"> Tư duy phân tích độc lập</label>
@@ -541,10 +535,22 @@ body {
     </div>
 
     <!-- Q10 -->
-    <div class="q-block" data-field="q10_mong_muon">
-      <label class="q-label">10. Điều bạn mong muốn nhất từ nhà trường về AI trong học tập?</label>
+    <div class="q-block" data-field="q10_khu_vuc">
+      <label class="q-label">10. Nơi bạn đang theo học thuộc khu vực nào? <span class="req">*</span></label>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q10_khu_vuc" value="Thành phố lớn" data-required="q10_khu_vuc"> Thành phố lớn (Hà Nội, TP.HCM, Đà Nẵng...)</label>
+        <label class="opt"><input type="radio" name="q10_khu_vuc" value="Tỉnh lỵ"> Tỉnh lỵ / Đô thị tỉnh</label>
+        <label class="opt"><input type="radio" name="q10_khu_vuc" value="Nông thôn"> Nông thôn</label>
+        <label class="opt"><input type="radio" name="q10_khu_vuc" value="Vùng xa"> Vùng sâu / Vùng xa</label>
+      </div>
+      <div class="field-error">Vui lòng chọn một đáp án</div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="q-block" data-field="q11_mong_muon">
+      <label class="q-label">11. Điều bạn mong muốn nhất từ nhà trường về AI trong học tập?</label>
       <p class="q-sub">Không bắt buộc — chia sẻ tự do, tối đa 300 ký tự</p>
-      <textarea class="q-textarea" name="q10_mong_muon" id="q10_mong_muon"
+      <textarea class="q-textarea" name="q11_mong_muon" id="q10_mong_muon"
         placeholder="Ví dụ: Muốn được dạy cách dùng AI có trách nhiệm, hoặc muốn trường có chính sách rõ ràng về AI..."
         maxlength="300"></textarea>
     </div>
