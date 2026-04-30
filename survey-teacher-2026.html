@@ -423,11 +423,11 @@ body {
     </div>
 
     <div class="q-block" data-field="q5_tu_tin">
-      <label class="q-label">5. Bạn tự đánh giá năng lực số của mình ở mức nào? <span class="req">*</span></label>
+      <label class="q-label">5. Tôi cảm thấy sẵn sàng để giảng dạy kỹ năng số và AI theo yêu cầu mới của ngành giáo dục: <span class="req">*</span></label>
       <div class="scale-wrap">
         <div class="scale-labels">
-          <span>Rất yếu — cần hỗ trợ nhiều</span>
-          <span>Rất tốt — có thể hướng dẫn người khác</span>
+          <span>Rất không sẵn sàng</span>
+          <span>Rất sẵn sàng</span>
         </div>
         <div class="scale-opts">
           <label><input type="radio" name="q5_tu_tin" value="1" data-required="q5_tu_tin"><span class="scale-num">1</span></label>
@@ -494,12 +494,19 @@ body {
     </div>
 
     <div class="q-block" data-field="q8_roi_nghe">
-      <label class="q-label">8. Bạn đã từng nghĩ đến việc bỏ nghề dạy học chưa? <span class="req">*</span></label>
-      <div class="options">
-        <label class="opt"><input type="radio" name="q8_roi_nghe" value="Chưa bao giờ" data-required="q8_roi_nghe"> Chưa bao giờ</label>
-        <label class="opt"><input type="radio" name="q8_roi_nghe" value="Đã nghĩ đến nhưng sẽ tiếp tục"> Đã nghĩ đến nhưng sẽ tiếp tục dạy</label>
-        <label class="opt"><input type="radio" name="q8_roi_nghe" value="Đang cân nhắc nghiêm túc"> Đang cân nhắc nghiêm túc</label>
-        <label class="opt"><input type="radio" name="q8_roi_nghe" value="Đã có kế hoạch chuyển nghề"> Đã có kế hoạch chuyển nghề cụ thể</label>
+      <label class="q-label">8. Trong năm học qua, mức độ bạn nghĩ về việc tìm kiếm một công việc ngoài ngành giáo dục là: <span class="req">*</span></label>
+      <div class="scale-wrap">
+        <div class="scale-labels">
+          <span>Rất thấp</span>
+          <span>Rất cao</span>
+        </div>
+        <div class="scale-opts">
+          <label><input type="radio" name="q8_roi_nghe" value="1" data-required="q8_roi_nghe"><span class="scale-num">1</span></label>
+          <label><input type="radio" name="q8_roi_nghe" value="2"><span class="scale-num">2</span></label>
+          <label><input type="radio" name="q8_roi_nghe" value="3"><span class="scale-num">3</span></label>
+          <label><input type="radio" name="q8_roi_nghe" value="4"><span class="scale-num">4</span></label>
+          <label><input type="radio" name="q8_roi_nghe" value="5"><span class="scale-num">5</span></label>
+        </div>
       </div>
       <div class="field-error">Vui lòng chọn một đáp án</div>
     </div>
@@ -521,21 +528,39 @@ body {
     <div class="section-label">D — Kỳ vọng & Đề xuất</div>
 
     <div class="q-block" data-field="q10_lo_ngai_ai">
-      <label class="q-label">10. Lo ngại lớn nhất của bạn về AI trong giáo dục? <span class="req">*</span></label>
+      <label class="q-label">10. Rào cản lớn nhất đối với việc ứng dụng AI tại trường bạn là gì? <span class="req">*</span></label>
       <div class="options">
-        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="AI thay thế giáo viên" data-required="q10_lo_ngai_ai"> AI sẽ thay thế vai trò của giáo viên</label>
-        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Học sinh lạm dụng AI"> Học sinh lạm dụng AI để gian lận</label>
-        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Thiếu kỹ năng dùng AI"> Bản thân thiếu kỹ năng và kiến thức về AI</label>
-        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Không phù hợp lứa tuổi"> AI chưa phù hợp với lứa tuổi học sinh</label>
-        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Không lo ngại gì"> Không có lo ngại đáng kể</label>
+        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Thiếu thiết bị" data-required="q10_lo_ngai_ai"> Thiếu thiết bị và hạ tầng công nghệ</label>
+        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Thiếu hướng dẫn"> Thiếu hướng dẫn và đào tạo từ nhà trường / Bộ GD</label>
+        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Áp lực thành tích"> Áp lực thành tích và chương trình hiện tại quá nặng</label>
+        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Lo ngại học sinh lạm dụng"> Lo ngại học sinh lạm dụng AI</label>
+        <label class="opt"><input type="radio" name="q10_lo_ngai_ai" value="Khác"> Khác</label>
       </div>
       <div class="field-error">Vui lòng chọn một đáp án</div>
     </div>
 
-    <div class="q-block" data-field="q11_ho_tro">
-      <label class="q-label">11. Bạn cần hỗ trợ gì nhất để dạy tốt hơn trong thời đại AI?</label>
+    <div class="q-block" data-field="q10b_mam_non">
+      <label class="q-label">11. Chính phủ vừa yêu cầu đưa AI vào giáo dục từ bậc mầm non (4/2026). Bạn đánh giá thế nào về tính khả thi tại địa phương mình? <span class="req">*</span></label>
+      <div class="scale-wrap">
+        <div class="scale-labels">
+          <span>Hoàn toàn không khả thi</span>
+          <span>Rất khả thi</span>
+        </div>
+        <div class="scale-opts">
+          <label><input type="radio" name="q10b_mam_non" value="1" data-required="q10b_mam_non"><span class="scale-num">1</span></label>
+          <label><input type="radio" name="q10b_mam_non" value="2"><span class="scale-num">2</span></label>
+          <label><input type="radio" name="q10b_mam_non" value="3"><span class="scale-num">3</span></label>
+          <label><input type="radio" name="q10b_mam_non" value="4"><span class="scale-num">4</span></label>
+          <label><input type="radio" name="q10b_mam_non" value="5"><span class="scale-num">5</span></label>
+        </div>
+      </div>
+      <div class="field-error">Vui lòng chọn một đáp án</div>
+    </div>
+
+    <div class="q-block" data-field="q12_ho_tro">
+      <label class="q-label">12. Bạn cần hỗ trợ gì nhất để dạy tốt hơn trong thời đại AI?</label>
       <p class="q-sub">Không bắt buộc — chia sẻ thẳng thắn, tối đa 300 ký tự</p>
-      <textarea class="q-textarea" name="q11_ho_tro" id="q11_ho_tro"
+      <textarea class="q-textarea" name="q12_ho_tro" id="q11_ho_tro"
         placeholder="Ví dụ: Cần được đào tạo thực hành về AI, cần giảm bớt công việc hành chính, cần chính sách rõ ràng hơn..."
         maxlength="300"></textarea>
     </div>
