@@ -560,7 +560,7 @@ body {
     <div class="q-block" data-field="q12_ho_tro">
       <label class="q-label">12. Bạn cần hỗ trợ gì nhất để dạy tốt hơn trong thời đại AI?</label>
       <p class="q-sub">Không bắt buộc — chia sẻ thẳng thắn, tối đa 300 ký tự</p>
-      <textarea class="q-textarea" name="q12_ho_tro" id="q11_ho_tro"
+      <textarea class="q-textarea" name="q12_ho_tro" id="q12_ho_tro"
         placeholder="Ví dụ: Cần được đào tạo thực hành về AI, cần giảm bớt công việc hành chính, cần chính sách rõ ràng hơn..."
         maxlength="300"></textarea>
     </div>
@@ -713,8 +713,9 @@ async function submitTeacher() {
     q7_ap_luc:      getRadio('q7_ap_luc'),
     q8_roi_nghe:    getRadio('q8_roi_nghe'),
     q9_ly_do_ap_luc:getRadio('q9_ly_do_ap_luc'),
-    q10_lo_ngai_ai: getRadio('q10_lo_ngai_ai'),
-    q11_ho_tro:     getTextarea('q11_ho_tro'),
+    q10_lo_ngai_ai:  getRadio('q10_lo_ngai_ai'),
+    q10b_mam_non:    getRadio('q10b_mam_non'),
+    q12_ho_tro:      getTextarea('q12_ho_tro'),
     region: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
   };
 
