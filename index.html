@@ -34,7 +34,6 @@
       --max-content: 760px;
     }
 
-    /* ---------- Reset ---------- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
@@ -48,7 +47,6 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ---------- Typography ---------- */
     h1, h2, h3, h4 {
       font-family: 'Lora', 'Georgia', serif;
       color: var(--text-primary);
@@ -60,12 +58,7 @@
     a { color: var(--text-primary); }
     em { font-style: italic; }
 
-    /* ---------- Layout ---------- */
-    .container {
-      max-width: var(--max-content);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+    .container { max-width: var(--max-content); margin: 0 auto; padding: 0 1.5rem; }
 
     /* ---------- Header ---------- */
     header {
@@ -76,14 +69,12 @@
       z-index: 50;
       backdrop-filter: blur(8px);
     }
-
     .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.1rem 0;
     }
-
     .wordmark {
       font-family: 'Lora', Georgia, serif;
       font-size: 1.5rem;
@@ -92,7 +83,6 @@
       text-decoration: none;
       letter-spacing: 0.02em;
     }
-
     .wordmark span.dot { color: var(--accent); }
 
     nav ul {
@@ -290,6 +280,32 @@
       margin-bottom: 0;
     }
 
+    /* ---------- Contact info card ---------- */
+    .contact-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.6rem 1.8rem;
+      margin-top: 2.5rem;
+    }
+    .contact-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+    }
+    .contact-card ul { list-style: none; }
+    .contact-card li {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.35rem;
+    }
+    .contact-card strong {
+      color: var(--text-primary);
+      font-weight: 600;
+      display: inline-block;
+      min-width: 11em;
+    }
+
     /* ---------- Footer ---------- */
     footer {
       background: var(--bg-alt);
@@ -334,22 +350,26 @@
       border-top: 1px solid var(--border);
       line-height: 1.7;
     }
+    .footer-meta h6 {
+      font-family: 'Lora', serif;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
     .footer-meta p { margin-bottom: 0.8rem; }
 
     /* ---------- Mobile responsive (tablets and below) ---------- */
     @media (max-width: 768px) {
-      /* Base typography & spacing */
       body { font-size: 16px; }
       .container { padding: 0 1.25rem; }
 
-      /* Header — hide all nav items except language toggle on mobile */
       .header-inner { padding: 0.85rem 0; }
       .wordmark { font-size: 1.2rem; }
       nav ul { gap: 0; }
       nav ul li:not(:last-child) { display: none; }
       .lang-toggle { padding: 0.5rem 0.95rem; font-size: 0.85rem; }
 
-      /* Hero — tighter spacing, scaled headlines */
       .hero { padding: 2.8rem 0 2rem; }
       .hero h1 { font-size: 1.95rem; line-height: 1.2; letter-spacing: -0.01em; }
       .hero .subtitle { font-size: 1.02rem; margin-bottom: 1.3rem; }
@@ -363,21 +383,17 @@
       }
       .meta-info p { margin-bottom: 0.5rem; }
 
-      /* Sections */
       section { padding: 2.6rem 0; }
       section h2 { font-size: 1.5rem; margin-bottom: 1.3rem; }
       .section-label { font-size: 0.72rem; margin-bottom: 0.9rem; }
 
-      /* Agenda */
       .agenda p { font-size: 0.99rem; line-height: 1.75; margin-bottom: 1.1rem; }
 
-      /* Project cards */
       .project-card { padding: 1.5rem; margin-bottom: 1.3rem; }
       .project-card h3 { font-size: 1.18rem; line-height: 1.35; margin-bottom: 0.8rem; }
       .project-card .description { font-size: 0.95rem; margin-bottom: 1rem; }
       .project-status { font-size: 0.68rem; margin-bottom: 0.95rem; }
 
-      /* Detail rows stack label above value on mobile for readability */
       .project-card .detail-row {
         font-size: 0.9rem;
         margin-bottom: 0.85rem;
@@ -389,7 +405,6 @@
         margin-bottom: 0.15rem;
       }
 
-      /* CTA button full width & touch-friendly */
       .cta-button {
         display: block;
         text-align: center;
@@ -398,7 +413,6 @@
         margin-top: 1.3rem;
       }
 
-      /* Integrity commitments */
       .commitment {
         padding-left: 1.1rem;
         margin-bottom: 1.6rem;
@@ -407,7 +421,9 @@
       .commitment h4 { font-size: 1.05rem; margin-bottom: 0.4rem; }
       .commitment p { font-size: 0.93rem; line-height: 1.72; }
 
-      /* Footer */
+      .contact-card { padding: 1.3rem; }
+      .contact-card strong { display: block; min-width: auto; margin-bottom: 0.1rem; }
+
       footer { padding: 2.5rem 0 1.8rem; margin-top: 2rem; }
       footer .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
       footer h5 { font-size: 0.98rem; margin-bottom: 0.6rem; }
@@ -416,7 +432,6 @@
       .footer-meta p { margin-bottom: 0.7rem; }
     }
 
-    /* ---------- Small phones (iPhone SE, older Android) ---------- */
     @media (max-width: 480px) {
       .container { padding: 0 1rem; }
       .header-inner { padding: 0.75rem 0; }
@@ -439,35 +454,18 @@
       .commitment p { font-size: 0.9rem; }
     }
 
-    /* ---------- Very small screens (<360px) ---------- */
     @media (max-width: 360px) {
       .hero h1 { font-size: 1.55rem; }
       .wordmark { font-size: 1rem; }
       .lang-toggle { padding: 0.45rem 0.8rem; font-size: 0.78rem; }
     }
 
-    /* ---------- Language switching (controlled by JS) ---------- */
+    /* ---------- Language switching ---------- */
     .lang-en [lang="vi"] { display: none; }
     .lang-vi [lang="en"] { display: none; }
-
-    /* Skip link for accessibility */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--text-primary);
-      color: white;
-      padding: 8px 16px;
-      text-decoration: none;
-      z-index: 100;
-    }
-    .skip-link:focus { top: 0; }
   </style>
 </head>
 <body class="lang-vi">
-
-  <a href="#main" class="skip-link" lang="vi">Bỏ qua đến nội dung chính</a>
-  <a href="#main" class="skip-link" lang="en">Skip to main content</a>
 
   <!-- ============================================================
        HEADER & NAVIGATION
@@ -520,30 +518,29 @@
         <h1 id="identity-heading">Phan Lê Ngọc Vy</h1>
 
         <p class="subtitle">
-          <span lang="vi">Hồ sơ Nghiên cứu Tiến sĩ trong lĩnh vực Giáo dục</span>
+          <span lang="vi">Hồ sơ Khoa học &amp; Nghiên cứu Tiến sĩ — Ngành Giáo dục</span>
           <span lang="en">Doctoral Research Portfolio in Education</span>
         </p>
 
         <p class="affiliation">
-          <span lang="vi">Nghiên cứu sinh Tiến sĩ ngành Giáo dục</span>
-          <span lang="en">Doctoral Candidate in Education</span>
-        </p>
-        <p class="affiliation">
-          <span lang="vi">Đại học Edgewood, Madison, Wisconsin, Hoa Kỳ</span>
-          <span lang="en">Edgewood University, Madison, Wisconsin, USA</span>
+          <span lang="vi">Nghiên cứu sinh Tiến sĩ Giáo dục (Ed.D.) Đại học Edgewood, Madison, Wisconsin, Hoa Kỳ</span>
+          <span lang="en">Doctoral Candidate in Education (Ed.D.) · Edgewood University, Madison, Wisconsin, USA</span>
         </p>
 
         <div class="meta-info">
           <p>
             <strong>
-              <span lang="vi">Lĩnh vực nghiên cứu:</span>
+              <span lang="vi">Hướng nghiên cứu chính:</span>
               <span lang="en">Research areas:</span>
             </strong>
-            <span lang="vi">Lý thuyết Sư phạm Sociocultural · Phương pháp Giảng dạy Tiếng Anh · Trí tuệ Nhân tạo trong Giáo dục</span>
+            <span lang="vi">Sư phạm Văn hóa - Xã hội · Phương pháp Giảng dạy Tiếng Anh (ELT) · Ứng dụng AI trong Giáo dục</span>
             <span lang="en">Sociocultural Pedagogy · ELT Methodology · AI in Education</span>
           </p>
           <p>
-            <strong>ORCID:</strong>
+            <strong>
+              <span lang="vi">Mã định danh học giả (ORCID):</span>
+              <span lang="en">ORCID:</span>
+            </strong>
             <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener noreferrer">0009-0007-8750-4074</a>
           </p>
           <p>
@@ -551,10 +548,10 @@
               <span lang="vi">Email liên hệ:</span>
               <span lang="en">Contact:</span>
             </strong>
-            <a href="mailto:phanvyedu@gmail.com">phanvyedu@gmail.com</a>
+            <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a>
           </p>
           <p class="updated">
-            <span lang="vi">Cập nhật cuối: tháng 6, 2026</span>
+            <span lang="vi">Cập nhật gần nhất: Tháng 06/2026</span>
             <span lang="en">Last updated: June 2026</span>
           </p>
         </div>
@@ -567,24 +564,24 @@
     <section class="agenda" aria-labelledby="agenda-heading">
       <div class="container">
         <p class="section-label">
-          <span lang="vi">Chương trình nghiên cứu</span>
-          <span lang="en">Research Agenda</span>
+          <span lang="vi">Chương trình Nghiên cứu &amp; Định hướng Học thuật</span>
+          <span lang="en">Research Agenda &amp; Academic Direction</span>
         </p>
         <h2 id="agenda-heading">
-          <span lang="vi">Lời ngỏ</span>
+          <span lang="vi">Tuyên bố Mục đích</span>
           <span lang="en">Statement of Purpose</span>
         </h2>
 
         <div lang="vi">
-          <p>Chào mừng quý đồng nghiệp và các nhà nghiên cứu đến với không gian học thuật cá nhân của tôi. <em>vneddata.org</em> là kho lưu trữ minh bạch các dự án nghiên cứu thực chứng trong hành trình nghiên cứu tiến sĩ của tôi, với trọng tâm là cách lý thuyết sư phạm phương Tây được tiếp nhận, chuyển dịch và tái cấu hình trong bối cảnh giáo dục Việt Nam.</p>
-          <p>Các dự án tại đây kết hợp lý thuyết tâm lý học hoạt động trường phái Vygotsky với phân tích thực tiễn giảng dạy bản địa, hướng đến việc đóng góp những khung phân tích phù hợp với điều kiện văn hóa-thiết chế Việt Nam — thay vì áp đặt các mô hình lý thuyết không tính đến đặc thù bối cảnh.</p>
-          <p>Tôi viết từ vị thế người trong cuộc (một giáo viên Tiếng Anh thực hành tại Việt Nam) đồng thời là người bên ngoài (nghiên cứu sinh tại một cơ sở học thuật ở Bắc Mỹ) — vị thế <em>outsider-within</em> (Collins, 1990) được công khai và xem xét một cách phương pháp luận trong mỗi dự án.</p>
+          <p>Chào mừng Quý đồng nghiệp và các nhà nghiên cứu đến với không gian học thuật cá nhân của tôi. Website <em>vneddata.org</em> là kho lưu trữ minh bạch các dự án nghiên cứu thực chứng trong khuôn khổ chương trình Tiến sĩ Giáo dục, tập trung vào cách các lý thuyết sư phạm phương Tây được tiếp nhận, chuyển dịch và tái cấu trúc trong bối cảnh giáo dục bản địa Việt Nam.</p>
+          <p>Các dự án tại đây kết hợp lý thuyết văn hóa - xã hội trường phái Vygotsky với phân tích thực tiễn giảng dạy thực tế, hướng đến việc kiến tạo những khung phân tích tương thích với đặc thù văn hóa - thể chế của Việt Nam, thay vì rập khuôn các mô hình lý thuyết chưa phản ánh trọn vẹn đặc thù bối cảnh.</p>
+          <p>Các nghiên cứu được tiếp cận từ vị thế "người trong cuộc" (một nhà thực hành giảng dạy Tiếng Anh tại Việt Nam) đồng thời là "người bên ngoài" (nghiên cứu sinh tại một viện học thuật Bắc Mỹ). Vị thế kép <em>outsider-within</em> (Collins, 1990) này được thừa nhận một cách minh bạch và phân tích nghiêm túc về mặt phương pháp luận trong từng dự án cụ thể.</p>
         </div>
 
         <div lang="en">
-          <p>Welcome to my personal academic space. <em>vneddata.org</em> is a transparent repository of empirical research projects undertaken during my doctoral studies, focusing on how Western pedagogical theories are received, translated, and reconfigured in the Vietnamese educational context.</p>
-          <p>Projects here combine Vygotskian sociocultural theory with analysis of local teaching practice, aiming to contribute analytical frameworks suited to Vietnamese cultural-institutional conditions — rather than imposing theoretical models that fail to account for contextual specificity.</p>
-          <p>I write from the <em>outsider-within</em> position (Collins, 1990) — simultaneously a Vietnamese ELT practitioner and a doctoral candidate at a North American institution. This dual standpoint is publicly acknowledged and methodologically examined in each project.</p>
+          <p>Welcome to my personal academic space. <em>vneddata.org</em> serves as a transparent repository of empirical research projects undertaken within my doctoral programme in Education, focusing on how Western pedagogical theories are received, translated, and reconfigured within the local Vietnamese educational context.</p>
+          <p>Projects here combine Vygotskian sociocultural theory with analysis of actual teaching practice, aiming to construct analytical frameworks attuned to Vietnam's cultural-institutional specificity rather than mechanically transplanting theoretical models that fail to capture contextual nuance.</p>
+          <p>The research is approached from a dual position: simultaneously an "insider" (a practising ELT teacher in Vietnam) and an "outsider" (a doctoral candidate at a North American academic institution). This <em>outsider-within</em> standpoint (Collins, 1990) is openly acknowledged and methodologically examined in each project rather than concealed.</p>
         </div>
       </div>
     </section>
@@ -595,8 +592,8 @@
     <section class="projects" aria-labelledby="projects-heading">
       <div class="container">
         <p class="section-label">
-          <span lang="vi">Các dự án nghiên cứu</span>
-          <span lang="en">Active Projects</span>
+          <span lang="vi">Các Dự án Nghiên cứu</span>
+          <span lang="en">Research Projects</span>
         </p>
         <h2 id="projects-heading">
           <span lang="vi">Dự án đang triển khai</span>
@@ -606,17 +603,17 @@
         <!-- PROJECT CARD 1: Scaffolding Survey -->
         <article class="project-card">
           <span class="project-status status-active">
-            <span lang="vi">Đang thí điểm</span>
-            <span lang="en">Pilot phase</span>
+            <span lang="vi">🟢 Giai đoạn: Đang thử nghiệm (Pilot phase)</span>
+            <span lang="en">🟢 Status: Pilot phase</span>
           </span>
           <h3>
-            <span lang="vi">Nhận thức và Thực tiễn về "Giàn giáo" (Scaffolding) trong giảng dạy Tiếng Anh tại Việt Nam</span>
-            <span lang="en">Teacher Cognition and Practice of "Scaffolding" in Vietnamese ELT Contexts</span>
+            <span lang="vi">Nhận thức và Thực tiễn Sư phạm về Khái niệm "Giàn giáo" (Scaffolding) trong Giảng dạy Tiếng Anh tại Việt Nam</span>
+            <span lang="en">Pedagogical Cognition and Practice of "Scaffolding" in English Language Teaching in Vietnam</span>
           </h3>
 
           <p class="description">
-            <span lang="vi">Dự án tìm hiểu cách giáo viên Tiếng Anh tại Việt Nam hiểu và vận hành phương pháp "giàn giáo" (scaffolding) trong giảng dạy kỹ năng Viết và Nói — đặc biệt trong các bối cảnh chịu áp lực thi cử và kỳ vọng văn hóa cao. Nghiên cứu xây dựng khung phân tích phù hợp với hệ cấu hình văn hóa-thiết chế bản địa, thay vì áp dụng cứng nhắc lý thuyết phương Tây không tính đến đặc thù bối cảnh.</span>
-            <span lang="en">This project explores how Vietnamese ELT teachers understand and operationalise scaffolding when teaching productive skills (writing and speaking) — particularly in contexts shaped by examination pressure and cultural expectations. The study develops an analytical framework attuned to local cultural-institutional configurations rather than mechanically transplanting Western theoretical models.</span>
+            <span lang="vi">Dự án này tập trung khám phá cách thức giáo viên Tiếng Anh tại Việt Nam thấu hiểu và vận hành chiến lược giàn giáo (scaffolding) khi giảng dạy các kỹ năng sản sinh (Nói và Viết), đặc biệt trong những bối cảnh chịu áp lực nặng nề từ thi cử và kỳ vọng thành tích của xã hội. Nghiên cứu hướng tới xây dựng một khung phân tích tương thích với đặc thù văn hóa - thể chế bản địa, thay vì rập khuôn các mô hình lý thuyết phương Tây chưa phản ánh trọn vẹn đặc thù ngữ cảnh.</span>
+            <span lang="en">This project investigates how Vietnamese ELT teachers understand and operationalise scaffolding strategies when teaching productive skills (Speaking and Writing), particularly within contexts of significant pressure from high-stakes examinations and societal expectations of academic achievement. The study aims to construct an analytical framework attuned to local cultural-institutional specificity, rather than mechanically transplanting Western theoretical models that fail to capture contextual nuance.</span>
           </p>
 
           <div class="detail-row">
@@ -624,8 +621,8 @@
               <span lang="vi">Đối tượng tham gia:</span>
               <span lang="en">Participants:</span>
             </strong>
-            <span lang="vi">Giáo viên Tiếng Anh có từ 3 năm kinh nghiệm trở lên (trường công lập, trung tâm tư nhân, giảng đường đại học)</span>
-            <span lang="en">ELT teachers with 3+ years' experience (public schools, private centres, university)</span>
+            <span lang="vi">Giáo viên Tiếng Anh có từ 3 năm kinh nghiệm trở lên (trường công lập, trung tâm ngoại ngữ tư nhân, bậc đại học/cao đẳng)</span>
+            <span lang="en">ELT teachers with 3+ years' experience (public schools, private language centres, university/college level)</span>
           </div>
           <div class="detail-row">
             <strong>
@@ -637,33 +634,33 @@
           </div>
           <div class="detail-row">
             <strong>
-              <span lang="vi">Thời gian dự kiến:</span>
+              <span lang="vi">Tiến độ thực hiện:</span>
               <span lang="en">Timeline:</span>
             </strong>
-            <span lang="vi">2026 — Triển khai khảo sát · 2026-2027 — Phân tích &amp; xuất bản</span>
+            <span lang="vi">Năm 2026 — Thu thập dữ liệu · Giai đoạn 2026 - 2027 — Phân tích &amp; Công bố kết quả</span>
             <span lang="en">2026 — Data collection · 2026-2027 — Analysis &amp; publication</span>
           </div>
 
           <a href="/scaffolding_survey/" class="cta-button">
-            <span lang="vi">Tham gia khảo sát →</span>
-            <span lang="en">Take the survey →</span>
+            <span lang="vi">👉 Bấm vào đây để tham gia khảo sát →</span>
+            <span lang="en">👉 Click here to take the survey →</span>
           </a>
         </article>
 
         <!-- PROJECT CARD 2: Dissertation -->
         <article class="project-card">
           <span class="project-status status-planning">
-            <span lang="vi">Đang thiết kế</span>
-            <span lang="en">In design</span>
+            <span lang="vi">Đang hoàn thiện thiết kế phương pháp luận</span>
+            <span lang="en">Methodology design phase</span>
           </span>
           <h3>
-            <span lang="vi">AI Scaffolds Without Cultural Grounding: Phân tích sự bản địa hóa AI hóa Vùng Phát triển Gần (ZPD) của Vygotsky trong bối cảnh ELT Việt Nam</span>
-            <span lang="en">When AI Scaffolds Without Cultural Grounding: Examining AI-Mediated Localization of Vygotsky's ZPD in Vietnamese ELT Contexts</span>
+            <span lang="vi">Khi AI làm giàn giáo thiếu nền tảng văn hóa: Nghiên cứu tiến trình bản địa hóa Vùng phát triển gần (ZPD) của Vygotsky qua trung gian AI trong bối cảnh giảng dạy Tiếng Anh tại Việt Nam</span>
+            <span lang="en">When AI Scaffolds Without Cultural Grounding: Examining AI-Mediated Localization of Vygotsky's Zone of Proximal Development (ZPD) in Vietnamese ELT Contexts</span>
           </h3>
 
           <p class="description">
-            <span lang="vi">Đề tài luận án tiến sĩ — mở rộng khung phân tích từ dự án Scaffolding sang nghiên cứu trường hợp về cách các công cụ AI (như mô hình ngôn ngữ lớn) tham gia vào quá trình "giàn giáo" trong giảng dạy Tiếng Anh tại Việt Nam, và những hệ quả phương pháp luận khi AI vận hành trong cấu hình văn hóa-thiết chế bản địa.</span>
-            <span lang="en">Doctoral dissertation — extending the analytical framework from the Scaffolding project to case studies of how AI tools (such as large language models) participate in "scaffolding" practices in Vietnamese ELT, and the methodological consequences when AI operates within local cultural-institutional configurations.</span>
+            <span lang="vi">Đây là đề tài Luận án Tiến sĩ chính thức, mở rộng và đào sâu khung phân tích từ dự án nghiên cứu về Giàn giáo sang các nghiên cứu điển hình (case studies) về cách thức các công cụ AI (như các mô hình ngôn ngữ lớn) tham gia vào tiến trình giàn giáo trong giảng dạy Tiếng Anh tại Việt Nam, đồng thời phân tích những hệ quả phương pháp luận phát sinh khi trí tuệ nhân tạo vận hành trong đặc thù văn hóa - thể chế bản địa.</span>
+            <span lang="en">This is the official doctoral dissertation, extending and deepening the analytical framework from the Scaffolding research project into case studies of how AI tools (such as large language models) participate in scaffolding processes in Vietnamese ELT, while analysing the methodological consequences that arise when artificial intelligence operates within local cultural-institutional specificity.</span>
           </p>
 
           <div class="detail-row">
@@ -671,8 +668,16 @@
               <span lang="vi">Trạng thái:</span>
               <span lang="en">Status:</span>
             </strong>
-            <span lang="vi">Đang thiết kế phương pháp luận — Dự kiến triển khai 2026-2027 sau khi hoàn thành dự án Scaffolding</span>
-            <span lang="en">Methodology design phase — Anticipated 2026-2027 following completion of the Scaffolding project</span>
+            <span lang="vi">Đang hoàn thiện thiết kế phương pháp luận</span>
+            <span lang="en">Methodology design in progress</span>
+          </div>
+          <div class="detail-row">
+            <strong>
+              <span lang="vi">Thời gian dự kiến:</span>
+              <span lang="en">Timeline:</span>
+            </strong>
+            <span lang="vi">Giai đoạn 2026 - 2027 (Ngay sau khi hoàn thành dự án nghiên cứu về Giàn giáo)</span>
+            <span lang="en">2026-2027 (Immediately following completion of the Scaffolding project)</span>
           </div>
         </article>
       </div>
@@ -684,56 +689,78 @@
     <section class="integrity" aria-labelledby="integrity-heading">
       <div class="container">
         <p class="section-label">
-          <span lang="vi">Cam kết nghiên cứu</span>
+          <span lang="vi">Cam kết Nghiên cứu</span>
           <span lang="en">Research Commitments</span>
         </p>
         <h2 id="integrity-heading">
-          <span lang="vi">Liêm chính &amp; minh bạch nghiên cứu</span>
-          <span lang="en">Research Integrity &amp; Transparency</span>
+          <span lang="vi">Tính Minh bạch &amp; Liêm chính Khoa học</span>
+          <span lang="en">Transparency &amp; Scientific Integrity</span>
         </h2>
 
         <div class="commitment">
           <h4>
-            <span lang="vi">Minh bạch dữ liệu (Open Data)</span>
-            <span lang="en">Open Data</span>
+            <span lang="vi">📑 Dữ liệu mở (Open Data)</span>
+            <span lang="en">📑 Open Data</span>
           </h4>
           <p>
-            <span lang="vi">Toàn bộ dữ liệu thu thập được xử lý ẩn danh hoàn toàn. Sau khi đề tài luận án hoàn thành, dataset đã ẩn danh và metadata phân tích sẽ được lưu trữ tại các kho dữ liệu học thuật mở (OSF Preprints, Harvard Dataverse) phục vụ đối chiếu và tái sử dụng cho cộng đồng nghiên cứu.</span>
-            <span lang="en">All collected data are fully anonymised. Upon dissertation completion, anonymised datasets and analytical metadata will be deposited in open academic repositories (OSF Preprints, Harvard Dataverse) for verification and reuse by the research community.</span>
+            <span lang="vi">Toàn bộ dữ liệu thu thập trong dự án này sẽ được mã hóa ẩn danh hoàn toàn. Sau khi luận án Tiến sĩ chính thức hoàn thành, các bộ dữ liệu đã ẩn danh và siêu dữ liệu phân tích (analytical metadata) sẽ được lưu trữ công khai tại các kho học thuật mở quốc tế uy tín (OSF Preprints) nhằm phục vụ mục đích kiểm chứng độc lập và tái sử dụng bởi cộng đồng nghiên cứu khoa học toàn cầu.</span>
+            <span lang="en">All data collected in this project will be fully anonymised. Upon official completion of the doctoral dissertation, anonymised datasets and analytical metadata will be openly deposited in reputable international open academic repositories (OSF Preprints) to enable independent verification and reuse by the global research community.</span>
           </p>
         </div>
 
         <div class="commitment">
           <h4>
-            <span lang="vi">Bảo vệ chủ thể nghiên cứu</span>
-            <span lang="en">Human Subjects Protection</span>
+            <span lang="vi">⚖️ Bảo vệ Đạo đức Đối tượng Nghiên cứu (Human Subjects Protection)</span>
+            <span lang="en">⚖️ Human Subjects Protection</span>
           </h4>
           <p>
-            <span lang="vi">Mọi quy trình thu thập dữ liệu trên nền tảng này tuân thủ tiêu chuẩn đạo đức của Hội đồng Thẩm định Nghiên cứu (IRB) Đại học Edgewood. Người tham gia có quyền ẩn danh tuyệt đối, quyền rút khỏi nghiên cứu bất cứ lúc nào, và quyền yêu cầu xóa toàn bộ dữ liệu cá nhân.</span>
-            <span lang="en">All data collection procedures on this platform comply with the ethical standards of Edgewood University's Institutional Review Board (IRB). Participants are guaranteed absolute anonymity, the right to withdraw at any time, and the right to request deletion of all personal data.</span>
+            <span lang="vi">Mọi quy trình thu thập và xử lý dữ liệu trên nền tảng này tuân thủ nghiêm ngặt các tiêu chuẩn đạo đức nghiên cứu. Người tham gia khảo sát được cam kết đảm bảo quyền ẩn danh tuyệt đối, quyền từ chối trả lời hoặc rút lui khỏi nghiên cứu ở bất kỳ thời điểm nào, và quyền yêu cầu xóa bỏ toàn bộ dữ liệu cá nhân liên quan mà không cần giải thích lý do.</span>
+            <span lang="en">All data collection and processing procedures on this platform strictly comply with rigorous research ethics standards. Survey participants are guaranteed absolute anonymity, the right to refuse to answer or withdraw from research at any time, and the right to request deletion of all related personal data without explanation.</span>
           </p>
         </div>
 
         <div class="commitment">
           <h4>
-            <span lang="vi">Công khai vị thế nghiên cứu (Positionality)</span>
-            <span lang="en">Positionality Disclosure</span>
+            <span lang="vi">🔍 Minh bạch về Vị thế Nghiên cứu (Positionality Disclosure)</span>
+            <span lang="en">🔍 Positionality Disclosure</span>
           </h4>
           <p>
-            <span lang="vi">Tôi công khai vai trò kép của mình: vừa là nghiên cứu sinh tiến sĩ tại Đại học Edgewood, vừa là giáo viên Tiếng Anh thực hành và người sáng lập Knowledge Horizon English Class — một cơ sở giảng dạy Tiếng Anh tại Việt Nam. Vị thế này được phân tích phương pháp luận một cách minh bạch trong từng đề tài, không bị che giấu.</span>
-            <span lang="en">I openly disclose my dual role: doctoral candidate at Edgewood University and simultaneously a practising ELT teacher and founder of Knowledge Horizon English Class — an English-language teaching practice in Vietnam. This positionality is methodologically examined transparently in each project rather than concealed.</span>
+            <span lang="vi">Nghiên cứu viên công khai thừa nhận vị thế kép của mình: vừa là nghiên cứu sinh Tiến sĩ Giáo dục tại Đại học Edgewood, vừa là một giáo viên thực hành và nhà sáng lập Knowledge Horizon English Class tại Việt Nam. Vị thế giao thoa này được đưa vào phân tích một cách minh bạch về mặt phương pháp luận trong từng dự án cụ thể, nhằm nhìn nhận trực diện và khách quan những ảnh hưởng của người nghiên cứu đối với thực địa thay vì che giấu chúng.</span>
+            <span lang="en">The researcher openly acknowledges a dual position: simultaneously a doctoral candidate in Education at Edgewood University and a practising teacher and founder of Knowledge Horizon English Class in Vietnam. This intersecting standpoint is methodologically and transparently examined in each project, in order to confront the researcher's influence on the field directly and objectively rather than conceal it.</span>
           </p>
         </div>
 
         <div class="commitment">
           <h4>
-            <span lang="vi">Tuyên bố xung đột lợi ích</span>
-            <span lang="en">Conflict of Interest Statement</span>
+            <span lang="vi">🤝 Tuyên bố về Xung đột Lợi ích (Conflict of Interest Statement)</span>
+            <span lang="en">🤝 Conflict of Interest Statement</span>
           </h4>
           <p>
-            <span lang="vi">Để bảo đảm tính độc lập của dữ liệu, tôi không tuyển người tham gia khảo sát từ Knowledge Horizon English Class. Việc mã hóa và phân tích dữ liệu được thực hiện với inter-rater reliability checking từ coder độc lập (Cohen's κ ≥ 0.70) để giảm thiểu confirmation bias từ phía nghiên cứu viên.</span>
-            <span lang="en">To safeguard data independence, I do not recruit survey participants from Knowledge Horizon English Class. Data coding and analysis are conducted with inter-rater reliability checking by independent coders (Cohen's κ ≥ 0.70) to minimise potential confirmation bias.</span>
+            <span lang="vi">Để bảo toàn tính độc lập và khách quan tối đa của dữ liệu, nghiên cứu viên tuyệt đối không tuyển chọn đối tượng tham gia khảo sát từ hệ thống học viên thuộc Knowledge Horizon English Class. Quy trình mã hóa và xử lý dữ liệu định tính sẽ được thực hiện kiểm định chéo bởi các mã hóa viên độc lập để đảm bảo độ tin cậy liên đánh giá (Inter-rater reliability với chỉ số Cohen's κ ≥ 0.70), nhằm giảm thiểu tối đa thiên kiến xác nhận (confirmation bias).</span>
+            <span lang="en">To preserve maximum data independence and objectivity, the researcher does not recruit survey participants from the Knowledge Horizon English Class student community. Qualitative data coding and processing are cross-verified by independent coders to ensure inter-rater reliability (Cohen's κ ≥ 0.70), thereby minimising potential confirmation bias.</span>
           </p>
+        </div>
+
+        <!-- Contact card -->
+        <div class="contact-card">
+          <h4>
+            <span lang="vi">Thông tin Liên hệ</span>
+            <span lang="en">Contact Information</span>
+          </h4>
+          <ul>
+            <li><strong>
+              <span lang="vi">Nghiên cứu viên:</span>
+              <span lang="en">Researcher:</span>
+            </strong> Phan Lê Ngọc Vy</li>
+            <li><strong>
+              <span lang="vi">Email chính thức:</span>
+              <span lang="en">Official email:</span>
+            </strong> <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a></li>
+            <li><strong>
+              <span lang="vi">Mã định danh học giả (ORCID):</span>
+              <span lang="en">ORCID:</span>
+            </strong> <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener noreferrer">0009-0007-8750-4074</a></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -753,26 +780,26 @@
           </h5>
           <ul>
             <li>Phan Lê Ngọc Vy</li>
-            <li><a href="mailto:phanvyedu@gmail.com">phanvyedu@gmail.com</a></li>
+            <li><a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a></li>
             <li>ORCID: <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener noreferrer">0009-0007-8750-4074</a></li>
           </ul>
         </div>
         <div>
           <h5>
-            <span lang="vi">Tài liệu pháp lý</span>
-            <span lang="en">Legal</span>
+            <span lang="vi">Văn bản Pháp lý &amp; Đạo đức</span>
+            <span lang="en">Legal &amp; Ethics</span>
           </h5>
           <ul>
             <li><a href="/privacy.html">
-              <span lang="vi">Chính sách bảo mật</span>
+              <span lang="vi">Chính sách Bảo mật</span>
               <span lang="en">Privacy Policy</span>
             </a></li>
             <li><a href="/terms.html">
-              <span lang="vi">Điều khoản sử dụng</span>
+              <span lang="vi">Điều khoản Sử dụng</span>
               <span lang="en">Terms of Use</span>
             </a></li>
             <li><a href="/ethics.html">
-              <span lang="vi">Tuyên bố đạo đức nghiên cứu</span>
+              <span lang="vi">Tuyên bố Đạo đức Nghiên cứu</span>
               <span lang="en">Research Ethics Statement</span>
             </a></li>
           </ul>
@@ -780,13 +807,31 @@
       </div>
 
       <div class="footer-meta">
+        <h6>
+          <span lang="vi">Tuyên bố về Nền tảng &amp; Bản quyền Dữ liệu</span>
+          <span lang="en">Platform &amp; Data Rights Statement</span>
+        </h6>
         <p lang="vi">
-          <strong>VNEDDATA.ORG</strong> là kho lưu trữ học thuật cá nhân do Phan Lê Ngọc Vy duy trì phục vụ mục đích nghiên cứu tiến sĩ tại Đại học Edgewood, Madison, Wisconsin, Hoa Kỳ. Nền tảng này không phải là cơ quan chính thức của Đại học Edgewood hay bất kỳ tổ chức nào khác, nhưng tuân thủ nghiêm ngặt các tiêu chuẩn đạo đức nghiên cứu của Hội đồng Thẩm định IRB Edgewood đối với nghiên cứu có sự tham gia của con người. Nội dung xuất bản theo Giấy phép Creative Commons Ghi nhận tác giả - Phi thương mại 4.0 Quốc tế (CC BY-NC 4.0) trừ khi có chỉ định khác.
+          <strong>VNEDDATA.ORG</strong> là kho lưu trữ học thuật cá nhân do nghiên cứu viên Phan Lê Ngọc Vy xây dựng và vận hành, phục vụ mục đích nghiên cứu Tiến sĩ Giáo dục tại Đại học Edgewood (Madison, Wisconsin, Hoa Kỳ).
+        </p>
+        <p lang="vi">
+          Nền tảng này không đại diện cho tiếng nói chính thức của Đại học Edgewood hay bất kỳ cơ quan, tổ chức nào khác, nhưng cam kết tuân thủ nghiêm ngặt các tiêu chuẩn đạo đức đối với nghiên cứu có sự tham gia của con người theo hướng dẫn của Hội đồng Kiểm duyệt Đạo đức (IRB) thuộc Đại học Edgewood.
+        </p>
+        <p lang="vi">
+          Mọi nội dung trên hệ thống này được xuất bản theo Giấy phép Quốc tế Creative Commons Ghi nhận tác giả - Phi thương mại 4.0 (CC BY-NC 4.0), trừ khi có quy định đặc biệt khác.
+        </p>
+
+        <p lang="en">
+          <strong>VNEDDATA.ORG</strong> is a personal academic repository built and maintained by researcher Phan Lê Ngọc Vy for the purposes of doctoral research in Education at Edgewood University (Madison, Wisconsin, USA).
         </p>
         <p lang="en">
-          <strong>VNEDDATA.ORG</strong> is a personal academic repository maintained by Phan Lê Ngọc Vy for doctoral research purposes at Edgewood University, Madison, Wisconsin, USA. This platform is not an official organ of Edgewood University or any other institution but strictly complies with Edgewood's Institutional Review Board (IRB) ethical guidelines for human subjects research. Content is published under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0) unless otherwise specified.
+          This platform does not represent the official voice of Edgewood University or any other organisation, but strictly complies with the ethical standards for human subjects research as guided by Edgewood University's Institutional Review Board (IRB).
         </p>
-        <p>© 2026 Phan Lê Ngọc Vy. <span lang="vi">Mọi quyền được bảo lưu.</span><span lang="en">All rights reserved.</span></p>
+        <p lang="en">
+          All content on this system is published under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), unless otherwise specified.
+        </p>
+
+        <p>© 2026 Phan Lê Ngọc Vy. <span lang="vi">Toàn bộ quyền tác giả được bảo lưu.</span><span lang="en">All rights reserved.</span></p>
       </div>
     </div>
   </footer>
