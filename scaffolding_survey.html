@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Khảo sát Nghiên cứu — Nhận thức và Thực tiễn Sư phạm về Khái niệm 'Giàn giáo' (Scaffolding) trong giảng dạy Tiếng Anh tại Việt Nam. Nghiên cứu của Phan Lê Ngọc Vy.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Bảng Khảo Sát Nghiên Cứu — vneddata.org</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --bg-card: #FFFFFF;
+      --bg-alt: #F5F2EA;
+      --text-primary: #1F3864;
+      --text-secondary: #3D4A5C;
+      --text-muted: #6B7280;
+      --accent: #9C6F2A;
+      --border: #DDD7C7;
+      --error: #B91C1C;
+      --success: #2D6A2A;
+      --max-content: 740px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+      min-height: 100vh;
+    }
+    input, textarea, button, select { -webkit-user-select: text; user-select: text; }
+    h1, h2, h3, h4 {
+      font-family: 'Lora', 'Georgia', serif;
+      color: var(--text-primary); font-weight: 600; line-height: 1.3;
+    }
+    p { margin-bottom: 1rem; }
+    a { color: var(--text-primary); }
+    strong { color: var(--text-primary); font-weight: 600; }
+    em { font-style: italic; }
+    .container { max-width: var(--max-content); margin: 0 auto; padding: 0 1.25rem; }
+
+    header {
+      background: var(--bg); border-bottom: 1px solid var(--border);
+      padding: 0.9rem 0; position: sticky; top: 0; z-index: 50;
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .wordmark {
+      font-family: 'Lora', Georgia, serif; font-size: 1.15rem; font-weight: 700;
+      color: var(--text-primary); text-decoration: none; letter-spacing: 0.02em;
+    }
+    .wordmark span.dot { color: var(--accent); }
+    .header-meta { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+
+    .progress-wrapper {
+      background: var(--border); height: 4px; width: 100%;
+      position: sticky; top: 56px; z-index: 49;
+    }
+    .progress-bar { background: var(--accent); height: 100%; width: 0%; transition: width 0.4s ease; }
+
+    main { padding: 2.5rem 0 4rem; min-height: calc(100vh - 200px); }
+    .view { display: none; }
+    .view.active { display: block; }
+    .view h1 { font-size: 1.85rem; margin-bottom: 0.7rem; letter-spacing: -0.01em; }
+    .view h1.title-main { font-size: 1.65rem; line-height: 1.35; }
+    .view h2 { font-size: 1.5rem; margin-bottom: 1.2rem; }
+    .view h3 { font-size: 1.18rem; margin-bottom: 0.8rem; margin-top: 1.5rem; }
+
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .view p { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.1rem; }
+    .view .lead { font-size: 1.05rem; line-height: 1.8; }
+    .view ul { margin: 0.5rem 0 1.2rem 1.5rem; }
+    .view li { margin-bottom: 0.45rem; line-height: 1.7; }
+
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 1.6rem; margin-bottom: 1.5rem;
+    }
+    .card-accent { border-left: 4px solid var(--accent); }
+    .card h3.card-title { margin-top: 0; font-size: 1.08rem; color: var(--text-primary); }
+    .scenario-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 1.7rem; margin-bottom: 1.5rem;
+    }
+    .scenario-card p { font-size: 0.97rem; line-height: 1.8; }
+
+    .form-group { margin-bottom: 1.8rem; }
+    .form-label {
+      display: block; font-weight: 600; color: var(--text-primary);
+      margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;
+    }
+    .form-hint { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.7rem; font-style: italic; }
+
+    textarea {
+      width: 100%; min-height: 130px; padding: 0.9rem 1rem;
+      border: 1px solid var(--border); border-radius: 4px;
+      font-family: inherit; font-size: 1rem; line-height: 1.65;
+      color: var(--text-secondary); background: var(--bg-card); resize: vertical;
+      transition: border-color 0.2s;
+    }
+    textarea:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(156, 111, 42, 0.12);
+    }
+    input[type="text"], input[type="email"], select {
+      width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border);
+      border-radius: 4px; font-family: inherit; font-size: 1rem;
+      color: var(--text-secondary); background: var(--bg-card);
+    }
+    input[type="text"]:focus, input[type="email"]:focus, select:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(156, 111, 42, 0.12);
+    }
+
+    .option-group { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.5rem; }
+    .option {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      padding: 1rem 1.1rem; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 5px; cursor: pointer; transition: all 0.15s;
+      font-size: 0.97rem; line-height: 1.65;
+    }
+    .option:hover { border-color: var(--accent); background: #FBF9F3; }
+    .option input[type="radio"], .option input[type="checkbox"] {
+      margin-top: 0.25rem; flex-shrink: 0; width: 18px; height: 18px;
+      accent-color: var(--text-primary); cursor: pointer;
+    }
+    .option:has(input:checked) { border-color: var(--text-primary); background: #F0F4FA; }
+    .option .option-label { flex: 1; }
+
+    .likert-item { padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
+    .likert-item:last-child { border-bottom: none; }
+    .likert-text { font-size: 0.96rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.85rem; }
+    .likert-text .num { font-weight: 600; color: var(--text-primary); margin-right: 0.4rem; }
+    .likert-scale {
+      display: flex; gap: 0.5rem; justify-content: space-between; max-width: 420px;
+    }
+    .likert-scale label {
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      cursor: pointer; flex: 1; padding: 0.5rem 0.3rem;
+      border: 1px solid var(--border); border-radius: 4px; transition: all 0.15s;
+    }
+    .likert-scale label:hover { border-color: var(--accent); background: #FBF9F3; }
+    .likert-scale label:has(input:checked) { border-color: var(--text-primary); background: #F0F4FA; }
+    .likert-scale input { width: 18px; height: 18px; accent-color: var(--text-primary); cursor: pointer; }
+    .likert-scale .scale-num { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
+    .likert-labels {
+      display: flex; justify-content: space-between; max-width: 420px;
+      font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;
+    }
+
+    .rank-row {
+      display: flex; align-items: center; gap: 0.9rem;
+      margin-bottom: 0.9rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--border);
+    }
+    .rank-row:last-child { border-bottom: none; }
+    .rank-row label { flex-shrink: 0; font-weight: 600; color: var(--text-primary); min-width: 80px; }
+    .rank-row select { flex: 1; }
+
+    .conditional-block {
+      display: none;
+      margin-top: 1rem;
+      padding: 1.2rem;
+      background: var(--bg-alt);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+    }
+    .conditional-block.show { display: block; }
+
+    .btn-row {
+      display: flex; justify-content: flex-end; gap: 1rem;
+      margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+    }
+    button.btn {
+      background: var(--text-primary); color: white; border: none;
+      padding: 0.95rem 2rem; font-size: 0.98rem; font-weight: 500;
+      letter-spacing: 0.04em; border-radius: 4px; cursor: pointer;
+      font-family: 'Inter', sans-serif; transition: all 0.2s; min-height: 48px;
+    }
+    button.btn:hover { background: #0F2042; transform: translateY(-1px); }
+    button.btn:disabled { background: var(--text-muted); cursor: not-allowed; transform: none; }
+
+    .notice {
+      background: #FEF7E5; border-left: 4px solid var(--accent);
+      padding: 1rem 1.2rem; border-radius: 4px; margin-bottom: 1.5rem;
+      font-size: 0.93rem; color: var(--text-secondary);
+    }
+    .notice strong { color: var(--accent); }
+    .error-msg {
+      background: #FEF2F2; border-left: 4px solid var(--error);
+      color: var(--error); padding: 0.8rem 1.1rem; border-radius: 4px;
+      margin: 1rem 0; font-size: 0.92rem; display: none;
+    }
+    .error-msg.show { display: block; }
+    .resume-notice {
+      background: #E8F0E6; border-left: 4px solid var(--success);
+      padding: 1rem 1.2rem; border-radius: 4px; margin-bottom: 1.5rem;
+      font-size: 0.93rem; color: var(--success);
+    }
+
+    footer {
+      background: var(--bg-alt); border-top: 1px solid var(--border);
+      padding: 1.8rem 0; font-size: 0.82rem; color: var(--text-muted); text-align: center;
+    }
+
+    .spinner {
+      display: inline-block; width: 20px; height: 20px;
+      border: 2px solid #FFFFFF60; border-top-color: #FFFFFF;
+      border-radius: 50%; animation: spin 0.8s linear infinite;
+      margin-right: 0.5rem; vertical-align: -4px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 1rem; }
+      .view h1 { font-size: 1.55rem; }
+      .view h1.title-main { font-size: 1.35rem; }
+      .view h2 { font-size: 1.3rem; }
+      .view h3 { font-size: 1.08rem; }
+      .card, .scenario-card { padding: 1.3rem; }
+      .option { padding: 0.85rem 0.95rem; font-size: 0.94rem; }
+      .likert-scale label { padding: 0.45rem 0.2rem; }
+      .likert-scale .scale-num { font-size: 0.95rem; }
+      .btn-row { flex-direction: column-reverse; gap: 0.7rem; }
+      button.btn { width: 100%; }
+      .rank-row { flex-direction: column; align-items: stretch; gap: 0.4rem; }
+      .rank-row label { min-width: auto; }
+    }
+    @media (max-width: 380px) {
+      .view h1 { font-size: 1.4rem; }
+      .view h1.title-main { font-size: 1.2rem; }
+      .likert-scale { gap: 0.3rem; }
+      .likert-labels { font-size: 0.7rem; }
+    }
+    @media print { body { display: none; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="https://vneddata.org" class="wordmark">vneddata<span class="dot">.</span>org</a>
+    <span class="header-meta">Bảng khảo sát nghiên cứu</span>
+  </div>
+</header>
+
+<div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+
+<main>
+  <div class="container">
+
+    <!-- ============================================================
+         VIEW 1: CONSENT
+         ============================================================ -->
+    <section class="view active" id="view-consent" data-section="consent">
+      <p class="section-label">Bảng khảo sát nghiên cứu</p>
+      <h1 class="title-main">Nhận thức và Thực tiễn Sư phạm về Khái niệm "Giàn giáo" (Scaffolding) trong giảng dạy Tiếng Anh tại Việt Nam</h1>
+
+      <div id="resumeNotice" class="resume-notice" style="display:none;">
+        <strong>Phát hiện khảo sát chưa hoàn thành.</strong> Hệ thống đã lưu phần trả lời trước đó của Thầy/Cô. Khi bấm "Tiếp theo," khảo sát sẽ tự động mở lại ở phân đoạn Thầy/Cô đã dừng.
+      </div>
+
+      <p class="lead">Kính chào Quý Thầy/Cô,</p>
+      <p>Trước hết, tôi xin chân thành cảm ơn Quý Thầy/Cô đã dành thời gian quý báu để xem xét và tham gia khảo sát này.</p>
+      <p>Tôi là <strong>Phan Lê Ngọc Vy</strong>, nhà nghiên cứu giáo dục độc lập với 15 năm kinh nghiệm giảng dạy, quản lý chương trình Tiếng Anh tại Việt Nam và là người sáng lập Knowledge Horizon English Class. Tôi hy vọng sự đồng điệu về mặt nghề nghiệp này sẽ giúp Thầy/Cô an tâm rằng người thực hiện nghiên cứu hoàn toàn thấu hiểu những áp lực, rào cản và thực tiễn dạy học mà Thầy/Cô đang trải qua từ bên trong nghề, chứ không phải từ một góc nhìn học thuật xa cách ở bên ngoài.</p>
+
+      <h3>1. Mục tiêu nghiên cứu (Cam kết minh bạch và không phán xét)</h3>
+      <p>Khảo sát này là một phần cốt lõi trong dự án nghiên cứu độc lập của tôi về cách khái niệm "Giàn giáo" (Scaffolding) được tiếp nhận, thấu hiểu và vận hành trong cộng đồng giáo viên Tiếng Anh tại Việt Nam.</p>
+      <div class="notice"><strong>📌 Lưu ý quan trọng:</strong> Mục tiêu của nghiên cứu này tuyệt đối không nhằm đánh giá, chấm điểm hay phân loại sự "đúng/sai" trong phương pháp dạy học của Quý Thầy/Cô. Nghiên cứu chỉ hướng đến việc tìm hiểu thực tế nhận thức và các chiến lược xử lý tình huống thực tế của giáo viên bản địa, từ đó đề xuất một khung phân tích thích ứng sâu sắc với bối cảnh Việt Nam, thay vì áp đặt một khung lý thuyết phương Tây chưa qua hiệu chỉnh. Tôi cam kết bảo mật vị thế người trong cuộc và không sử dụng dữ liệu này cho bất kỳ mục đích thương mại hay tuyển mẫu nào liên quan đến cơ sở đào tạo của bản thân.</div>
+
+      <h3>2. Lộ Trình Khảo Sát &amp; Quy Định Phương Pháp Luận</h3>
+      <p>Khảo sát dự kiến chiếm khoảng <strong>40 – 45 phút</strong> của Thầy/Cô, được cấu trúc tuyến tính thành 3 phần rõ ràng:</p>
+      <ul>
+        <li><strong>Phần 1:</strong> Quan điểm cá nhân và Trải nghiệm giảng dạy – Chia sẻ tự do các câu chuyện từ thực tế lớp học kỹ năng Viết/Nói của Thầy/Cô.</li>
+        <li><strong>Phần 2:</strong> Xử lý các tình huống sư phạm thực tế – Lựa chọn phương án hành động trước 4 kịch bản lớp học rất quen thuộc tại Việt Nam.</li>
+        <li><strong>Phần 3:</strong> Đánh giá các hoạt động hỗ trợ người học – Đưa ra mức độ ưu tiên đối với các nhận định sư phạm theo quan điểm cốt lõi của bản thân.</li>
+      </ul>
+      <div class="notice"><strong>⚠️ Quy trình tiến trình một chiều:</strong> Để bảo đảm tính khách quan và toàn vẹn về mặt phương pháp luận nghiên cứu (tránh thiên kiến mồi nhận thức), website được thiết lập theo dòng thời gian một chiều cố định. Sau khi Thầy/Cô đã hoàn thành và bấm "Tiếp theo" để chuyển sang phân đoạn mới, hệ thống sẽ tự động khóa tính năng quay lại và đóng băng các câu trả lời trước đó. Điều này giúp bảo toàn tính nguyên bản trong góc nhìn và phản xạ sư phạm thực tế của Thầy/Cô.</div>
+
+      <h3>3. Cam kết bảo mật &amp; Quyền lợi của Thầy/Cô khi tham gia</h3>
+      <p>Nghiên cứu tuân thủ nghiêm ngặt các quy chuẩn đạo đức học thuật quốc tế đối với đối tượng tham gia là con người:</p>
+      <ul>
+        <li><strong>Tự nguyện tuyệt đối:</strong> Thầy/Cô có quyền từ chối trả lời bất kỳ câu hỏi nào hoặc dừng tham gia khảo sát vào bất kỳ lúc nào mà không cần giải thích lý do.</li>
+        <li><strong>Ẩn danh hoàn toàn:</strong> Toàn bộ dữ liệu thu thập được sẽ được mã hóa và ẩn danh hóa trọn vẹn. Hệ thống website độc lập này không ghi nhận địa chỉ IP, thông tin định danh số, hay bất kỳ dữ liệu cá nhân nào có thể nhận diện danh tính hoặc cơ sở công tác của Thầy/Cô.</li>
+        <li><strong>An toàn dữ liệu:</strong> Dữ liệu chỉ phục vụ duy nhất cho mục đích phân tích học thuật của dự án nghiên cứu và bài báo khoa học quốc tế, tuyệt đối không chia sẻ với bất kỳ bên thứ ba nào vì mục đích thương mại.</li>
+        <li><strong>Quyền yêu cầu xóa dữ liệu:</strong> Thầy/Cô có thể liên hệ với tôi qua email chính thức: <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> để yêu cầu rút và xóa toàn bộ dữ liệu phản hồi của mình vào bất kỳ lúc nào trước khi dữ liệu được tổng hợp để phân tích và công bố.</li>
+        <li><strong>Chia sẻ giá trị:</strong> Tôi sẵn sàng chia sẻ bản tóm tắt kết quả nghiên cứu và khung giải pháp sư phạm sau khi hoàn thành cho Thầy/Cô nếu có nhu cầu. Thầy/Cô có thể để lại email hoàn toàn tự nguyện ở ô nhập liệu độc lập tại phần cuối của trang khảo sát.</li>
+      </ul>
+
+      <h3>4. Xác nhận đồng ý tham gia (Informed Consent)</h3>
+      <p><em>Đây là lựa chọn bắt buộc để mở khóa nội dung khảo sát.</em></p>
+      <p>Bằng việc tích chọn vào ô dưới đây, Thầy/Cô xác nhận đã đọc, hiểu rõ các điều khoản bảo mật nêu trên và tự nguyện tham gia vào nghiên cứu này:</p>
+
+      <div class="form-group" style="margin-top:1.2rem;">
+        <label class="option" style="padding:1.1rem;">
+          <input type="checkbox" id="consentCheck">
+          <span class="option-label"><strong>Tôi hoàn toàn đồng ý tham gia khảo sát.</strong> (Bấm "Tiếp theo" để bắt đầu Phần 1)</span>
+        </label>
+      </div>
+
+      <div class="error-msg" id="consentError">Vui lòng tích chọn xác nhận đồng ý để bắt đầu khảo sát.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnConsentNext">Tiếp theo: Bắt đầu Phần 1 →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 2: PHẦN 1 — Câu 1.1, 1.2, 1.3, 1.4 (with branching)
+         ============================================================ -->
+    <section class="view" id="view-partA" data-section="partA">
+      <p class="section-label">PHẦN 1 / 4</p>
+      <h1>Quan điểm cá nhân và trải nghiệm giảng dạy</h1>
+      <p class="form-hint">Thời gian dự kiến: 10–15 phút</p>
+
+      <p class="lead"><strong>Hướng dẫn:</strong> Trong phần này, xin mời Quý Thầy/Cô chia sẻ suy nghĩ và trải nghiệm thực tế của bản thân về khái niệm "Giàn giáo" (Scaffolding). Để bảo đảm tính thực chứng của nghiên cứu, Thầy/Cô vui lòng phản hồi dựa trên phản xạ sư phạm và trải nghiệm đứng lớp thực tế, không cần đối chiếu với các định nghĩa trong sách giáo trình hay tài liệu lý thuyết chính thống.</p>
+      <p>Mọi chia sẻ, dù ngắn gọn hay chi tiết, đều mang giá trị thực chứng quan trọng đối với nghiên cứu. Thầy/Cô hoàn toàn có thể viết bằng tiếng Việt, hoặc sử dụng xen kẽ thuật ngữ tiếng Anh để thuận tiện nhất cho việc diễn đạt ý tưởng.</p>
+
+      <div class="form-group">
+        <label class="form-label" for="A_Q1">Câu 1.1 — Định nghĩa cá nhân về "Giàn giáo"</label>
+        <p>Dựa trên cách hiểu và kinh nghiệm giảng dạy thực tế của bản thân, Quý Thầy/Cô vui lòng mô tả: <strong>Theo Thầy/Cô, "Giàn giáo" (Scaffolding) trong giảng dạy Tiếng Anh cụ thể là gì?</strong></p>
+        <textarea id="A_Q1" name="A_Q1" data-required="true" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="A_Q2">Câu 1.2 — Mô tả một tình huống thực tế gần đây</label>
+        <p>Quý Thầy/Cô vui lòng nhớ lại và mô tả <strong>một khoảnh khắc cụ thể</strong> trong thực tế giảng dạy thời gian gần đây mà bản thân đã ứng dụng phương pháp "giàn giáo" (scaffolding) khi dạy kỹ năng Viết hoặc Nói Tiếng Anh. Xin Thầy/Cô chia sẻ câu chuyện càng chi tiết càng tốt, xoay quanh các gợi ý sau:</p>
+        <ul>
+          <li><strong>Bối cảnh lớp học:</strong> Đặc điểm đối tượng học sinh (trình độ, độ tuổi, v.v.) và nội dung/chủ đề của bài học.</li>
+          <li><strong>Hành vi sư phạm:</strong> Chi tiết những biện pháp can thiệp cụ thể mà Thầy/Cô đã thực hiện (lời hướng dẫn, hành động sư phạm, các cấu trúc gợi ý hoặc công cụ hỗ trợ được sử dụng).</li>
+          <li><strong>Phản ứng của người học:</strong> Tiến trình thực hiện nhiệm vụ và các phản hồi thực tế của học sinh tại khoảnh khắc đó.</li>
+          <li><strong>Đánh giá cá nhân:</strong> Góc nhìn của Thầy/Cô về tính hiệu quả hoặc những rào cản phát sinh trong khoảnh khắc hỗ trợ này.</li>
+        </ul>
+        <textarea id="A_Q2" name="A_Q2" data-required="true" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="A_Q3">Câu 1.3 — Dấu hiệu nhận biết tính hiệu quả của hoạt động hỗ trợ (Scaffolding)</label>
+        <p>Dựa trên kinh nghiệm giảng dạy thực tế, Quý Thầy/Cô thường dựa vào những biểu hiện hoặc minh chứng cụ thể nào từ phía người học để nhận biết một tiến trình "giàn giáo" (scaffolding) đã đạt được hiệu quả? Xin Thầy/Cô chia sẻ các tiêu chí đánh giá cá nhân dựa trên các định hướng sau:</p>
+        <ul>
+          <li><strong>Biểu hiện của người học:</strong> Học sinh cần thể hiện năng lực, thái độ hoặc mức độ tự chủ như thế nào trong và sau khi nhận được sự hỗ trợ từ Thầy/Cô?</li>
+          <li><strong>Kỳ vọng sư phạm:</strong> Đâu là kết quả hoặc sự thay đổi quan trọng nhất ở phía học sinh khiến Thầy/Cô xác nhận hoạt động hỗ trợ đó đã hoàn thành mục tiêu?</li>
+        </ul>
+        <textarea id="A_Q3" name="A_Q3" data-required="true" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Câu 1.4 — Quyết định lùi lại hoặc tạm hoãn can thiệp hỗ trợ</label>
+        <p>Trong thực tế giảng dạy, có khoảnh khắc nào Quý Thầy/Cô nhìn thấy học sinh của mình đang gặp khó khăn hoặc giữ im lặng, nhưng bản thân vẫn quyết định <strong>chủ động lùi lại, tạm thời chưa đưa ra sự trợ giúp</strong> cho các em không?</p>
+        <div class="option-group">
+          <label class="option">
+            <input type="radio" name="A_Q4_choice" value="Co">
+            <span class="option-label">Có, tôi từng chủ động lùi lại / tạm hoãn hỗ trợ.</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="A_Q4_choice" value="ChuaTung">
+            <span class="option-label">Chưa từng, tôi luôn đưa ra sự hỗ trợ ngay khi nhận thấy học sinh gặp khó khăn.</span>
+          </label>
+        </div>
+
+        <div id="A_Q4_conditional_Co" class="conditional-block">
+          <p style="margin-bottom:0.8rem;"><strong>Xin Quý Thầy/Cô chia sẻ một tình huống thực tế cụ thể và phân tích lý do sư phạm đằng sau quyết định chủ động lùi lại hoặc tạm hoãn sự hỗ trợ của mình tại khoảnh khắc đó.</strong></p>
+          <textarea id="A_Q4_text_Co" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+        </div>
+
+        <div id="A_Q4_conditional_ChuaTung" class="conditional-block">
+          <p style="margin-bottom:0.8rem;"><strong>Xin Quý Thầy/Cô chia sẻ thêm về quan điểm sư phạm của bản thân: Điều gì khiến Thầy/Cô cảm thấy việc can thiệp và đưa ra giải pháp hỗ trợ ngay lập tức là cần thiết cho học sinh tại những khoảnh khắc đó?</strong></p>
+          <textarea id="A_Q4_text_ChuaTung" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+        </div>
+      </div>
+
+      <div class="error-msg" id="partAError">Vui lòng trả lời đầy đủ cả 4 câu hỏi (bao gồm phần giải thích cho Câu 1.4) trước khi tiếp tục.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnPartANext">Tiếp theo: Phần 2 →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 3: PHẦN 2 INTRO
+         ============================================================ -->
+    <section class="view" id="view-partC-intro" data-section="partC-intro">
+      <p class="section-label">PHẦN 2 / 4</p>
+      <h1>Trải nghiệm xử lý các tình huống sư phạm thực tế</h1>
+      <p class="form-hint">Thời gian dự kiến: 15–20 phút</p>
+      <p class="lead"><strong>Hướng dẫn:</strong> Trong phần này, xin mời Quý Thầy/Cô tiếp cận 4 tình huống giảng dạy thực tế được mô phỏng dưới dạng các kịch bản lớp học kỹ năng Viết/Nói. Với mỗi kịch bản, Thầy/Cô vui lòng thực hiện các bước sau:</p>
+      <ul>
+        <li>Đọc kỹ bối cảnh và hình dung bản thân đang trực tiếp đối mặt với tình huống sư phạm đó.</li>
+        <li>Lựa chọn một phương án duy nhất phản ánh gần nhất với <strong>quyết định hành động thực tế</strong> của Thầy/Cô trong lớp học của mình.</li>
+        <li>Chia sẻ ngắn gọn lý do sư phạm đằng sau quyết định lựa chọn đó.</li>
+      </ul>
+      <div class="notice"><strong>📌 Lưu ý về tính khách quan:</strong> Nghiên cứu này hướng đến việc thấu hiểu thực tế sinh động của lớp học Tiếng Anh tại Việt Nam, do đó tuyệt đối không có câu trả lời đúng hay sai. Xin Quý Thầy/Cô phản hồi dựa trên những gì bản thân sẽ thực làm trong hoàn cảnh đó, thay vì những giải pháp mang tính lý thuyết khuôn mẫu. Sự chia sẻ chân thực của Thầy/Cô là nhân tố quyết định độ tin cậy của toàn bộ dự án nghiên cứu này.</div>
+      <div class="btn-row">
+        <button class="btn" id="btnPartCIntroNext">Bắt đầu Kịch bản 1 →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 4: SCENARIO 1
+         ============================================================ -->
+    <section class="view" id="view-scenario1" data-section="scenario1">
+      <p class="section-label">Kịch bản 1 / 4</p>
+      <h2>Lớp 12 chuẩn bị cho Kỳ thi Tốt nghiệp THPT</h2>
+
+      <div class="scenario-card">
+        <p>Cô Mai là giáo viên Tiếng Anh lớp 12 tại một trường THPT công lập. Lớp học gồm 38 học sinh đang trong giai đoạn nước rút chuẩn bị cho kỳ thi Tốt nghiệp THPT sau ba tháng nữa, trong đó phần Viết luận chiếm trọng số điểm quan trọng ảnh hưởng đến cơ hội xét tuyển đại học. Phụ huynh đặt kỳ vọng rất cao; nhiều học sinh đã đăng ký nguyện vọng vào các trường đại học hàng đầu.</p>
+        <p>Từ đầu khóa học, cô Mai đã thiết kế một <strong>"Hộp Từ Mồi Hữu Ích"</strong> (Useful Language Box) cho bài Viết luận Unit 10 chủ đề "Artificial Intelligence", bao gồm bộ cấu trúc mở bài, các liên từ chuyển ý, danh mục từ vựng nâng cao (high-band vocabulary), và hệ thống câu kết luận mẫu. Học sinh được hướng dẫn áp dụng bộ khung cố định này cho mọi bài luyện viết xuyên suốt khóa học. Sau 8 tuần áp dụng đều đặn, các em đều hoàn thành được bài viết hoàn chỉnh dài khoảng 250 từ và đạt mức điểm ổn định từ 7.5 – 8.0/10 trong các bài kiểm tra mô phỏng tại lớp.</p>
+        <p>Hiện tại chỉ còn 3 tuần nữa là đến kỳ thi chính thức. Cô Mai đang cân nhắc về việc có nên tiếp tục duy trì việc cho học sinh sử dụng Hộp Từ Mồi này trong các bài luyện tập cuối cùng hay không.</p>
+      </div>
+
+      <h3>Nếu ở vị trí của cô Mai tại thời điểm này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <div class="option-group">
+        <label class="option">
+          <input type="radio" name="C1_choice" value="A">
+          <span class="option-label"><strong>Phương án A:</strong> Tiếp tục duy trì Hộp Từ Mồi cho đến ngày thi. Đây là giải pháp an toàn nhằm bảo toàn phong độ và ổn định tâm lý điểm số cho học sinh. Việc thay đổi phương pháp sát ngày thi mang lại rủi ro lớn đối với sự tự tin của học sinh và kỳ vọng của phụ huynh.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="C1_choice" value="B">
+          <span class="option-label"><strong>Phương án B:</strong> Bắt đầu giảm dần độ phụ thuộc vào Hộp Từ Mồi theo từng tuần. Tuần này chỉ giữ lại khung câu mở đầu, tuần sau chỉ giữ lại bộ từ vựng, và tuần cuối cùng yêu cầu học sinh viết độc lập. Chấp nhận việc điểm số có thể dao động tạm thời để học sinh rèn luyện khả năng tự vận hành tư duy viết trước kỳ thi.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="C1_choice" value="C">
+          <span class="option-label"><strong>Phương án C:</strong> Dừng hoàn toàn việc sử dụng Hộp Từ Mồi ngay từ tuần này, yêu cầu học sinh thực hiện bài viết hoàn toàn tự lực để tự nhận diện năng lực thực tế và tự xoay xở chọn từ, dựng câu. Những rào cản phát sinh lúc này là cơ hội cọ xát cần thiết để học sinh rèn luyện tính tự lập trước kỳ thi.</span>
+        </label>
+      </div>
+
+      <div class="form-group" style="margin-top:1.8rem;">
+        <label class="form-label" for="C1_justification">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</label>
+        <textarea id="C1_justification" name="C1_justification" data-required="true"></textarea>
+      </div>
+
+      <div class="error-msg" id="scenario1Error">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnScenario1Next">Tiếp theo: Kịch bản 2 →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 5: SCENARIO 2
+         ============================================================ -->
+    <section class="view" id="view-scenario2" data-section="scenario2">
+      <p class="section-label">Kịch bản 2 / 4</p>
+      <h2>Luyện thi IELTS Writing Task 2 tại khối đào tạo tư nhân</h2>
+
+      <div class="scenario-card">
+        <p>Thầy Khoa đảm nhận lớp luyện thi IELTS Writing Task 2 tại một trung tâm Anh ngữ. Học viên Hoàng An (22 tuổi) đang chuẩn bị nộp hồ sơ du học vào tháng tới. Gia đình đã chi trả mức học phí trọn gói cao và đặt kỳ vọng mục tiêu Hoàng An phải đạt từ Band 7.0 trở lên.</p>
+        <p>Từ đầu khóa học, thầy Khoa đã xây dựng một <strong>"Linear Template"</strong> — bộ khung logic cố định dành riêng cho dạng bài "Discuss both views and give your opinion", cấu trúc chi tiết từ câu dẫn, cách paraphrase đề bài, đến vị trí đặt ví dụ minh họa cho từng đoạn. Hoàng An đã luyện tập hơn 20 bài viết dựa trên bộ khung này với các đề bài tập trung vào các chủ đề quen thuộc (giáo dục, công nghệ, môi trường) và liên tục đạt mức điểm giả định ổn định từ 7.0 – 7.5 trong các bài kiểm tra tại trung tâm.</p>
+        <p>Một tuần trước kỳ thi chính thức, thầy Khoa tổ chức một bài thi mô phỏng áp lực như thật. Đề bài đưa ra hoàn toàn mới và khác biệt: <em>"To what extent should governments regulate the use of artificial intelligence in healthcare?"</em> (Dạng bài "To what extent", bối cảnh tích hợp giữa y tế, công nghệ và chính sách vĩ mô, chưa từng xuất hiện trong các buổi luyện tập trước). Đồng thời, Hoàng An được yêu cầu thực hiện bài viết mà không áp dụng bộ khung template có sẵn.</p>
+        <p>Sau 5 phút đọc đề, Hoàng An rơi vào trạng thái bế tắc tư duy, không thể triển khai ý tưởng. Sau 15 phút, học viên này chỉ viết được 4 dòng rời rạc rồi dừng lại. Khi hết giờ, bài làm bị bỏ trống hơn 70%. Hoàng An tỏ ra vô cùng căng thẳng và chia sẻ: <em>"Thầy ơi, em không biết phải bắt đầu lập luận từ đâu nếu không dựa vào khung câu mẫu..."</em></p>
+      </div>
+
+      <h3>Nếu ở vị trí của thầy Khoa lúc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <div class="option-group">
+        <label class="option">
+          <input type="radio" name="C2_choice" value="A">
+          <span class="option-label"><strong>Phương án A:</strong> Trấn an học viên và khẳng định độ khó của đề thi thật sẽ được kiểm soát an toàn hơn. Ngay lập tức bổ sung và điều chỉnh hệ thống template để bao quát thêm các cấu trúc phản xạ cho các dạng đề và chủ đề mới. Tiếp tục tăng tốc luyện tập dựa trên bộ khung mở rộng này nhằm tối ưu hóa tính an toàn, tốc độ xử lý và ổn định tâm lý cho học viên sát ngày thi.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="C2_choice" value="B">
+          <span class="option-label"><strong>Phương án B:</strong> Tạm dừng việc luyện tập theo template cố định trong tuần cuối cùng. Cùng học viên phân tích nguyên nhân của sự bế tắc, nhận diện việc người học đang phụ thuộc vào việc điền thông tin vào khung có sẵn thay vì chủ động vận hành tư duy logic độc lập. Dành thời gian còn lại để rèn luyện năng lực xây dựng ý tưởng (brainstorming) và lập luận tự thân, chấp nhận rủi ro điểm số có thể biến động để đổi lấy khả năng linh hoạt ứng biến trước đề lạ.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="C2_choice" value="C">
+          <span class="option-label"><strong>Phương án C:</strong> Chủ động giảm độ phức tạp của các đề bài luyện tập trong tuần cuối, chỉ giao các đề bài có độ khó vừa phải và thuộc chủ đề quen thuộc để bảo toàn sự tự tin và giải tỏa áp lực tâm lý cho học viên. Đồng thời, chủ động trao đổi với phụ huynh để điều chỉnh kỳ vọng thực tế về mức điểm Band 7.0, giảm tối đa áp lực thành tích ngắn hạn để học viên bước vào phòng thi với tinh thần thoải mái nhất.</span>
+        </label>
+      </div>
+
+      <div class="form-group" style="margin-top:1.8rem;">
+        <label class="form-label" for="C2_justification">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</label>
+        <textarea id="C2_justification" name="C2_justification" data-required="true"></textarea>
+      </div>
+
+      <div class="error-msg" id="scenario2Error">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnScenario2Next">Tiếp theo: Kịch bản 3 →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 6: SCENARIO 3
+         ============================================================ -->
+    <section class="view" id="view-scenario3" data-section="scenario3">
+      <p class="section-label">Kịch bản 3 / 4</p>
+      <h2>Tiếng Anh chuyên ngành Y khoa tại bậc Đại học</h2>
+
+      <div class="scenario-card">
+        <p>Cô Linh là giảng viên đảm nhận học phần "Tiếng Anh Chuyên Ngành Y Khoa" cho sinh viên năm thứ 4 ngành Bác sĩ Đa khoa tại một trường Đại học Y. Lớp học gồm 45 sinh viên, học phần kéo dài 15 tuần với một bài tập lớn (term project) yêu cầu sinh viên làm việc theo nhóm 5 người để viết một báo cáo ca lâm sàng (case report) bằng tiếng Anh dựa trên thực tế các em đã quan sát tại bệnh viện thực tập.</p>
+        <p>Theo quy định hành chính của nhà trường, mọi điểm số quá trình (process grades) chỉ được công bố trên hệ thống e-learning vào tuần cuối cùng của học kỳ; sinh viên không nhận được phản hồi chính thức (official feedback) nào về tiến độ trong suốt 14 tuần đầu. Cô Linh chỉ có thể tổ chức các buổi thảo luận tự nguyện ngoài giờ hành chính, nhưng chỉ có một số ít nhóm tham dự đều đặn.</p>
+        <p>Vào tuần thứ 10, một nhóm sinh viên đến gặp cô Linh ngay trước giờ giảng. Đại diện nhóm chia sẻ: <em>"Cô ơi, tụi em đã hoàn thành được một nửa bài viết nhưng hiện tại cả nhóm đang bế tắc, không biết phải trình bày phần 'Discussion' như thế nào khi ca lâm sàng của tụi em là một bệnh nhân mắc bệnh hiếm gặp với ba chẩn đoán phân biệt khác nhau. Tụi em có tra cứu các bài báo mẫu trên PubMed nhưng nhận thấy mỗi bài lại có một cách cấu trúc lập luận khác nhau. Cô có thể hướng dẫn cho tụi em một cấu trúc chuẩn cho phần Discussion được không ạ?"</em></p>
+        <p>Lúc này, chỉ còn 5 tuần nữa là đến hạn nộp bài cuối kỳ. Cô Linh chỉ có khoảng 10 phút trước khi bắt đầu buổi giảng tiếp theo, và ngay cuối tuần này cô phải di chuyển để tham dự một hội thảo chuyên môn liên tục trong 4 ngày.</p>
+      </div>
+
+      <h3>Nếu ở vị trí của cô Linh lúc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <div class="option-group">
+        <label class="option">
+          <input type="radio" name="C3_choice" value="A">
+          <span class="option-label"><strong>Phương án A:</strong> Cung cấp ngay cho nhóm sinh viên một biểu mẫu cấu trúc chuẩn ("Discussion structure template") do bản thân biên soạn sẵn (gồm các phần: Background – Comparison with literature – Clinical implications – Limitations). Yêu cầu các em áp dụng và triển khai nội dung theo bộ khung cố định này để đảm bảo tính an toàn về mặt cấu trúc và giúp các em có định hướng rõ ràng trong thời gian giảng viên đi vắng.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="C3_choice" value="B">
+          <span class="option-label"><strong>Phương án B:</strong> Hẹn nhóm sinh viên ở lại khoảng 15 phút sau giờ giảng để thực hiện một buổi hướng dẫn nhanh bằng hệ thống câu hỏi gợi mở (ví dụ: chỉ ra điểm khác biệt giữa các chẩn đoán, tìm minh chứng hỗ trợ mạnh nhất từ ca lâm sàng, v.v.). Quyết định này nhằm giúp sinh viên tự đúc kết và định hình ra cấu trúc Discussion phù hợp riêng cho ca bệnh của mình, đồng thời hẹn sẽ tiếp tục hướng dẫn sâu hơn sau khi cô hoàn thành chuyến hội thảo.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="C3_choice" value="C">
+          <span class="option-label"><strong>Phương án C:</strong> Định hướng nhóm sinh viên quay trở lại công cụ PubMed để chủ động phân tích sâu hơn các bài báo có bối cảnh tương tự. Giải thích rõ với các em về giới hạn thời gian hiện tại của giảng viên và nhấn mạnh rằng, với tư cách là sinh viên năm thứ 4, các em cần rèn luyện năng lực tự học, tự đối chiếu và tổng hợp tài liệu học thuật để tự đưa ra quyết định cấu trúc phù hợp nhất cho bài viết của nhóm.</span>
+        </label>
+      </div>
+
+      <div class="form-group" style="margin-top:1.8rem;">
+        <label class="form-label" for="C3_justification">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</label>
+        <textarea id="C3_justification" name="C3_justification" data-required="true"></textarea>
+      </div>
+
+      <div class="error-msg" id="scenario3Error">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnScenario3Next">Tiếp theo: Kịch bản 4 →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 7: SCENARIO 4
+         ============================================================ -->
+    <section class="view" id="view-scenario4" data-section="scenario4">
+      <p class="section-label">Kịch bản 4 / 4</p>
+      <h2>Tiết Speaking Part 3 tại lớp Tiếng Anh bậc THPT</h2>
+
+      <div class="scenario-card">
+        <p>Thầy Bình đảm nhận lớp Tiếng Anh tăng cường khối 11 tại một trường THPT công lập. Tiết học kỹ năng Nói (Speaking) hôm nay yêu cầu học sinh thảo luận một đề bài mô phỏng theo cấu trúc IELTS Speaking Part 3, chủ đề "Education and Career": <em>"Do you think university degrees are still important for getting a good job nowadays?"</em></p>
+        <p>Học sinh Ngọc Linh (16 tuổi) có tính cách nhút nhát và nền tảng Tiếng Anh ở mức trung bình. Trước đó vài phút, em vừa gặp lỗi vấp ngữ pháp khi trình bày phần Part 2 và tỏ ra khá ngượng ngùng với các bạn xung quanh. Đến lượt Ngọc Linh trả lời câu hỏi Part 3, em giữ im lặng và tỏ ra vô cùng lúng túng khi cả lớp 32 học sinh đều đang tập trung chú ý vào mình. Sau 8 giây im lặng, Ngọc Linh khẽ nói: <em>"Em nghĩ là... ờ... em không biết..."</em></p>
+        <p>Thầy Bình nhận thấy rõ Ngọc Linh đang gặp <strong>trở ngại tâm lý do áp lực sợ nói sai trước tập thể</strong>, kết hợp với việc <strong>hạn chế về vốn từ vựng tại chỗ</strong> để diễn đạt ý tưởng. Trong khi lớp học đang chờ đợi, hai học sinh ngồi gần đã giơ tay xin trả lời thay cho Ngọc Linh.</p>
+      </div>
+
+      <h3>Nếu ở vị trí của thầy Bình trong khoảnh khắc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <div class="option-group">
+        <label class="option">
+          <input type="radio" name="C4_choice" value="A">
+          <span class="option-label"><strong>Phương án A:</strong> Mỉm cười khuyến khích và hướng dẫn riêng với Ngọc Linh: <em>"Em có thể thử diễn đạt ý kiến của mình bằng tiếng Việt trước xem sao, sau đó thầy và các bạn sẽ cùng hỗ trợ em chuyển dịch sang tiếng Anh nhé."</em> Giải pháp này nhằm giải tỏa ngay áp lực phải nói hoàn chỉnh bằng ngoại ngữ, chấp nhận việc chuyển đổi ngôn ngữ (code-switching) như một bước đệm tư duy ban đầu cho học sinh.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="C4_choice" value="B">
+          <span class="option-label"><strong>Phương án B:</strong> Cung cấp ngay cho Ngọc Linh một cấu trúc câu mồi cố định: <em>"Em có thể bắt đầu bằng cụm 'I think university degrees are important because...' rồi tiếp tục triển khai ý của mình nhé."</em> Nếu học sinh vẫn bế tắc, giáo viên sẽ tiếp tục gợi ý các từ khóa cốt lõi (ví dụ: higher salary, career opportunities) để học sinh có chất liệu hoàn thành câu trả lời của mình trước lớp.</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="C4_choice" value="C">
+          <span class="option-label"><strong>Phương án C:</strong> Để đảm bảo tiến độ chung của tiết học và giảm bớt áp lực tâm lý cho Ngọc Linh, giáo viên chuyển lượt trả lời sang cho một trong hai học sinh đang giơ tay, đồng thời nhắn với Ngọc Linh: <em>"Em cứ suy nghĩ thêm nhé, lát nữa thầy sẽ quay lại sau."</em> Biện pháp này giúp giữ nhịp độ lớp học và cho Ngọc Linh có thời gian chuẩn bị tâm lý tốt hơn.</span>
+        </label>
+      </div>
+
+      <div class="form-group" style="margin-top:1.8rem;">
+        <label class="form-label" for="C4_justification">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</label>
+        <textarea id="C4_justification" name="C4_justification" data-required="true"></textarea>
+      </div>
+
+      <div class="error-msg" id="scenario4Error">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnScenario4Next">Tiếp theo: Phần 3 →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 8: PHẦN 3 INTRO
+         ============================================================ -->
+    <section class="view" id="view-partB-intro" data-section="partB-intro">
+      <p class="section-label">PHẦN 3 / 4</p>
+      <h1>Khảo sát mức độ ưu tiên trong hoạt động hỗ trợ người học</h1>
+      <p class="form-hint">Thời gian dự kiến: 10 phút</p>
+      <p class="lead"><strong>Hướng dẫn:</strong> Dưới đây là các phát biểu mô tả về các đặc tính của hoạt động giàn giáo (scaffolding) trong giảng dạy ngoại ngữ. Quý Thầy/Cô vui lòng đọc kỹ từng nhận định và đánh giá mức độ quan trọng của đặc tính đó đối với một tiến trình giàn giáo hiệu quả theo quan điểm sư phạm của bản thân.</p>
+      <div class="card card-accent">
+        <h3 class="card-title">Thang đánh giá 5 mức độ:</h3>
+        <ul style="margin-top:0.6rem;">
+          <li><strong>1</strong> = Hoàn toàn không quan trọng (đặc tính không cần thiết cho tiến trình)</li>
+          <li><strong>2</strong> = Ít quan trọng (đặc tính mang tính phụ trợ không đáng kể)</li>
+          <li><strong>3</strong> = Quan trọng trung bình (đặc tính hữu ích nhưng không cốt lõi)</li>
+          <li><strong>4</strong> = Khá quan trọng (đặc tính cần thiết để đảm bảo hiệu quả)</li>
+          <li><strong>5</strong> = Cực kỳ quan trọng (đặc tính cốt lõi, không thể thiếu)</li>
+        </ul>
+      </div>
+      <div class="notice"><strong>📌 Lưu ý về tính khách quan:</strong> Nghiên cứu tuyệt đối không có câu trả lời "đúng" hay "sai". Quý Thầy/Cô vui lòng đánh giá dựa trên góc nhìn thực tế của bản thân, không cần e ngại nếu quan điểm cá nhân có sự khác biệt với các khung lý thuyết chính thống trong sách giáo trình.</div>
+      <div class="btn-row">
+        <button class="btn" id="btnPartBIntroNext">Bắt đầu đánh giá →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 9: PART B — LIKERT (19 items)
+         ============================================================ -->
+    <section class="view" id="view-partB" data-section="partB">
+      <p class="section-label">PHẦN 3 — 19 phát biểu</p>
+      <h2>Đánh giá mức độ quan trọng</h2>
+      <p>Với mỗi phát biểu, vui lòng chọn mức từ 1 (Hoàn toàn không quan trọng) đến 5 (Cực kỳ quan trọng).</p>
+
+      <div id="likertContainer"></div>
+
+      <div class="error-msg" id="partBError">Vui lòng đánh giá tất cả 19 phát biểu trước khi tiếp tục.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnPartBNext">Tiếp theo: Phần 4 →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 10: PHẦN 4 — DEMOGRAPHICS + TRANSMISSION + OPT-IN
+         ============================================================ -->
+    <section class="view" id="view-demographics" data-section="demographics">
+      <p class="section-label">PHẦN 4 / 4</p>
+      <h1>Kênh tiếp nhận khái niệm và Thông tin nhân khẩu học</h1>
+      <p class="form-hint">Thời gian dự kiến: 5 phút</p>
+      <p class="lead"><strong>Hướng dẫn:</strong> Phần cuối cùng này hướng đến việc tìm hiểu ngữ cảnh tiếp cận khái niệm giàn giáo cũng như một số đặc điểm nền tảng của Quý Thầy/Cô tham gia khảo sát. Người nghiên cứu xin cam kết một lần nữa: toàn bộ thông tin đều được mã hóa ẩn danh hoàn toàn.</p>
+
+      <div class="form-group">
+        <label class="form-label">Câu 4.1 — Kênh tiếp cận khái niệm "Giàn giáo" (Scaffolding)</label>
+        <p>Trong số các nguồn dưới đây, đâu là <strong>3 nguồn chính</strong> (vui lòng xếp hạng theo thứ tự ưu tiên từ 1 đến 3, với 1 là nguồn quan trọng nhất) giúp Quý Thầy/Cô tiếp cận và tìm hiểu về khái niệm giàn giáo (scaffolding)?</p>
+        <div class="rank-row">
+          <label for="rank1">Hạng 1:</label>
+          <select id="rank1" name="rank1">
+            <option value="">— Chọn nguồn quan trọng nhất —</option>
+            <option value="dh_supham">Giáo trình hoặc môn học chính khóa tại bậc đại học/cao đẳng sư phạm</option>
+            <option value="bo_giaoduc">Tài liệu bồi dưỡng giáo viên chính thức từ Bộ/Sở Giáo dục và Đào tạo</option>
+            <option value="hoithao_taphuan">Các chương trình tập huấn, hội thảo chuyên môn nội bộ hoặc mở rộng</option>
+            <option value="ielts_thitruong">Sách hướng dẫn phương pháp / cẩm nang luyện thi quốc tế (IELTS, TOEFL, Cambridge...)</option>
+            <option value="dongnghiep">Chia sẻ, trao đổi kinh nghiệm trực tiếp từ đồng nghiệp tại nơi công tác</option>
+            <option value="mxh_giaovien">Các diễn đàn nghề nghiệp và cộng đồng giáo viên trên các nền tảng mạng xã hội</option>
+            <option value="khoa_online">Khóa học trực tuyến mở (MOOCs) trên các nền tảng quốc tế (Coursera, edX, FutureLearn...)</option>
+            <option value="tu_tracuu">Tự tra cứu, nghiên cứu sách báo và tài liệu học thuật trên Internet</option>
+            <option value="chuyengia_qte">Trao đổi trực tiếp với chuyên gia hoặc cố vấn giáo dục quốc tế</option>
+          </select>
+        </div>
+        <div class="rank-row">
+          <label for="rank2">Hạng 2:</label>
+          <select id="rank2" name="rank2">
+            <option value="">— Chọn nguồn quan trọng thứ hai —</option>
+            <option value="dh_supham">Giáo trình hoặc môn học chính khóa tại bậc đại học/cao đẳng sư phạm</option>
+            <option value="bo_giaoduc">Tài liệu bồi dưỡng giáo viên chính thức từ Bộ/Sở Giáo dục và Đào tạo</option>
+            <option value="hoithao_taphuan">Các chương trình tập huấn, hội thảo chuyên môn nội bộ hoặc mở rộng</option>
+            <option value="ielts_thitruong">Sách hướng dẫn phương pháp / cẩm nang luyện thi quốc tế (IELTS, TOEFL, Cambridge...)</option>
+            <option value="dongnghiep">Chia sẻ, trao đổi kinh nghiệm trực tiếp từ đồng nghiệp tại nơi công tác</option>
+            <option value="mxh_giaovien">Các diễn đàn nghề nghiệp và cộng đồng giáo viên trên các nền tảng mạng xã hội</option>
+            <option value="khoa_online">Khóa học trực tuyến mở (MOOCs) trên các nền tảng quốc tế (Coursera, edX, FutureLearn...)</option>
+            <option value="tu_tracuu">Tự tra cứu, nghiên cứu sách báo và tài liệu học thuật trên Internet</option>
+            <option value="chuyengia_qte">Trao đổi trực tiếp với chuyên gia hoặc cố vấn giáo dục quốc tế</option>
+          </select>
+        </div>
+        <div class="rank-row">
+          <label for="rank3">Hạng 3:</label>
+          <select id="rank3" name="rank3">
+            <option value="">— Chọn nguồn quan trọng thứ ba —</option>
+            <option value="dh_supham">Giáo trình hoặc môn học chính khóa tại bậc đại học/cao đẳng sư phạm</option>
+            <option value="bo_giaoduc">Tài liệu bồi dưỡng giáo viên chính thức từ Bộ/Sở Giáo dục và Đào tạo</option>
+            <option value="hoithao_taphuan">Các chương trình tập huấn, hội thảo chuyên môn nội bộ hoặc mở rộng</option>
+            <option value="ielts_thitruong">Sách hướng dẫn phương pháp / cẩm nang luyện thi quốc tế (IELTS, TOEFL, Cambridge...)</option>
+            <option value="dongnghiep">Chia sẻ, trao đổi kinh nghiệm trực tiếp từ đồng nghiệp tại nơi công tác</option>
+            <option value="mxh_giaovien">Các diễn đàn nghề nghiệp và cộng đồng giáo viên trên các nền tảng mạng xã hội</option>
+            <option value="khoa_online">Khóa học trực tuyến mở (MOOCs) trên các nền tảng quốc tế (Coursera, edX, FutureLearn...)</option>
+            <option value="tu_tracuu">Tự tra cứu, nghiên cứu sách báo và tài liệu học thuật trên Internet</option>
+            <option value="chuyengia_qte">Trao đổi trực tiếp với chuyên gia hoặc cố vấn giáo dục quốc tế</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Câu 4.2 — Số năm kinh nghiệm giảng dạy Tiếng Anh</label>
+        <div class="option-group">
+          <label class="option"><input type="radio" name="experience" value="<3"><span>Dưới 3 năm</span></label>
+          <label class="option"><input type="radio" name="experience" value="3-5"><span>Từ 3 đến 5 năm</span></label>
+          <label class="option"><input type="radio" name="experience" value="6-10"><span>Từ 6 đến 10 năm</span></label>
+          <label class="option"><input type="radio" name="experience" value="11-15"><span>Từ 11 đến 15 năm</span></label>
+          <label class="option"><input type="radio" name="experience" value=">15"><span>Trên 15 năm</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Câu 4.3 — Bối cảnh giảng dạy hiện tại</label>
+        <p class="form-hint">Quý Thầy/Cô có thể lựa chọn nhiều phương án nếu phù hợp.</p>
+        <div class="option-group">
+          <label class="option"><input type="checkbox" name="context" value="tieuhoc_conglap"><span>Trường Tiểu học công lập</span></label>
+          <label class="option"><input type="checkbox" name="context" value="thcs_conglap"><span>Trường THCS công lập</span></label>
+          <label class="option"><input type="checkbox" name="context" value="thpt_conglap"><span>Trường THPT công lập</span></label>
+          <label class="option"><input type="checkbox" name="context" value="tuthuc_quocte"><span>Trường tư thục hoặc trường quốc tế (mọi cấp học)</span></label>
+          <label class="option"><input type="checkbox" name="context" value="trungtam_luyenthi"><span>Trung tâm Anh ngữ đào tạo chứng chỉ quốc tế (IELTS, TOEFL, TOEIC, VSTEP...)</span></label>
+          <label class="option"><input type="checkbox" name="context" value="trungtam_treem"><span>Trung tâm Anh ngữ đào tạo tiếng Anh trẻ em hoặc tiếng Anh giao tiếp</span></label>
+          <label class="option"><input type="checkbox" name="context" value="trungtam_nguoilon"><span>Trung tâm Anh ngữ đào tạo tiếng Anh thương mại hoặc người lớn đi làm</span></label>
+          <label class="option"><input type="checkbox" name="context" value="daihoc_chuyennngu"><span>Cơ sở giáo dục đại học/cao đẳng (khối chuyên ngữ)</span></label>
+          <label class="option"><input type="checkbox" name="context" value="daihoc_khongchuyen"><span>Cơ sở giáo dục đại học/cao đẳng (khối không chuyên hoặc tiếng Anh chuyên ngành)</span></label>
+          <label class="option"><input type="checkbox" name="context" value="giasu"><span>Giảng dạy gia sư hoặc tự do</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Câu 4.4 — Nhóm đối tượng học sinh Quý Thầy/Cô giảng dạy chủ yếu hiện nay</label>
+        <p class="form-hint">Chọn phương án phổ biến nhất.</p>
+        <div class="option-group">
+          <label class="option"><input type="radio" name="studentAge" value="6-11"><span>Học sinh Tiểu học (6 – 11 tuổi)</span></label>
+          <label class="option"><input type="radio" name="studentAge" value="12-15"><span>Học sinh THCS (12 – 15 tuổi)</span></label>
+          <label class="option"><input type="radio" name="studentAge" value="16-18"><span>Học sinh THPT (16 – 18 tuổi)</span></label>
+          <label class="option"><input type="radio" name="studentAge" value="19-23"><span>Sinh viên đại học/cao đẳng (19 – 23 tuổi)</span></label>
+          <label class="option"><input type="radio" name="studentAge" value=">23"><span>Người lớn đi làm (trên 23 tuổi)</span></label>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top:2rem;">
+        <label class="form-label">Câu 4.5 — Đăng ký nhận báo cáo tóm tắt kết quả nghiên cứu (Tùy chọn)</label>
+        <p>Quý Thầy/Cô có nguyện vọng nhận bản tóm tắt kết quả phân tích sau khi dự án nghiên cứu này hoàn thành không?</p>
+        <div class="option-group">
+          <label class="option">
+            <input type="radio" name="wantsResults" value="yes">
+            <span class="option-label">Có, tôi muốn nhận kết quả.</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="wantsResults" value="no">
+            <span class="option-label">Không, tôi không có nhu cầu nhận bản tóm tắt.</span>
+          </label>
+        </div>
+        <div id="resultsEmailBlock" class="conditional-block">
+          <p style="margin-bottom:0.8rem;"><strong>Vui lòng cung cấp địa chỉ email:</strong></p>
+          <p class="form-hint" style="margin-bottom:0.7rem;">Thông tin này mang tính chất hoàn toàn tự nguyện và người nghiên cứu sẽ tách biệt hoàn toàn email khỏi bộ dữ liệu phản hồi để đảm bảo nguyên tắc bảo mật thông tin tuyệt đối.</p>
+          <input type="email" id="resultsEmail" placeholder="email@example.com" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="error-msg" id="demographicsError">Vui lòng trả lời đầy đủ các câu hỏi 4.1 – 4.5. Lưu ý: 3 nguồn ở Câu 4.1 phải khác nhau.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnDemographicsNext">Hoàn tất khảo sát →</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 11: SUBMIT / FINAL CONFIRMATION
+         ============================================================ -->
+    <section class="view" id="view-closing" data-section="closing">
+      <p class="section-label">Bước cuối cùng</p>
+      <h1>Xác nhận gửi câu trả lời</h1>
+      <p class="lead">Quý Thầy/Cô đã hoàn thành toàn bộ nội dung khảo sát. Khi bấm "Gửi câu trả lời" dưới đây, toàn bộ phản hồi sẽ được mã hóa, ẩn danh hóa và lưu trữ an toàn trên hệ thống nghiên cứu của tôi.</p>
+
+      <div class="notice"><strong>Lưu ý:</strong> Sau khi gửi thành công, các câu trả lời không thể được chỉnh sửa thêm. Hệ thống sẽ tự động xóa bộ nhớ tạm trên trình duyệt của Quý Thầy/Cô để bảo đảm tính riêng tư.</div>
+
+      <div class="notice" id="submitNotice" style="display:none; background:#E8F0E6; border-left-color:var(--success); color:var(--success);">
+        <span class="spinner"></span>Đang gửi câu trả lời về hệ thống. Xin Thầy/Cô vui lòng không tắt tab hoặc tải lại trang...
+      </div>
+
+      <div class="error-msg" id="submitError">Có lỗi xảy ra khi gửi dữ liệu. Vui lòng kiểm tra kết nối mạng và thử lại.</div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnSubmit">Gửi câu trả lời &amp; kết thúc khảo sát</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 12: THANK YOU
+         ============================================================ -->
+    <section class="view" id="view-thankyou" data-section="thankyou">
+      <p class="section-label">Hoàn tất</p>
+      <h1>Cảm ơn Quý Thầy/Cô! ✓</h1>
+      <p class="lead">Câu trả lời của Quý Thầy/Cô đã được gửi thành công và lưu trữ ẩn danh trong hệ thống nghiên cứu.</p>
+
+      <div class="card card-accent">
+        <p style="margin-bottom:1rem;">Tôi xin chân thành cảm ơn Quý Thầy/Cô đã dành thời gian quý báu để hoàn thành bảng khảo sát này. Mỗi phản hồi và chia sẻ thực tế của Quý Thầy/Cô là <strong>một đóng góp vô giá</strong>, giúp ban nghiên cứu hiểu sâu hơn về thực tiễn giảng dạy Tiếng Anh tại Việt Nam, từ đó góp phần xây dựng các khung phân tích phản ánh sinh động đặc thù của bối cảnh bản địa.</p>
+        <p style="margin-bottom:0;">Sự khác biệt, nếu có, giữa thực tế dạy học sinh động hằng ngày và các quy chuẩn lý thuyết thuần túy chính là <strong>giá trị cốt lõi</strong> mà nghiên cứu này mong muốn ghi nhận một cách trung thực và tôn trọng nhất.</p>
+      </div>
+
+      <p>Nếu Quý Thầy/Cô có bất kỳ câu hỏi, đóng góp ý kiến hoặc quan tâm sâu hơn đến tiến trình của dự án, xin vui lòng liên hệ trực tiếp qua các kênh thông tin sau:</p>
+      <ul>
+        <li><strong>Nghiên cứu viên:</strong> Phan Lê Ngọc Vy</li>
+        <li><strong>Email:</strong> <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a></li>
+        <li><strong>ORCID:</strong> <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener">0009-0007-8750-4074</a></li>
+      </ul>
+      <p>Một lần nữa, tôi xin trân trọng cảm ơn Quý Thầy/Cô.</p>
+      <p style="margin-top:1.5rem; text-align:right; font-style:italic;"><strong>Phan Lê Ngọc Vy</strong></p>
+
+      <div class="btn-row">
+        <a href="https://vneddata.org" class="btn" style="text-decoration:none; display:inline-block; text-align:center;">Quay lại trang chủ vneddata.org</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    VNEDDATA.ORG · Bảo mật ẩn danh hoàn toàn · Nghiên cứu độc lập tuân thủ tiêu chuẩn đạo đức học thuật quốc tế
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   SCAFFOLDING SURVEY — STATE MACHINE + DATA COLLECTION
+   Author: Phan Lê Ngọc Vy
+   ============================================================ */
+(function() {
+  'use strict';
+
+  // ============================================================
+  // CONFIG — PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
+  // ============================================================
+  const APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+  const VIEW_SEQUENCE = [
+    'consent', 'partA',
+    'partC-intro', 'scenario1', 'scenario2', 'scenario3', 'scenario4',
+    'partB-intro', 'partB',
+    'demographics', 'closing', 'thankyou'
+  ];
+
+  const STORAGE_KEY = 'scaffolding_survey_state_v2';
+
+  const state = {
+    submissionId: generateUUID(),
+    startedAt: Date.now(),
+    currentView: 'consent',
+    answers: {},
+    timings: {},
+    submitted: false
+  };
+
+  function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      const r = Math.random() * 16 | 0;
+      const v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+  function $(id) { return document.getElementById(id); }
+  function $$(sel) { return document.querySelectorAll(sel); }
+
+  // ============================================================
+  // LIKERT ITEMS (19 items, exact wording from Vy's revised docx)
+  // 14 features + 4 inverted (positions 3,7,12,17) + 1 attention check (position 10)
+  // ============================================================
+  const LIKERT_ITEMS = [
+    { id: 'B1',  code: 'F4',   text: 'Tiến trình giàn giáo cần được thiết kế có chủ đích và có kế hoạch trước, thay vì những can thiệp mang tính tự phát hoặc bị động khi có tình huống phát sinh.' },
+    { id: 'B2',  code: 'F5',   text: 'Giàn giáo hiệu quả đòi hỏi giáo viên phải linh hoạt điều chỉnh mức độ hỗ trợ dựa trên cả trạng thái nhận thức lẫn trạng thái cảm xúc của người học (lo âu, sợ sai, áp lực tâm lý trước tập thể).' },
+    { id: 'B3',  code: 'INV1', text: 'Một tiến trình giàn giáo đạt hiệu quả cần duy trì các hệ thống câu mẫu (templates) đồng bộ và cố định xuyên suốt khóa học nhằm đảm bảo người học không gặp phải lỗi sai về mặt ngôn ngữ.' },
+    { id: 'B4',  code: 'F2',   text: 'Hoạt động giàn giáo cần định hướng người học thực hiện các thử thách vượt trên năng lực độc lập hiện tại của các em, thay vì đơn giản hóa nhiệm vụ học tập xuống mức các em đã thành thục.' },
+    { id: 'B5',  code: 'F6',   text: 'Tiến trình giàn giáo cần bao gồm việc giảm dần và loại bỏ sự hỗ trợ một cách thích hợp khi người học đã hình thành đủ năng lực tự chủ.' },
+    { id: 'B6',  code: 'F8',   text: 'Hoạt động giàn giáo cần phân định rõ giữa việc định hướng tiến trình tư duy và việc cung cấp sẵn kết quả hay câu trả lời hoàn chỉnh cho người học.' },
+    { id: 'B7',  code: 'INV3', text: 'Một tiến trình giàn giáo đạt hiệu quả tối ưu khi duy trì một mức độ hỗ trợ cố định từ thời điểm bắt đầu cho đến khi kết thúc khóa học.' },
+    { id: 'B8',  code: 'F7',   text: 'Trong quá trình tương tác, giáo viên cần linh hoạt điều chỉnh mức độ thử thách hoặc hình thức gợi ý qua từng lượt lời để tương thích với phản hồi của học sinh.' },
+    { id: 'B9',  code: 'F9',   text: 'Mục tiêu cốt lõi của giàn giáo là giúp người học tự tái cấu trúc quy trình tư duy của bản thân, thay vì chỉ lặp lại các cấu trúc ngôn ngữ mẫu một cách bị động.' },
+    { id: 'B10', code: 'ATTN', text: 'Để giúp nghiên cứu kiểm tra chất lượng dữ liệu, xin Thầy/Cô vui lòng tích chọn mức số 3 cho câu này.' },
+    { id: 'B11', code: 'F1',   text: 'Bản chất của hoạt động giàn giáo là sự hỗ trợ mang tính chất tạm thời, được định hình ngay từ đầu với định hướng sẽ rút dần khi năng lực của người học tiến bộ.' },
+    { id: 'B12', code: 'INV2', text: 'Sự thành công của tiến trình giàn giáo có thể được đo lường hoàn toàn bằng điểm số định kỳ hoặc điểm số trong các kỳ thi cuối khóa của người học.' },
+    { id: 'B13', code: 'F14',  text: 'Hoạt động giàn giáo cần hướng đến các năng lực đang hình thành của người học (những nhiệm vụ chưa thể tự lực thực hiện nhưng có thể hoàn thành dưới sự hướng dẫn), thay vì chỉ củng cố lại các kỹ năng các em đã thành thục.' },
+    { id: 'B14', code: 'F11',  text: 'Giàn giáo không phải là một kỹ thuật trung tính; hiệu quả của nó chịu tác động sâu sắc bởi bối cảnh văn hóa - xã hội (áp lực khoa cử, kỳ vọng từ gia đình, văn hóa giữ thể diện và các quy định thiết chế giáo dục).' },
+    { id: 'B15', code: 'F13',  text: 'Trong giảng dạy ngoại ngữ, ngôn ngữ vừa là mục tiêu học tập, vừa là công cụ để thực hiện giàn giáo; do đó, rào cản về năng lực ngôn ngữ thứ hai (L2) của người học có thể hạn chế tiến trình phát triển tư duy của các em.' },
+    { id: 'B16', code: 'F3',   text: 'Tiến trình giàn giáo bắt buộc phải có sự tham gia của một nguồn dẫn dắt từ bên ngoài (giáo viên, bạn học có năng lực cao hơn hoặc các công cụ hỗ trợ được thiết kế sẵn), thay vì chỉ dựa vào sự tự khám phá của người học.' },
+    { id: 'B17', code: 'INV4', text: 'Giáo viên có thể triển khai hoạt động giàn giáo ngay lập tức dựa trên các bài mẫu sẵn có mà không cần thực hiện bước đánh giá chẩn đoán năng lực thực tế hiện tại của từng người học.' },
+    { id: 'B18', code: 'F10',  text: 'Các công cụ hỗ trợ ngôn ngữ (câu mẫu, cấu trúc văn bản, từ vựng) đều mang tính định hình văn hóa của ngữ cảnh sản sinh ra chúng; giáo viên cần nhận thức được điều này khi áp dụng trong bối cảnh học sinh Việt Nam.' },
+    { id: 'B19', code: 'F12',  text: 'Giáo viên cần chú trọng việc theo dõi tiến trình người học phản hồi trước các mức độ gợi ý khác nhau để đánh giá chính xác năng lực thực tế của các em.' }
+  ];
+
+  function buildLikertItems() {
+    const container = $('likertContainer');
+    let html = '';
+    LIKERT_ITEMS.forEach((item, idx) => {
+      const num = idx + 1;
+      html += '<div class="likert-item">';
+      html += '<p class="likert-text"><span class="num">' + num + '.</span>' + item.text + '</p>';
+      html += '<div class="likert-scale">';
+      for (let v = 1; v <= 5; v++) {
+        html += '<label><input type="radio" name="' + item.id + '" value="' + v + '"><span class="scale-num">' + v + '</span></label>';
+      }
+      html += '</div>';
+      html += '<div class="likert-labels"><span>Không quan trọng</span><span>Cực kỳ quan trọng</span></div>';
+      html += '</div>';
+    });
+    container.innerHTML = html;
+  }
+
+  // ============================================================
+  // VIEW SWITCHING & TIME TRACKING
+  // ============================================================
+  function switchView(viewName) {
+    const prevView = state.currentView;
+    if (state.timings[prevView] && !state.timings[prevView].end) {
+      state.timings[prevView].end = Date.now();
+      state.timings[prevView].seconds = Math.round((state.timings[prevView].end - state.timings[prevView].start) / 1000);
+    }
+    $$('.view').forEach(v => v.classList.remove('active'));
+    const target = $('view-' + viewName);
+    if (target) {
+      target.classList.add('active');
+      state.currentView = viewName;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    state.timings[viewName] = { start: Date.now() };
+    updateProgress();
+    saveState();
+    history.pushState({ view: viewName }, '', location.href);
+  }
+
+  function updateProgress() {
+    const idx = VIEW_SEQUENCE.indexOf(state.currentView);
+    const pct = idx >= 0 ? ((idx + 1) / VIEW_SEQUENCE.length) * 100 : 0;
+    $('progressBar').style.width = pct + '%';
+  }
+
+  // ============================================================
+  // STATE PERSISTENCE
+  // ============================================================
+  function saveState() {
+    try { captureAnswers(); localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    catch (e) { console.warn('localStorage save failed:', e); }
+  }
+  function loadState() {
+    try { const s = localStorage.getItem(STORAGE_KEY); return s ? JSON.parse(s) : null; }
+    catch (e) { return null; }
+  }
+  function clearState() { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
+  function restoreState(saved) {
+    Object.assign(state, saved);
+    restoreAnswers();
+    if (state.currentView !== 'consent') switchView(state.currentView);
+  }
+
+  function captureAnswers() {
+    ['A_Q1', 'A_Q2', 'A_Q3'].forEach(id => {
+      const el = $(id); if (el) state.answers[id] = el.value;
+    });
+    // Q1.4 branching
+    const q4choice = document.querySelector('input[name="A_Q4_choice"]:checked');
+    if (q4choice) {
+      state.answers.A_Q4_choice = q4choice.value;
+      const textEl = $('A_Q4_text_' + q4choice.value);
+      if (textEl) state.answers.A_Q4_text = textEl.value;
+    }
+    [1, 2, 3, 4].forEach(n => {
+      const choice = document.querySelector('input[name="C' + n + '_choice"]:checked');
+      if (choice) state.answers['C' + n + '_choice'] = choice.value;
+      const just = $('C' + n + '_justification');
+      if (just) state.answers['C' + n + '_justification'] = just.value;
+    });
+    LIKERT_ITEMS.forEach(item => {
+      const sel = document.querySelector('input[name="' + item.id + '"]:checked');
+      if (sel) state.answers[item.id] = parseInt(sel.value, 10);
+    });
+    const exp = document.querySelector('input[name="experience"]:checked');
+    if (exp) state.answers.experience = exp.value;
+    const ctx = Array.from(document.querySelectorAll('input[name="context"]:checked')).map(c => c.value);
+    state.answers.context = ctx;
+    const age = document.querySelector('input[name="studentAge"]:checked');
+    if (age) state.answers.studentAge = age.value;
+    state.answers.rank1 = $('rank1') ? $('rank1').value : '';
+    state.answers.rank2 = $('rank2') ? $('rank2').value : '';
+    state.answers.rank3 = $('rank3') ? $('rank3').value : '';
+    const wants = document.querySelector('input[name="wantsResults"]:checked');
+    if (wants) state.answers.wantsResults = wants.value;
+    const email = $('resultsEmail');
+    if (email) state.answers.resultsEmail = email.value.trim();
+  }
+
+  function restoreAnswers() {
+    const a = state.answers || {};
+    ['A_Q1', 'A_Q2', 'A_Q3'].forEach(id => { if (a[id] && $(id)) $(id).value = a[id]; });
+    if (a.A_Q4_choice) {
+      const el = document.querySelector('input[name="A_Q4_choice"][value="' + a.A_Q4_choice + '"]');
+      if (el) { el.checked = true; toggleQ14Conditional(); }
+      if (a.A_Q4_text && $('A_Q4_text_' + a.A_Q4_choice)) $('A_Q4_text_' + a.A_Q4_choice).value = a.A_Q4_text;
+    }
+    [1, 2, 3, 4].forEach(n => {
+      if (a['C' + n + '_choice']) {
+        const el = document.querySelector('input[name="C' + n + '_choice"][value="' + a['C' + n + '_choice'] + '"]');
+        if (el) el.checked = true;
+      }
+      if (a['C' + n + '_justification'] && $('C' + n + '_justification')) $('C' + n + '_justification').value = a['C' + n + '_justification'];
+    });
+    LIKERT_ITEMS.forEach(item => {
+      if (a[item.id]) {
+        const el = document.querySelector('input[name="' + item.id + '"][value="' + a[item.id] + '"]');
+        if (el) el.checked = true;
+      }
+    });
+    if (a.experience) {
+      const el = document.querySelector('input[name="experience"][value="' + a.experience + '"]');
+      if (el) el.checked = true;
+    }
+    if (Array.isArray(a.context)) a.context.forEach(v => {
+      const el = document.querySelector('input[name="context"][value="' + v + '"]'); if (el) el.checked = true;
+    });
+    if (a.studentAge) {
+      const el = document.querySelector('input[name="studentAge"][value="' + a.studentAge + '"]'); if (el) el.checked = true;
+    }
+    if (a.rank1 && $('rank1')) $('rank1').value = a.rank1;
+    if (a.rank2 && $('rank2')) $('rank2').value = a.rank2;
+    if (a.rank3 && $('rank3')) $('rank3').value = a.rank3;
+    if (a.wantsResults) {
+      const el = document.querySelector('input[name="wantsResults"][value="' + a.wantsResults + '"]');
+      if (el) { el.checked = true; toggleResultsEmailConditional(); }
+    }
+    if (a.resultsEmail && $('resultsEmail')) $('resultsEmail').value = a.resultsEmail;
+  }
+
+  // ============================================================
+  // CONDITIONAL BLOCKS (Câu 1.4 branching, Câu 4.5 email)
+  // ============================================================
+  function toggleQ14Conditional() {
+    const choice = document.querySelector('input[name="A_Q4_choice"]:checked');
+    $('A_Q4_conditional_Co').classList.remove('show');
+    $('A_Q4_conditional_ChuaTung').classList.remove('show');
+    if (choice) $('A_Q4_conditional_' + choice.value).classList.add('show');
+  }
+  function toggleResultsEmailConditional() {
+    const choice = document.querySelector('input[name="wantsResults"]:checked');
+    $('resultsEmailBlock').classList.remove('show');
+    if (choice && choice.value === 'yes') $('resultsEmailBlock').classList.add('show');
+  }
+
+  // ============================================================
+  // VALIDATION
+  // ============================================================
+  function showError(id, show) {
+    const el = $(id); if (el) el.classList[show ? 'add' : 'remove']('show');
+  }
+
+  function validatePartA() {
+    captureAnswers();
+    const ids = ['A_Q1', 'A_Q2', 'A_Q3'];
+    for (const id of ids) {
+      if (!state.answers[id] || state.answers[id].trim().length < 10) {
+        showError('partAError', true); return false;
+      }
+    }
+    if (!state.answers.A_Q4_choice) { showError('partAError', true); return false; }
+    if (!state.answers.A_Q4_text || state.answers.A_Q4_text.trim().length < 10) {
+      showError('partAError', true); return false;
+    }
+    showError('partAError', false); return true;
+  }
+
+  function validateScenario(n) {
+    captureAnswers();
+    const ck = 'C' + n + '_choice', jk = 'C' + n + '_justification';
+    if (!state.answers[ck] || !state.answers[jk] || state.answers[jk].trim().length < 20) {
+      showError('scenario' + n + 'Error', true); return false;
+    }
+    showError('scenario' + n + 'Error', false); return true;
+  }
+
+  function validatePartB() {
+    captureAnswers();
+    for (const item of LIKERT_ITEMS) {
+      if (!state.answers[item.id]) { showError('partBError', true); return false; }
+    }
+    showError('partBError', false); return true;
+  }
+
+  function validateDemographics() {
+    captureAnswers();
+    const a = state.answers;
+    if (!a.experience || !a.studentAge || !Array.isArray(a.context) || a.context.length === 0) {
+      showError('demographicsError', true); return false;
+    }
+    if (!a.rank1 || !a.rank2 || !a.rank3) { showError('demographicsError', true); return false; }
+    if (a.rank1 === a.rank2 || a.rank1 === a.rank3 || a.rank2 === a.rank3) {
+      showError('demographicsError', true); return false;
+    }
+    if (!a.wantsResults) { showError('demographicsError', true); return false; }
+    if (a.wantsResults === 'yes' && (!a.resultsEmail || !a.resultsEmail.match(/^[^@]+@[^@]+\.[^@]+$/))) {
+      showError('demographicsError', true); return false;
+    }
+    showError('demographicsError', false); return true;
+  }
+
+  // ============================================================
+  // SUBMIT DATA
+  // ============================================================
+  async function submitData() {
+    captureAnswers();
+    state.timings[state.currentView].end = Date.now();
+    state.timings[state.currentView].seconds = Math.round((state.timings[state.currentView].end - state.timings[state.currentView].start) / 1000);
+
+    const payload = buildPayload();
+    $('submitNotice').style.display = 'block';
+    showError('submitError', false);
+    $('btnSubmit').disabled = true;
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      state.submitted = true;
+      clearState();
+      switchView('thankyou');
+    } catch (err) {
+      console.error('Submit error:', err);
+      $('submitNotice').style.display = 'none';
+      showError('submitError', true);
+      $('btnSubmit').disabled = false;
+    }
+  }
+
+  function buildPayload() {
+    const a = state.answers, t = state.timings;
+    function secs(name) { return (t[name] && t[name].seconds) ? t[name].seconds : 0; }
+    const totalSeconds = Math.round((Date.now() - state.startedAt) / 1000);
+
+    const payload = {
+      submissionId: state.submissionId,
+      submittedAt: new Date().toISOString(),
+      totalTimeSeconds: totalSeconds,
+
+      A_Q1: a.A_Q1 || '', A_Q2: a.A_Q2 || '', A_Q3: a.A_Q3 || '',
+      A_Q4_choice: a.A_Q4_choice || '', A_Q4_text: a.A_Q4_text || '',
+      A_TimeSeconds: secs('partA'),
+
+      C1_choice: a.C1_choice || '', C1_justification: a.C1_justification || '', C1_TimeSeconds: secs('scenario1'),
+      C2_choice: a.C2_choice || '', C2_justification: a.C2_justification || '', C2_TimeSeconds: secs('scenario2'),
+      C3_choice: a.C3_choice || '', C3_justification: a.C3_justification || '', C3_TimeSeconds: secs('scenario3'),
+      C4_choice: a.C4_choice || '', C4_justification: a.C4_justification || '', C4_TimeSeconds: secs('scenario4'),
+
+      B_TimeSeconds: secs('partB'),
+
+      experience: a.experience || '',
+      context: Array.isArray(a.context) ? a.context.join('; ') : '',
+      studentAge: a.studentAge || '',
+      rank1: a.rank1 || '', rank2: a.rank2 || '', rank3: a.rank3 || '',
+
+      wantsResults: a.wantsResults === 'yes' ? 'Yes' : 'No',
+      resultsEmail: (a.wantsResults === 'yes' ? (a.resultsEmail || '') : ''),
+
+      userAgent: navigator.userAgent,
+      screenWidth: window.innerWidth,
+      language: navigator.language || 'unknown'
+    };
+    LIKERT_ITEMS.forEach(item => { payload[item.id + '_' + item.code] = a[item.id] || null; });
+    return payload;
+  }
+
+  // ============================================================
+  // ANTI-COPY PROTECTION
+  // ============================================================
+  function enableAntiCopy() {
+    document.addEventListener('contextmenu', function(e) {
+      if (!['INPUT', 'TEXTAREA'].includes(e.target.tagName)) e.preventDefault();
+    });
+    document.addEventListener('keydown', function(e) {
+      const tag = e.target.tagName;
+      const isInput = tag === 'INPUT' || tag === 'TEXTAREA';
+      const ctrlOrCmd = e.ctrlKey || e.metaKey;
+      const blockedKeys = ['c', 'x', 'a', 's', 'u', 'p'];
+      if (ctrlOrCmd && blockedKeys.includes(e.key.toLowerCase()) && !isInput) e.preventDefault();
+      if (e.key === 'F12') e.preventDefault();
+    });
+    document.addEventListener('selectstart', function(e) {
+      const tag = e.target.tagName;
+      if (tag !== 'INPUT' && tag !== 'TEXTAREA') e.preventDefault();
+    });
+  }
+
+  // ============================================================
+  // HARD BACK NAVIGATION BLOCK
+  // ============================================================
+  function enableBackBlock() {
+    history.pushState({ view: state.currentView }, '', location.href);
+    window.addEventListener('popstate', function() {
+      history.pushState({ view: state.currentView }, '', location.href);
+    });
+    window.addEventListener('beforeunload', function(e) {
+      if (!state.submitted && state.currentView !== 'consent') {
+        e.preventDefault();
+        e.returnValue = 'Bạn có chắc muốn rời khỏi khảo sát? Dữ liệu đã trả lời sẽ được lưu tạm để tiếp tục sau.';
+        return e.returnValue;
+      }
+    });
+  }
+
+  // ============================================================
+  // EVENT HANDLERS
+  // ============================================================
+  function setupEventHandlers() {
+    $('btnConsentNext').addEventListener('click', function() {
+      if (!$('consentCheck').checked) { showError('consentError', true); return; }
+      showError('consentError', false); switchView('partA');
+    });
+    $('btnPartANext').addEventListener('click', function() { if (validatePartA()) switchView('partC-intro'); });
+    $('btnPartCIntroNext').addEventListener('click', function() { switchView('scenario1'); });
+    $('btnScenario1Next').addEventListener('click', function() { if (validateScenario(1)) switchView('scenario2'); });
+    $('btnScenario2Next').addEventListener('click', function() { if (validateScenario(2)) switchView('scenario3'); });
+    $('btnScenario3Next').addEventListener('click', function() { if (validateScenario(3)) switchView('scenario4'); });
+    $('btnScenario4Next').addEventListener('click', function() { if (validateScenario(4)) switchView('partB-intro'); });
+    $('btnPartBIntroNext').addEventListener('click', function() { switchView('partB'); });
+    $('btnPartBNext').addEventListener('click', function() { if (validatePartB()) switchView('demographics'); });
+    $('btnDemographicsNext').addEventListener('click', function() { if (validateDemographics()) switchView('closing'); });
+    $('btnSubmit').addEventListener('click', function() { submitData(); });
+
+    // Conditional logic listeners
+    document.addEventListener('change', function(e) {
+      if (e.target.name === 'A_Q4_choice') toggleQ14Conditional();
+      if (e.target.name === 'wantsResults') toggleResultsEmailConditional();
+      saveState();
+    });
+    document.addEventListener('input', saveState);
+  }
+
+  function init() {
+    buildLikertItems();
+    setupEventHandlers();
+    enableAntiCopy();
+    enableBackBlock();
+    const saved = loadState();
+    if (saved && saved.submissionId && !saved.submitted && saved.currentView !== 'consent') {
+      $('resumeNotice').style.display = 'block';
+      $('btnConsentNext').addEventListener('click', function once() {
+        if ($('consentCheck').checked) restoreState(saved);
+      });
+    }
+    state.timings.consent = { start: Date.now() };
+    updateProgress();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+
+})();
+</script>
+
+</body>
+</html>
