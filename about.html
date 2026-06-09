@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Phan Lê Ngọc Vy — EdD candidate, Vietnamese ELT researcher, outsider-within practitioner-scholar.">
+  <meta name="author" content="Phan Lê Ngọc Vy">
+  <title>Giới thiệu — VNEDDATA.ORG</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80' font-family='Georgia' fill='%231F3864'>v</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       VNEDDATA.ORG — Shared Design System
+       ============================================================ */
+    :root {
+      --bg: #FAFAF8;
+      --bg-alt: #F5F2EA;
+      --text-primary: #1F3864;
+      --text-secondary: #3D4A5C;
+      --text-muted: #6B7280;
+      --accent: #9C6F2A;
+      --border: #DDD7C7;
+      --card-bg: #FFFFFF;
+      --max-content: 760px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Lora', 'Georgia', serif;
+      color: var(--text-primary);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    p { margin-bottom: 1rem; }
+    a { color: var(--text-primary); }
+    em { font-style: italic; }
+
+    .container { max-width: var(--max-content); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ---------- Header ---------- */
+    header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 0;
+    }
+    .wordmark {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .wordmark span.dot { color: var(--accent); }
+
+    /* Desktop nav */
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      align-items: center;
+    }
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    nav a:hover { color: var(--text-primary); }
+    nav a.active { color: var(--text-primary); border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+
+    .lang-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.9rem;
+      border-radius: 3px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-secondary);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+    .lang-toggle:hover {
+      background: var(--text-primary);
+      color: white;
+      border-color: var(--text-primary);
+    }
+
+    /* Hamburger button (hidden on desktop) */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Nav items that get hidden on mobile */
+    .nav-links { display: contents; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 4.5rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ---------- Page hero (smaller than homepage) ---------- */
+    .page-hero { padding: 4rem 0 3rem; }
+    .page-hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.015em;
+      font-weight: 700;
+    }
+    .page-hero .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      font-family: 'Lora', serif;
+      font-weight: 400;
+    }
+
+    /* ---------- Biography prose ---------- */
+    .bio-section p {
+      font-size: 1.06rem;
+      line-height: 1.85;
+      margin-bottom: 1.3rem;
+      color: var(--text-secondary);
+    }
+
+    /* ---------- Positionality block ---------- */
+    .positionality-block {
+      background: var(--bg-alt);
+      border-left: 3px solid var(--accent);
+      padding: 1.8rem 2rem;
+      border-radius: 0 4px 4px 0;
+      margin: 1.5rem 0;
+    }
+    .positionality-block p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .positionality-block p:last-child { margin-bottom: 0; }
+
+    /* ---------- Education timeline ---------- */
+    .edu-item {
+      margin-bottom: 1.8rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--border);
+    }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-primary);
+    }
+    .edu-item .institution {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.15rem;
+    }
+    .edu-item .year {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ---------- Connect card ---------- */
+    .connect-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.6rem 1.8rem;
+      margin-top: 1rem;
+    }
+    .connect-card ul { list-style: none; }
+    .connect-card li {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.35rem;
+    }
+    .connect-card strong {
+      color: var(--text-primary);
+      font-weight: 600;
+      display: inline-block;
+      min-width: 7em;
+    }
+    .connect-card a { text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
+    .connect-card a:hover { border-bottom-style: solid; }
+    .connect-note {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: 1.2rem;
+      font-style: italic;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 0 2.5rem;
+      margin-top: 3rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    footer .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    footer h5 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    footer ul { list-style: none; }
+    footer li { margin-bottom: 0.4rem; }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    footer a:hover { color: var(--text-primary); text-decoration: underline; }
+
+    .footer-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      line-height: 1.7;
+    }
+    .footer-meta h6 {
+      font-family: 'Lora', serif;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    .footer-meta p { margin-bottom: 0.8rem; }
+
+    /* ---------- Mobile responsive ---------- */
+    @media (max-width: 768px) {
+      body { font-size: 16px; }
+      .container { padding: 0 1.25rem; }
+
+      .header-inner { padding: 0.85rem 0; }
+      .wordmark { font-size: 1.2rem; }
+
+      /* Show hamburger, hide nav links */
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 0.8rem 1.25rem 1rem;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 8px 24px rgba(31, 56, 100, 0.08);
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links li { padding: 0.55rem 0; }
+      .nav-links li:last-child { padding-top: 0.8rem; border-top: 1px solid var(--border); margin-top: 0.3rem; }
+      nav ul { gap: 0; position: relative; }
+
+      .page-hero { padding: 2.8rem 0 2rem; }
+      .page-hero h1 { font-size: 1.8rem; }
+      .page-hero .subtitle { font-size: 1rem; }
+
+      section { padding: 2.6rem 0; }
+      section h2 { font-size: 1.5rem; margin-bottom: 1.3rem; }
+      .section-label { font-size: 0.72rem; margin-bottom: 0.9rem; }
+
+      .bio-section p { font-size: 0.99rem; line-height: 1.75; }
+
+      .positionality-block { padding: 1.3rem 1.4rem; }
+      .positionality-block p { font-size: 0.95rem; }
+
+      .edu-item { padding-left: 1.1rem; }
+      .edu-item h4 { font-size: 1.02rem; }
+
+      .connect-card { padding: 1.3rem; }
+      .connect-card strong { display: block; min-width: auto; margin-bottom: 0.1rem; }
+
+      footer { padding: 2.5rem 0 1.8rem; margin-top: 2rem; }
+      footer .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-meta { font-size: 0.75rem; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 1rem; }
+      .wordmark { font-size: 1.08rem; }
+      .page-hero h1 { font-size: 1.6rem; }
+      section h2 { font-size: 1.35rem; }
+    }
+
+    @media (max-width: 360px) {
+      .page-hero h1 { font-size: 1.45rem; }
+      .wordmark { font-size: 1rem; }
+    }
+
+    /* ---------- Language switching ---------- */
+    .lang-en [lang="vi"] { display: none; }
+    .lang-vi [lang="en"] { display: none; }
+  </style>
+</head>
+<body class="lang-vi">
+
+  <!-- ============================================================
+       HEADER & NAVIGATION (with hamburger for mobile)
+       ============================================================ -->
+  <header role="banner">
+    <div class="container header-inner">
+      <a href="/" class="wordmark" aria-label="vneddata.org — Home">
+        vneddata<span class="dot">.</span>org
+      </a>
+      <nav role="navigation" aria-label="Main navigation">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul>
+          <div class="nav-links" id="navLinks">
+            <li><a href="/">
+              <span lang="vi">Trang chủ</span>
+              <span lang="en">Home</span>
+            </a></li>
+            <li><a href="/about.html" class="active">
+              <span lang="vi">Giới thiệu</span>
+              <span lang="en">About</span>
+            </a></li>
+            <li><a href="/projects.html">
+              <span lang="vi">Dự án</span>
+              <span lang="en">Projects</span>
+            </a></li>
+            <li><a href="/publications.html">
+              <span lang="vi">Bài viết</span>
+              <span lang="en">Publications</span>
+            </a></li>
+            <li><a href="/contact.html">
+              <span lang="vi">Liên hệ</span>
+              <span lang="en">Contact</span>
+            </a></li>
+          </div>
+          <li>
+            <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+              <span lang="vi">EN</span>
+              <span lang="en">VI</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+
+    <!-- ============================================================
+         SECTION 1: ACADEMIC IDENTITY
+         ============================================================ -->
+    <section class="page-hero" aria-labelledby="about-heading">
+      <div class="container">
+        <p class="section-label">
+          <span lang="vi">Giới thiệu</span>
+          <span lang="en">About</span>
+        </p>
+        <h1 id="about-heading">Phan Lê Ngọc Vy</h1>
+        <p class="subtitle">
+          <span lang="vi">Nhà thực hành 15 năm kinh nghiệm · Nghiên cứu sinh Tiến sĩ Giáo dục · Người nghiên cứu từ vị thế kép</span>
+          <span lang="en">15-year practitioner · Doctoral candidate in Education · Outsider-within researcher</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: PROFESSIONAL BIOGRAPHY
+         ============================================================ -->
+    <section class="bio-section" aria-labelledby="bio-heading">
+      <div class="container">
+        <p class="section-label">
+          <span lang="vi">Hành trình Chuyên môn</span>
+          <span lang="en">Professional Journey</span>
+        </p>
+        <h2 id="bio-heading">
+          <span lang="vi">Từ lớp học đến nghiên cứu</span>
+          <span lang="en">From the classroom to research</span>
+        </h2>
+
+        <div lang="vi">
+          <p>Tôi bắt đầu dạy Tiếng Anh từ năm 2011 và đã dành hơn 15 năm đứng trên bục giảng tại Việt Nam. Từ trường công lập đến trung tâm ngoại ngữ tư nhân, từ học sinh tiểu học đến sinh viên đại học — tôi đã chứng kiến và trải nghiệm mọi góc cạnh của việc dạy và học Tiếng Anh trong bối cảnh giáo dục Việt Nam.</p>
+          <p>Năm 2020, tôi sáng lập Knowledge Horizon English Class — một lớp học Tiếng Anh độc lập tại Đồng Nai, nơi tôi cố gắng áp dụng những phương pháp giảng dạy lấy người học làm trung tâm trong khuôn khổ hệ thống giáo dục coi trọng kết quả thi cử. Chính quá trình vận hành thực tế này đã đặt ra cho tôi nhiều câu hỏi mà thực hành đơn thuần không thể trả lời.</p>
+          <p>Những câu hỏi đó dẫn tôi đến chương trình Tiến sĩ Giáo dục (Ed.D.) tại Đại học Edgewood, Madison, Wisconsin, Hoa Kỳ — nơi tôi được đào tạo về lý thuyết văn hóa - xã hội của Vygotsky, phân tích ký hiệu học của Wertsch, và các khung phân tích giàn giáo từ Wood, Bruner &amp; Ross đến Pea, Stone và Van de Pol. Đào tạo Tiến sĩ không thay thế 15 năm kinh nghiệm thực chiến — nó cung cấp một hệ thống tư duy để đọc lại chính những gì tôi đã làm và đã thấy.</p>
+        </div>
+
+        <div lang="en">
+          <p>I began teaching English in 2011 and have spent over fifteen years in Vietnamese classrooms. From public schools to private language centres, from primary school students to university learners — I have witnessed and experienced every dimension of English language teaching in Vietnam's educational context.</p>
+          <p>In 2020, I founded Knowledge Horizon English Class — an independent English class in Dong Nai, where I attempt to apply learner-centred pedagogical methods within an education system that privileges examination outcomes. It was the daily reality of running this class that raised questions that practice alone could not answer.</p>
+          <p>Those questions led me to the Doctor of Education (Ed.D.) programme at Edgewood University, Madison, Wisconsin, USA — where I was trained in Vygotsky's sociocultural theory, Wertsch's semiotic analysis, and scaffolding frameworks from Wood, Bruner & Ross through Pea, Stone, and Van de Pol. Doctoral training did not replace fifteen years of practice — it provided a conceptual system to re-read what I had already done and seen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: RESEARCH POSITIONALITY
+         ============================================================ -->
+    <section aria-labelledby="positionality-heading">
+      <div class="container">
+        <p class="section-label">
+          <span lang="vi">Vị thế Nghiên cứu</span>
+          <span lang="en">Research Positionality</span>
+        </p>
+        <h2 id="positionality-heading">
+          <span lang="vi">Vị thế kép: Outsider-Within</span>
+          <span lang="en">The dual position: Outsider-Within</span>
+        </h2>
+
+        <div lang="vi">
+          <p>Nghiên cứu của tôi được thực hiện từ vị thế <em>outsider-within</em> (Collins, 1990) — đồng thời là người trong cuộc (một nhà thực hành giảng dạy Tiếng Anh với 15 năm kinh nghiệm tại Việt Nam) và người bên ngoài (nghiên cứu sinh tại một viện học thuật Bắc Mỹ, được đào tạo về lý thuyết văn hóa - xã hội phương Tây).</p>
+          <p>Vị thế kép này không phải là xung đột — mà là một lợi thế nhận thức. Từ đây, tôi có thể nhìn thấy những điều mà cả người hoàn toàn ở trong hệ thống lẫn người hoàn toàn ở ngoài hệ thống đều không thể thấy được.</p>
+        </div>
+
+        <div lang="en">
+          <p>My research is conducted from an <em>outsider-within</em> standpoint (Collins, 1990) — simultaneously an insider (a practising ELT teacher with fifteen years of experience in Vietnam) and an outsider (a doctoral candidate at a North American academic institution, trained in Western sociocultural theory).</p>
+          <p>This dual position is not a conflict — it is an epistemic advantage. From here, I can see things that neither pure insiders nor pure outsiders can perceive on their own.</p>
+        </div>
+
+        <div class="positionality-block">
+          <p lang="vi"><strong>Minh bạch về Xung đột Lợi ích:</strong> Tôi công khai thừa nhận vị thế kép của mình — vừa là nghiên cứu sinh, vừa là nhà sáng lập và giáo viên tại Knowledge Horizon English Class. Tôi tuyệt đối không tuyển chọn đối tượng tham gia khảo sát từ hệ thống học viên của mình. Quy trình xử lý dữ liệu định tính được kiểm định chéo bởi các mã hóa viên độc lập (Cohen's κ ≥ 0.70).</p>
+          <p lang="en"><strong>Conflict of Interest Disclosure:</strong> I openly acknowledge my dual position — both a doctoral researcher and the founder and teacher at Knowledge Horizon English Class. I do not recruit survey participants from my own student community. Qualitative data coding is cross-verified by independent coders (Cohen's kappa >= 0.70).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: EDUCATION & TRAINING
+         ============================================================ -->
+    <section aria-labelledby="education-heading">
+      <div class="container">
+        <p class="section-label">
+          <span lang="vi">Học vấn &amp; Đào tạo</span>
+          <span lang="en">Education & Training</span>
+        </p>
+        <h2 id="education-heading">
+          <span lang="vi">Quá trình học thuật</span>
+          <span lang="en">Academic background</span>
+        </h2>
+
+        <div class="edu-item">
+          <h4>
+            <span lang="vi">Tiến sĩ Giáo dục (Ed.D.) — Đang thực hiện</span>
+            <span lang="en">Doctor of Education (Ed.D.) — In progress</span>
+          </h4>
+          <p class="institution">
+            <span lang="vi">Đại học Edgewood, Madison, Wisconsin, Hoa Kỳ</span>
+            <span lang="en">Edgewood University, Madison, Wisconsin, USA</span>
+          </p>
+          <p class="year">
+            <span lang="vi">Dự kiến hoàn thành: 2027</span>
+            <span lang="en">Expected completion: 2027</span>
+          </p>
+        </div>
+
+        <div class="edu-item">
+          <h4>
+            <span lang="vi">Thạc sĩ Ngôn ngữ Anh (Master of English Language)</span>
+            <span lang="en">Master of English Language</span>
+          </h4>
+          <p class="institution">
+            <span lang="vi">Đại học Công nghệ Thành phố Hồ Chí Minh (HUTECH University)</span>
+            <span lang="en">HUTECH University, Ho Chi Minh City, Vietnam</span>
+          </p>
+          <p class="year">2019</p>
+        </div>
+
+        <div class="edu-item">
+          <h4>
+            <span lang="vi">Cử nhân (Bachelor's Degree)</span>
+            <span lang="en">Bachelor's Degree</span>
+          </h4>
+          <p class="institution">
+            <span lang="vi">Đại học Sư phạm Kỹ thuật Thành phố Hồ Chí Minh (HCMUTE)</span>
+            <span lang="en">University of Technical Education HCMC (HCMUTE), Vietnam</span>
+          </p>
+          <p class="year">2011</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5: CONNECT
+         ============================================================ -->
+    <section aria-labelledby="connect-heading">
+      <div class="container">
+        <p class="section-label">
+          <span lang="vi">Kết nối</span>
+          <span lang="en">Connect</span>
+        </p>
+        <h2 id="connect-heading">
+          <span lang="vi">Liên hệ &amp; Theo dõi</span>
+          <span lang="en">Contact & Follow</span>
+        </h2>
+
+        <div class="connect-card">
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a></li>
+            <li><strong>ORCID:</strong> <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener noreferrer">0009-0007-8750-4074</a></li>
+            <li><strong>
+              <span lang="vi">Nền tảng:</span>
+              <span lang="en">Platform:</span>
+            </strong> <a href="https://vneddata.org">vneddata.org</a></li>
+          </ul>
+        </div>
+
+        <p class="connect-note">
+          <span lang="vi">Nếu bạn quan tâm đến nghiên cứu của tôi, hãy theo dõi các dự án đang triển khai tại <a href="/projects.html">trang Dự án</a>. Tiếng nói và kinh nghiệm của bạn là nguồn lực quan trọng nhất cho nghiên cứu này.</span>
+          <span lang="en">If you're interested in my research, explore the ongoing work on the <a href="/projects.html">Projects page</a>. Your voice and experience are the most valuable resource this research needs.</span>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>
+            <span lang="vi">Liên hệ</span>
+            <span lang="en">Contact</span>
+          </h5>
+          <ul>
+            <li>Phan Lê Ngọc Vy</li>
+            <li><a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a></li>
+            <li>ORCID: <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener noreferrer">0009-0007-8750-4074</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>
+            <span lang="vi">Văn bản Pháp lý &amp; Đạo đức</span>
+            <span lang="en">Legal & Ethics</span>
+          </h5>
+          <ul>
+            <li><a href="/privacy.html">
+              <span lang="vi">Chính sách Bảo mật</span>
+              <span lang="en">Privacy Policy</span>
+            </a></li>
+            <li><a href="/terms.html">
+              <span lang="vi">Điều khoản Sử dụng</span>
+              <span lang="en">Terms of Use</span>
+            </a></li>
+            <li><a href="/ethics.html">
+              <span lang="vi">Tuyên bố Đạo đức Nghiên cứu</span>
+              <span lang="en">Research Ethics Statement</span>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-meta">
+        <h6>
+          <span lang="vi">Tuyên bố về Nền tảng &amp; Bản quyền Dữ liệu</span>
+          <span lang="en">Platform & Data Rights Statement</span>
+        </h6>
+        <p lang="vi">
+          <strong>VNEDDATA.ORG</strong> là kho lưu trữ học thuật cá nhân do nghiên cứu viên Phan Lê Ngọc Vy xây dựng và vận hành, phục vụ mục đích nghiên cứu Tiến sĩ Giáo dục tại Đại học Edgewood (Madison, Wisconsin, Hoa Kỳ). Nền tảng này không đại diện cho tiếng nói chính thức của Đại học Edgewood hay bất kỳ cơ quan nào khác.
+        </p>
+        <p lang="en">
+          <strong>VNEDDATA.ORG</strong> is a personal academic repository built and maintained by researcher Phan Lê Ngọc Vy for doctoral research in Education at Edgewood University (Madison, Wisconsin, USA). This platform does not represent the official voice of Edgewood University or any other organisation.
+        </p>
+        <p>© 2026 Phan Lê Ngọc Vy. <span lang="vi">Toàn bộ quyền tác giả được bảo lưu.</span><span lang="en">All rights reserved.</span> CC BY-NC 4.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS: Language toggle + Hamburger menu
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      // Language toggle
+      const STORAGE_KEY = 'vneddata_lang';
+      const DEFAULT_LANG = 'vi';
+      const body = document.body;
+      const toggleBtn = document.getElementById('langToggle');
+
+      const savedLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
+      applyLanguage(savedLang);
+
+      toggleBtn.addEventListener('click', function() {
+        const current = body.classList.contains('lang-en') ? 'en' : 'vi';
+        const next = current === 'en' ? 'vi' : 'en';
+        applyLanguage(next);
+        localStorage.setItem(STORAGE_KEY, next);
+      });
+
+      function applyLanguage(lang) {
+        body.classList.remove('lang-vi', 'lang-en');
+        body.classList.add('lang-' + lang);
+        document.documentElement.setAttribute('lang', lang);
+      }
+
+      // Hamburger menu
+      const hamburger = document.getElementById('hamburgerBtn');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', function() {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu on link click
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

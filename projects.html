@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research projects by Phan Lê Ngọc Vy — Scaffolding survey in Vietnamese ELT and doctoral dissertation on AI-mediated ZPD localization.">
+  <meta name="author" content="Phan Lê Ngọc Vy">
+  <title>Dự án — VNEDDATA.ORG</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80' font-family='Georgia' fill='%231F3864'>v</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       VNEDDATA.ORG — Shared Design System
+       ============================================================ */
+    :root {
+      --bg: #FAFAF8;
+      --bg-alt: #F5F2EA;
+      --text-primary: #1F3864;
+      --text-secondary: #3D4A5C;
+      --text-muted: #6B7280;
+      --accent: #9C6F2A;
+      --border: #DDD7C7;
+      --card-bg: #FFFFFF;
+      --max-content: 760px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Lora', 'Georgia', serif;
+      color: var(--text-primary);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    p { margin-bottom: 1rem; }
+    a { color: var(--text-primary); }
+    em { font-style: italic; }
+
+    .container { max-width: var(--max-content); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ---------- Header ---------- */
+    header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 0;
+    }
+    .wordmark {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .wordmark span.dot { color: var(--accent); }
+
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      align-items: center;
+    }
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    nav a:hover { color: var(--text-primary); }
+    nav a.active { color: var(--text-primary); border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+
+    .lang-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.9rem;
+      border-radius: 3px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-secondary);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+    .lang-toggle:hover {
+      background: var(--text-primary);
+      color: white;
+      border-color: var(--text-primary);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-links { display: contents; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 4.5rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ---------- Page hero ---------- */
+    .page-hero { padding: 4rem 0 3rem; }
+    .page-hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.015em;
+      font-weight: 700;
+    }
+    .page-hero .intro {
+      font-size: 1.06rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      max-width: 640px;
+    }
+
+    /* ---------- Project cards (expanded) ---------- */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.2rem;
+      margin-bottom: 1.8rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(31, 56, 100, 0.06);
+    }
+
+    .project-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .project-status {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 3px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+    .status-active { background: #E4ECDC; color: #3F6B2D; }
+    .status-planning { background: #F0E6D6; color: #8B5A2B; }
+
+    .project-card .description {
+      margin-bottom: 1.2rem;
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .project-card .detail-row {
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      padding-left: 0;
+    }
+    .project-card .detail-row strong {
+      color: var(--text-primary);
+      font-weight: 600;
+      display: inline-block;
+      min-width: 9em;
+    }
+
+    .project-subsection {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+    }
+    .project-subsection h4 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-primary);
+    }
+    .project-subsection p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--text-primary);
+      color: #FFFFFF;
+      padding: 0.85rem 1.8rem;
+      text-decoration: none;
+      border-radius: 3px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      margin-top: 1.4rem;
+      letter-spacing: 0.04em;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .cta-button:hover {
+      background: #0F2042;
+      transform: translateY(-1px);
+    }
+
+    /* ---------- Relationship connector ---------- */
+    .relationship-note {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+    .relationship-note strong { color: var(--text-primary); }
+
+    /* ---------- Integrity commitments ---------- */
+    .commitment {
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--accent);
+    }
+    .commitment:last-child { margin-bottom: 0; }
+    .commitment h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .commitment p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 0 2.5rem;
+      margin-top: 3rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    footer .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    footer h5 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    footer ul { list-style: none; }
+    footer li { margin-bottom: 0.4rem; }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    footer a:hover { color: var(--text-primary); text-decoration: underline; }
+
+    .footer-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      line-height: 1.7;
+    }
+    .footer-meta h6 {
+      font-family: 'Lora', serif;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    .footer-meta p { margin-bottom: 0.8rem; }
+
+    /* ---------- Mobile responsive ---------- */
+    @media (max-width: 768px) {
+      body { font-size: 16px; }
+      .container { padding: 0 1.25rem; }
+
+      .header-inner { padding: 0.85rem 0; }
+      .wordmark { font-size: 1.2rem; }
+
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 0.8rem 1.25rem 1rem;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 8px 24px rgba(31, 56, 100, 0.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 0.55rem 0; }
+      .nav-links li:last-child { padding-top: 0.8rem; border-top: 1px solid var(--border); margin-top: 0.3rem; }
+      nav ul { gap: 0; position: relative; }
+
+      .page-hero { padding: 2.8rem 0 2rem; }
+      .page-hero h1 { font-size: 1.8rem; }
+      .page-hero .intro { font-size: 0.98rem; }
+
+      section { padding: 2.6rem 0; }
+      section h2 { font-size: 1.5rem; margin-bottom: 1.3rem; }
+      .section-label { font-size: 0.72rem; margin-bottom: 0.9rem; }
+
+      .project-card { padding: 1.5rem; margin-bottom: 1.3rem; }
+      .project-card h3 { font-size: 1.18rem; line-height: 1.35; }
+      .project-card .description { font-size: 0.95rem; }
+      .project-status { font-size: 0.68rem; }
+
+      .project-card .detail-row {
+        font-size: 0.9rem;
+        margin-bottom: 0.85rem;
+        line-height: 1.6;
+      }
+      .project-card .detail-row strong {
+        display: block;
+        min-width: auto;
+        margin-bottom: 0.15rem;
+      }
+
+      .cta-button {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 0.95rem 1.5rem;
+      }
+
+      .commitment { padding-left: 1.1rem; border-left-width: 2px; }
+      .commitment h4 { font-size: 1.02rem; }
+      .commitment p { font-size: 0.92rem; }
+
+      .relationship-note { padding: 1.1rem 1.2rem; font-size: 0.92rem; }
+
+      footer { padding: 2.5rem 0 1.8rem; margin-top: 2rem; }
+      footer .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-meta { font-size: 0.75rem; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 1rem; }
+      .wordmark { font-size: 1.08rem; }
+      .page-hero h1 { font-size: 1.6rem; }
+      section h2 { font-size: 1.35rem; }
+      .project-card { padding: 1.25rem; }
+      .project-card h3 { font-size: 1.08rem; }
+    }
+
+    @media (max-width: 360px) {
+      .page-hero h1 { font-size: 1.45rem; }
+      .wordmark { font-size: 1rem; }
+    }
+
+    /* ---------- Language switching ---------- */
+    .lang-en [lang="vi"] { display: none; }
+    .lang-vi [lang="en"] { display: none; }
+  </style>
+</head>
+<body class="lang-vi">
+
+  <!-- ============================================================
+       HEADER & NAVIGATION
+       ============================================================ -->
+  <header role="banner">
+    <div class="container header-inner">
+      <a href="/" class="wordmark" aria-label="vneddata.org — Home">
+        vneddata<span class="dot">.</span>org
+      </a>
+      <nav role="navigation" aria-label="Main navigation">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul>
+          <div class="nav-links" id="navLinks">
+            <li><a href="/">
+              <span lang="vi">Trang chủ</span>
+              <span lang="en">Home</span>
+            </a></li>
+            <li><a href="/about.html">
+              <span lang="vi">Giới thiệu</span>
+              <span lang="en">About</span>
+            </a></li>
+            <li><a href="/projects.html" class="active">
+              <span lang="vi">Dự án</span>
+              <span lang="en">Projects</span>
+            </a></li>
+            <li><a href="/publications.html">
+              <span lang="vi">Bài viết</span>
+              <span lang="en">Publications</span>
+            </a></li>
+            <li><a href="/contact.html">
+              <span lang="vi">Liên hệ</span>
+              <span lang="en">Contact</span>
+            </a></li>
+          </div>
+          <li>
+            <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+              <span lang="vi">EN</span>
+              <span lang="en">VI</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+
+    <!-- ============================================================
+         PAGE HEADER
+         ============================================================ -->
+    <section class="page-hero" aria-labelledby="projects-heading">
+      <div class="container">
+        <p class="section-label">
+          <span lang="vi">Các Dự án Nghiên cứu</span>
+          <span lang="en">Research Projects</span>
+        </p>
+        <h1 id="projects-heading">
+          <span lang="vi">Dự án đang triển khai</span>
+          <span lang="en">Ongoing Research</span>
+        </h1>
+        <p class="intro">
+          <span lang="vi">Các dự án nghiên cứu tại đây kết hợp lý thuyết văn hóa - xã hội với phân tích thực tiễn giảng dạy, được tiếp cận từ vị thế <em>outsider-within</em> — đồng thời là người thực hành và người nghiên cứu.</span>
+          <span lang="en">Research projects here combine sociocultural theory with analysis of teaching practice, approached from an <em>outsider-within</em> standpoint — simultaneously practitioner and researcher.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECT 1: SCAFFOLDING SURVEY (Expanded)
+         ============================================================ -->
+    <section aria-labelledby="project1-heading">
+      <div class="container">
+        <article class="project-card">
+          <span class="project-status status-active">
+            <span lang="vi">Đang thử nghiệm (Pilot phase)</span>
+            <span lang="en">Pilot phase</span>
+          </span>
+          <h3 id="project1-heading">
+            <span lang="vi">Nhận thức và Thực tiễn Sư phạm về Khái niệm "Giàn giáo" (Scaffolding) trong Giảng dạy Tiếng Anh tại Việt Nam</span>
+            <span lang="en">Pedagogical Cognition and Practice of "Scaffolding" in English Language Teaching in Vietnam</span>
+          </h3>
+
+          <p class="description">
+            <span lang="vi">Dự án này tập trung khám phá cách thức giáo viên Tiếng Anh tại Việt Nam thấu hiểu và vận hành chiến lược giàn giáo (scaffolding) khi giảng dạy các kỹ năng sản sinh (Nói và Viết), đặc biệt trong những bối cảnh chịu áp lực nặng nề từ thi cử và kỳ vọng thành tích của xã hội. Nghiên cứu hướng tới xây dựng một khung phân tích tương thích với đặc thù văn hóa - thể chế bản địa, thay vì rập khuôn các mô hình lý thuyết phương Tây chưa phản ánh trọn vẹn đặc thù ngữ cảnh.</span>
+            <span lang="en">This project investigates how Vietnamese ELT teachers understand and operationalise scaffolding strategies when teaching productive skills (Speaking and Writing), particularly within contexts shaped by high-stakes examinations and societal expectations. The study aims to construct an analytical framework attuned to local cultural-institutional specificity, rather than mechanically transplanting Western theoretical models.</span>
+          </p>
+
+          <div class="detail-row">
+            <strong>
+              <span lang="vi">Đối tượng:</span>
+              <span lang="en">Participants:</span>
+            </strong>
+            <span lang="vi">Giáo viên Tiếng Anh có từ 3 năm kinh nghiệm trở lên (trường công lập, trung tâm ngoại ngữ tư nhân, bậc đại học/cao đẳng)</span>
+            <span lang="en">ELT teachers with 3+ years' experience (public schools, private language centres, university/college level)</span>
+          </div>
+          <div class="detail-row">
+            <strong>
+              <span lang="vi">Loại hình:</span>
+              <span lang="en">Type:</span>
+            </strong>
+            <span lang="vi">Nghiên cứu cá nhân độc lập (Phi lợi nhuận)</span>
+            <span lang="en">Independent personal research (Non-profit)</span>
+          </div>
+          <div class="detail-row">
+            <strong>
+              <span lang="vi">Tiến độ:</span>
+              <span lang="en">Timeline:</span>
+            </strong>
+            <span lang="vi">2026 — Thu thập dữ liệu · 2026-2027 — Phân tích &amp; Công bố</span>
+            <span lang="en">2026 — Data collection · 2026-2027 — Analysis & publication</span>
+          </div>
+
+          <div class="project-subsection">
+            <h4>
+              <span lang="vi">Phương pháp nghiên cứu</span>
+              <span lang="en">Methodology</span>
+            </h4>
+            <p>
+              <span lang="vi">Khảo sát kết hợp (mixed-methods) gồm 3 thành phần: (A) câu hỏi mở khám phá nhận thức tự nhiên của giáo viên về giàn giáo, (C) 4 tình huống giảng dạy thực tế với 3 lựa chọn phương án + giải thích lý do, và (B) 18 mục đo Likert đo mức đồng ý với các nguyên tắc giàn giáo. Trình tự A→C→B được thiết kế có chủ đích để tránh hiệu ứng mồi (priming effect) — giáo viên bộc lộ nhận thức tự nhiên trước khi tiếp xúc với các khái niệm lý thuyết.</span>
+              <span lang="en">Mixed-methods survey comprising three components: (A) open-ended questions exploring teachers' natural understanding of scaffolding, (C) four classroom scenarios with three response options plus justification, and (B) 18 Likert-scale items measuring agreement with scaffolding principles. The A→C→B sequence is deliberately designed to prevent priming effects — teachers reveal natural cognition before encountering theoretical constructs.</span>
+            </p>
+          </div>
+
+          <div class="project-subsection">
+            <h4>
+              <span lang="vi">Tại sao nghiên cứu này quan trọng</span>
+              <span lang="en">Why this matters</span>
+            </h4>
+            <p>
+              <span lang="vi">Khi "scaffolding" trở thành "giàn giáo" trong tiếng Việt, từ ngữ đã di chuyển nhưng ý nghĩa cấu trúc có thể đã thay đổi. Dự án này là nghiên cứu đầu tiên đo lường hệ thống khoảng cách giữa nhận thức của giáo viên Việt Nam về giàn giáo và cấu trúc lý thuyết gốc của khái niệm này — một khoảng cách mà cả người trong cuộc lẫn người ngoài cuộc đều không thể nhìn thấy.</span>
+              <span lang="en">When "scaffolding" became "gian giao" in Vietnamese, the word travelled but the structural meaning may have shifted. This project is the first systematic measurement of the gap between Vietnamese teachers' understanding of scaffolding and the concept's original theoretical structure — a gap invisible to both insiders and outsiders.</span>
+            </p>
+          </div>
+
+          <a href="/scaffolding_survey/" class="cta-button">
+            <span lang="vi">Tham gia khảo sát →</span>
+            <span lang="en">Take the survey →</span>
+          </a>
+        </article>
+
+        <!-- Relationship note between projects -->
+        <div class="relationship-note">
+          <span lang="vi"><strong>Mối liên hệ giữa hai dự án:</strong> Dự án Khảo sát Giàn giáo là tiền đề khái niệm (conceptual prequel) cho Luận án Tiến sĩ. Nó xây dựng hệ thống từ vựng phân tích và khung lý thuyết mà luận án sẽ sử dụng để nghiên cứu thực nghiệm về vai trò của AI trong giảng dạy Tiếng Anh tại Việt Nam.</span>
+          <span lang="en"><strong>How the projects connect:</strong> The Scaffolding Survey is the conceptual prequel to the doctoral dissertation. It builds the analytical vocabulary and theoretical framework that the dissertation will use for empirical investigation of AI's role in Vietnamese ELT.</span>
+        </div>
+
+        <!-- PROJECT 2: DISSERTATION -->
+        <article class="project-card">
+          <span class="project-status status-planning">
+            <span lang="vi">Đang hoàn thiện thiết kế phương pháp luận</span>
+            <span lang="en">Methodology design phase</span>
+          </span>
+          <h3>
+            <span lang="vi">Khi AI làm giàn giáo thiếu nền tảng văn hóa: Nghiên cứu tiến trình bản địa hóa Vùng phát triển gần (ZPD) của Vygotsky qua trung gian AI trong bối cảnh giảng dạy Tiếng Anh tại Việt Nam</span>
+            <span lang="en">When AI Scaffolds Without Cultural Grounding: Examining AI-Mediated Localization of Vygotsky's Zone of Proximal Development (ZPD) in Vietnamese ELT Contexts</span>
+          </h3>
+
+          <p class="description">
+            <span lang="vi">Đây là đề tài Luận án Tiến sĩ chính thức, mở rộng và đào sâu khung phân tích từ dự án Khảo sát Giàn giáo sang các nghiên cứu điển hình (case studies) về cách thức các công cụ AI tham gia vào tiến trình giàn giáo trong giảng dạy Tiếng Anh tại Việt Nam, đồng thời phân tích những hệ quả phát sinh khi trí tuệ nhân tạo vận hành trong đặc thù văn hóa - thể chế bản địa.</span>
+            <span lang="en">This is the official doctoral dissertation, extending the analytical framework from the Scaffolding project into case studies of how AI tools participate in scaffolding processes in Vietnamese ELT, while analysing the consequences that arise when artificial intelligence operates within local cultural-institutional specificity.</span>
+          </p>
+
+          <div class="detail-row">
+            <strong>
+              <span lang="vi">Trạng thái:</span>
+              <span lang="en">Status:</span>
+            </strong>
+            <span lang="vi">Đang hoàn thiện thiết kế phương pháp luận</span>
+            <span lang="en">Methodology design in progress</span>
+          </div>
+          <div class="detail-row">
+            <strong>
+              <span lang="vi">Thời gian:</span>
+              <span lang="en">Timeline:</span>
+            </strong>
+            <span lang="vi">2026-2027 (ngay sau khi hoàn thành dự án Khảo sát Giàn giáo)</span>
+            <span lang="en">2026-2027 (immediately following the Scaffolding project)</span>
+          </div>
+          <div class="detail-row">
+            <strong>
+              <span lang="vi">Cơ sở:</span>
+              <span lang="en">Institution:</span>
+            </strong>
+            <span lang="vi">Đại học Edgewood, Madison, Wisconsin, Hoa Kỳ</span>
+            <span lang="en">Edgewood University, Madison, Wisconsin, USA</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RESEARCH INTEGRITY
+         ============================================================ -->
+    <section aria-labelledby="integrity-heading">
+      <div class="container">
+        <p class="section-label">
+          <span lang="vi">Cam kết Nghiên cứu</span>
+          <span lang="en">Research Commitments</span>
+        </p>
+        <h2 id="integrity-heading">
+          <span lang="vi">Tính Minh bạch &amp; Liêm chính Khoa học</span>
+          <span lang="en">Transparency & Scientific Integrity</span>
+        </h2>
+
+        <div class="commitment">
+          <h4>
+            <span lang="vi">Dữ liệu mở (Open Data)</span>
+            <span lang="en">Open Data</span>
+          </h4>
+          <p>
+            <span lang="vi">Toàn bộ dữ liệu thu thập sẽ được mã hóa ẩn danh hoàn toàn. Sau khi hoàn thành, các bộ dữ liệu đã ẩn danh sẽ được lưu trữ công khai tại các kho học thuật mở quốc tế (OSF Preprints) để phục vụ kiểm chứng độc lập.</span>
+            <span lang="en">All collected data will be fully anonymised. Upon completion, anonymised datasets will be deposited in international open academic repositories (OSF Preprints) for independent verification.</span>
+          </p>
+        </div>
+
+        <div class="commitment">
+          <h4>
+            <span lang="vi">Bảo vệ Đạo đức Đối tượng Nghiên cứu</span>
+            <span lang="en">Human Subjects Protection</span>
+          </h4>
+          <p>
+            <span lang="vi">Mọi quy trình tuân thủ nghiêm ngặt các tiêu chuẩn đạo đức nghiên cứu. Người tham gia được đảm bảo quyền ẩn danh tuyệt đối, quyền từ chối trả lời hoặc rút lui bất kỳ lúc nào, và quyền yêu cầu xóa dữ liệu cá nhân mà không cần giải thích.</span>
+            <span lang="en">All procedures strictly comply with research ethics standards. Participants are guaranteed absolute anonymity, the right to refuse or withdraw at any time, and the right to request deletion of personal data without explanation.</span>
+          </p>
+        </div>
+
+        <div class="commitment">
+          <h4>
+            <span lang="vi">Xung đột Lợi ích</span>
+            <span lang="en">Conflict of Interest</span>
+          </h4>
+          <p>
+            <span lang="vi">Nghiên cứu viên tuyệt đối không tuyển chọn đối tượng tham gia từ hệ thống học viên Knowledge Horizon English Class. Dữ liệu định tính được kiểm định chéo bởi các mã hóa viên độc lập (Cohen's κ ≥ 0.70).</span>
+            <span lang="en">The researcher does not recruit participants from the Knowledge Horizon English Class student community. Qualitative data is cross-verified by independent coders (Cohen's kappa >= 0.70).</span>
+          </p>
+        </div>
+
+        <div class="commitment">
+          <h4>
+            <span lang="vi">Bản quyền Nội dung</span>
+            <span lang="en">Content Licensing</span>
+          </h4>
+          <p>
+            <span lang="vi">Mọi nội dung trên vneddata.org được xuất bản theo Giấy phép Creative Commons Ghi nhận tác giả - Phi thương mại 4.0 Quốc tế (CC BY-NC 4.0), trừ khi có quy định khác.</span>
+            <span lang="en">All content on vneddata.org is published under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), unless otherwise specified.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>
+            <span lang="vi">Liên hệ</span>
+            <span lang="en">Contact</span>
+          </h5>
+          <ul>
+            <li>Phan Lê Ngọc Vy</li>
+            <li><a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a></li>
+            <li>ORCID: <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener noreferrer">0009-0007-8750-4074</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>
+            <span lang="vi">Văn bản Pháp lý &amp; Đạo đức</span>
+            <span lang="en">Legal & Ethics</span>
+          </h5>
+          <ul>
+            <li><a href="/privacy.html">
+              <span lang="vi">Chính sách Bảo mật</span>
+              <span lang="en">Privacy Policy</span>
+            </a></li>
+            <li><a href="/terms.html">
+              <span lang="vi">Điều khoản Sử dụng</span>
+              <span lang="en">Terms of Use</span>
+            </a></li>
+            <li><a href="/ethics.html">
+              <span lang="vi">Tuyên bố Đạo đức Nghiên cứu</span>
+              <span lang="en">Research Ethics Statement</span>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-meta">
+        <h6>
+          <span lang="vi">Tuyên bố về Nền tảng &amp; Bản quyền Dữ liệu</span>
+          <span lang="en">Platform & Data Rights Statement</span>
+        </h6>
+        <p lang="vi">
+          <strong>VNEDDATA.ORG</strong> là kho lưu trữ học thuật cá nhân do nghiên cứu viên Phan Lê Ngọc Vy xây dựng và vận hành, phục vụ mục đích nghiên cứu Tiến sĩ Giáo dục tại Đại học Edgewood (Madison, Wisconsin, Hoa Kỳ). Nền tảng này không đại diện cho tiếng nói chính thức của Đại học Edgewood hay bất kỳ cơ quan nào khác.
+        </p>
+        <p lang="en">
+          <strong>VNEDDATA.ORG</strong> is a personal academic repository built and maintained by researcher Phan Lê Ngọc Vy for doctoral research in Education at Edgewood University (Madison, Wisconsin, USA). This platform does not represent the official voice of Edgewood University or any other organisation.
+        </p>
+        <p>© 2026 Phan Lê Ngọc Vy. <span lang="vi">Toàn bộ quyền tác giả được bảo lưu.</span><span lang="en">All rights reserved.</span> CC BY-NC 4.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      // Language toggle
+      const STORAGE_KEY = 'vneddata_lang';
+      const DEFAULT_LANG = 'vi';
+      const body = document.body;
+      const toggleBtn = document.getElementById('langToggle');
+
+      const savedLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
+      applyLanguage(savedLang);
+
+      toggleBtn.addEventListener('click', function() {
+        const current = body.classList.contains('lang-en') ? 'en' : 'vi';
+        const next = current === 'en' ? 'vi' : 'en';
+        applyLanguage(next);
+        localStorage.setItem(STORAGE_KEY, next);
+      });
+
+      function applyLanguage(lang) {
+        body.classList.remove('lang-vi', 'lang-en');
+        body.classList.add('lang-' + lang);
+        document.documentElement.setAttribute('lang', lang);
+      }
+
+      // Hamburger menu
+      const hamburger = document.getElementById('hamburgerBtn');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', function() {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
