@@ -359,6 +359,30 @@
     }
     .footer-meta p { margin-bottom: 0.8rem; }
 
+    /* Hamburger button (hidden on desktop) */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-links { display: contents; }
+
     /* ---------- Mobile responsive (tablets and below) ---------- */
     @media (max-width: 768px) {
       body { font-size: 16px; }
@@ -366,8 +390,25 @@
 
       .header-inner { padding: 0.85rem 0; }
       .wordmark { font-size: 1.2rem; }
-      nav ul { gap: 0; }
-      nav ul li:not(:last-child) { display: none; }
+
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 0.8rem 1.25rem 1rem;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 8px 24px rgba(31, 56, 100, 0.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 0.55rem 0; }
+      .nav-links li:last-child { padding-top: 0.8rem; border-top: 1px solid var(--border); margin-top: 0.3rem; }
+      nav ul { gap: 0; position: relative; }
       .lang-toggle { padding: 0.5rem 0.95rem; font-size: 0.85rem; }
 
       .hero { padding: 2.8rem 0 2rem; }
@@ -476,27 +517,32 @@
         vneddata<span class="dot">.</span>org
       </a>
       <nav role="navigation" aria-label="Main navigation">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
         <ul>
-          <li><a href="/" class="active">
-            <span lang="vi">Trang chủ</span>
-            <span lang="en">Home</span>
-          </a></li>
-          <li><a href="/about.html">
-            <span lang="vi">Giới thiệu</span>
-            <span lang="en">About</span>
-          </a></li>
-          <li><a href="/projects.html">
-            <span lang="vi">Dự án</span>
-            <span lang="en">Projects</span>
-          </a></li>
-          <li><a href="/publications.html">
-            <span lang="vi">Bài viết</span>
-            <span lang="en">Publications</span>
-          </a></li>
-          <li><a href="/contact.html">
-            <span lang="vi">Liên hệ</span>
-            <span lang="en">Contact</span>
-          </a></li>
+          <div class="nav-links" id="navLinks">
+            <li><a href="/" class="active">
+              <span lang="vi">Trang chủ</span>
+              <span lang="en">Home</span>
+            </a></li>
+            <li><a href="/about.html">
+              <span lang="vi">Giới thiệu</span>
+              <span lang="en">About</span>
+            </a></li>
+            <li><a href="/projects.html">
+              <span lang="vi">Dự án</span>
+              <span lang="en">Projects</span>
+            </a></li>
+            <li><a href="/publications.html">
+              <span lang="vi">Bài viết</span>
+              <span lang="en">Publications</span>
+            </a></li>
+            <li><a href="/contact.html">
+              <span lang="vi">Liên hệ</span>
+              <span lang="en">Contact</span>
+            </a></li>
+          </div>
           <li>
             <button class="lang-toggle" id="langToggle" aria-label="Switch language">
               <span lang="vi">EN</span>
@@ -866,6 +912,24 @@
         body.classList.add('lang-' + lang);
         document.documentElement.setAttribute('lang', lang);
       }
+
+      // Hamburger menu
+      const hamburger = document.getElementById('hamburgerBtn');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', function() {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
     })();
   </script>
 
