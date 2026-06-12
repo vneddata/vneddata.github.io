@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Khảo sát Nghiên cứu — Nhận thức và Thực tiễn Sư phạm về Khái niệm 'Giàn giáo' (Scaffolding) trong giảng dạy Tiếng Anh tại Việt Nam. Nghiên cứu của Phan Lê Ngọc Vy.">
+  <meta name="description" content="Research Survey — Perceptions and Pedagogical Practices Concerning Scaffolding (Giàn giáo) in English Language Teaching in Vietnam. Doctoral research by Phan Lê Ngọc Vy.">
   <meta name="robots" content="noindex, nofollow">
-  <title>Bảng Khảo Sát Nghiên Cứu — vneddata.org</title>
+  <title>Research Survey · Bảng Khảo Sát — vneddata.org</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,17 +49,29 @@
     em { font-style: italic; }
     .container { max-width: var(--max-content); margin: 0 auto; padding: 0 1.25rem; }
 
+    /* Bilingual lang-toggle pattern — consistent with vneddata.org homepage */
+    .lang-en [lang="vi"] { display: none; }
+    .lang-vi [lang="en"] { display: none; }
+
     header {
       background: var(--bg); border-bottom: 1px solid var(--border);
       padding: 0.9rem 0; position: sticky; top: 0; z-index: 50;
     }
-    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; }
     .wordmark {
       font-family: 'Lora', Georgia, serif; font-size: 1.15rem; font-weight: 700;
       color: var(--text-primary); text-decoration: none; letter-spacing: 0.02em;
     }
     .wordmark span.dot { color: var(--accent); }
+    .header-right { display: flex; align-items: center; gap: 0.8rem; }
     .header-meta { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+    .lang-toggle {
+      background: transparent; border: 1px solid var(--border); border-radius: 4px;
+      padding: 0.4rem 0.85rem; font-family: 'Inter', sans-serif; font-size: 0.82rem;
+      font-weight: 600; color: var(--text-primary); cursor: pointer;
+      transition: all 0.18s; letter-spacing: 0.04em;
+    }
+    .lang-toggle:hover { background: var(--bg-alt); border-color: var(--accent); }
 
     .progress-wrapper {
       background: var(--border); height: 4px; width: 100%;
@@ -237,6 +249,8 @@
       button.btn { width: 100%; }
       .rank-row { flex-direction: column; align-items: stretch; gap: 0.4rem; }
       .rank-row label { min-width: auto; }
+      .header-meta { display: none; }
+      .lang-toggle { padding: 0.35rem 0.7rem; font-size: 0.78rem; }
     }
     @media (max-width: 380px) {
       .view h1 { font-size: 1.4rem; }
@@ -247,12 +261,21 @@
     @media print { body { display: none; } }
   </style>
 </head>
-<body>
+<body class="lang-vi">
 
 <header>
   <div class="container header-inner">
     <a href="https://vneddata.org" class="wordmark">vneddata<span class="dot">.</span>org</a>
-    <span class="header-meta">Bảng khảo sát nghiên cứu</span>
+    <div class="header-right">
+      <span class="header-meta">
+        <span lang="vi">Bảng khảo sát nghiên cứu</span>
+        <span lang="en">Research survey</span>
+      </span>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span lang="vi">EN</span>
+        <span lang="en">VI</span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -261,530 +284,926 @@
 <main>
   <div class="container">
 
-    <!-- ============================================================
-         VIEW 1: CONSENT
-         ============================================================ -->
+    <!-- VIEW 1: CONSENT -->
     <section class="view active" id="view-consent" data-section="consent">
-      <p class="section-label">Bảng khảo sát nghiên cứu</p>
-      <h1 class="title-main">Nhận thức và Thực tiễn Sư phạm về Khái niệm "Giàn giáo" (Scaffolding) trong giảng dạy Tiếng Anh tại Việt Nam</h1>
+      <p class="section-label">
+        <span lang="vi">Bảng khảo sát nghiên cứu</span>
+        <span lang="en">Research survey</span>
+      </p>
+      <h1 class="title-main" lang="vi">Nhận thức và Thực tiễn Sư phạm về Khái niệm "Giàn giáo" (Scaffolding) trong giảng dạy Tiếng Anh tại Việt Nam</h1>
+      <h1 class="title-main" lang="en">Perceptions and Pedagogical Practices Concerning "Scaffolding" (Giàn giáo) in English Language Teaching in Vietnam</h1>
 
       <div id="resumeNotice" class="resume-notice" style="display:none;">
-        <strong>Phát hiện khảo sát chưa hoàn thành.</strong> Hệ thống đã lưu phần trả lời trước đó của Thầy/Cô. Khi bấm "Tiếp theo," khảo sát sẽ tự động mở lại ở phân đoạn Thầy/Cô đã dừng.
+        <strong lang="vi">Phát hiện khảo sát chưa hoàn thành.</strong><strong lang="en">Unfinished survey detected.</strong>
+        <span lang="vi"> Hệ thống đã lưu phần trả lời trước đó của Thầy/Cô. Khi bấm "Tiếp theo," khảo sát sẽ tự động mở lại ở phân đoạn Thầy/Cô đã dừng.</span>
+        <span lang="en"> The system has saved your previous responses. When you click "Next," the survey will automatically resume from where you stopped.</span>
       </div>
 
-      <p class="lead">Kính chào Quý Thầy/Cô,</p>
-      <p>Trước hết, tôi xin chân thành cảm ơn Quý Thầy/Cô đã dành thời gian quý báu để xem xét và tham gia khảo sát này.</p>
-      <p>Tôi là <strong>Phan Lê Ngọc Vy</strong>, hiện là <strong>Nghiên cứu sinh Tiến sĩ Giáo dục (EdD) tại Đại học Edgewood (Hoa Kỳ)</strong>, đồng thời là một nhà nghiên cứu độc lập với 15 năm kinh nghiệm giảng dạy, quản lý chương trình Tiếng Anh và là người sáng lập Knowledge Horizon. Tôi hy vọng sự đồng điệu về mặt nghề nghiệp này sẽ giúp Thầy/Cô an tâm rằng người thực hiện nghiên cứu hoàn toàn thấu hiểu những áp lực, rào cản và thực tiễn dạy học sinh động mà Thầy/Cô đang trải qua từ bên trong nghề, chứ không phải từ một góc nhìn học thuật xa cách ở bên ngoài.</p>
+      <p class="lead" lang="vi">Kính chào Quý Thầy/Cô,</p>
+      <p class="lead" lang="en">Dear Teacher,</p>
 
-      <h3>1. Mục tiêu nghiên cứu (Cam kết minh bạch và không phán xét)</h3>
-      <p>Khảo sát này là một phần cốt lõi trong dự án nghiên cứu độc lập của tôi về cách khái niệm "Giàn giáo" (Scaffolding) được tiếp nhận, thấu hiểu và vận hành trong cộng đồng giáo viên Tiếng Anh tại Việt Nam.</p>
-      <div class="notice"><strong>📌 Lưu ý quan trọng:</strong> Mục tiêu của nghiên cứu này tuyệt đối không nhằm đánh giá, chấm điểm hay phân loại sự "đúng/sai" trong phương pháp dạy học của Quý Thầy/Cô. Nghiên cứu chỉ hướng đến việc tìm hiểu thực tế nhận thức và các chiến lược xử lý tình huống thực tế của giáo viên bản địa, từ đó đề xuất một khung phân tích thích ứng sâu sắc với bối cảnh Việt Nam, thay vì áp đặt một khung lý thuyết phương Tây chưa qua hiệu chỉnh. Tôi cam kết bảo mật vị thế người trong cuộc và không sử dụng dữ liệu này cho bất kỳ mục đích thương mại hay tuyển mẫu nào liên quan đến cơ sở đào tạo của bản thân.</div>
+      <p lang="vi">Trước hết, tôi xin chân thành cảm ơn Quý Thầy/Cô đã dành thời gian quý báu để xem xét và tham gia khảo sát này.</p>
+      <p lang="en">First, I would like to sincerely thank you for taking the time to consider and participate in this survey.</p>
 
-      <h3>2. Lộ Trình Khảo Sát &amp; Quy Định Phương Pháp Luận</h3>
-      <p>Khảo sát dự kiến chiếm khoảng <strong>40 – 45 phút</strong> của Thầy/Cô, được cấu trúc tuyến tính thành 3 phần rõ ràng:</p>
-      <ul>
-        <li><strong>Phần 1:</strong> Quan điểm cá nhân và Trải nghiệm giảng dạy – Chia sẻ tự do các câu chuyện từ thực tế lớp học kỹ năng Viết/Nói của Thầy/Cô.</li>
-        <li><strong>Phần 2:</strong> Xử lý các tình huống sư phạm thực tế – Lựa chọn phương án hành động trước 4 kịch bản lớp học rất quen thuộc tại Việt Nam.</li>
-        <li><strong>Phần 3:</strong> Đánh giá các hoạt động hỗ trợ người học – Đưa ra mức độ ưu tiên đối với các nhận định sư phạm theo quan điểm cốt lõi của bản thân.</li>
+      <p lang="vi">Tôi là <strong>Phan Lê Ngọc Vy</strong>, hiện là <strong>Nghiên cứu sinh Tiến sĩ Giáo dục (EdD) tại Đại học Edgewood (Hoa Kỳ)</strong>, đồng thời là một nhà nghiên cứu độc lập với 15 năm kinh nghiệm giảng dạy, quản lý chương trình Tiếng Anh và là người sáng lập Knowledge Horizon. Tôi hy vọng sự đồng điệu về mặt nghề nghiệp này sẽ giúp Thầy/Cô an tâm rằng người thực hiện nghiên cứu hoàn toàn thấu hiểu những áp lực, rào cản và thực tiễn dạy học sinh động mà Thầy/Cô đang trải qua từ bên trong nghề, chứ không phải từ một góc nhìn học thuật xa cách ở bên ngoài.</p>
+      <p lang="en">I am <strong>Phan Lê Ngọc Vy</strong>, currently a <strong>Doctoral Candidate in Education (Ed.D.) at Edgewood University (USA)</strong>, and also an independent researcher with 15 years of experience teaching, managing English Language programmes, and founding Knowledge Horizon. I hope this shared professional background reassures you that the researcher fully understands the pressures, constraints, and dynamic teaching realities you face from within the profession, rather than from a distant external academic standpoint.</p>
+
+      <h3 lang="vi">1. Mục tiêu nghiên cứu (Cam kết minh bạch và không phán xét)</h3>
+      <h3 lang="en">1. Research aims (Commitment to transparency and non-judgement)</h3>
+
+      <p lang="vi">Khảo sát này là một phần cốt lõi trong dự án nghiên cứu độc lập của tôi về cách khái niệm "Giàn giáo" (Scaffolding) được tiếp nhận, thấu hiểu và vận hành trong cộng đồng giáo viên Tiếng Anh tại Việt Nam.</p>
+      <p lang="en">This survey is a core component of my independent doctoral research on how the concept of scaffolding (giàn giáo) is received, understood, and operationalised within the community of English Language teachers in Vietnam.</p>
+
+      <div class="notice">
+        <div lang="vi"><strong>📌 Lưu ý quan trọng:</strong> Mục tiêu của nghiên cứu này tuyệt đối không nhằm đánh giá, chấm điểm hay phân loại sự "đúng/sai" trong phương pháp dạy học của Quý Thầy/Cô. Nghiên cứu chỉ hướng đến việc tìm hiểu thực tế nhận thức và các chiến lược xử lý tình huống thực tế của giáo viên bản địa, từ đó đề xuất một khung phân tích thích ứng sâu sắc với bối cảnh Việt Nam, thay vì áp đặt một khung lý thuyết phương Tây chưa qua hiệu chỉnh. Tôi cam kết bảo mật vị thế người trong cuộc và không sử dụng dữ liệu này cho bất kỳ mục đích thương mại hay tuyển mẫu nào liên quan đến cơ sở đào tạo của bản thân.</div>
+        <div lang="en"><strong>📌 Important note:</strong> The aim of this research is absolutely not to evaluate, grade, or classify your teaching methods as "right" or "wrong." The study seeks only to understand the actual perceptions and situational decision-making strategies of in-context teachers, in order to propose an analytical framework deeply adapted to the Vietnamese context, rather than to impose an uncalibrated Western theoretical frame. I commit to protecting your insider position and will not use these data for any commercial purpose or for recruitment related to my own teaching practice.</div>
+      </div>
+
+      <h3 lang="vi">2. Lộ trình khảo sát &amp; Quy định phương pháp luận</h3>
+      <h3 lang="en">2. Survey roadmap &amp; methodological design rules</h3>
+
+      <p lang="vi">Khảo sát dự kiến chiếm khoảng <strong>40 – 45 phút</strong> của Thầy/Cô, được cấu trúc tuyến tính thành 3 phần rõ ràng:</p>
+      <p lang="en">The survey will take approximately <strong>40–45 minutes</strong> and is structured linearly into three clear parts:</p>
+
+      <ul lang="vi">
+        <li><strong>Phần 1:</strong> Quan điểm cá nhân và Trải nghiệm giảng dạy — Chia sẻ tự do các câu chuyện từ thực tế lớp học kỹ năng Viết/Nói của Thầy/Cô.</li>
+        <li><strong>Phần 2:</strong> Xử lý các tình huống sư phạm thực tế — Lựa chọn phương án hành động trước 4 kịch bản lớp học rất quen thuộc tại Việt Nam.</li>
+        <li><strong>Phần 3:</strong> Đánh giá các hoạt động hỗ trợ người học — Đưa ra mức độ ưu tiên đối với các nhận định sư phạm theo quan điểm cốt lõi của bản thân.</li>
       </ul>
-      <div class="notice"><strong>⚠️ Quy trình tiến trình một chiều:</strong> Để bảo đảm tính khách quan và toàn vẹn về mặt phương pháp luận nghiên cứu (tránh thiên kiến mồi nhận thức), website được thiết lập theo dòng thời gian một chiều cố định. Sau khi Thầy/Cô đã hoàn thành và bấm "Tiếp theo" để chuyển sang phân đoạn mới, hệ thống sẽ tự động khóa tính năng quay lại và đóng băng các câu trả lời trước đó. Điều này giúp bảo toàn tính nguyên bản trong góc nhìn và phản xạ sư phạm thực tế của Thầy/Cô.</div>
+      <ul lang="en">
+        <li><strong>Part 1:</strong> Personal perspectives and teaching experience — open-ended sharing of stories from your real Writing/Speaking classroom practice.</li>
+        <li><strong>Part 2:</strong> Handling realistic pedagogical situations — selecting an action option for each of four classroom scenarios highly familiar in Vietnam.</li>
+        <li><strong>Part 3:</strong> Rating learner-support activities — assigning a priority level to pedagogical statements according to your core viewpoint.</li>
+      </ul>
 
-      <h3>3. Cam kết bảo mật &amp; Quyền lợi của Thầy/Cô khi tham gia</h3>
-      <p>Nghiên cứu tuân thủ nghiêm ngặt các quy chuẩn đạo đức học thuật quốc tế đối với đối tượng tham gia là con người:</p>
-      <ul>
+      <div class="notice">
+        <div lang="vi"><strong>⚠️ Quy trình tiến trình một chiều:</strong> Để bảo đảm tính khách quan và toàn vẹn về mặt phương pháp luận nghiên cứu (tránh thiên kiến mồi nhận thức), website được thiết lập theo dòng thời gian một chiều cố định. Sau khi Thầy/Cô đã hoàn thành và bấm "Tiếp theo" để chuyển sang phân đoạn mới, hệ thống sẽ tự động khóa tính năng quay lại và đóng băng các câu trả lời trước đó. Điều này giúp bảo toàn tính nguyên bản trong góc nhìn và phản xạ sư phạm thực tế của Thầy/Cô.</div>
+        <div lang="en"><strong>⚠️ One-way progression rule:</strong> To safeguard methodological objectivity and integrity (specifically, to prevent cognitive priming bias), the website is set up with a fixed one-way timeline. Once you have completed a part and clicked "Next" to move to the new segment, the system will automatically lock the back navigation and freeze your earlier responses. This preserves the authenticity of your viewpoint and real pedagogical reflexes.</div>
+      </div>
+
+      <h3 lang="vi">3. Cam kết bảo mật &amp; Quyền lợi của Thầy/Cô khi tham gia</h3>
+      <h3 lang="en">3. Confidentiality commitment &amp; your rights as a participant</h3>
+
+      <p lang="vi">Nghiên cứu tuân thủ nghiêm ngặt các quy chuẩn đạo đức học thuật quốc tế đối với đối tượng tham gia là con người:</p>
+      <p lang="en">The research strictly follows international academic ethical standards for human-subject participation:</p>
+
+      <ul lang="vi">
         <li><strong>Tự nguyện tuyệt đối:</strong> Thầy/Cô có quyền từ chối trả lời bất kỳ câu hỏi nào hoặc dừng tham gia khảo sát vào bất kỳ lúc nào mà không cần giải thích lý do.</li>
         <li><strong>Ẩn danh hoàn toàn:</strong> Toàn bộ dữ liệu thu thập được sẽ được mã hóa và ẩn danh hóa trọn vẹn. Hệ thống website độc lập này không ghi nhận địa chỉ IP, thông tin định danh số, hay bất kỳ dữ liệu cá nhân nào có thể nhận diện danh tính hoặc cơ sở công tác của Thầy/Cô.</li>
         <li><strong>An toàn dữ liệu:</strong> Dữ liệu chỉ phục vụ duy nhất cho mục đích phân tích học thuật của dự án nghiên cứu và bài báo khoa học quốc tế, tuyệt đối không chia sẻ với bất kỳ bên thứ ba nào vì mục đích thương mại.</li>
         <li><strong>Quyền yêu cầu xóa dữ liệu:</strong> Thầy/Cô có thể liên hệ với tôi qua email chính thức: <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> để yêu cầu rút và xóa toàn bộ dữ liệu phản hồi của mình vào bất kỳ lúc nào trước khi dữ liệu được tổng hợp để phân tích và công bố.</li>
         <li><strong>Chia sẻ giá trị:</strong> Tôi sẵn sàng chia sẻ bản tóm tắt kết quả nghiên cứu và khung giải pháp sư phạm sau khi hoàn thành cho Thầy/Cô nếu có nhu cầu. Thầy/Cô có thể để lại email hoàn toàn tự nguyện ở ô nhập liệu độc lập tại phần cuối của trang khảo sát.</li>
       </ul>
+      <ul lang="en">
+        <li><strong>Absolute voluntary participation:</strong> You may decline to answer any question or stop participating at any time, with no need to explain.</li>
+        <li><strong>Full anonymity:</strong> All data collected will be encoded and fully anonymised. This independent website does not record IP addresses, digital identifiers, or any personal information that could identify you or your workplace.</li>
+        <li><strong>Data security:</strong> Data are used solely for the academic analysis of this research project and for an international peer-reviewed publication. They are never shared with any third party for commercial purposes.</li>
+        <li><strong>Right to data deletion:</strong> You may contact me at <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a> to request the withdrawal and deletion of your full response at any time before the data are aggregated for analysis and publication.</li>
+        <li><strong>Value sharing:</strong> I am happy to share a summary of the research findings and pedagogical-solution framework once the project is complete, if you wish. You may leave your email entirely voluntarily in an independent input field at the end of the survey.</li>
+      </ul>
 
-      <h3>4. Xác nhận đồng ý tham gia (Informed Consent)</h3>
-      <p><em>Đây là lựa chọn bắt buộc để mở khóa nội dung khảo sát.</em></p>
-      <p>Bằng việc tích chọn vào ô dưới đây, Thầy/Cô xác nhận đã đọc, hiểu rõ các điều khoản bảo mật nêu trên và tự nguyện tham gia vào nghiên cứu này:</p>
+      <h3 lang="vi">4. Xác nhận đồng ý tham gia (Informed Consent)</h3>
+      <h3 lang="en">4. Informed consent</h3>
+
+      <p lang="vi"><em>Đây là lựa chọn bắt buộc để mở khóa nội dung khảo sát.</em></p>
+      <p lang="en"><em>This selection is required to unlock the survey content.</em></p>
+
+      <p lang="vi">Bằng việc tích chọn vào ô dưới đây, Thầy/Cô xác nhận đã đọc, hiểu rõ các điều khoản bảo mật nêu trên và tự nguyện tham gia vào nghiên cứu này:</p>
+      <p lang="en">By checking the box below, you confirm that you have read and understood the confidentiality terms above and voluntarily agree to participate in this research:</p>
 
       <div class="form-group" style="margin-top:1.2rem;">
         <label class="option" style="padding:1.1rem;">
           <input type="checkbox" id="consentCheck">
-          <span class="option-label"><strong>Tôi hoàn toàn đồng ý tham gia khảo sát.</strong> (Bấm "Tiếp theo" để bắt đầu Phần 1)</span>
+          <span class="option-label">
+            <strong lang="vi">Tôi hoàn toàn đồng ý tham gia khảo sát.</strong><strong lang="en">I fully consent to participate in this survey.</strong>
+            <span lang="vi"> (Bấm "Tiếp theo" để bắt đầu Phần 1)</span>
+            <span lang="en"> (Click "Next" to begin Part 1)</span>
+          </span>
         </label>
       </div>
 
-      <div class="error-msg" id="consentError">Vui lòng tích chọn xác nhận đồng ý để bắt đầu khảo sát.</div>
+      <div class="error-msg" id="consentError">
+        <span lang="vi">Vui lòng tích chọn xác nhận đồng ý để bắt đầu khảo sát.</span>
+        <span lang="en">Please check the consent box to begin the survey.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnConsentNext">Tiếp theo: Bắt đầu Phần 1 →</button>
+        <button class="btn" id="btnConsentNext">
+          <span lang="vi">Tiếp theo: Bắt đầu Phần 1 →</span>
+          <span lang="en">Next: Begin Part 1 →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 2: PHẦN 1 — Câu 1.1, 1.2, 1.3, 1.4 (with branching)
-         ============================================================ -->
+    <!-- VIEW 2: PART 1 — Q1.1 to Q1.4 with branching -->
     <section class="view" id="view-partA" data-section="partA">
-      <p class="section-label">PHẦN 1 / 4</p>
-      <h1>Quan điểm cá nhân và trải nghiệm giảng dạy</h1>
-      <p class="form-hint">Thời gian dự kiến: 10–15 phút</p>
+      <p class="section-label">
+        <span lang="vi">PHẦN 1 / 4</span>
+        <span lang="en">PART 1 / 4</span>
+      </p>
+      <h1 lang="vi">Quan điểm cá nhân và trải nghiệm giảng dạy</h1>
+      <h1 lang="en">Personal perspectives and teaching experience</h1>
+      <p class="form-hint">
+        <span lang="vi">Thời gian dự kiến: 10–15 phút</span>
+        <span lang="en">Estimated time: 10–15 minutes</span>
+      </p>
 
-      <p class="lead"><strong>Hướng dẫn:</strong> Trong phần này, xin mời Quý Thầy/Cô chia sẻ suy nghĩ và trải nghiệm thực tế của bản thân về khái niệm "Giàn giáo" (Scaffolding). Để bảo đảm tính thực chứng của nghiên cứu, Thầy/Cô vui lòng phản hồi dựa trên phản xạ sư phạm và trải nghiệm đứng lớp thực tế, không cần đối chiếu với các định nghĩa trong sách giáo trình hay tài liệu lý thuyết chính thống.</p>
-      <p>Mọi chia sẻ, dù ngắn gọn hay chi tiết, đều mang giá trị thực chứng quan trọng đối với nghiên cứu. Thầy/Cô hoàn toàn có thể viết bằng tiếng Việt, hoặc sử dụng xen kẽ thuật ngữ tiếng Anh để thuận tiện nhất cho việc diễn đạt ý tưởng.</p>
+      <p class="lead" lang="vi"><strong>Hướng dẫn:</strong> Trong phần này, xin mời Quý Thầy/Cô chia sẻ suy nghĩ và trải nghiệm thực tế của bản thân về khái niệm "Giàn giáo" (Scaffolding). Để bảo đảm tính thực chứng của nghiên cứu, Thầy/Cô vui lòng phản hồi dựa trên phản xạ sư phạm và trải nghiệm đứng lớp thực tế, không cần đối chiếu với các định nghĩa trong sách giáo trình hay tài liệu lý thuyết chính thống.</p>
+      <p class="lead" lang="en"><strong>Instructions:</strong> In this section, please share your thoughts and real experiences concerning scaffolding (giàn giáo). To preserve the empirical integrity of the study, respond based on your pedagogical reflexes and real classroom experience — there is no need to consult textbook definitions or formal theoretical literature.</p>
+
+      <p lang="vi">Mọi chia sẻ, dù ngắn gọn hay chi tiết, đều mang giá trị thực chứng quan trọng đối với nghiên cứu. Thầy/Cô hoàn toàn có thể viết bằng tiếng Việt, hoặc sử dụng xen kẽ thuật ngữ tiếng Anh để thuận tiện nhất cho việc diễn đạt ý tưởng.</p>
+      <p lang="en">Every response, brief or detailed, carries important empirical value for the research. You may write in Vietnamese, in English, or interleave Vietnamese and English terminology — whichever expresses your ideas most precisely.</p>
 
       <div class="form-group">
-        <label class="form-label" for="A_Q1">Câu 1.1 — Định nghĩa cá nhân về "Giàn giáo"</label>
-        <p>Dựa trên cách hiểu và kinh nghiệm giảng dạy thực tế của bản thân, Quý Thầy/Cô vui lòng mô tả: <strong>Theo Thầy/Cô, "Giàn giáo" (Scaffolding) trong giảng dạy Tiếng Anh cụ thể là gì?</strong></p>
-        <textarea id="A_Q1" name="A_Q1" data-required="true" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+        <label class="form-label" for="A_Q1">
+          <span lang="vi">Câu 1.1 — Định nghĩa cá nhân về "Giàn giáo"</span>
+          <span lang="en">Question 1.1 — Your personal definition of "scaffolding"</span>
+        </label>
+        <p lang="vi">Dựa trên cách hiểu và kinh nghiệm giảng dạy thực tế của bản thân, Quý Thầy/Cô vui lòng mô tả: <strong>Theo Thầy/Cô, "Giàn giáo" (Scaffolding) trong giảng dạy Tiếng Anh cụ thể là gì?</strong></p>
+        <p lang="en">Drawing on your own understanding and real teaching experience, please describe: <strong>In your view, what specifically is "scaffolding" (giàn giáo) in English Language teaching?</strong></p>
+        <textarea id="A_Q1" name="A_Q1" data-required="true"
+          data-placeholder-vi="Câu trả lời của Thầy/Cô..."
+          data-placeholder-en="Your response..."
+          placeholder="Câu trả lời của Thầy/Cô..."></textarea>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="A_Q2">Câu 1.2 — Mô tả một tình huống thực tế gần đây</label>
-        <p>Quý Thầy/Cô vui lòng nhớ lại và mô tả <strong>một khoảnh khắc cụ thể</strong> trong thực tế giảng dạy thời gian gần đây mà bản thân đã ứng dụng phương pháp "giàn giáo" (scaffolding) khi dạy kỹ năng Viết hoặc Nói Tiếng Anh. Xin Thầy/Cô chia sẻ câu chuyện càng chi tiết càng tốt, xoay quanh các gợi ý sau:</p>
-        <ul>
+        <label class="form-label" for="A_Q2">
+          <span lang="vi">Câu 1.2 — Mô tả một tình huống thực tế gần đây</span>
+          <span lang="en">Question 1.2 — Describe a recent real situation</span>
+        </label>
+        <p lang="vi">Quý Thầy/Cô vui lòng nhớ lại và mô tả <strong>một khoảnh khắc cụ thể</strong> trong thực tế giảng dạy thời gian gần đây mà bản thân đã ứng dụng phương pháp "giàn giáo" (scaffolding) khi dạy kỹ năng Viết hoặc Nói Tiếng Anh. Xin Thầy/Cô chia sẻ câu chuyện càng chi tiết càng tốt, xoay quanh các gợi ý sau:</p>
+        <p lang="en">Please recall and describe <strong>one specific moment</strong> in your recent teaching practice when you applied scaffolding while teaching Writing or Speaking. Share the story in as much detail as possible, around the following prompts:</p>
+        <ul lang="vi">
           <li><strong>Bối cảnh lớp học:</strong> Đặc điểm đối tượng học sinh (trình độ, độ tuổi, v.v.) và nội dung/chủ đề của bài học.</li>
           <li><strong>Hành vi sư phạm:</strong> Chi tiết những biện pháp can thiệp cụ thể mà Thầy/Cô đã thực hiện (lời hướng dẫn, hành động sư phạm, các cấu trúc gợi ý hoặc công cụ hỗ trợ được sử dụng).</li>
           <li><strong>Phản ứng của người học:</strong> Tiến trình thực hiện nhiệm vụ và các phản hồi thực tế của học sinh tại khoảnh khắc đó.</li>
           <li><strong>Đánh giá cá nhân:</strong> Góc nhìn của Thầy/Cô về tính hiệu quả hoặc những rào cản phát sinh trong khoảnh khắc hỗ trợ này.</li>
         </ul>
-        <textarea id="A_Q2" name="A_Q2" data-required="true" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+        <ul lang="en">
+          <li><strong>Classroom context:</strong> Learner profile (level, age group, etc.) and the content/topic of the lesson.</li>
+          <li><strong>Pedagogical actions:</strong> The specific interventions you carried out (verbal guidance, pedagogical moves, prompt structures, or support tools used).</li>
+          <li><strong>Learner responses:</strong> The unfolding of the task and the learners' actual reactions at that moment.</li>
+          <li><strong>Your evaluation:</strong> Your view of the effectiveness or the obstacles that arose during this support moment.</li>
+        </ul>
+        <textarea id="A_Q2" name="A_Q2" data-required="true"
+          data-placeholder-vi="Câu trả lời của Thầy/Cô..."
+          data-placeholder-en="Your response..."
+          placeholder="Câu trả lời của Thầy/Cô..."></textarea>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="A_Q3">Câu 1.3 — Dấu hiệu nhận biết tính hiệu quả của hoạt động hỗ trợ (Scaffolding)</label>
-        <p>Dựa trên kinh nghiệm giảng dạy thực tế, Quý Thầy/Cô thường dựa vào những biểu hiện hoặc minh chứng cụ thể nào từ phía người học để nhận biết một tiến trình "giàn giáo" (scaffolding) đã đạt được hiệu quả? Xin Thầy/Cô chia sẻ các tiêu chí đánh giá cá nhân dựa trên các định hướng sau:</p>
-        <ul>
+        <label class="form-label" for="A_Q3">
+          <span lang="vi">Câu 1.3 — Dấu hiệu nhận biết tính hiệu quả của hoạt động hỗ trợ (Scaffolding)</span>
+          <span lang="en">Question 1.3 — Signs of effective scaffolding</span>
+        </label>
+        <p lang="vi">Dựa trên kinh nghiệm giảng dạy thực tế, Quý Thầy/Cô thường dựa vào những biểu hiện hoặc minh chứng cụ thể nào từ phía người học để nhận biết một tiến trình "giàn giáo" (scaffolding) đã đạt được hiệu quả? Xin Thầy/Cô chia sẻ các tiêu chí đánh giá cá nhân dựa trên các định hướng sau:</p>
+        <p lang="en">Drawing on your real teaching experience, what specific learner indicators or evidence do you typically rely on to determine that a scaffolding process has been effective? Please share your personal evaluation criteria around the following prompts:</p>
+        <ul lang="vi">
           <li><strong>Biểu hiện của người học:</strong> Học sinh cần thể hiện năng lực, thái độ hoặc mức độ tự chủ như thế nào trong và sau khi nhận được sự hỗ trợ từ Thầy/Cô?</li>
           <li><strong>Kỳ vọng sư phạm:</strong> Đâu là kết quả hoặc sự thay đổi quan trọng nhất ở phía học sinh khiến Thầy/Cô xác nhận hoạt động hỗ trợ đó đã hoàn thành mục tiêu?</li>
         </ul>
-        <textarea id="A_Q3" name="A_Q3" data-required="true" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+        <ul lang="en">
+          <li><strong>Learner behaviour:</strong> What ability, attitude, or level of autonomy should the learner display during and after receiving your support?</li>
+          <li><strong>Pedagogical expectation:</strong> What is the most important outcome or change in the learner that confirms for you that the support has achieved its goal?</li>
+        </ul>
+        <textarea id="A_Q3" name="A_Q3" data-required="true"
+          data-placeholder-vi="Câu trả lời của Thầy/Cô..."
+          data-placeholder-en="Your response..."
+          placeholder="Câu trả lời của Thầy/Cô..."></textarea>
       </div>
 
       <div class="form-group">
-        <label class="form-label">Câu 1.4 — Quyết định lùi lại hoặc tạm hoãn can thiệp hỗ trợ</label>
-        <p>Trong thực tế giảng dạy, có khoảnh khắc nào Quý Thầy/Cô nhìn thấy học sinh của mình đang gặp khó khăn hoặc giữ im lặng, nhưng bản thân vẫn quyết định <strong>chủ động lùi lại, tạm thời chưa đưa ra sự trợ giúp</strong> cho các em không?</p>
+        <label class="form-label">
+          <span lang="vi">Câu 1.4 — Quyết định lùi lại hoặc tạm hoãn can thiệp hỗ trợ</span>
+          <span lang="en">Question 1.4 — Deciding to step back or withhold support</span>
+        </label>
+        <p lang="vi">Trong thực tế giảng dạy, có khoảnh khắc nào Quý Thầy/Cô nhìn thấy học sinh của mình đang gặp khó khăn hoặc giữ im lặng, nhưng bản thân vẫn quyết định <strong>chủ động lùi lại, tạm thời chưa đưa ra sự trợ giúp</strong> cho các em không?</p>
+        <p lang="en">In your teaching practice, has there ever been a moment when you saw your learner struggling or staying silent, but you nevertheless decided to <strong>actively step back and withhold immediate support</strong>?</p>
         <div class="option-group">
           <label class="option">
             <input type="radio" name="A_Q4_choice" value="Co">
-            <span class="option-label">Có, tôi từng chủ động lùi lại / tạm hoãn hỗ trợ.</span>
+            <span class="option-label">
+              <span lang="vi">Có, tôi từng chủ động lùi lại / tạm hoãn hỗ trợ.</span>
+              <span lang="en">Yes, I have actively stepped back / withheld support.</span>
+            </span>
           </label>
           <label class="option">
             <input type="radio" name="A_Q4_choice" value="ChuaTung">
-            <span class="option-label">Chưa từng, tôi luôn đưa ra sự hỗ trợ ngay khi nhận thấy học sinh gặp khó khăn.</span>
+            <span class="option-label">
+              <span lang="vi">Chưa từng, tôi luôn đưa ra sự hỗ trợ ngay khi nhận thấy học sinh gặp khó khăn.</span>
+              <span lang="en">Never; I always provide support as soon as I notice the learner struggling.</span>
+            </span>
           </label>
         </div>
 
         <div id="A_Q4_conditional_Co" class="conditional-block">
-          <p style="margin-bottom:0.8rem;"><strong>Xin Quý Thầy/Cô chia sẻ một tình huống thực tế cụ thể và phân tích lý do sư phạm đằng sau quyết định chủ động lùi lại hoặc tạm hoãn sự hỗ trợ của mình tại khoảnh khắc đó.</strong></p>
-          <textarea id="A_Q4_text_Co" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+          <p style="margin-bottom:0.8rem;" lang="vi"><strong>Xin Quý Thầy/Cô chia sẻ một tình huống thực tế cụ thể và phân tích lý do sư phạm đằng sau quyết định chủ động lùi lại hoặc tạm hoãn sự hỗ trợ của mình tại khoảnh khắc đó.</strong></p>
+          <p style="margin-bottom:0.8rem;" lang="en"><strong>Please share one specific real situation and analyse the pedagogical reasoning behind your decision to actively step back or withhold support at that moment.</strong></p>
+          <textarea id="A_Q4_text_Co"
+            data-placeholder-vi="Câu trả lời của Thầy/Cô..."
+            data-placeholder-en="Your response..."
+            placeholder="Câu trả lời của Thầy/Cô..."></textarea>
         </div>
 
         <div id="A_Q4_conditional_ChuaTung" class="conditional-block">
-          <p style="margin-bottom:0.8rem;"><strong>Xin Quý Thầy/Cô chia sẻ thêm về quan điểm sư phạm của bản thân: Điều gì khiến Thầy/Cô cảm thấy việc can thiệp và đưa ra giải pháp hỗ trợ ngay lập tức là cần thiết cho học sinh tại những khoảnh khắc đó?</strong></p>
-          <textarea id="A_Q4_text_ChuaTung" placeholder="Câu trả lời của Thầy/Cô..."></textarea>
+          <p style="margin-bottom:0.8rem;" lang="vi"><strong>Xin Quý Thầy/Cô chia sẻ thêm về quan điểm sư phạm của bản thân: Điều gì khiến Thầy/Cô cảm thấy việc can thiệp và đưa ra giải pháp hỗ trợ ngay lập tức là cần thiết cho học sinh tại những khoảnh khắc đó?</strong></p>
+          <p style="margin-bottom:0.8rem;" lang="en"><strong>Please share more about your pedagogical perspective: what makes you feel that intervening and providing immediate support is necessary for learners at such moments?</strong></p>
+          <textarea id="A_Q4_text_ChuaTung"
+            data-placeholder-vi="Câu trả lời của Thầy/Cô..."
+            data-placeholder-en="Your response..."
+            placeholder="Câu trả lời của Thầy/Cô..."></textarea>
         </div>
       </div>
 
-      <div class="error-msg" id="partAError">Vui lòng trả lời đầy đủ cả 4 câu hỏi (bao gồm phần giải thích cho Câu 1.4) trước khi tiếp tục.</div>
+      <div class="error-msg" id="partAError">
+        <span lang="vi">Vui lòng trả lời đầy đủ cả 4 câu hỏi (bao gồm phần giải thích cho Câu 1.4) trước khi tiếp tục.</span>
+        <span lang="en">Please answer all four questions (including the explanation for Question 1.4) before continuing.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnPartANext">Tiếp theo: Phần 2 →</button>
+        <button class="btn" id="btnPartANext">
+          <span lang="vi">Tiếp theo: Phần 2 →</span>
+          <span lang="en">Next: Part 2 →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 3: PHẦN 2 INTRO
-         ============================================================ -->
+    <!-- VIEW 3: PART 2 INTRO -->
     <section class="view" id="view-partC-intro" data-section="partC-intro">
-      <p class="section-label">PHẦN 2 / 4</p>
-      <h1>Trải nghiệm xử lý các tình huống sư phạm thực tế</h1>
-      <p class="form-hint">Thời gian dự kiến: 15–20 phút</p>
-      <p class="lead"><strong>Hướng dẫn:</strong> Trong phần này, xin mời Quý Thầy/Cô tiếp cận 4 tình huống giảng dạy thực tế được mô phỏng dưới dạng các kịch bản lớp học kỹ năng Viết/Nói. Với mỗi kịch bản, Thầy/Cô vui lòng thực hiện các bước sau:</p>
-      <ul>
+      <p class="section-label">
+        <span lang="vi">PHẦN 2 / 4</span>
+        <span lang="en">PART 2 / 4</span>
+      </p>
+      <h1 lang="vi">Trải nghiệm xử lý các tình huống sư phạm thực tế</h1>
+      <h1 lang="en">Handling realistic pedagogical situations</h1>
+      <p class="form-hint">
+        <span lang="vi">Thời gian dự kiến: 15–20 phút</span>
+        <span lang="en">Estimated time: 15–20 minutes</span>
+      </p>
+      <p class="lead" lang="vi"><strong>Hướng dẫn:</strong> Trong phần này, xin mời Quý Thầy/Cô tiếp cận 4 tình huống giảng dạy thực tế được mô phỏng dưới dạng các kịch bản lớp học kỹ năng Viết/Nói. Với mỗi kịch bản, Thầy/Cô vui lòng thực hiện các bước sau:</p>
+      <p class="lead" lang="en"><strong>Instructions:</strong> In this section, you will encounter four realistic teaching situations modelled as Writing/Speaking classroom scenarios. For each scenario, please:</p>
+      <ul lang="vi">
         <li>Đọc kỹ bối cảnh và hình dung bản thân đang trực tiếp đối mặt với tình huống sư phạm đó.</li>
         <li>Lựa chọn một phương án duy nhất phản ánh gần nhất với <strong>quyết định hành động thực tế</strong> của Thầy/Cô trong lớp học của mình.</li>
         <li>Chia sẻ ngắn gọn lý do sư phạm đằng sau quyết định lựa chọn đó.</li>
       </ul>
-      <div class="notice"><strong>📌 Lưu ý về tính khách quan:</strong> Nghiên cứu này hướng đến việc thấu hiểu thực tế sinh động của lớp học Tiếng Anh tại Việt Nam, do đó tuyệt đối không có câu trả lời đúng hay sai. Xin Quý Thầy/Cô phản hồi dựa trên những gì bản thân sẽ thực làm trong hoàn cảnh đó, thay vì những giải pháp mang tính lý thuyết khuôn mẫu. Sự chia sẻ chân thực của Thầy/Cô là nhân tố quyết định độ tin cậy của toàn bộ dự án nghiên cứu này.</div>
+      <ul lang="en">
+        <li>Read the context carefully and imagine you are directly facing this pedagogical situation.</li>
+        <li>Choose the one option that best reflects <strong>your actual action decision</strong> in your own classroom.</li>
+        <li>Briefly share the pedagogical reasoning behind that choice.</li>
+      </ul>
+      <div class="notice">
+        <div lang="vi"><strong>📌 Lưu ý về tính khách quan:</strong> Nghiên cứu này hướng đến việc thấu hiểu thực tế sinh động của lớp học Tiếng Anh tại Việt Nam, do đó tuyệt đối không có câu trả lời đúng hay sai. Xin Quý Thầy/Cô phản hồi dựa trên những gì bản thân sẽ thực làm trong hoàn cảnh đó, thay vì những giải pháp mang tính lý thuyết khuôn mẫu. Sự chia sẻ chân thực của Thầy/Cô là nhân tố quyết định độ tin cậy của toàn bộ dự án nghiên cứu này.</div>
+        <div lang="en"><strong>📌 Note on objectivity:</strong> This research seeks to understand the living reality of English language classrooms in Vietnam; therefore, there are absolutely no right or wrong answers. Please respond based on what you would actually do in that situation, rather than on textbook solutions. Your candid sharing is the factor that determines the reliability of this entire research project.</div>
+      </div>
       <div class="btn-row">
-        <button class="btn" id="btnPartCIntroNext">Bắt đầu Kịch bản 1 →</button>
+        <button class="btn" id="btnPartCIntroNext">
+          <span lang="vi">Bắt đầu Kịch bản 1 →</span>
+          <span lang="en">Begin Scenario 1 →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 4: SCENARIO 1
-         ============================================================ -->
+    <!-- VIEW 4: SCENARIO 1 -->
     <section class="view" id="view-scenario1" data-section="scenario1">
-      <p class="section-label">Kịch bản 1 / 4</p>
-      <h2>Lớp 12 chuẩn bị cho Kỳ thi Tốt nghiệp THPT</h2>
+      <p class="section-label">
+        <span lang="vi">Kịch bản 1 / 4</span>
+        <span lang="en">Scenario 1 / 4</span>
+      </p>
+      <h2 lang="vi">Lớp 12 chuẩn bị cho Kỳ thi Tốt nghiệp THPT</h2>
+      <h2 lang="en">Grade 12 preparing for the National High School Graduation Exam</h2>
 
       <div class="scenario-card">
-        <p>Cô Mai là giáo viên Tiếng Anh lớp 12 tại một trường THPT công lập. Lớp học gồm 38 học sinh đang trong giai đoạn nước rút chuẩn bị cho kỳ thi Tốt nghiệp THPT sau ba tháng nữa, trong đó phần Viết luận chiếm trọng số điểm quan trọng ảnh hưởng đến cơ hội xét tuyển đại học. Phụ huynh đặt kỳ vọng rất cao; nhiều học sinh đã đăng ký nguyện vọng vào các trường đại học hàng đầu.</p>
-        <p>Từ đầu khóa học, cô Mai đã thiết kế một <strong>"Hộp Từ Mồi Hữu Ích"</strong> (Useful Language Box) cho bài Viết luận Unit 10 chủ đề "Artificial Intelligence", bao gồm bộ cấu trúc mở bài, các liên từ chuyển ý, danh mục từ vựng nâng cao (high-band vocabulary), và hệ thống câu kết luận mẫu. Học sinh được hướng dẫn áp dụng bộ khung cố định này cho mọi bài luyện viết xuyên suốt khóa học. Sau 8 tuần áp dụng đều đặn, các em đều hoàn thành được bài viết hoàn chỉnh dài khoảng 250 từ và đạt mức điểm ổn định từ 7.5 – 8.0/10 trong các bài kiểm tra mô phỏng tại lớp.</p>
-        <p>Hiện tại chỉ còn 3 tuần nữa là đến kỳ thi chính thức. Cô Mai đang cân nhắc về việc có nên tiếp tục duy trì việc cho học sinh sử dụng Hộp Từ Mồi này trong các bài luyện tập cuối cùng hay không.</p>
+        <p lang="vi">Cô Mai là giáo viên Tiếng Anh lớp 12 tại một trường THPT công lập. Lớp học gồm 38 học sinh đang trong giai đoạn nước rút chuẩn bị cho kỳ thi Tốt nghiệp THPT sau ba tháng nữa, trong đó phần Viết luận chiếm trọng số điểm quan trọng ảnh hưởng đến cơ hội xét tuyển đại học. Phụ huynh đặt kỳ vọng rất cao; nhiều học sinh đã đăng ký nguyện vọng vào các trường đại học hàng đầu.</p>
+        <p lang="en">Ms. Mai teaches Grade-12 English at a public upper-secondary school. The class has 38 students in the final-sprint phase, preparing for the National High School Graduation Exam three months away. The essay-writing section carries a heavy score weight that strongly affects university-admission opportunities. Parental expectations are very high, and many students have registered preferences for top-tier universities.</p>
+
+        <p lang="vi">Từ đầu khóa học, cô Mai đã thiết kế một <strong>"Hộp Từ Mồi Hữu Ích"</strong> (Useful Language Box) cho bài Viết luận Unit 10 chủ đề "Artificial Intelligence", bao gồm bộ cấu trúc mở bài, các liên từ chuyển ý, danh mục từ vựng nâng cao (high-band vocabulary), và hệ thống câu kết luận mẫu. Học sinh được hướng dẫn áp dụng bộ khung cố định này cho mọi bài luyện viết xuyên suốt khóa học. Sau 8 tuần áp dụng đều đặn, các em đều hoàn thành được bài viết hoàn chỉnh dài khoảng 250 từ và đạt mức điểm ổn định từ 7.5 – 8.0/10 trong các bài kiểm tra mô phỏng tại lớp.</p>
+        <p lang="en">From the start of the course, Ms. Mai designed a <strong>"Useful Language Box"</strong> for the Unit 10 essay-writing task on the topic of Artificial Intelligence, comprising opening-sentence frames, transitional connectives, a high-band vocabulary list, and a system of model concluding sentences. Students were instructed to apply this fixed scaffold to every writing-practice piece throughout the course. After 8 weeks of consistent application, all students were able to produce complete essays of about 250 words and achieved stable scores of 7.5–8.0/10 in in-class mock tests.</p>
+
+        <p lang="vi">Hiện tại chỉ còn 3 tuần nữa là đến kỳ thi chính thức. Cô Mai đang cân nhắc về việc có nên tiếp tục duy trì việc cho học sinh sử dụng Hộp Từ Mồi này trong các bài luyện tập cuối cùng hay không.</p>
+        <p lang="en">There are now only 3 weeks left until the official exam. Ms. Mai is considering whether to continue allowing students to use the Useful Language Box in the final practice rounds.</p>
       </div>
 
-      <h3>Nếu ở vị trí của cô Mai tại thời điểm này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <h3 lang="vi">Nếu ở vị trí của cô Mai tại thời điểm này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <h3 lang="en">If you were in Ms. Mai's position at this moment, which option below would you prioritise?</h3>
+
       <div class="option-group">
         <label class="option">
           <input type="radio" name="C1_choice" value="A">
-          <span class="option-label"><strong>Phương án A:</strong> Tiếp tục duy trì Hộp Từ Mồi cho đến ngày thi. Đây là giải pháp an toàn nhằm bảo toàn phong độ và ổn định tâm lý điểm số cho học sinh. Việc thay đổi phương pháp sát ngày thi mang lại rủi ro lớn đối với sự tự tin của học sinh và kỳ vọng của phụ huynh.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án A:</strong> Tiếp tục duy trì Hộp Từ Mồi cho đến ngày thi. Đây là giải pháp an toàn nhằm bảo toàn phong độ và ổn định tâm lý điểm số cho học sinh. Việc thay đổi phương pháp sát ngày thi mang lại rủi ro lớn đối với sự tự tin của học sinh và kỳ vọng của phụ huynh.</span>
+            <span lang="en"><strong>Option A:</strong> Continue maintaining the Useful Language Box until exam day. This is the safe choice — it preserves students' performance level and the psychological stability of their scores. Changing the method so close to the exam carries a large risk for student confidence and parental expectations.</span>
+          </span>
         </label>
         <label class="option">
           <input type="radio" name="C1_choice" value="B">
-          <span class="option-label"><strong>Phương án B:</strong> Bắt đầu giảm dần độ phụ thuộc vào Hộp Từ Mồi theo từng tuần. Tuần này chỉ giữ lại khung câu mở đầu, tuần sau chỉ giữ lại bộ từ vựng, và tuần cuối cùng yêu cầu học sinh viết độc lập. Chấp nhận việc điểm số có thể dao động tạm thời để học sinh rèn luyện khả năng tự vận hành tư duy viết trước kỳ thi.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án B:</strong> Bắt đầu giảm dần độ phụ thuộc vào Hộp Từ Mồi theo từng tuần. Tuần này chỉ giữ lại khung câu mở đầu, tuần sau chỉ giữ lại bộ từ vựng, và tuần cuối cùng yêu cầu học sinh viết độc lập. Chấp nhận việc điểm số có thể dao động tạm thời để học sinh rèn luyện khả năng tự vận hành tư duy viết trước kỳ thi.</span>
+            <span lang="en"><strong>Option B:</strong> Begin to gradually reduce dependence on the Useful Language Box week by week. This week, keep only the opening sentence frames; next week, keep only the vocabulary list; in the final week, require students to write independently. Accept that scores may fluctuate temporarily so that students train their capacity to drive their own writing thinking before the exam.</span>
+          </span>
         </label>
         <label class="option">
           <input type="radio" name="C1_choice" value="C">
-          <span class="option-label"><strong>Phương án C:</strong> Dừng hoàn toàn việc sử dụng Hộp Từ Mồi ngay từ tuần này, yêu cầu học sinh thực hiện bài viết hoàn toàn tự lực để tự nhận diện năng lực thực tế và tự xoay xở chọn từ, dựng câu. Những rào cản phát sinh lúc này là cơ hội cọ xát cần thiết để học sinh rèn luyện tính tự lập trước kỳ thi.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án C:</strong> Dừng hoàn toàn việc sử dụng Hộp Từ Mồi ngay từ tuần này, yêu cầu học sinh thực hiện bài viết hoàn toàn tự lực để tự nhận diện năng lực thực tế và tự xoay xở chọn từ, dựng câu. Những rào cản phát sinh lúc này là cơ hội cọ xát cần thiết để học sinh rèn luyện tính tự lập trước kỳ thi.</span>
+            <span lang="en"><strong>Option C:</strong> Stop using the Useful Language Box entirely starting this week. Require students to complete writing tasks fully independently so they can recognise their actual ability and manage word choice and sentence construction on their own. The obstacles that arise now are the necessary friction for students to build independence before the exam.</span>
+          </span>
         </label>
       </div>
 
       <div class="form-group" style="margin-top:1.8rem;">
-        <label class="form-label" for="C1_justification">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</label>
-        <textarea id="C1_justification" name="C1_justification" data-required="true"></textarea>
+        <label class="form-label" for="C1_justification">
+          <span lang="vi">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</span>
+          <span lang="en">Please briefly share the pedagogical reasoning behind your choice above:</span>
+        </label>
+        <textarea id="C1_justification" name="C1_justification" data-required="true"
+          data-placeholder-vi="Lý do sư phạm của Thầy/Cô..."
+          data-placeholder-en="Your pedagogical reasoning..."
+          placeholder="Lý do sư phạm của Thầy/Cô..."></textarea>
       </div>
 
-      <div class="error-msg" id="scenario1Error">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</div>
+      <div class="error-msg" id="scenario1Error">
+        <span lang="vi">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</span>
+        <span lang="en">Please select an option and provide a reason before continuing.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnScenario1Next">Tiếp theo: Kịch bản 2 →</button>
+        <button class="btn" id="btnScenario1Next">
+          <span lang="vi">Tiếp theo: Kịch bản 2 →</span>
+          <span lang="en">Next: Scenario 2 →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 5: SCENARIO 2
-         ============================================================ -->
+    <!-- VIEW 5: SCENARIO 2 -->
     <section class="view" id="view-scenario2" data-section="scenario2">
-      <p class="section-label">Kịch bản 2 / 4</p>
-      <h2>Luyện thi IELTS Writing Task 2 tại khối đào tạo tư nhân</h2>
+      <p class="section-label">
+        <span lang="vi">Kịch bản 2 / 4</span>
+        <span lang="en">Scenario 2 / 4</span>
+      </p>
+      <h2 lang="vi">Luyện thi IELTS Writing Task 2 tại khối đào tạo tư nhân</h2>
+      <h2 lang="en">IELTS Writing Task 2 preparation at a private training centre</h2>
 
       <div class="scenario-card">
-        <p>Thầy Khoa đảm nhận lớp luyện thi IELTS Writing Task 2 tại một trung tâm Anh ngữ. Học viên Hoàng An (22 tuổi) đang chuẩn bị nộp hồ sơ du học vào tháng tới. Gia đình đã chi trả mức học phí trọn gói cao và đặt kỳ vọng mục tiêu Hoàng An phải đạt từ Band 7.0 trở lên.</p>
-        <p>Từ đầu khóa học, thầy Khoa đã xây dựng một <strong>"Linear Template"</strong> — bộ khung logic cố định dành riêng cho dạng bài "Discuss both views and give your opinion", cấu trúc chi tiết từ câu dẫn, cách paraphrase đề bài, đến vị trí đặt ví dụ minh họa cho từng đoạn. Hoàng An đã luyện tập hơn 20 bài viết dựa trên bộ khung này với các đề bài tập trung vào các chủ đề quen thuộc (giáo dục, công nghệ, môi trường) và liên tục đạt mức điểm giả định ổn định từ 7.0 – 7.5 trong các bài kiểm tra tại trung tâm.</p>
-        <p>Một tuần trước kỳ thi chính thức, thầy Khoa tổ chức một bài thi mô phỏng áp lực như thật. Đề bài đưa ra hoàn toàn mới và khác biệt: <em>"To what extent should governments regulate the use of artificial intelligence in healthcare?"</em> (Dạng bài "To what extent", bối cảnh tích hợp giữa y tế, công nghệ và chính sách vĩ mô, chưa từng xuất hiện trong các buổi luyện tập trước). Đồng thời, Hoàng An được yêu cầu thực hiện bài viết mà không áp dụng bộ khung template có sẵn.</p>
-        <p>Sau 5 phút đọc đề, Hoàng An rơi vào trạng thái bế tắc tư duy, không thể triển khai ý tưởng. Sau 15 phút, học viên này chỉ viết được 4 dòng rời rạc rồi dừng lại. Khi hết giờ, bài làm bị bỏ trống hơn 70%. Hoàng An tỏ ra vô cùng căng thẳng và chia sẻ: <em>"Thầy ơi, em không biết phải bắt đầu lập luận từ đâu nếu không dựa vào khung câu mẫu..."</em></p>
+        <p lang="vi">Thầy Khoa đảm nhận lớp luyện thi IELTS Writing Task 2 tại một trung tâm Anh ngữ. Học viên Hoàng An (22 tuổi) đang chuẩn bị nộp hồ sơ du học vào tháng tới. Gia đình đã chi trả mức học phí trọn gói cao và đặt kỳ vọng mục tiêu Hoàng An phải đạt từ Band 7.0 trở lên.</p>
+        <p lang="en">Mr. Khoa teaches an IELTS Writing Task 2 preparation class at an English language centre. His learner, Hoàng An (22 years old), is preparing to submit a study-abroad application next month. The family has paid a high all-inclusive fee and expects Hoàng An to achieve Band 7.0 or higher.</p>
+
+        <p lang="vi">Từ đầu khóa học, thầy Khoa đã xây dựng một <strong>"Linear Template"</strong> — bộ khung logic cố định dành riêng cho dạng bài "Discuss both views and give your opinion", cấu trúc chi tiết từ câu dẫn, cách paraphrase đề bài, đến vị trí đặt ví dụ minh họa cho từng đoạn. Hoàng An đã luyện tập hơn 20 bài viết dựa trên bộ khung này với các đề bài tập trung vào các chủ đề quen thuộc (giáo dục, công nghệ, môi trường) và liên tục đạt mức điểm giả định ổn định từ 7.0 – 7.5 trong các bài kiểm tra tại trung tâm.</p>
+        <p lang="en">From the start of the course, Mr. Khoa built a <strong>"Linear Template"</strong> — a fixed logical framework specifically for the "Discuss both views and give your opinion" task type, detailing everything from lead-in sentences to question paraphrasing and the placement of illustrative examples in each paragraph. Hoàng An has practised more than 20 essays based on this template, focusing on familiar topics (education, technology, environment), and has consistently achieved estimated Band 7.0–7.5 in the centre's mock tests.</p>
+
+        <p lang="vi">Một tuần trước kỳ thi chính thức, thầy Khoa tổ chức một bài thi mô phỏng áp lực như thật. Đề bài đưa ra hoàn toàn mới và khác biệt: <em>"To what extent should governments regulate the use of artificial intelligence in healthcare?"</em> (Dạng bài "To what extent", bối cảnh tích hợp giữa y tế, công nghệ và chính sách vĩ mô, chưa từng xuất hiện trong các buổi luyện tập trước). Đồng thời, Hoàng An được yêu cầu thực hiện bài viết mà không áp dụng bộ khung template có sẵn.</p>
+        <p lang="en">One week before the official exam, Mr. Khoa organises a high-pressure mock test. The prompt is entirely new and unfamiliar: <em>"To what extent should governments regulate the use of artificial intelligence in healthcare?"</em> (A "To what extent" task integrating healthcare, technology, and macro-policy — never encountered in previous practice sessions.) Hoàng An is also required to write without applying the pre-built template.</p>
+
+        <p lang="vi">Sau 5 phút đọc đề, Hoàng An rơi vào trạng thái bế tắc tư duy, không thể triển khai ý tưởng. Sau 15 phút, học viên này chỉ viết được 4 dòng rời rạc rồi dừng lại. Khi hết giờ, bài làm bị bỏ trống hơn 70%. Hoàng An tỏ ra vô cùng căng thẳng và chia sẻ: <em>"Thầy ơi, em không biết phải bắt đầu lập luận từ đâu nếu không dựa vào khung câu mẫu..."</em></p>
+        <p lang="en">After 5 minutes of reading the prompt, Hoàng An falls into a state of thinking block and cannot develop any ideas. After 15 minutes, the learner has only managed 4 disconnected lines and then stops. When time runs out, more than 70% of the answer sheet is left blank. Hoàng An is extremely stressed and says: <em>"Sir, I don't know how to start the argument if I can't rely on the template sentence frames…"</em></p>
       </div>
 
-      <h3>Nếu ở vị trí của thầy Khoa lúc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <h3 lang="vi">Nếu ở vị trí của thầy Khoa lúc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <h3 lang="en">If you were in Mr. Khoa's position now, which option below would you prioritise?</h3>
+
       <div class="option-group">
         <label class="option">
           <input type="radio" name="C2_choice" value="A">
-          <span class="option-label"><strong>Phương án A:</strong> Trấn an học viên và khẳng định độ khó của đề thi thật sẽ được kiểm soát an toàn hơn. Ngay lập tức bổ sung và điều chỉnh hệ thống template để bao quát thêm các cấu trúc phản xạ cho các dạng đề và chủ đề mới. Tiếp tục tăng tốc luyện tập dựa trên bộ khung mở rộng này nhằm tối ưu hóa tính an toàn, tốc độ xử lý và ổn định tâm lý cho học viên sát ngày thi.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án A:</strong> Trấn an học viên và khẳng định độ khó của đề thi thật sẽ được kiểm soát an toàn hơn. Ngay lập tức bổ sung và điều chỉnh hệ thống template để bao quát thêm các cấu trúc phản xạ cho các dạng đề và chủ đề mới. Tiếp tục tăng tốc luyện tập dựa trên bộ khung mở rộng này nhằm tối ưu hóa tính an toàn, tốc độ xử lý và ổn định tâm lý cho học viên sát ngày thi.</span>
+            <span lang="en"><strong>Option A:</strong> Reassure the learner and affirm that the difficulty of the real exam will be more safely controlled. Immediately expand and adjust the template system to cover additional reflex structures for new task types and topics. Continue accelerating practice based on this expanded framework in order to optimise safety, processing speed, and psychological stability for the learner close to exam day.</span>
+          </span>
         </label>
         <label class="option">
           <input type="radio" name="C2_choice" value="B">
-          <span class="option-label"><strong>Phương án B:</strong> Tạm dừng việc luyện tập theo template cố định trong tuần cuối cùng. Cùng học viên phân tích nguyên nhân của sự bế tắc, nhận diện việc người học đang phụ thuộc vào việc điền thông tin vào khung có sẵn thay vì chủ động vận hành tư duy logic độc lập. Dành thời gian còn lại để rèn luyện năng lực xây dựng ý tưởng (brainstorming) và lập luận tự thân, chấp nhận rủi ro điểm số có thể biến động để đổi lấy khả năng linh hoạt ứng biến trước đề lạ.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án B:</strong> Tạm dừng việc luyện tập theo template cố định trong tuần cuối cùng. Cùng học viên phân tích nguyên nhân của sự bế tắc, nhận diện việc người học đang phụ thuộc vào việc điền thông tin vào khung có sẵn thay vì chủ động vận hành tư duy logic độc lập. Dành thời gian còn lại để rèn luyện năng lực xây dựng ý tưởng (brainstorming) và lập luận tự thân, chấp nhận rủi ro điểm số có thể biến động để đổi lấy khả năng linh hoạt ứng biến trước đề lạ.</span>
+            <span lang="en"><strong>Option B:</strong> Pause fixed-template practice during the final week. Together with the learner, analyse the cause of the block — recognising that the learner has been filling in information into a pre-built frame rather than actively driving independent logical thinking. Use the remaining time to train idea-generation (brainstorming) and self-driven argumentation, accepting the risk of score fluctuation in exchange for flexible adaptation to unfamiliar prompts.</span>
+          </span>
         </label>
         <label class="option">
           <input type="radio" name="C2_choice" value="C">
-          <span class="option-label"><strong>Phương án C:</strong> Chủ động giảm độ phức tạp của các đề bài luyện tập trong tuần cuối, chỉ giao các đề bài có độ khó vừa phải và thuộc chủ đề quen thuộc để bảo toàn sự tự tin và giải tỏa áp lực tâm lý cho học viên. Đồng thời, chủ động trao đổi với phụ huynh để điều chỉnh kỳ vọng thực tế về mức điểm Band 7.0, giảm tối đa áp lực thành tích ngắn hạn để học viên bước vào phòng thi với tinh thần thoải mái nhất.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án C:</strong> Chủ động giảm độ phức tạp của các đề bài luyện tập trong tuần cuối, chỉ giao các đề bài có độ khó vừa phải và thuộc chủ đề quen thuộc để bảo toàn sự tự tin và giải tỏa áp lực tâm lý cho học viên. Đồng thời, chủ động trao đổi với phụ huynh để điều chỉnh kỳ vọng thực tế về mức điểm Band 7.0, giảm tối đa áp lực thành tích ngắn hạn để học viên bước vào phòng thi với tinh thần thoải mái nhất.</span>
+            <span lang="en"><strong>Option C:</strong> Proactively reduce the difficulty of practice prompts in the final week — assigning only moderately challenging prompts on familiar topics to preserve the learner's confidence and ease psychological pressure. At the same time, proactively contact the parents to adjust realistic expectations regarding the Band 7.0 target, minimising short-term performance pressure so the learner enters the exam room as relaxed as possible.</span>
+          </span>
         </label>
       </div>
 
       <div class="form-group" style="margin-top:1.8rem;">
-        <label class="form-label" for="C2_justification">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</label>
-        <textarea id="C2_justification" name="C2_justification" data-required="true"></textarea>
+        <label class="form-label" for="C2_justification">
+          <span lang="vi">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</span>
+          <span lang="en">Please briefly share the pedagogical reasoning behind your choice above:</span>
+        </label>
+        <textarea id="C2_justification" name="C2_justification" data-required="true"
+          data-placeholder-vi="Lý do sư phạm của Thầy/Cô..."
+          data-placeholder-en="Your pedagogical reasoning..."
+          placeholder="Lý do sư phạm của Thầy/Cô..."></textarea>
       </div>
 
-      <div class="error-msg" id="scenario2Error">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</div>
+      <div class="error-msg" id="scenario2Error">
+        <span lang="vi">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</span>
+        <span lang="en">Please select an option and provide a reason before continuing.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnScenario2Next">Tiếp theo: Kịch bản 3 →</button>
+        <button class="btn" id="btnScenario2Next">
+          <span lang="vi">Tiếp theo: Kịch bản 3 →</span>
+          <span lang="en">Next: Scenario 3 →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 6: SCENARIO 3
-         ============================================================ -->
+    <!-- VIEW 6: SCENARIO 3 -->
     <section class="view" id="view-scenario3" data-section="scenario3">
-      <p class="section-label">Kịch bản 3 / 4</p>
-      <h2>Tiếng Anh chuyên ngành Y khoa tại bậc Đại học</h2>
+      <p class="section-label">
+        <span lang="vi">Kịch bản 3 / 4</span>
+        <span lang="en">Scenario 3 / 4</span>
+      </p>
+      <h2 lang="vi">Tiếng Anh chuyên ngành Y khoa tại bậc Đại học</h2>
+      <h2 lang="en">English for Medical Specialisation at university level</h2>
 
       <div class="scenario-card">
-        <p>Cô Linh là giảng viên đảm nhận học phần "Tiếng Anh Chuyên Ngành Y Khoa" cho sinh viên năm thứ 4 ngành Bác sĩ Đa khoa tại một trường Đại học Y. Lớp học gồm 45 sinh viên, học phần kéo dài 15 tuần với một bài tập lớn (term project) yêu cầu sinh viên làm việc theo nhóm 5 người để viết một báo cáo ca lâm sàng (case report) bằng tiếng Anh dựa trên thực tế các em đã quan sát tại bệnh viện thực tập.</p>
-        <p>Theo quy định hành chính của nhà trường, mọi điểm số quá trình (process grades) chỉ được công bố trên hệ thống e-learning vào tuần cuối cùng của học kỳ; sinh viên không nhận được phản hồi chính thức (official feedback) nào về tiến độ trong suốt 14 tuần đầu. Cô Linh chỉ có thể tổ chức các buổi thảo luận tự nguyện ngoài giờ hành chính, nhưng chỉ có một số ít nhóm tham dự đều đặn.</p>
-        <p>Vào tuần thứ 10, một nhóm sinh viên đến gặp cô Linh ngay trước giờ giảng. Đại diện nhóm chia sẻ: <em>"Cô ơi, tụi em đã hoàn thành được một nửa bài viết nhưng hiện tại cả nhóm đang bế tắc, không biết phải trình bày phần 'Discussion' như thế nào khi ca lâm sàng của tụi em là một bệnh nhân mắc bệnh hiếm gặp với ba chẩn đoán phân biệt khác nhau. Tụi em có tra cứu các bài báo mẫu trên PubMed nhưng nhận thấy mỗi bài lại có một cách cấu trúc lập luận khác nhau. Cô có thể hướng dẫn cho tụi em một cấu trúc chuẩn cho phần Discussion được không ạ?"</em></p>
-        <p>Lúc này, chỉ còn 5 tuần nữa là đến hạn nộp bài cuối kỳ. Cô Linh chỉ có khoảng 10 phút trước khi bắt đầu buổi giảng tiếp theo, và ngay cuối tuần này cô phải di chuyển để tham dự một hội thảo chuyên môn liên tục trong 4 ngày.</p>
+        <p lang="vi">Cô Linh là giảng viên đảm nhận học phần "Tiếng Anh Chuyên Ngành Y Khoa" cho sinh viên năm thứ 4 ngành Bác sĩ Đa khoa tại một trường Đại học Y. Lớp học gồm 45 sinh viên, học phần kéo dài 15 tuần với một bài tập lớn (term project) yêu cầu sinh viên làm việc theo nhóm 5 người để viết một báo cáo ca lâm sàng (case report) bằng tiếng Anh dựa trên thực tế các em đã quan sát tại bệnh viện thực tập.</p>
+        <p lang="en">Ms. Linh is the lecturer for the "English for Medical Specialisation" course for fourth-year General Medicine students at a university of medicine. The class has 45 students; the course runs for 15 weeks with a term project that requires students to work in groups of 5 to write an English-language clinical case report based on cases they observed during clinical rotations.</p>
+
+        <p lang="vi">Theo quy định hành chính của nhà trường, mọi điểm số quá trình (process grades) chỉ được công bố trên hệ thống e-learning vào tuần cuối cùng của học kỳ; sinh viên không nhận được phản hồi chính thức (official feedback) nào về tiến độ trong suốt 14 tuần đầu. Cô Linh chỉ có thể tổ chức các buổi thảo luận tự nguyện ngoài giờ hành chính, nhưng chỉ có một số ít nhóm tham dự đều đặn.</p>
+        <p lang="en">According to the university's administrative rules, all process grades are released on the e-learning system only in the final week of the semester; students do not receive any official feedback on progress during the first 14 weeks. Ms. Linh can only organise voluntary discussion sessions outside official hours, but only a few groups attend regularly.</p>
+
+        <p lang="vi">Vào tuần thứ 10, một nhóm sinh viên đến gặp cô Linh ngay trước giờ giảng. Đại diện nhóm chia sẻ: <em>"Cô ơi, tụi em đã hoàn thành được một nửa bài viết nhưng hiện tại cả nhóm đang bế tắc, không biết phải trình bày phần 'Discussion' như thế nào khi ca lâm sàng của tụi em là một bệnh nhân mắc bệnh hiếm gặp với ba chẩn đoán phân biệt khác nhau. Tụi em có tra cứu các bài báo mẫu trên PubMed nhưng nhận thấy mỗi bài lại có một cách cấu trúc lập luận khác nhau. Cô có thể hướng dẫn cho tụi em một cấu trúc chuẩn cho phần Discussion được không ạ?"</em></p>
+        <p lang="en">In week 10, a group of students comes to see Ms. Linh right before her lecture. The group representative says: <em>"Ma'am, we have completed half of the report, but the whole group is now stuck. We don't know how to present the 'Discussion' section when our clinical case is a patient with a rare disease and three different differential diagnoses. We've looked up sample articles on PubMed, but every article has a different way of structuring the argument. Could you give us a standard structure for the Discussion section?"</em></p>
+
+        <p lang="vi">Lúc này, chỉ còn 5 tuần nữa là đến hạn nộp bài cuối kỳ. Cô Linh chỉ có khoảng 10 phút trước khi bắt đầu buổi giảng tiếp theo, và ngay cuối tuần này cô phải di chuyển để tham dự một hội thảo chuyên môn liên tục trong 4 ngày.</p>
+        <p lang="en">At this point, only 5 weeks remain until the final submission deadline. Ms. Linh has only about 10 minutes before the next lecture starts, and at the end of this week she must travel to attend a 4-day professional conference.</p>
       </div>
 
-      <h3>Nếu ở vị trí của cô Linh lúc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <h3 lang="vi">Nếu ở vị trí của cô Linh lúc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <h3 lang="en">If you were in Ms. Linh's position now, which option below would you prioritise?</h3>
+
       <div class="option-group">
         <label class="option">
           <input type="radio" name="C3_choice" value="A">
-          <span class="option-label"><strong>Phương án A:</strong> Cung cấp ngay cho nhóm sinh viên một biểu mẫu cấu trúc chuẩn ("Discussion structure template") do bản thân biên soạn sẵn (gồm các phần: Background – Comparison with literature – Clinical implications – Limitations). Yêu cầu các em áp dụng và triển khai nội dung theo bộ khung cố định này để đảm bảo tính an toàn về mặt cấu trúc và giúp các em có định hướng rõ ràng trong thời gian giảng viên đi vắng.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án A:</strong> Cung cấp ngay cho nhóm sinh viên một biểu mẫu cấu trúc chuẩn ("Discussion structure template") do bản thân biên soạn sẵn (gồm các phần: Background – Comparison with literature – Clinical implications – Limitations). Yêu cầu các em áp dụng và triển khai nội dung theo bộ khung cố định này để đảm bảo tính an toàn về mặt cấu trúc và giúp các em có định hướng rõ ràng trong thời gian giảng viên đi vắng.</span>
+            <span lang="en"><strong>Option A:</strong> Immediately provide the student group with a standard structure form ("Discussion structure template") you have pre-drafted (including: Background — Comparison with literature — Clinical implications — Limitations). Ask them to apply this fixed framework and develop their content within it to ensure structural safety and give them a clear direction during the lecturer's absence.</span>
+          </span>
         </label>
         <label class="option">
           <input type="radio" name="C3_choice" value="B">
-          <span class="option-label"><strong>Phương án B:</strong> Hẹn nhóm sinh viên ở lại khoảng 15 phút sau giờ giảng để thực hiện một buổi hướng dẫn nhanh bằng hệ thống câu hỏi gợi mở (ví dụ: chỉ ra điểm khác biệt giữa các chẩn đoán, tìm minh chứng hỗ trợ mạnh nhất từ ca lâm sàng, v.v.). Quyết định này nhằm giúp sinh viên tự đúc kết và định hình ra cấu trúc Discussion phù hợp riêng cho ca bệnh của mình, đồng thời hẹn sẽ tiếp tục hướng dẫn sâu hơn sau khi cô hoàn thành chuyến hội thảo.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án B:</strong> Hẹn nhóm sinh viên ở lại khoảng 15 phút sau giờ giảng để thực hiện một buổi hướng dẫn nhanh bằng hệ thống câu hỏi gợi mở (ví dụ: chỉ ra điểm khác biệt giữa các chẩn đoán, tìm minh chứng hỗ trợ mạnh nhất từ ca lâm sàng, v.v.). Quyết định này nhằm giúp sinh viên tự đúc kết và định hình ra cấu trúc Discussion phù hợp riêng cho ca bệnh của mình, đồng thời hẹn sẽ tiếp tục hướng dẫn sâu hơn sau khi cô hoàn thành chuyến hội thảo.</span>
+            <span lang="en"><strong>Option B:</strong> Ask the student group to stay about 15 minutes after the lecture for a quick guidance session built around open-ended questions (e.g., identify the differences between the diagnoses, find the strongest supporting evidence from the clinical case, etc.). This decision aims to help students arrive at and shape the Discussion structure that fits their own case, while promising deeper follow-up guidance after the conference trip.</span>
+          </span>
         </label>
         <label class="option">
           <input type="radio" name="C3_choice" value="C">
-          <span class="option-label"><strong>Phương án C:</strong> Định hướng nhóm sinh viên quay trở lại công cụ PubMed để chủ động phân tích sâu hơn các bài báo có bối cảnh tương tự. Giải thích rõ với các em về giới hạn thời gian hiện tại của giảng viên và nhấn mạnh rằng, với tư cách là sinh viên năm thứ 4, các em cần rèn luyện năng lực tự học, tự đối chiếu và tổng hợp tài liệu học thuật để tự đưa ra quyết định cấu trúc phù hợp nhất cho bài viết của nhóm.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án C:</strong> Định hướng nhóm sinh viên quay trở lại công cụ PubMed để chủ động phân tích sâu hơn các bài báo có bối cảnh tương tự. Giải thích rõ với các em về giới hạn thời gian hiện tại của giảng viên và nhấn mạnh rằng, với tư cách là sinh viên năm thứ 4, các em cần rèn luyện năng lực tự học, tự đối chiếu và tổng hợp tài liệu học thuật để tự đưa ra quyết định cấu trúc phù hợp nhất cho bài viết của nhóm.</span>
+            <span lang="en"><strong>Option C:</strong> Direct the student group back to PubMed to independently analyse articles with similar contexts more deeply. Clearly explain your current time constraint and emphasise that, as fourth-year students, they need to train their capacity for self-study, comparison, and synthesis of academic literature to decide on the most appropriate structure for their own group's report.</span>
+          </span>
         </label>
       </div>
 
       <div class="form-group" style="margin-top:1.8rem;">
-        <label class="form-label" for="C3_justification">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</label>
-        <textarea id="C3_justification" name="C3_justification" data-required="true"></textarea>
+        <label class="form-label" for="C3_justification">
+          <span lang="vi">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</span>
+          <span lang="en">Please briefly share the pedagogical reasoning behind your choice above:</span>
+        </label>
+        <textarea id="C3_justification" name="C3_justification" data-required="true"
+          data-placeholder-vi="Lý do sư phạm của Thầy/Cô..."
+          data-placeholder-en="Your pedagogical reasoning..."
+          placeholder="Lý do sư phạm của Thầy/Cô..."></textarea>
       </div>
 
-      <div class="error-msg" id="scenario3Error">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</div>
+      <div class="error-msg" id="scenario3Error">
+        <span lang="vi">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</span>
+        <span lang="en">Please select an option and provide a reason before continuing.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnScenario3Next">Tiếp theo: Kịch bản 4 →</button>
+        <button class="btn" id="btnScenario3Next">
+          <span lang="vi">Tiếp theo: Kịch bản 4 →</span>
+          <span lang="en">Next: Scenario 4 →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 7: SCENARIO 4
-         ============================================================ -->
+    <!-- VIEW 7: SCENARIO 4 -->
     <section class="view" id="view-scenario4" data-section="scenario4">
-      <p class="section-label">Kịch bản 4 / 4</p>
-      <h2>Tiết Speaking Part 3 tại lớp Tiếng Anh bậc THPT</h2>
+      <p class="section-label">
+        <span lang="vi">Kịch bản 4 / 4</span>
+        <span lang="en">Scenario 4 / 4</span>
+      </p>
+      <h2 lang="vi">Tiết Speaking Part 3 tại lớp Tiếng Anh bậc THPT</h2>
+      <h2 lang="en">A Speaking Part 3 lesson in an upper-secondary English class</h2>
 
       <div class="scenario-card">
-        <p>Thầy Bình đảm nhận lớp Tiếng Anh tăng cường khối 11 tại một trường THPT công lập. Tiết học kỹ năng Nói (Speaking) hôm nay yêu cầu học sinh thảo luận một đề bài mô phỏng theo cấu trúc IELTS Speaking Part 3, chủ đề "Education and Career": <em>"Do you think university degrees are still important for getting a good job nowadays?"</em></p>
-        <p>Học sinh Ngọc Linh (16 tuổi) có tính cách nhút nhát và nền tảng Tiếng Anh ở mức trung bình. Trước đó vài phút, em vừa gặp lỗi vấp ngữ pháp khi trình bày phần Part 2 và tỏ ra khá ngượng ngùng với các bạn xung quanh. Đến lượt Ngọc Linh trả lời câu hỏi Part 3, em giữ im lặng và tỏ ra vô cùng lúng túng khi cả lớp 32 học sinh đều đang tập trung chú ý vào mình. Sau 8 giây im lặng, Ngọc Linh khẽ nói: <em>"Em nghĩ là... ờ... em không biết..."</em></p>
-        <p>Thầy Bình nhận thấy rõ Ngọc Linh đang gặp <strong>trở ngại tâm lý do áp lực sợ nói sai trước tập thể</strong>, kết hợp với việc <strong>hạn chế về vốn từ vựng tại chỗ</strong> để diễn đạt ý tưởng. Trong khi lớp học đang chờ đợi, hai học sinh ngồi gần đã giơ tay xin trả lời thay cho Ngọc Linh.</p>
+        <p lang="vi">Thầy Bình đảm nhận lớp Tiếng Anh tăng cường khối 11 tại một trường THPT công lập. Tiết học kỹ năng Nói (Speaking) hôm nay yêu cầu học sinh thảo luận một đề bài mô phỏng theo cấu trúc IELTS Speaking Part 3, chủ đề "Education and Career": <em>"Do you think university degrees are still important for getting a good job nowadays?"</em></p>
+        <p lang="en">Mr. Bình teaches an advanced Grade-11 English class at a public upper-secondary school. Today's Speaking lesson asks students to discuss a prompt modelled on IELTS Speaking Part 3, topic "Education and Career": <em>"Do you think university degrees are still important for getting a good job nowadays?"</em></p>
+
+        <p lang="vi">Học sinh Ngọc Linh (16 tuổi) có tính cách nhút nhát và nền tảng Tiếng Anh ở mức trung bình. Trước đó vài phút, em vừa gặp lỗi vấp ngữ pháp khi trình bày phần Part 2 và tỏ ra khá ngượng ngùng với các bạn xung quanh. Đến lượt Ngọc Linh trả lời câu hỏi Part 3, em giữ im lặng và tỏ ra vô cùng lúng túng khi cả lớp 32 học sinh đều đang tập trung chú ý vào mình. Sau 8 giây im lặng, Ngọc Linh khẽ nói: <em>"Em nghĩ là... ờ... em không biết..."</em></p>
+        <p lang="en">The student Ngọc Linh (16 years old) is shy and has an intermediate English foundation. A few minutes earlier, she stumbled on a grammar error during her Part 2 turn and appeared visibly embarrassed in front of her classmates. When her turn comes for the Part 3 question, she stays silent and appears extremely uncertain while the whole class of 32 students is focused on her. After 8 seconds of silence, Ngọc Linh quietly says: <em>"I think… er… I don't know…"</em></p>
+
+        <p lang="vi">Thầy Bình nhận thấy rõ Ngọc Linh đang gặp <strong>trở ngại tâm lý do áp lực sợ nói sai trước tập thể</strong>, kết hợp với việc <strong>hạn chế về vốn từ vựng tại chỗ</strong> để diễn đạt ý tưởng. Trong khi lớp học đang chờ đợi, hai học sinh ngồi gần đã giơ tay xin trả lời thay cho Ngọc Linh.</p>
+        <p lang="en">Mr. Bình clearly perceives that Ngọc Linh is facing a <strong>psychological barrier driven by fear of speaking incorrectly in front of the group</strong>, combined with a <strong>limited on-the-spot vocabulary</strong> for expressing her ideas. While the class waits, two students sitting nearby raise their hands to answer in her place.</p>
       </div>
 
-      <h3>Nếu ở vị trí của thầy Bình trong khoảnh khắc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <h3 lang="vi">Nếu ở vị trí của thầy Bình trong khoảnh khắc này, Quý Thầy/Cô sẽ ưu tiên lựa chọn phương án nào dưới đây?</h3>
+      <h3 lang="en">If you were in Mr. Bình's position at this moment, which option below would you prioritise?</h3>
+
       <div class="option-group">
         <label class="option">
           <input type="radio" name="C4_choice" value="A">
-          <span class="option-label"><strong>Phương án A:</strong> Mỉm cười khuyến khích và hướng dẫn riêng với Ngọc Linh: <em>"Em có thể thử diễn đạt ý kiến của mình bằng tiếng Việt trước xem sao, sau đó thầy và các bạn sẽ cùng hỗ trợ em chuyển dịch sang tiếng Anh nhé."</em> Giải pháp này nhằm giải tỏa ngay áp lực phải nói hoàn chỉnh bằng ngoại ngữ, chấp nhận việc chuyển đổi ngôn ngữ (code-switching) như một bước đệm tư duy ban đầu cho học sinh.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án A:</strong> Mỉm cười khuyến khích và hướng dẫn riêng với Ngọc Linh: <em>"Em có thể thử diễn đạt ý kiến của mình bằng tiếng Việt trước xem sao, sau đó thầy và các bạn sẽ cùng hỗ trợ em chuyển dịch sang tiếng Anh nhé."</em> Giải pháp này nhằm giải tỏa ngay áp lực phải nói hoàn chỉnh bằng ngoại ngữ, chấp nhận việc chuyển đổi ngôn ngữ (code-switching) như một bước đệm tư duy ban đầu cho học sinh.</span>
+            <span lang="en"><strong>Option A:</strong> Smile encouragingly and guide Ngọc Linh personally: <em>"Why not try expressing your view in Vietnamese first, and then the class and I will help you translate it into English."</em> This option aims to immediately release the pressure of having to speak fluently in the L2, accepting code-switching as an initial thinking bridge for the student.</span>
+          </span>
         </label>
         <label class="option">
           <input type="radio" name="C4_choice" value="B">
-          <span class="option-label"><strong>Phương án B:</strong> Cung cấp ngay cho Ngọc Linh một cấu trúc câu mồi cố định: <em>"Em có thể bắt đầu bằng cụm 'I think university degrees are important because...' rồi tiếp tục triển khai ý của mình nhé."</em> Nếu học sinh vẫn bế tắc, giáo viên sẽ tiếp tục gợi ý các từ khóa cốt lõi (ví dụ: higher salary, career opportunities) để học sinh có chất liệu hoàn thành câu trả lời của mình trước lớp.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án B:</strong> Cung cấp ngay cho Ngọc Linh một cấu trúc câu mồi cố định: <em>"Em có thể bắt đầu bằng cụm 'I think university degrees are important because...' rồi tiếp tục triển khai ý của mình nhé."</em> Nếu học sinh vẫn bế tắc, giáo viên sẽ tiếp tục gợi ý các từ khóa cốt lõi (ví dụ: higher salary, career opportunities) để học sinh có chất liệu hoàn thành câu trả lời của mình trước lớp.</span>
+            <span lang="en"><strong>Option B:</strong> Immediately provide Ngọc Linh with a fixed sentence frame: <em>"You can start with 'I think university degrees are important because…' and then continue developing your idea."</em> If the student is still stuck, the teacher continues to prompt with core keywords (e.g., higher salary, career opportunities) so she has the material to complete her answer in front of the class.</span>
+          </span>
         </label>
         <label class="option">
           <input type="radio" name="C4_choice" value="C">
-          <span class="option-label"><strong>Phương án C:</strong> Để đảm bảo tiến độ chung của tiết học và giảm bớt áp lực tâm lý cho Ngọc Linh, giáo viên chuyển lượt trả lời sang cho một trong hai học sinh đang giơ tay, đồng thời nhắn với Ngọc Linh: <em>"Em cứ suy nghĩ thêm nhé, lát nữa thầy sẽ quay lại sau."</em> Biện pháp này giúp giữ nhịp độ lớp học và cho Ngọc Linh có thời gian chuẩn bị tâm lý tốt hơn.</span>
+          <span class="option-label">
+            <span lang="vi"><strong>Phương án C:</strong> Để đảm bảo tiến độ chung của tiết học và giảm bớt áp lực tâm lý cho Ngọc Linh, giáo viên chuyển lượt trả lời sang cho một trong hai học sinh đang giơ tay, đồng thời nhắn với Ngọc Linh: <em>"Em cứ suy nghĩ thêm nhé, lát nữa thầy sẽ quay lại sau."</em> Biện pháp này giúp giữ nhịp độ lớp học và cho Ngọc Linh có thời gian chuẩn bị tâm lý tốt hơn.</span>
+            <span lang="en"><strong>Option C:</strong> To preserve the overall pace of the lesson and reduce the psychological pressure on Ngọc Linh, the teacher transfers the turn to one of the two students raising their hands, while saying to Ngọc Linh: <em>"Take more time to think — I'll come back to you in a bit."</em> This move maintains class momentum and gives Ngọc Linh time to better prepare psychologically.</span>
+          </span>
         </label>
       </div>
 
       <div class="form-group" style="margin-top:1.8rem;">
-        <label class="form-label" for="C4_justification">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</label>
-        <textarea id="C4_justification" name="C4_justification" data-required="true"></textarea>
+        <label class="form-label" for="C4_justification">
+          <span lang="vi">Quý Thầy/Cô vui lòng chia sẻ ngắn gọn về lý do sư phạm đằng sau quyết định lựa chọn trên của mình:</span>
+          <span lang="en">Please briefly share the pedagogical reasoning behind your choice above:</span>
+        </label>
+        <textarea id="C4_justification" name="C4_justification" data-required="true"
+          data-placeholder-vi="Lý do sư phạm của Thầy/Cô..."
+          data-placeholder-en="Your pedagogical reasoning..."
+          placeholder="Lý do sư phạm của Thầy/Cô..."></textarea>
       </div>
 
-      <div class="error-msg" id="scenario4Error">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</div>
+      <div class="error-msg" id="scenario4Error">
+        <span lang="vi">Vui lòng chọn phương án và viết lý do trước khi tiếp tục.</span>
+        <span lang="en">Please select an option and provide a reason before continuing.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnScenario4Next">Tiếp theo: Phần 3 →</button>
+        <button class="btn" id="btnScenario4Next">
+          <span lang="vi">Tiếp theo: Phần 3 →</span>
+          <span lang="en">Next: Part 3 →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 8: PHẦN 3 INTRO
-         ============================================================ -->
+    <!-- VIEW 8: PART 3 INTRO -->
     <section class="view" id="view-partB-intro" data-section="partB-intro">
-      <p class="section-label">PHẦN 3 / 4</p>
-      <h1>Khảo sát mức độ ưu tiên trong hoạt động hỗ trợ người học</h1>
-      <p class="form-hint">Thời gian dự kiến: 10 phút</p>
-      <p class="lead"><strong>Hướng dẫn:</strong> Dưới đây là các phát biểu mô tả về các đặc tính của hoạt động giàn giáo (scaffolding) trong giảng dạy ngoại ngữ. Quý Thầy/Cô vui lòng đọc kỹ từng nhận định và đánh giá mức độ quan trọng của đặc tính đó đối với một tiến trình giàn giáo hiệu quả theo quan điểm sư phạm của bản thân.</p>
+      <p class="section-label">
+        <span lang="vi">PHẦN 3 / 4</span>
+        <span lang="en">PART 3 / 4</span>
+      </p>
+      <h1 lang="vi">Khảo sát mức độ ưu tiên trong hoạt động hỗ trợ người học</h1>
+      <h1 lang="en">Rating priorities in learner-support practices</h1>
+      <p class="form-hint">
+        <span lang="vi">Thời gian dự kiến: 10 phút</span>
+        <span lang="en">Estimated time: 10 minutes</span>
+      </p>
+      <p class="lead" lang="vi"><strong>Hướng dẫn:</strong> Dưới đây là các phát biểu mô tả về các đặc tính của hoạt động giàn giáo (scaffolding) trong giảng dạy ngoại ngữ. Quý Thầy/Cô vui lòng đọc kỹ từng nhận định và đánh giá mức độ quan trọng của đặc tính đó đối với một tiến trình giàn giáo hiệu quả theo quan điểm sư phạm của bản thân.</p>
+      <p class="lead" lang="en"><strong>Instructions:</strong> Below are statements describing characteristics of scaffolding (giàn giáo) in foreign-language teaching. Please read each statement carefully and rate how important that characteristic is to an effective scaffolding process from your own pedagogical standpoint.</p>
+
       <div class="card card-accent">
-        <h3 class="card-title">Thang đánh giá 5 mức độ:</h3>
-        <ul style="margin-top:0.6rem;">
+        <h3 class="card-title">
+          <span lang="vi">Thang đánh giá 5 mức độ:</span>
+          <span lang="en">Five-point rating scale:</span>
+        </h3>
+        <ul style="margin-top:0.6rem;" lang="vi">
           <li><strong>1</strong> = Hoàn toàn không quan trọng (đặc tính không cần thiết cho tiến trình)</li>
           <li><strong>2</strong> = Ít quan trọng (đặc tính mang tính phụ trợ không đáng kể)</li>
           <li><strong>3</strong> = Quan trọng trung bình (đặc tính hữu ích nhưng không cốt lõi)</li>
           <li><strong>4</strong> = Khá quan trọng (đặc tính cần thiết để đảm bảo hiệu quả)</li>
           <li><strong>5</strong> = Cực kỳ quan trọng (đặc tính cốt lõi, không thể thiếu)</li>
         </ul>
+        <ul style="margin-top:0.6rem;" lang="en">
+          <li><strong>1</strong> = Not at all important (the characteristic is unnecessary for the process)</li>
+          <li><strong>2</strong> = Slightly important (the characteristic is an insignificant auxiliary)</li>
+          <li><strong>3</strong> = Moderately important (the characteristic is useful but not core)</li>
+          <li><strong>4</strong> = Quite important (the characteristic is necessary to ensure effectiveness)</li>
+          <li><strong>5</strong> = Extremely important (the characteristic is core and indispensable)</li>
+        </ul>
       </div>
-      <div class="notice"><strong>📌 Lưu ý về tính khách quan:</strong> Nghiên cứu tuyệt đối không có câu trả lời "đúng" hay "sai". Quý Thầy/Cô vui lòng đánh giá dựa trên góc nhìn thực tế của bản thân, không cần e ngại nếu quan điểm cá nhân có sự khác biệt với các khung lý thuyết chính thống trong sách giáo trình.</div>
+
+      <div class="notice">
+        <div lang="vi"><strong>📌 Lưu ý về tính khách quan:</strong> Nghiên cứu tuyệt đối không có câu trả lời "đúng" hay "sai". Quý Thầy/Cô vui lòng đánh giá dựa trên góc nhìn thực tế của bản thân, không cần e ngại nếu quan điểm cá nhân có sự khác biệt với các khung lý thuyết chính thống trong sách giáo trình.</div>
+        <div lang="en"><strong>📌 Note on objectivity:</strong> There are absolutely no "right" or "wrong" answers. Please rate based on your own real-world standpoint, without hesitation if your personal view differs from the mainstream theoretical frameworks in textbooks.</div>
+      </div>
+
       <div class="btn-row">
-        <button class="btn" id="btnPartBIntroNext">Bắt đầu đánh giá →</button>
+        <button class="btn" id="btnPartBIntroNext">
+          <span lang="vi">Bắt đầu đánh giá →</span>
+          <span lang="en">Begin rating →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 9: PART B — LIKERT (19 items)
-         ============================================================ -->
+    <!-- VIEW 9: PART B — LIKERT (19 items, rendered by JS) -->
     <section class="view" id="view-partB" data-section="partB">
-      <p class="section-label">PHẦN 3 — 19 phát biểu</p>
-      <h2>Đánh giá mức độ quan trọng</h2>
-      <p>Với mỗi phát biểu, vui lòng chọn mức từ 1 (Hoàn toàn không quan trọng) đến 5 (Cực kỳ quan trọng).</p>
+      <p class="section-label">
+        <span lang="vi">PHẦN 3 — 19 phát biểu</span>
+        <span lang="en">PART 3 — 19 statements</span>
+      </p>
+      <h2 lang="vi">Đánh giá mức độ quan trọng</h2>
+      <h2 lang="en">Rate the level of importance</h2>
+      <p lang="vi">Với mỗi phát biểu, vui lòng chọn mức từ 1 (Hoàn toàn không quan trọng) đến 5 (Cực kỳ quan trọng).</p>
+      <p lang="en">For each statement, please select a level from 1 (Not at all important) to 5 (Extremely important).</p>
 
       <div id="likertContainer"></div>
 
-      <div class="error-msg" id="partBError">Vui lòng đánh giá tất cả 19 phát biểu trước khi tiếp tục.</div>
+      <div class="error-msg" id="partBError">
+        <span lang="vi">Vui lòng đánh giá tất cả 19 phát biểu trước khi tiếp tục.</span>
+        <span lang="en">Please rate all 19 statements before continuing.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnPartBNext">Tiếp theo: Phần 4 →</button>
+        <button class="btn" id="btnPartBNext">
+          <span lang="vi">Tiếp theo: Phần 4 →</span>
+          <span lang="en">Next: Part 4 →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 10: PHẦN 4 — DEMOGRAPHICS + TRANSMISSION + OPT-IN
-         ============================================================ -->
+    <!-- VIEW 10: PART 4 DEMOGRAPHICS -->
     <section class="view" id="view-demographics" data-section="demographics">
-      <p class="section-label">PHẦN 4 / 4</p>
-      <h1>Kênh tiếp nhận khái niệm và Thông tin nhân khẩu học</h1>
-      <p class="form-hint">Thời gian dự kiến: 5 phút</p>
-      <p class="lead"><strong>Hướng dẫn:</strong> Phần cuối cùng này hướng đến việc tìm hiểu ngữ cảnh tiếp cận khái niệm giàn giáo cũng như một số đặc điểm nền tảng của Quý Thầy/Cô tham gia khảo sát. Người nghiên cứu xin cam kết một lần nữa: toàn bộ thông tin đều được mã hóa ẩn danh hoàn toàn.</p>
+      <p class="section-label">
+        <span lang="vi">PHẦN 4 / 4</span>
+        <span lang="en">PART 4 / 4</span>
+      </p>
+      <h1 lang="vi">Kênh tiếp nhận khái niệm và Thông tin nhân khẩu học</h1>
+      <h1 lang="en">Transmission channels and demographic information</h1>
+      <p class="form-hint">
+        <span lang="vi">Thời gian dự kiến: 5 phút</span>
+        <span lang="en">Estimated time: 5 minutes</span>
+      </p>
+      <p class="lead" lang="vi"><strong>Hướng dẫn:</strong> Phần cuối cùng này hướng đến việc tìm hiểu ngữ cảnh tiếp cận khái niệm giàn giáo cũng như một số đặc điểm nền tảng của Quý Thầy/Cô tham gia khảo sát. Người nghiên cứu xin cam kết một lần nữa: toàn bộ thông tin đều được mã hóa ẩn danh hoàn toàn.</p>
+      <p class="lead" lang="en"><strong>Instructions:</strong> This final part explores the context through which you encountered the scaffolding concept, as well as your basic background. I commit once again: all information is fully encoded and anonymised.</p>
 
       <div class="form-group">
-        <label class="form-label">Câu 4.1 — Kênh tiếp cận khái niệm "Giàn giáo" (Scaffolding)</label>
-        <p>Trong số các nguồn dưới đây, đâu là <strong>3 nguồn chính</strong> (vui lòng xếp hạng theo thứ tự ưu tiên từ 1 đến 3, với 1 là nguồn quan trọng nhất) giúp Quý Thầy/Cô tiếp cận và tìm hiểu về khái niệm giàn giáo (scaffolding)?</p>
+        <label class="form-label">
+          <span lang="vi">Câu 4.1 — Kênh tiếp cận khái niệm "Giàn giáo" (Scaffolding)</span>
+          <span lang="en">Question 4.1 — Transmission channels for the scaffolding concept</span>
+        </label>
+        <p lang="vi">Trong số các nguồn dưới đây, đâu là <strong>3 nguồn chính</strong> (vui lòng xếp hạng theo thứ tự ưu tiên từ 1 đến 3, với 1 là nguồn quan trọng nhất) giúp Quý Thầy/Cô tiếp cận và tìm hiểu về khái niệm giàn giáo (scaffolding)?</p>
+        <p lang="en">From the sources below, what are the <strong>three main channels</strong> through which you encountered and learned about scaffolding (please rank by priority from 1 to 3, with 1 being most important)?</p>
         <div class="rank-row">
-          <label for="rank1">Hạng 1:</label>
-          <select id="rank1" name="rank1">
-            <option value="">— Chọn nguồn quan trọng nhất —</option>
-            <option value="dh_supham">Giáo trình hoặc môn học chính khóa tại bậc đại học/cao đẳng sư phạm</option>
-            <option value="bo_giaoduc">Tài liệu bồi dưỡng giáo viên chính thức từ Bộ/Sở Giáo dục và Đào tạo</option>
-            <option value="hoithao_taphuan">Các chương trình tập huấn, hội thảo chuyên môn nội bộ hoặc mở rộng</option>
-            <option value="ielts_thitruong">Sách hướng dẫn phương pháp / cẩm nang luyện thi quốc tế (IELTS, TOEFL, Cambridge...)</option>
-            <option value="dongnghiep">Chia sẻ, trao đổi kinh nghiệm trực tiếp từ đồng nghiệp tại nơi công tác</option>
-            <option value="mxh_giaovien">Các diễn đàn nghề nghiệp và cộng đồng giáo viên trên các nền tảng mạng xã hội</option>
-            <option value="khoa_online">Khóa học trực tuyến mở (MOOCs) trên các nền tảng quốc tế (Coursera, edX, FutureLearn...)</option>
-            <option value="tu_tracuu">Tự tra cứu, nghiên cứu sách báo và tài liệu học thuật trên Internet</option>
-            <option value="chuyengia_qte">Trao đổi trực tiếp với chuyên gia hoặc cố vấn giáo dục quốc tế</option>
-          </select>
+          <label for="rank1">
+            <span lang="vi">Hạng 1:</span>
+            <span lang="en">Rank 1:</span>
+          </label>
+          <select id="rank1" name="rank1" data-rank="1"></select>
         </div>
         <div class="rank-row">
-          <label for="rank2">Hạng 2:</label>
-          <select id="rank2" name="rank2">
-            <option value="">— Chọn nguồn quan trọng thứ hai —</option>
-            <option value="dh_supham">Giáo trình hoặc môn học chính khóa tại bậc đại học/cao đẳng sư phạm</option>
-            <option value="bo_giaoduc">Tài liệu bồi dưỡng giáo viên chính thức từ Bộ/Sở Giáo dục và Đào tạo</option>
-            <option value="hoithao_taphuan">Các chương trình tập huấn, hội thảo chuyên môn nội bộ hoặc mở rộng</option>
-            <option value="ielts_thitruong">Sách hướng dẫn phương pháp / cẩm nang luyện thi quốc tế (IELTS, TOEFL, Cambridge...)</option>
-            <option value="dongnghiep">Chia sẻ, trao đổi kinh nghiệm trực tiếp từ đồng nghiệp tại nơi công tác</option>
-            <option value="mxh_giaovien">Các diễn đàn nghề nghiệp và cộng đồng giáo viên trên các nền tảng mạng xã hội</option>
-            <option value="khoa_online">Khóa học trực tuyến mở (MOOCs) trên các nền tảng quốc tế (Coursera, edX, FutureLearn...)</option>
-            <option value="tu_tracuu">Tự tra cứu, nghiên cứu sách báo và tài liệu học thuật trên Internet</option>
-            <option value="chuyengia_qte">Trao đổi trực tiếp với chuyên gia hoặc cố vấn giáo dục quốc tế</option>
-          </select>
+          <label for="rank2">
+            <span lang="vi">Hạng 2:</span>
+            <span lang="en">Rank 2:</span>
+          </label>
+          <select id="rank2" name="rank2" data-rank="2"></select>
         </div>
         <div class="rank-row">
-          <label for="rank3">Hạng 3:</label>
-          <select id="rank3" name="rank3">
-            <option value="">— Chọn nguồn quan trọng thứ ba —</option>
-            <option value="dh_supham">Giáo trình hoặc môn học chính khóa tại bậc đại học/cao đẳng sư phạm</option>
-            <option value="bo_giaoduc">Tài liệu bồi dưỡng giáo viên chính thức từ Bộ/Sở Giáo dục và Đào tạo</option>
-            <option value="hoithao_taphuan">Các chương trình tập huấn, hội thảo chuyên môn nội bộ hoặc mở rộng</option>
-            <option value="ielts_thitruong">Sách hướng dẫn phương pháp / cẩm nang luyện thi quốc tế (IELTS, TOEFL, Cambridge...)</option>
-            <option value="dongnghiep">Chia sẻ, trao đổi kinh nghiệm trực tiếp từ đồng nghiệp tại nơi công tác</option>
-            <option value="mxh_giaovien">Các diễn đàn nghề nghiệp và cộng đồng giáo viên trên các nền tảng mạng xã hội</option>
-            <option value="khoa_online">Khóa học trực tuyến mở (MOOCs) trên các nền tảng quốc tế (Coursera, edX, FutureLearn...)</option>
-            <option value="tu_tracuu">Tự tra cứu, nghiên cứu sách báo và tài liệu học thuật trên Internet</option>
-            <option value="chuyengia_qte">Trao đổi trực tiếp với chuyên gia hoặc cố vấn giáo dục quốc tế</option>
-          </select>
+          <label for="rank3">
+            <span lang="vi">Hạng 3:</span>
+            <span lang="en">Rank 3:</span>
+          </label>
+          <select id="rank3" name="rank3" data-rank="3"></select>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="form-label">Câu 4.2 — Số năm kinh nghiệm giảng dạy Tiếng Anh</label>
+        <label class="form-label">
+          <span lang="vi">Câu 4.2 — Số năm kinh nghiệm giảng dạy Tiếng Anh</span>
+          <span lang="en">Question 4.2 — Years of English-teaching experience</span>
+        </label>
         <div class="option-group">
-          <label class="option"><input type="radio" name="experience" value="<3"><span>Dưới 3 năm</span></label>
-          <label class="option"><input type="radio" name="experience" value="3-5"><span>Từ 3 đến 5 năm</span></label>
-          <label class="option"><input type="radio" name="experience" value="6-10"><span>Từ 6 đến 10 năm</span></label>
-          <label class="option"><input type="radio" name="experience" value="11-15"><span>Từ 11 đến 15 năm</span></label>
-          <label class="option"><input type="radio" name="experience" value=">15"><span>Trên 15 năm</span></label>
+          <label class="option"><input type="radio" name="experience" value="<3"><span>
+            <span lang="vi">Dưới 3 năm</span><span lang="en">Less than 3 years</span>
+          </span></label>
+          <label class="option"><input type="radio" name="experience" value="3-5"><span>
+            <span lang="vi">Từ 3 đến 5 năm</span><span lang="en">3 to 5 years</span>
+          </span></label>
+          <label class="option"><input type="radio" name="experience" value="6-10"><span>
+            <span lang="vi">Từ 6 đến 10 năm</span><span lang="en">6 to 10 years</span>
+          </span></label>
+          <label class="option"><input type="radio" name="experience" value="11-15"><span>
+            <span lang="vi">Từ 11 đến 15 năm</span><span lang="en">11 to 15 years</span>
+          </span></label>
+          <label class="option"><input type="radio" name="experience" value=">15"><span>
+            <span lang="vi">Trên 15 năm</span><span lang="en">More than 15 years</span>
+          </span></label>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="form-label">Câu 4.3 — Bối cảnh giảng dạy hiện tại</label>
-        <p class="form-hint">Quý Thầy/Cô có thể lựa chọn nhiều phương án nếu phù hợp.</p>
+        <label class="form-label">
+          <span lang="vi">Câu 4.3 — Bối cảnh giảng dạy hiện tại</span>
+          <span lang="en">Question 4.3 — Current teaching context</span>
+        </label>
+        <p class="form-hint">
+          <span lang="vi">Quý Thầy/Cô có thể lựa chọn nhiều phương án nếu phù hợp.</span>
+          <span lang="en">You may select multiple options if applicable.</span>
+        </p>
         <div class="option-group">
-          <label class="option"><input type="checkbox" name="context" value="tieuhoc_conglap"><span>Trường Tiểu học công lập</span></label>
-          <label class="option"><input type="checkbox" name="context" value="thcs_conglap"><span>Trường THCS công lập</span></label>
-          <label class="option"><input type="checkbox" name="context" value="thpt_conglap"><span>Trường THPT công lập</span></label>
-          <label class="option"><input type="checkbox" name="context" value="tuthuc_quocte"><span>Trường tư thục hoặc trường quốc tế (mọi cấp học)</span></label>
-          <label class="option"><input type="checkbox" name="context" value="trungtam_luyenthi"><span>Trung tâm Anh ngữ đào tạo chứng chỉ quốc tế (IELTS, TOEFL, TOEIC, VSTEP...)</span></label>
-          <label class="option"><input type="checkbox" name="context" value="trungtam_treem"><span>Trung tâm Anh ngữ đào tạo tiếng Anh trẻ em hoặc tiếng Anh giao tiếp</span></label>
-          <label class="option"><input type="checkbox" name="context" value="trungtam_nguoilon"><span>Trung tâm Anh ngữ đào tạo tiếng Anh thương mại hoặc người lớn đi làm</span></label>
-          <label class="option"><input type="checkbox" name="context" value="daihoc_chuyennngu"><span>Cơ sở giáo dục đại học/cao đẳng (khối chuyên ngữ)</span></label>
-          <label class="option"><input type="checkbox" name="context" value="daihoc_khongchuyen"><span>Cơ sở giáo dục đại học/cao đẳng (khối không chuyên hoặc tiếng Anh chuyên ngành)</span></label>
-          <label class="option"><input type="checkbox" name="context" value="giasu"><span>Giảng dạy gia sư hoặc tự do</span></label>
+          <label class="option"><input type="checkbox" name="context" value="tieuhoc_conglap"><span>
+            <span lang="vi">Trường Tiểu học công lập</span><span lang="en">Public primary school</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="thcs_conglap"><span>
+            <span lang="vi">Trường THCS công lập</span><span lang="en">Public lower-secondary school</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="thpt_conglap"><span>
+            <span lang="vi">Trường THPT công lập</span><span lang="en">Public upper-secondary school</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="tuthuc_quocte"><span>
+            <span lang="vi">Trường tư thục hoặc trường quốc tế (mọi cấp học)</span>
+            <span lang="en">Private or international school (any level)</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="trungtam_luyenthi"><span>
+            <span lang="vi">Trung tâm Anh ngữ đào tạo chứng chỉ quốc tế (IELTS, TOEFL, TOEIC, VSTEP...)</span>
+            <span lang="en">English centre offering international certification (IELTS, TOEFL, TOEIC, VSTEP, etc.)</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="trungtam_treem"><span>
+            <span lang="vi">Trung tâm Anh ngữ đào tạo tiếng Anh trẻ em hoặc tiếng Anh giao tiếp</span>
+            <span lang="en">English centre teaching young learners or conversational English</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="trungtam_nguoilon"><span>
+            <span lang="vi">Trung tâm Anh ngữ đào tạo tiếng Anh thương mại hoặc người lớn đi làm</span>
+            <span lang="en">English centre teaching business English or English for working adults</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="daihoc_chuyennngu"><span>
+            <span lang="vi">Cơ sở giáo dục đại học/cao đẳng (khối chuyên ngữ)</span>
+            <span lang="en">Higher-education institution (English-major programme)</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="daihoc_khongchuyen"><span>
+            <span lang="vi">Cơ sở giáo dục đại học/cao đẳng (khối không chuyên hoặc tiếng Anh chuyên ngành)</span>
+            <span lang="en">Higher-education institution (non-major or English for specific purposes)</span>
+          </span></label>
+          <label class="option"><input type="checkbox" name="context" value="giasu"><span>
+            <span lang="vi">Giảng dạy gia sư hoặc tự do</span>
+            <span lang="en">Tutoring or freelance teaching</span>
+          </span></label>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="form-label">Câu 4.4 — Nhóm đối tượng học sinh Quý Thầy/Cô giảng dạy chủ yếu hiện nay</label>
-        <p class="form-hint">Chọn phương án phổ biến nhất.</p>
+        <label class="form-label">
+          <span lang="vi">Câu 4.4 — Nhóm đối tượng học sinh Quý Thầy/Cô giảng dạy chủ yếu hiện nay</span>
+          <span lang="en">Question 4.4 — Your main student group at present</span>
+        </label>
+        <p class="form-hint">
+          <span lang="vi">Chọn phương án phổ biến nhất.</span>
+          <span lang="en">Select the most common option.</span>
+        </p>
         <div class="option-group">
-          <label class="option"><input type="radio" name="studentAge" value="6-11"><span>Học sinh Tiểu học (6 – 11 tuổi)</span></label>
-          <label class="option"><input type="radio" name="studentAge" value="12-15"><span>Học sinh THCS (12 – 15 tuổi)</span></label>
-          <label class="option"><input type="radio" name="studentAge" value="16-18"><span>Học sinh THPT (16 – 18 tuổi)</span></label>
-          <label class="option"><input type="radio" name="studentAge" value="19-23"><span>Sinh viên đại học/cao đẳng (19 – 23 tuổi)</span></label>
-          <label class="option"><input type="radio" name="studentAge" value=">23"><span>Người lớn đi làm (trên 23 tuổi)</span></label>
+          <label class="option"><input type="radio" name="studentAge" value="6-11"><span>
+            <span lang="vi">Học sinh Tiểu học (6 – 11 tuổi)</span><span lang="en">Primary students (6–11 years old)</span>
+          </span></label>
+          <label class="option"><input type="radio" name="studentAge" value="12-15"><span>
+            <span lang="vi">Học sinh THCS (12 – 15 tuổi)</span><span lang="en">Lower-secondary students (12–15 years old)</span>
+          </span></label>
+          <label class="option"><input type="radio" name="studentAge" value="16-18"><span>
+            <span lang="vi">Học sinh THPT (16 – 18 tuổi)</span><span lang="en">Upper-secondary students (16–18 years old)</span>
+          </span></label>
+          <label class="option"><input type="radio" name="studentAge" value="19-23"><span>
+            <span lang="vi">Sinh viên đại học/cao đẳng (19 – 23 tuổi)</span><span lang="en">University/college students (19–23 years old)</span>
+          </span></label>
+          <label class="option"><input type="radio" name="studentAge" value=">23"><span>
+            <span lang="vi">Người lớn đi làm (trên 23 tuổi)</span><span lang="en">Working adults (over 23 years old)</span>
+          </span></label>
         </div>
       </div>
 
       <div class="form-group" style="margin-top:2rem;">
-        <label class="form-label">Câu 4.5 — Đăng ký nhận báo cáo tóm tắt kết quả nghiên cứu (Tùy chọn)</label>
-        <p>Quý Thầy/Cô có nguyện vọng nhận bản tóm tắt kết quả phân tích sau khi dự án nghiên cứu này hoàn thành không?</p>
+        <label class="form-label">
+          <span lang="vi">Câu 4.5 — Đăng ký nhận báo cáo tóm tắt kết quả nghiên cứu (Tùy chọn)</span>
+          <span lang="en">Question 4.5 — Subscribe to receive the research-summary report (Optional)</span>
+        </label>
+        <p lang="vi">Quý Thầy/Cô có nguyện vọng nhận bản tóm tắt kết quả phân tích sau khi dự án nghiên cứu này hoàn thành không?</p>
+        <p lang="en">Would you like to receive a summary of the research findings once this project is complete?</p>
         <div class="option-group">
           <label class="option">
             <input type="radio" name="wantsResults" value="yes">
-            <span class="option-label">Có, tôi muốn nhận kết quả.</span>
+            <span class="option-label">
+              <span lang="vi">Có, tôi muốn nhận kết quả.</span>
+              <span lang="en">Yes, I would like to receive the results.</span>
+            </span>
           </label>
           <label class="option">
             <input type="radio" name="wantsResults" value="no">
-            <span class="option-label">Không, tôi không có nhu cầu nhận bản tóm tắt.</span>
+            <span class="option-label">
+              <span lang="vi">Không, tôi không có nhu cầu nhận bản tóm tắt.</span>
+              <span lang="en">No, I do not wish to receive the summary.</span>
+            </span>
           </label>
         </div>
         <div id="resultsEmailBlock" class="conditional-block">
-          <p style="margin-bottom:0.8rem;"><strong>Vui lòng cung cấp địa chỉ email:</strong></p>
-          <p class="form-hint" style="margin-bottom:0.7rem;">Thông tin này mang tính chất hoàn toàn tự nguyện và người nghiên cứu sẽ tách biệt hoàn toàn email khỏi bộ dữ liệu phản hồi để đảm bảo nguyên tắc bảo mật thông tin tuyệt đối.</p>
+          <p style="margin-bottom:0.8rem;" lang="vi"><strong>Vui lòng cung cấp địa chỉ email:</strong></p>
+          <p style="margin-bottom:0.8rem;" lang="en"><strong>Please provide your email address:</strong></p>
+          <p class="form-hint" style="margin-bottom:0.7rem;" lang="vi">Thông tin này mang tính chất hoàn toàn tự nguyện và người nghiên cứu sẽ tách biệt hoàn toàn email khỏi bộ dữ liệu phản hồi để đảm bảo nguyên tắc bảo mật thông tin tuyệt đối.</p>
+          <p class="form-hint" style="margin-bottom:0.7rem;" lang="en">This is entirely voluntary; the researcher will fully separate your email from the response dataset to ensure absolute confidentiality.</p>
           <input type="email" id="resultsEmail" placeholder="email@example.com" autocomplete="off">
         </div>
       </div>
 
-      <div class="error-msg" id="demographicsError">Vui lòng trả lời đầy đủ các câu hỏi 4.1 – 4.5. Lưu ý: 3 nguồn ở Câu 4.1 phải khác nhau.</div>
+      <div class="error-msg" id="demographicsError">
+        <span lang="vi">Vui lòng trả lời đầy đủ các câu hỏi 4.1 – 4.5. Lưu ý: 3 nguồn ở Câu 4.1 phải khác nhau.</span>
+        <span lang="en">Please answer Questions 4.1–4.5 in full. Note: the three sources in Question 4.1 must all be different.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnDemographicsNext">Hoàn tất khảo sát →</button>
+        <button class="btn" id="btnDemographicsNext">
+          <span lang="vi">Hoàn tất khảo sát →</span>
+          <span lang="en">Complete the survey →</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 11: SUBMIT / FINAL CONFIRMATION
-         ============================================================ -->
+    <!-- VIEW 11: SUBMIT -->
     <section class="view" id="view-closing" data-section="closing">
-      <p class="section-label">Bước cuối cùng</p>
-      <h1>Xác nhận gửi câu trả lời</h1>
-      <p class="lead">Quý Thầy/Cô đã hoàn thành toàn bộ nội dung khảo sát. Khi bấm "Gửi câu trả lời" dưới đây, toàn bộ phản hồi sẽ được mã hóa, ẩn danh hóa và lưu trữ an toàn trên hệ thống nghiên cứu của tôi.</p>
+      <p class="section-label">
+        <span lang="vi">Bước cuối cùng</span>
+        <span lang="en">Final step</span>
+      </p>
+      <h1 lang="vi">Xác nhận gửi câu trả lời</h1>
+      <h1 lang="en">Confirm submission</h1>
+      <p class="lead" lang="vi">Quý Thầy/Cô đã hoàn thành toàn bộ nội dung khảo sát. Khi bấm "Gửi câu trả lời" dưới đây, toàn bộ phản hồi sẽ được mã hóa, ẩn danh hóa và lưu trữ an toàn trên hệ thống nghiên cứu của tôi.</p>
+      <p class="lead" lang="en">You have completed the entire survey. When you click "Submit responses" below, all responses will be encoded, anonymised, and securely stored in my research system.</p>
 
-      <div class="notice"><strong>Lưu ý:</strong> Sau khi gửi thành công, các câu trả lời không thể được chỉnh sửa thêm. Hệ thống sẽ tự động xóa bộ nhớ tạm trên trình duyệt của Quý Thầy/Cô để bảo đảm tính riêng tư.</div>
+      <div class="notice">
+        <div lang="vi"><strong>Lưu ý:</strong> Sau khi gửi thành công, các câu trả lời không thể được chỉnh sửa thêm. Hệ thống sẽ tự động xóa bộ nhớ tạm trên trình duyệt của Quý Thầy/Cô để bảo đảm tính riêng tư.</div>
+        <div lang="en"><strong>Note:</strong> After successful submission, responses cannot be edited further. The system will automatically clear the temporary memory in your browser to safeguard your privacy.</div>
+      </div>
 
       <div class="notice" id="submitNotice" style="display:none; background:#E8F0E6; border-left-color:var(--success); color:var(--success);">
-        <span class="spinner"></span>Đang gửi câu trả lời về hệ thống. Xin Thầy/Cô vui lòng không tắt tab hoặc tải lại trang...
+        <span class="spinner"></span>
+        <span lang="vi">Đang gửi câu trả lời về hệ thống. Xin Thầy/Cô vui lòng không tắt tab hoặc tải lại trang...</span>
+        <span lang="en">Submitting your responses to the system. Please do not close the tab or reload the page…</span>
       </div>
 
-      <div class="error-msg" id="submitError">Có lỗi xảy ra khi gửi dữ liệu. Vui lòng kiểm tra kết nối mạng và thử lại.</div>
+      <div class="error-msg" id="submitError">
+        <span lang="vi">Có lỗi xảy ra khi gửi dữ liệu. Vui lòng kiểm tra kết nối mạng và thử lại.</span>
+        <span lang="en">An error occurred while submitting data. Please check your network connection and try again.</span>
+      </div>
 
       <div class="btn-row">
-        <button class="btn" id="btnSubmit">Gửi câu trả lời &amp; kết thúc khảo sát</button>
+        <button class="btn" id="btnSubmit">
+          <span lang="vi">Gửi câu trả lời &amp; kết thúc khảo sát</span>
+          <span lang="en">Submit responses &amp; finish survey</span>
+        </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         VIEW 12: THANK YOU
-         ============================================================ -->
+    <!-- VIEW 12: THANK YOU -->
     <section class="view" id="view-thankyou" data-section="thankyou">
-      <p class="section-label">Hoàn tất</p>
-      <h1>Cảm ơn Quý Thầy/Cô! ✓</h1>
-      <p class="lead">Câu trả lời của Quý Thầy/Cô đã được gửi thành công và lưu trữ ẩn danh trong hệ thống nghiên cứu.</p>
+      <p class="section-label">
+        <span lang="vi">Hoàn tất</span>
+        <span lang="en">Complete</span>
+      </p>
+      <h1 lang="vi">Cảm ơn Quý Thầy/Cô! ✓</h1>
+      <h1 lang="en">Thank you! ✓</h1>
+      <p class="lead" lang="vi">Câu trả lời của Quý Thầy/Cô đã được gửi thành công và lưu trữ ẩn danh trong hệ thống nghiên cứu.</p>
+      <p class="lead" lang="en">Your responses have been successfully submitted and stored anonymously in the research system.</p>
 
       <div class="card card-accent">
-        <p style="margin-bottom:1rem;">Tôi xin chân thành cảm ơn Quý Thầy/Cô đã dành thời gian quý báu để hoàn thành bảng khảo sát này. Mỗi phản hồi và chia sẻ thực tế của Quý Thầy/Cô là <strong>một đóng góp vô giá</strong>, giúp ban nghiên cứu hiểu sâu hơn về thực tiễn giảng dạy Tiếng Anh tại Việt Nam, từ đó góp phần xây dựng các khung phân tích phản ánh sinh động đặc thù của bối cảnh bản địa.</p>
-        <p style="margin-bottom:0;">Sự khác biệt, nếu có, giữa thực tế dạy học sinh động hằng ngày và các quy chuẩn lý thuyết thuần túy chính là <strong>giá trị cốt lõi</strong> mà nghiên cứu này mong muốn ghi nhận một cách trung thực và tôn trọng nhất.</p>
+        <p style="margin-bottom:1rem;" lang="vi">Tôi xin chân thành cảm ơn Quý Thầy/Cô đã dành thời gian quý báu để hoàn thành bảng khảo sát này. Mỗi phản hồi và chia sẻ thực tế của Quý Thầy/Cô là <strong>một đóng góp vô giá</strong>, giúp ban nghiên cứu hiểu sâu hơn về thực tiễn giảng dạy Tiếng Anh tại Việt Nam, từ đó góp phần xây dựng các khung phân tích phản ánh sinh động đặc thù của bối cảnh bản địa.</p>
+        <p style="margin-bottom:1rem;" lang="en">I sincerely thank you for taking the time to complete this survey. Each of your responses and real-world reflections is <strong>an invaluable contribution</strong>, helping the research team understand the practice of English Language teaching in Vietnam more deeply, and thereby contributing to the construction of analytical frameworks that authentically reflect the local context.</p>
+
+        <p style="margin-bottom:0;" lang="vi">Sự khác biệt, nếu có, giữa thực tế dạy học sinh động hằng ngày và các quy chuẩn lý thuyết thuần túy chính là <strong>giá trị cốt lõi</strong> mà nghiên cứu này mong muốn ghi nhận một cách trung thực và tôn trọng nhất.</p>
+        <p style="margin-bottom:0;" lang="en">The gap, if any, between the dynamic reality of daily teaching and pure theoretical norms is precisely the <strong>core value</strong> this research seeks to record faithfully and respectfully.</p>
       </div>
 
-      <p>Nếu Quý Thầy/Cô có bất kỳ câu hỏi, đóng góp ý kiến hoặc quan tâm sâu hơn đến tiến trình của dự án, xin vui lòng liên hệ trực tiếp qua các kênh thông tin sau:</p>
+      <p lang="vi">Nếu Quý Thầy/Cô có bất kỳ câu hỏi, đóng góp ý kiến hoặc quan tâm sâu hơn đến tiến trình của dự án, xin vui lòng liên hệ trực tiếp qua các kênh thông tin sau:</p>
+      <p lang="en">If you have any questions, suggestions, or deeper interest in the project's progress, please contact me directly through:</p>
+
       <ul>
-        <li><strong>Nghiên cứu viên:</strong> Phan Lê Ngọc Vy</li>
-        <li><strong>Email:</strong> <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a></li>
-        <li><strong>ORCID:</strong> <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener">0009-0007-8750-4074</a></li>
+        <li>
+          <strong><span lang="vi">Nghiên cứu viên:</span><span lang="en">Researcher:</span></strong>
+          Phan Lê Ngọc Vy
+        </li>
+        <li>
+          <strong>Email:</strong>
+          <a href="mailto:vy.phan@vneddata.org">vy.phan@vneddata.org</a>
+        </li>
+        <li>
+          <strong>ORCID:</strong>
+          <a href="https://orcid.org/0009-0007-8750-4074" target="_blank" rel="noopener">0009-0007-8750-4074</a>
+        </li>
       </ul>
-      <p>Một lần nữa, tôi xin trân trọng cảm ơn Quý Thầy/Cô.</p>
+
+      <p lang="vi">Một lần nữa, tôi xin trân trọng cảm ơn Quý Thầy/Cô.</p>
+      <p lang="en">Once again, my warmest thanks.</p>
+
       <p style="margin-top:1.5rem; text-align:right; font-style:italic;"><strong>Phan Lê Ngọc Vy</strong></p>
 
       <div class="btn-row">
-        <a href="https://vneddata.org" class="btn" style="text-decoration:none; display:inline-block; text-align:center;">Quay lại trang chủ vneddata.org</a>
+        <a href="https://vneddata.org" class="btn" style="text-decoration:none; display:inline-block; text-align:center;">
+          <span lang="vi">Quay lại trang chủ vneddata.org</span>
+          <span lang="en">Return to vneddata.org homepage</span>
+        </a>
       </div>
     </section>
 
@@ -793,21 +1212,19 @@
 
 <footer>
   <div class="container">
-    VNEDDATA.ORG · Bảo mật ẩn danh hoàn toàn · Nghiên cứu độc lập tuân thủ tiêu chuẩn đạo đức học thuật quốc tế
+    <span lang="vi">VNEDDATA.ORG · Bảo mật ẩn danh hoàn toàn · Nghiên cứu độc lập tuân thủ tiêu chuẩn đạo đức học thuật quốc tế</span>
+    <span lang="en">VNEDDATA.ORG · Fully anonymised · Independent research conforming to international academic-ethics standards</span>
   </div>
 </footer>
 
 <script>
 /* ============================================================
-   SCAFFOLDING SURVEY — STATE MACHINE + DATA COLLECTION
+   SCAFFOLDING SURVEY — BILINGUAL SPA + STATE MACHINE
    Author: Phan Lê Ngọc Vy
    ============================================================ */
 (function() {
   'use strict';
 
-  // ============================================================
-  // CONFIG — PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
-  // ============================================================
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwCrn_T7tOaB8q2FhqCqeB8tP5JCLbNWMgWpadtd61g60qbLfbxF0GWPfDJ21ruEZEK8g/exec';
 
   const VIEW_SEQUENCE = [
@@ -818,6 +1235,8 @@
   ];
 
   const STORAGE_KEY = 'scaffolding_survey_state_v2';
+  const LANG_STORAGE_KEY = 'vneddata_lang';
+  const DEFAULT_LANG = 'vi';
 
   const state = {
     submissionId: generateUUID(),
@@ -839,30 +1258,134 @@
   function $$(sel) { return document.querySelectorAll(sel); }
 
   // ============================================================
-  // LIKERT ITEMS (19 items, exact wording from Vy's revised docx)
+  // BILINGUAL — RANK SELECT OPTIONS (Q4.1)
+  // ============================================================
+  const RANK_OPTIONS = [
+    { value: 'dh_supham',
+      vi: 'Giáo trình hoặc môn học chính khóa tại bậc đại học/cao đẳng sư phạm',
+      en: 'Textbook or formal course at a teacher-education university/college' },
+    { value: 'bo_giaoduc',
+      vi: 'Tài liệu bồi dưỡng giáo viên chính thức từ Bộ/Sở Giáo dục và Đào tạo',
+      en: 'Official teacher-training materials from the Ministry/Department of Education and Training' },
+    { value: 'hoithao_taphuan',
+      vi: 'Các chương trình tập huấn, hội thảo chuyên môn nội bộ hoặc mở rộng',
+      en: 'Internal or external professional training programmes and workshops' },
+    { value: 'ielts_thitruong',
+      vi: 'Sách hướng dẫn phương pháp / cẩm nang luyện thi quốc tế (IELTS, TOEFL, Cambridge...)',
+      en: 'Methodology handbooks or international test-preparation books (IELTS, TOEFL, Cambridge, etc.)' },
+    { value: 'dongnghiep',
+      vi: 'Chia sẻ, trao đổi kinh nghiệm trực tiếp từ đồng nghiệp tại nơi công tác',
+      en: 'Direct experience-sharing from colleagues at your workplace' },
+    { value: 'mxh_giaovien',
+      vi: 'Các diễn đàn nghề nghiệp và cộng đồng giáo viên trên các nền tảng mạng xã hội',
+      en: 'Professional forums and teacher communities on social-media platforms' },
+    { value: 'khoa_online',
+      vi: 'Khóa học trực tuyến mở (MOOCs) trên các nền tảng quốc tế (Coursera, edX, FutureLearn...)',
+      en: 'Massive Open Online Courses (MOOCs) on international platforms (Coursera, edX, FutureLearn, etc.)' },
+    { value: 'tu_tracuu',
+      vi: 'Tự tra cứu, nghiên cứu sách báo và tài liệu học thuật trên Internet',
+      en: 'Independent reading and research of academic books, articles, and materials on the Internet' },
+    { value: 'chuyengia_qte',
+      vi: 'Trao đổi trực tiếp với chuyên gia hoặc cố vấn giáo dục quốc tế',
+      en: 'Direct exchanges with international education experts or consultants' }
+  ];
+
+  const RANK_PLACEHOLDER = {
+    1: { vi: '— Chọn nguồn quan trọng nhất —', en: '— Choose the most important source —' },
+    2: { vi: '— Chọn nguồn quan trọng thứ hai —', en: '— Choose the second most important source —' },
+    3: { vi: '— Chọn nguồn quan trọng thứ ba —', en: '— Choose the third most important source —' }
+  };
+
+  function buildRankSelects() {
+    ['rank1', 'rank2', 'rank3'].forEach(id => {
+      const sel = $(id); if (!sel) return;
+      const rank = parseInt(sel.dataset.rank, 10);
+      sel.innerHTML = '';
+      const ph = document.createElement('option');
+      ph.value = '';
+      ph.dataset.vi = RANK_PLACEHOLDER[rank].vi;
+      ph.dataset.en = RANK_PLACEHOLDER[rank].en;
+      sel.appendChild(ph);
+      RANK_OPTIONS.forEach(opt => {
+        const o = document.createElement('option');
+        o.value = opt.value;
+        o.dataset.vi = opt.vi;
+        o.dataset.en = opt.en;
+        sel.appendChild(o);
+      });
+    });
+  }
+
+  // ============================================================
+  // BILINGUAL — LIKERT ITEMS (19 items, EN+VI)
   // 14 features + 4 inverted (positions 3,7,12,17) + 1 attention check (position 10)
   // ============================================================
   const LIKERT_ITEMS = [
-    { id: 'B1',  code: 'F4',   text: 'Tiến trình giàn giáo cần được thiết kế có chủ đích và có kế hoạch trước, thay vì những can thiệp mang tính tự phát hoặc bị động khi có tình huống phát sinh.' },
-    { id: 'B2',  code: 'F5',   text: 'Giàn giáo hiệu quả đòi hỏi giáo viên phải linh hoạt điều chỉnh mức độ hỗ trợ dựa trên cả trạng thái nhận thức lẫn trạng thái cảm xúc của người học (lo âu, sợ sai, áp lực tâm lý trước tập thể).' },
-    { id: 'B3',  code: 'INV1', text: 'Một tiến trình giàn giáo đạt hiệu quả cần duy trì các hệ thống câu mẫu (templates) đồng bộ và cố định xuyên suốt khóa học nhằm đảm bảo người học không gặp phải lỗi sai về mặt ngôn ngữ.' },
-    { id: 'B4',  code: 'F2',   text: 'Hoạt động giàn giáo cần định hướng người học thực hiện các thử thách vượt trên năng lực độc lập hiện tại của các em, thay vì đơn giản hóa nhiệm vụ học tập xuống mức các em đã thành thục.' },
-    { id: 'B5',  code: 'F6',   text: 'Tiến trình giàn giáo cần bao gồm việc giảm dần và loại bỏ sự hỗ trợ một cách thích hợp khi người học đã hình thành đủ năng lực tự chủ.' },
-    { id: 'B6',  code: 'F8',   text: 'Hoạt động giàn giáo cần phân định rõ giữa việc định hướng tiến trình tư duy và việc cung cấp sẵn kết quả hay câu trả lời hoàn chỉnh cho người học.' },
-    { id: 'B7',  code: 'INV3', text: 'Một tiến trình giàn giáo đạt hiệu quả tối ưu khi duy trì một mức độ hỗ trợ cố định từ thời điểm bắt đầu cho đến khi kết thúc khóa học.' },
-    { id: 'B8',  code: 'F7',   text: 'Trong quá trình tương tác, giáo viên cần linh hoạt điều chỉnh mức độ thử thách hoặc hình thức gợi ý qua từng lượt lời để tương thích với phản hồi của học sinh.' },
-    { id: 'B9',  code: 'F9',   text: 'Mục tiêu cốt lõi của giàn giáo là giúp người học tự tái cấu trúc quy trình tư duy của bản thân, thay vì chỉ lặp lại các cấu trúc ngôn ngữ mẫu một cách bị động.' },
-    { id: 'B10', code: 'ATTN', text: 'Để giúp nghiên cứu kiểm tra chất lượng dữ liệu, xin Thầy/Cô vui lòng tích chọn mức số 3 cho câu này.' },
-    { id: 'B11', code: 'F1',   text: 'Bản chất của hoạt động giàn giáo là sự hỗ trợ mang tính chất tạm thời, được định hình ngay từ đầu với định hướng sẽ rút dần khi năng lực của người học tiến bộ.' },
-    { id: 'B12', code: 'INV2', text: 'Sự thành công của tiến trình giàn giáo có thể được đo lường hoàn toàn bằng điểm số định kỳ hoặc điểm số trong các kỳ thi cuối khóa của người học.' },
-    { id: 'B13', code: 'F14',  text: 'Hoạt động giàn giáo cần hướng đến các năng lực đang hình thành của người học (những nhiệm vụ chưa thể tự lực thực hiện nhưng có thể hoàn thành dưới sự hướng dẫn), thay vì chỉ củng cố lại các kỹ năng các em đã thành thục.' },
-    { id: 'B14', code: 'F11',  text: 'Giàn giáo không phải là một kỹ thuật trung tính; hiệu quả của nó chịu tác động sâu sắc bởi bối cảnh văn hóa - xã hội (áp lực khoa cử, kỳ vọng từ gia đình, văn hóa giữ thể diện và các quy định thiết chế giáo dục).' },
-    { id: 'B15', code: 'F13',  text: 'Trong giảng dạy ngoại ngữ, ngôn ngữ vừa là mục tiêu học tập, vừa là công cụ để thực hiện giàn giáo; do đó, rào cản về năng lực ngôn ngữ thứ hai (L2) của người học có thể hạn chế tiến trình phát triển tư duy của các em.' },
-    { id: 'B16', code: 'F3',   text: 'Tiến trình giàn giáo bắt buộc phải có sự tham gia của một nguồn dẫn dắt từ bên ngoài (giáo viên, bạn học có năng lực cao hơn hoặc các công cụ hỗ trợ được thiết kế sẵn), thay vì chỉ dựa vào sự tự khám phá của người học.' },
-    { id: 'B17', code: 'INV4', text: 'Giáo viên có thể triển khai hoạt động giàn giáo ngay lập tức dựa trên các bài mẫu sẵn có mà không cần thực hiện bước đánh giá chẩn đoán năng lực thực tế hiện tại của từng người học.' },
-    { id: 'B18', code: 'F10',  text: 'Các công cụ hỗ trợ ngôn ngữ (câu mẫu, cấu trúc văn bản, từ vựng) đều mang tính định hình văn hóa của ngữ cảnh sản sinh ra chúng; giáo viên cần nhận thức được điều này khi áp dụng trong bối cảnh học sinh Việt Nam.' },
-    { id: 'B19', code: 'F12',  text: 'Giáo viên cần chú trọng việc theo dõi tiến trình người học phản hồi trước các mức độ gợi ý khác nhau để đánh giá chính xác năng lực thực tế của các em.' }
+    { id: 'B1',  code: 'F4',
+      vi: 'Tiến trình giàn giáo cần được thiết kế có chủ đích và có kế hoạch trước, thay vì những can thiệp mang tính tự phát hoặc bị động khi có tình huống phát sinh.',
+      en: 'The scaffolding process must be intentionally designed and planned in advance, rather than improvised or reactive interventions when situations arise.' },
+    { id: 'B2',  code: 'F5',
+      vi: 'Giàn giáo hiệu quả đòi hỏi giáo viên phải linh hoạt điều chỉnh mức độ hỗ trợ dựa trên cả trạng thái nhận thức lẫn trạng thái cảm xúc của người học (lo âu, sợ sai, áp lực tâm lý trước tập thể).',
+      en: 'Effective scaffolding requires the teacher to flexibly adjust the level of support based on both the cognitive and the affective state of the learner (anxiety, fear of error, group-pressure stress).' },
+    { id: 'B3',  code: 'INV1',
+      vi: 'Một tiến trình giàn giáo đạt hiệu quả cần duy trì các hệ thống câu mẫu (templates) đồng bộ và cố định xuyên suốt khóa học nhằm đảm bảo người học không gặp phải lỗi sai về mặt ngôn ngữ.',
+      en: 'An effective scaffolding process should maintain uniform, fixed sentence-frame templates throughout the course to ensure that learners do not produce language errors.' },
+    { id: 'B4',  code: 'F2',
+      vi: 'Hoạt động giàn giáo cần định hướng người học thực hiện các thử thách vượt trên năng lực độc lập hiện tại của các em, thay vì đơn giản hóa nhiệm vụ học tập xuống mức các em đã thành thục.',
+      en: 'Scaffolding should direct learners toward challenges beyond their current independent capacity, rather than simplifying the learning task down to a level they have already mastered.' },
+    { id: 'B5',  code: 'F6',
+      vi: 'Tiến trình giàn giáo cần bao gồm việc giảm dần và loại bỏ sự hỗ trợ một cách thích hợp khi người học đã hình thành đủ năng lực tự chủ.',
+      en: 'The scaffolding process must include the timely gradual reduction and removal of support once the learner has developed sufficient autonomy.' },
+    { id: 'B6',  code: 'F8',
+      vi: 'Hoạt động giàn giáo cần phân định rõ giữa việc định hướng tiến trình tư duy và việc cung cấp sẵn kết quả hay câu trả lời hoàn chỉnh cho người học.',
+      en: 'Scaffolding must clearly distinguish between directing the learner\'s thinking process and providing the learner with ready-made results or complete answers.' },
+    { id: 'B7',  code: 'INV3',
+      vi: 'Một tiến trình giàn giáo đạt hiệu quả tối ưu khi duy trì một mức độ hỗ trợ cố định từ thời điểm bắt đầu cho đến khi kết thúc khóa học.',
+      en: 'A scaffolding process achieves optimum effectiveness when a fixed level of support is maintained from the start to the end of the course.' },
+    { id: 'B8',  code: 'F7',
+      vi: 'Trong quá trình tương tác, giáo viên cần linh hoạt điều chỉnh mức độ thử thách hoặc hình thức gợi ý qua từng lượt lời để tương thích với phản hồi của học sinh.',
+      en: 'Within the interaction, the teacher should flexibly adjust the level of challenge or the form of prompting turn by turn to match the student\'s responses.' },
+    { id: 'B9',  code: 'F9',
+      vi: 'Mục tiêu cốt lõi của giàn giáo là giúp người học tự tái cấu trúc quy trình tư duy của bản thân, thay vì chỉ lặp lại các cấu trúc ngôn ngữ mẫu một cách bị động.',
+      en: 'The core goal of scaffolding is to help the learner restructure their own thinking process, rather than passively reproduce model language structures.' },
+    { id: 'B10', code: 'ATTN',
+      vi: 'Để giúp nghiên cứu kiểm tra chất lượng dữ liệu, xin Thầy/Cô vui lòng tích chọn mức số 3 cho câu này.',
+      en: 'To help the study verify data quality, please select level 3 for this statement.' },
+    { id: 'B11', code: 'F1',
+      vi: 'Bản chất của hoạt động giàn giáo là sự hỗ trợ mang tính chất tạm thời, được định hình ngay từ đầu với định hướng sẽ rút dần khi năng lực của người học tiến bộ.',
+      en: 'By nature, scaffolding is temporary support, shaped from the outset with the intent to be gradually withdrawn as the learner\'s capacity advances.' },
+    { id: 'B12', code: 'INV2',
+      vi: 'Sự thành công của tiến trình giàn giáo có thể được đo lường hoàn toàn bằng điểm số định kỳ hoặc điểm số trong các kỳ thi cuối khóa của người học.',
+      en: 'The success of the scaffolding process can be fully measured by the learner\'s periodic scores or end-of-course examination results.' },
+    { id: 'B13', code: 'F14',
+      vi: 'Hoạt động giàn giáo cần hướng đến các năng lực đang hình thành của người học (những nhiệm vụ chưa thể tự lực thực hiện nhưng có thể hoàn thành dưới sự hướng dẫn), thay vì chỉ củng cố lại các kỹ năng các em đã thành thục.',
+      en: 'Scaffolding should target the learner\'s emerging capacities (tasks they cannot yet perform independently but can complete under guidance), rather than only consolidate the skills they have already mastered.' },
+    { id: 'B14', code: 'F11',
+      vi: 'Giàn giáo không phải là một kỹ thuật trung tính; hiệu quả của nó chịu tác động sâu sắc bởi bối cảnh văn hóa - xã hội (áp lực khoa cử, kỳ vọng từ gia đình, văn hóa giữ thể diện và các quy định thiết chế giáo dục).',
+      en: 'Scaffolding is not a neutral technique; its effectiveness is deeply shaped by socio-cultural context (examination pressure, family expectation, face-saving culture, and institutional educational rules).' },
+    { id: 'B15', code: 'F13',
+      vi: 'Trong giảng dạy ngoại ngữ, ngôn ngữ vừa là mục tiêu học tập, vừa là công cụ để thực hiện giàn giáo; do đó, rào cản về năng lực ngôn ngữ thứ hai (L2) của người học có thể hạn chế tiến trình phát triển tư duy của các em.',
+      en: 'In foreign-language teaching, language is simultaneously the learning target and the tool for scaffolding; therefore, the learner\'s second-language (L2) proficiency constraints can limit the development of their thinking.' },
+    { id: 'B16', code: 'F3',
+      vi: 'Tiến trình giàn giáo bắt buộc phải có sự tham gia của một nguồn dẫn dắt từ bên ngoài (giáo viên, bạn học có năng lực cao hơn hoặc các công cụ hỗ trợ được thiết kế sẵn), thay vì chỉ dựa vào sự tự khám phá của người học.',
+      en: 'The scaffolding process necessarily requires participation from an external guiding source (the teacher, a more capable peer, or pre-designed support tools), rather than relying on the learner\'s self-discovery alone.' },
+    { id: 'B17', code: 'INV4',
+      vi: 'Giáo viên có thể triển khai hoạt động giàn giáo ngay lập tức dựa trên các bài mẫu sẵn có mà không cần thực hiện bước đánh giá chẩn đoán năng lực thực tế hiện tại của từng người học.',
+      en: 'The teacher can deploy scaffolding immediately using ready-made models without performing diagnostic assessment of each learner\'s actual current capacity.' },
+    { id: 'B18', code: 'F10',
+      vi: 'Các công cụ hỗ trợ ngôn ngữ (câu mẫu, cấu trúc văn bản, từ vựng) đều mang tính định hình văn hóa của ngữ cảnh sản sinh ra chúng; giáo viên cần nhận thức được điều này khi áp dụng trong bối cảnh học sinh Việt Nam.',
+      en: 'Linguistic support tools (sentence frames, text structures, vocabulary) all carry the cultural shaping of the context that produced them; teachers must be aware of this when applying them to Vietnamese learners.' },
+    { id: 'B19', code: 'F12',
+      vi: 'Giáo viên cần chú trọng việc theo dõi tiến trình người học phản hồi trước các mức độ gợi ý khác nhau để đánh giá chính xác năng lực thực tế của các em.',
+      en: 'Teachers must attentively monitor how the learner responds to different levels of prompting in order to accurately assess the learner\'s actual capacity.' }
   ];
+
+  const LIKERT_LABEL_LOW = { vi: 'Không quan trọng', en: 'Not important' };
+  const LIKERT_LABEL_HIGH = { vi: 'Cực kỳ quan trọng', en: 'Extremely important' };
+
+  function escapeHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
 
   function buildLikertItems() {
     const container = $('likertContainer');
@@ -870,16 +1393,55 @@
     LIKERT_ITEMS.forEach((item, idx) => {
       const num = idx + 1;
       html += '<div class="likert-item">';
-      html += '<p class="likert-text"><span class="num">' + num + '.</span>' + item.text + '</p>';
+      html += '<p class="likert-text"><span class="num">' + num + '.</span>';
+      html += '<span lang="vi">' + escapeHtml(item.vi) + '</span>';
+      html += '<span lang="en">' + escapeHtml(item.en) + '</span>';
+      html += '</p>';
       html += '<div class="likert-scale">';
       for (let v = 1; v <= 5; v++) {
         html += '<label><input type="radio" name="' + item.id + '" value="' + v + '"><span class="scale-num">' + v + '</span></label>';
       }
       html += '</div>';
-      html += '<div class="likert-labels"><span>Không quan trọng</span><span>Cực kỳ quan trọng</span></div>';
+      html += '<div class="likert-labels">';
+      html += '<span><span lang="vi">' + LIKERT_LABEL_LOW.vi + '</span><span lang="en">' + LIKERT_LABEL_LOW.en + '</span></span>';
+      html += '<span><span lang="vi">' + LIKERT_LABEL_HIGH.vi + '</span><span lang="en">' + LIKERT_LABEL_HIGH.en + '</span></span>';
+      html += '</div>';
       html += '</div>';
     });
     container.innerHTML = html;
+  }
+
+  // ============================================================
+  // LANGUAGE TOGGLE
+  // ============================================================
+  function applyLanguage(lang) {
+    document.body.classList.remove('lang-vi', 'lang-en');
+    document.body.classList.add('lang-' + lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-placeholder-vi]').forEach(el => {
+      const key = lang === 'en' ? 'placeholderEn' : 'placeholderVi';
+      if (el.dataset[key]) el.placeholder = el.dataset[key];
+    });
+    document.querySelectorAll('select option[data-vi]').forEach(opt => {
+      opt.textContent = lang === 'en' ? opt.dataset.en : opt.dataset.vi;
+    });
+  }
+
+  function getCurrentLang() {
+    return document.body.classList.contains('lang-en') ? 'en' : 'vi';
+  }
+
+  function initLanguage() {
+    const saved = localStorage.getItem(LANG_STORAGE_KEY) || DEFAULT_LANG;
+    applyLanguage(saved);
+    const btn = $('langToggle');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        const next = getCurrentLang() === 'en' ? 'vi' : 'en';
+        applyLanguage(next);
+        localStorage.setItem(LANG_STORAGE_KEY, next);
+      });
+    }
   }
 
   // ============================================================
@@ -932,7 +1494,6 @@
     ['A_Q1', 'A_Q2', 'A_Q3'].forEach(id => {
       const el = $(id); if (el) state.answers[id] = el.value;
     });
-    // Q1.4 branching
     const q4choice = document.querySelector('input[name="A_Q4_choice"]:checked');
     if (q4choice) {
       state.answers.A_Q4_choice = q4choice.value;
@@ -1006,7 +1567,7 @@
   }
 
   // ============================================================
-  // CONDITIONAL BLOCKS (Câu 1.4 branching, Câu 4.5 email)
+  // CONDITIONAL BLOCKS
   // ============================================================
   function toggleQ14Conditional() {
     const choice = document.querySelector('input[name="A_Q4_choice"]:checked');
@@ -1135,6 +1696,8 @@
       wantsResults: a.wantsResults === 'yes' ? 'Yes' : 'No',
       resultsEmail: (a.wantsResults === 'yes' ? (a.resultsEmail || '') : ''),
 
+      uiLanguage: getCurrentLang(),
+
       userAgent: navigator.userAgent,
       screenWidth: window.innerWidth,
       language: navigator.language || 'unknown'
@@ -1175,7 +1738,10 @@
     window.addEventListener('beforeunload', function(e) {
       if (!state.submitted && state.currentView !== 'consent') {
         e.preventDefault();
-        e.returnValue = 'Bạn có chắc muốn rời khỏi khảo sát? Dữ liệu đã trả lời sẽ được lưu tạm để tiếp tục sau.';
+        const msg = getCurrentLang() === 'en'
+          ? 'Are you sure you want to leave the survey? Your responses will be saved temporarily for resuming later.'
+          : 'Bạn có chắc muốn rời khỏi khảo sát? Dữ liệu đã trả lời sẽ được lưu tạm để tiếp tục sau.';
+        e.returnValue = msg;
         return e.returnValue;
       }
     });
@@ -1200,7 +1766,6 @@
     $('btnDemographicsNext').addEventListener('click', function() { if (validateDemographics()) switchView('closing'); });
     $('btnSubmit').addEventListener('click', function() { submitData(); });
 
-    // Conditional logic listeners
     document.addEventListener('change', function(e) {
       if (e.target.name === 'A_Q4_choice') toggleQ14Conditional();
       if (e.target.name === 'wantsResults') toggleResultsEmailConditional();
@@ -1210,7 +1775,9 @@
   }
 
   function init() {
+    buildRankSelects();
     buildLikertItems();
+    initLanguage();
     setupEventHandlers();
     enableAntiCopy();
     enableBackBlock();
